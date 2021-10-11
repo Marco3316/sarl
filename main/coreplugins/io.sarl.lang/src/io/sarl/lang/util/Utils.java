@@ -297,22 +297,24 @@ public final class Utils {
 		// Get the operations that must be implemented
 		if (operationsToImplement != null && extendedInterfaces != null) {
 			for (final JvmTypeReference interfaceReference : extendedInterfaces) {
-				for (final JvmFeature feature : ((JvmGenericType) interfaceReference.getType()).getAllFeatures()) {
-					if (!"java.lang.Object".equals(//$NON-NLS-1$
-							feature.getDeclaringType().getQualifiedName())) {
-						if (feature instanceof JvmOperation) {
-							final JvmOperation operation = (JvmOperation) feature;
-							final ActionParameterTypes sig = sarlSignatureProvider.createParameterTypesFromJvmModel(
-									operation.isVarArgs(), operation.getParameters());
-							final ActionPrototype actionKey = sarlSignatureProvider.createActionPrototype(
-									operation.getSimpleName(), sig);
-							if (operation.isDefault()) {
-								if (overridableOperations != null) {
-									overridableOperations.put(actionKey, operation);
-								}
-							} else {
-								if (operationsToImplement != null) {
-									operationsToImplement.put(actionKey, operation);
+				if (interfaceReference instanceof JvmGenericType) {
+					for (final JvmFeature feature : ((JvmGenericType) interfaceReference.getType()).getAllFeatures()) {
+						if (!"java.lang.Object".equals(//$NON-NLS-1$
+								feature.getDeclaringType().getQualifiedName())) {
+							if (feature instanceof JvmOperation) {
+								final JvmOperation operation = (JvmOperation) feature;
+								final ActionParameterTypes sig = sarlSignatureProvider.createParameterTypesFromJvmModel(
+										operation.isVarArgs(), operation.getParameters());
+								final ActionPrototype actionKey = sarlSignatureProvider.createActionPrototype(
+										operation.getSimpleName(), sig);
+								if (operation.isDefault()) {
+									if (overridableOperations != null) {
+										overridableOperations.put(actionKey, operation);
+									}
+								} else {
+									if (operationsToImplement != null) {
+										operationsToImplement.put(actionKey, operation);
+									}
 								}
 							}
 						}
