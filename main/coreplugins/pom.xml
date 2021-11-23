@@ -28,6 +28,7 @@
 				<module>io.sarl.eclipse</module>
 				<module>io.sarl.m2e</module>
 				<module>io.sarl.eclipse-dsl4sarl</module>
+				<module>io.sarl.lang.web</module>
 			</modules>
 		</profile>
 		<profile>
@@ -76,5 +77,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

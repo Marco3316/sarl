@@ -5,7 +5,7 @@
         <mirror>
             <id>org.arakhne-snapshot.unblocked</id>
             <mirrorOf>org.arakhne-snapshot</mirrorOf>
-            <name></name>
+            <name/>
             <url>http://download.tuxfamily.org/arakhne/maven</url>
             <blocked>false</blocked>
         </mirror>

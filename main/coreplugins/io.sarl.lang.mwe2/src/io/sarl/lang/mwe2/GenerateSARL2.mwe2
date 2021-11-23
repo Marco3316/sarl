@@ -173,6 +173,16 @@ Workflow {
 				}
 				mavenLayout = false
 				createEclipseMetaData = true
+				
+				web = {
+					enabled = true
+//					root = ""
+//					src = ""
+//					srcGen = ""
+//					assets = ""
+				}
+				
+				
 			}
 			// Code configuration
 			code = auto-inject {
@@ -394,6 +404,11 @@ Workflow {
 			fragment = CodeMiningFragment auto-inject {
 				generateStub = true
 			}
+			
+			 webSupport = {
+                framework = "Orion"
+            }
+			
 
 			// ***********************************
 			// Fragments that are specific to SARL
