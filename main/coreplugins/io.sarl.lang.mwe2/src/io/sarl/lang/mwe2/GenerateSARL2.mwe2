@@ -58,6 +58,7 @@ var genericUiProjectPath = "${rootPath}/${genericUiProjectName}"
 var ideProjectName = "${baseName}.ide"
 var ideProjectPath = "${rootPath}/${ideProjectName}"
 
+
 var testProjectName = "io.sarl.tests.api"
 var testProjectPath = "${overallRootPath}/tests/${testProjectName}"
 
@@ -115,6 +116,7 @@ Workflow {
  	component = DirectoryCleaner {
 		directory = "${ideProjectPath}/src-gen"
 	}
+
   	component = DirectoryCleaner {
 		directory = "${testProjectPath}/src/generated/java"
 	}
@@ -176,10 +178,6 @@ Workflow {
 				
 				web = {
 					enabled = true
-//					root = ""
-//					src = ""
-//					srcGen = ""
-//					assets = ""
 				}
 				
 				
@@ -405,9 +403,10 @@ Workflow {
 				generateStub = true
 			}
 			
-			 webSupport = {
-                framework = "Orion"
-            }
+			 fragment = web.WebIntegrationFragment {
+				framework = "Orion"
+				highlightingPath = "xtext/sarl-syntax.js"
+			}
 			
 
 			// ***********************************

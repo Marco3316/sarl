@@ -35,7 +35,7 @@ import org.eclipse.jetty.webapp.WebXmlConfiguration;
 
 /**
  * This program starts an HTTP server for testing the web integration of your DSL.
- * Just execute it and point a web browser to http://localhost:8080/
+ * Just execute it and point a web browser to http://localhost:80802/
  */
 public class ServerLauncher {
 	public static void main(String[] args) {
@@ -43,7 +43,7 @@ public class ServerLauncher {
 		WebAppContext ctx = new WebAppContext();
 		ctx.setResourceBase("WebRoot");
 		ctx.setWelcomeFiles(new String[] {"index.html"});
-		ctx.setContextPath("/");
+		ctx.setContextPath("/compiler");
 		ctx.setConfigurations(new Configuration[] {
 			new AnnotationConfiguration(),
 			new WebXmlConfiguration(),

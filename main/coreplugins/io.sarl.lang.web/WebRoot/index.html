@@ -2,10 +2,13 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="Content-Language" content="en-us">
-	<title>Example Web Editor</title>
+	<title>SARL Web Editor</title>
+	<link rel="icon" href="SARL-logo.png">
 	<link rel="stylesheet" type="text/css" href="orion/code_edit/built-codeEdit.css"/>
 	<link rel="stylesheet" type="text/css" href="xtext/2.25.0/xtext-orion.css"/>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css"/>
+	<script src="https://kit.fontawesome.com/26c712a5af.js" crossorigin="anonymous"></script>
 	<script src="webjars/requirejs/2.3.6/require.min.js"></script>
 	<script type="text/javascript">
 		var baseUrl = window.location.pathname;
@@ -26,21 +29,7 @@
 					baseUrl: baseUrl,
 					syntaxDefinition: "xtext-resources/generated/sarl-syntax"
 				}).done(function(editorViewer) {
-					jQuery('#generate-button').bind("click", function(e){
-				   var resource = editorViewer.xtextServices.options.resourceId;
-					var contentType=editorViewer.xtextServices.contentType;
 					
-					var fullText = editorViewer.xtextServices.editorContext.getText();
-					console.log(fullText);
-					var data = {
-						resource : resource,
-						fullText : fullText,
-						contextType : contentType
-					};	
-					jQuery.post('http://localhost:8082/xtext-service/generate-all', data, function(result){
-						jQuery("#generator-result").text(JSON.stringify(result));
-					}); 
-				});
 				});
 			});
 		});
@@ -48,12 +37,32 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-sm-fluid  ">
 	<div class="header">
-		<h1>Example SARL Web Editor</h1>
+		<nav class="navbar navbar-expand-sm navbar-dark">
+			<a class="navbar-brand" href="#">
+				<img src="SARL-logo.png" alt="Logo" style="width:50px;" class="rounded-pill">
+			  </a>
+			<ul class="navbar-nav">
+			  <li class="nav-item ">
+				<a class="nav-link" href="#">
+					<i class="far fa-play-circle" style="color: coral;"></i> Compile</a>
+			  </li>
+			</ul>
+		  </nav>
 	</div>
-	<div class="content">
-		<div id="xtext-editor" data-editor-xtext-lang="sarl"></div>
+	<div class=" row" style="height: 93%;">
+		<div class="col-sm-6" >
+			<div id="sarlEditor" class="xtext-editor " data-editor-xtext-lang="sarl"  style="height: (50%);"></div>
+		</div>
+		<div class="col-sm-6 bg-light">
+			<div id="result" class="xtext-editor " data-editor-xtext-lang="sarl" style="height: 50%;"></div>
+			<div class='console' >
+				<div class='console-inner'>
+				  <div id="outputs">
+				  </div>
+				  <div class='output-cmd'><textarea autofocus class='console-input'></textarea></div>
+		</div>
 	</div>
 </div>
 

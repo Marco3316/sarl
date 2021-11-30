@@ -1,8 +1,16 @@
+html,
+body {
+  min-height: 100%;
+}
+
 body {
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
 	font: 16px Helvetica,sans-serif;
+	background-color: #ececec;
+	color: #fff;
+	-webkit-font-smoothing: antialiased;
 }
 
 a {
@@ -14,7 +22,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-.container {
+/*.container {
 	display: block;
 	position: absolute;
 	top: 0;
@@ -22,38 +30,153 @@ a:hover {
 	left: 0;
 	right: 0;
 	margin: 20px;
-}
+}*/
 
 .header {
-	display: block;
-	position: absolute;
-	background-color: #e8e8e8;
-	top: 0;
-	left: 0;
-	right: 0;
+	display: flex;
+	
+	background-color: #4e5d6c;
 	height: 60px;
 	padding: 10px;
 }
 
 .content {
-	display: block;
-	position: absolute;
-	top: 90px;
-	bottom: 0;
-	left: 0;
+	display: flex;
 	width: 640px;
 }
 
 #xtext-editor {
 	display: block;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
 	padding: 4px;
-	border: 1px solid #aaa;
+	border: 2px solid rgb(0, 0, 0);
+	width: 100%;
+	height: calc(45% - 3em);
+	overflow-y: scroll; 
+	overflow-x: scroll; 
 }
+
+  .navbar a:hover {
+	background-color: #3c4752;
+  }
+
+
+.console {
+  position: fixed;
+  font-family: monospace,monospace;
+  color: #fff;
+  width: calc(50% - 3em);
+  max-width: 100%;
+  height: calc(50% - 3em);
+  max-height: 50%;
+  overflow-y: auto;
+  margin: 1em 1em;
+  padding-top: 0.5em;
+  padding-bottom: 0.5em;
+  background: #4e5d6c;
+  border-radius: 0.5em;
+  box-shadow: 0 0.75em 3em rgba(50, 50, 50, 0.5);
+  z-index: 100;
+  line-height: 1.5;
+}
+
+.console-input {
+  font-family: monospace,monospace;
+  background-color: transparent;
+  width: calc(50% - 3em);
+  max-width: 100%;
+  height: calc(100% - 3em);
+  max-height: 100%;
+  border: none;
+  outline: none;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  appearance: none;
+  min-width: calc(100% - 2em);
+  resize: none;
+}
+
+.console-input:before {
+  content: '> ';
+  color: #df691a;
+  vertical-align: top;
+}
+
+.output-cmd:before {
+  content: '> ';
+  color: #df691a;
+  vertical-align: top;
+}
+.output-text:before {
+  content: '> ';
+  color: #5F8787;
+  font-weight: 600 !important;
+  vertical-align: top;
+}
+
+.output-text,
+.output-cmd {
+  width: 100%;
+  display: block;
+}
+
+.console-inner {
+  padding: 0.3em 1.1em;
+}
+
+.output-text,
+.output-cmd {
+  display: block;
+  white-space: pre;
+}
+
+#outputs div {
+  opacity: 0.85;
+}
+
+#outputs div div {
+  color: #46f01d;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+#outputs a {
+  color: #46f01d;
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+.console-inner .output-text#ready {
+  color: #3df5b8;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.particles-js-canvas-el {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+  
+::-webkit-scrollbar {
+    width: .45rem;
+	height: .45rem;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #b85818;
+    border-radius: 3px;
+}
+::-webkit-scrollbar-track{
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #df691a; 
+  }
 
 /************* Examples for custom icons *************/
 

@@ -24,8 +24,14 @@
 package io.sarl.lang.web;
 
 import com.google.inject.Injector;
+
+import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.eclipse.xtext.util.DisposableRegistry;
 import org.eclipse.xtext.web.servlet.XtextServlet;
 
@@ -39,10 +45,22 @@ public class SARLServlet extends XtextServlet {
 	
 	DisposableRegistry disposableRegistry;
 	
+	@Override
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		System.out.println("TEST GET !");
+	}
+	
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		System.out.println("TEST POST!");
+	}
+	
 	public void init() throws ServletException {
 		super.init();
-		Injector injector = new SARLWebSetup().createInjectorAndDoEMFRegistration();
-		this.disposableRegistry = injector.getInstance(DisposableRegistry.class);
+		//Injector injector = new SARLWebSetup().createInjectorAndDoEMFRegistration();
+		//this.disposableRegistry = injector.getInstance(DisposableRegistry.class);
 	}
 	
 	public void destroy() {
