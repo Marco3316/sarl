@@ -26,6 +26,7 @@ package io.sarl.lang.web;
 import com.google.inject.Injector;
 
 import java.io.IOException;
+import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -49,12 +50,21 @@ public class SARLServlet extends XtextServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
 		System.out.println("TEST GET !");
+		
+		String requestData = req.getReader().lines().collect(Collectors.joining());
+
+		System.out.println(requestData);
+		
 	}
 	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
-		System.out.println("TEST POST!");
+		System.out.println("TEST POST !");
+		
+		String requestData = req.getReader().lines().collect(Collectors.joining());
+
+		System.out.println(requestData);
 	}
 	
 	public void init() throws ServletException {
