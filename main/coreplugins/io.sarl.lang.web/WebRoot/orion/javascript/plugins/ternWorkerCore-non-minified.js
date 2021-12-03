@@ -10278,7 +10278,7 @@ define('javascript/nls/root/messages',{
 	'js_indent_size' : 'Indention size:',
 	'js_indent_char' : 'Indentation character:',
 	'js_eol' : 'Character(s) to use as line terminators:',
-	'js_end_with_newline' : 'End output with newline:',
+	'js_end_with_newline' : 'End ouput with newline:',
 	'indentation_unix' : 'Unix',
 	'indentation_mac' : 'Mac',
 	'indentation_windows' : 'Windows',
@@ -10493,8 +10493,8 @@ define('javascript/nls/root/messages',{
  * Copyright (c) 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License v1.0
- * (https://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
- * License v1.0 (https://www.eclipse.org/org/documents/edl-v10.html).
+ * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
+ * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html).
  *
  * Contributors:
  *     IBM Corporation - initial API and implementation
@@ -10508,49 +10508,49 @@ define('javascript/plugins/ternMetadata',[
 		definitions: Object.freeze({
 			ecma5: {
 				doc: Messages["ecma5"],
-				url: "https://ternjs.net/doc/manual.html#typedef"
+				url: "http://ternjs.net/doc/manual.html#typedef"
 			},
 			ecma6: {
 				doc: Messages["ecma6"],
-				url: "https://ternjs.net/doc/manual.html#typedef"
+				url: "http://ternjs.net/doc/manual.html#typedef"
 			},
 			ecma7: {
 				doc: Messages["ecma7"],
-				url: "https://ternjs.net/doc/manual.html#typedef"
+				url: "http://ternjs.net/doc/manual.html#typedef"
 			},
 			browser: {
 				doc: Messages["browserDef"],
-				url: "https://ternjs.net/doc/manual.html#typedef"
+				url: "http://ternjs.net/doc/manual.html#typedef"
 			},
 			chai: {
 				doc: Messages["chai"],
-				url: "https://ternjs.net/doc/manual.html#typedef"
+				url: "http://ternjs.net/doc/manual.html#typedef"
 			}
 		}),
 		attributes: Object.freeze({
 			dependencyBudget: {
 				doc: Messages["dependencyBudget"],
-				url: "https://ternjs.net/doc/manual.html#configuration"
+				url: "http://ternjs.net/doc/manual.html#configuration"
 			},
 			dontLoad: {
 				doc: Messages["dontLoad"],
-				url: "https://ternjs.net/doc/manual.html#configuration"
+				url: "http://ternjs.net/doc/manual.html#configuration"
 			},
 			ecmaVersion: {
 				doc: Messages["ecmaVersionDescription"],
-				url: "https://ternjs.net/doc/manual.html#configuration"
+				url: "http://ternjs.net/doc/manual.html#configuration"
 			},
 			libs: {
 				doc: Messages["libs"],
-				url: "https://ternjs.net/doc/manual.html#configuration"
+				url: "http://ternjs.net/doc/manual.html#configuration"
 			},
 			loadEagerly: {
 				doc: Messages["loadEagerly"],
-				url: "https://ternjs.net/doc/manual.html#configuration"
+				url: "http://ternjs.net/doc/manual.html#configuration"
 			},
 			plugins: {
 				doc: Messages["plugins"],
-				url: "https://ternjs.net/doc/manual.html#configuration"
+				url: "http://ternjs.net/doc/manual.html#configuration"
 			}
 		}),
 		plugins: Object.freeze({
@@ -10563,7 +10563,7 @@ define('javascript/plugins/ternMetadata',[
 				doc_comment: {
 					name: Messages["ternDocPluginName"],
 					description: Messages["ternDocPluginDescription"],
-					url: "https://ternjs.net/doc/manual.html#plugin_doc_comment",
+					url: "http://ternjs.net/doc/manual.html#plugin_doc_comment",
 					fullDocs: true,
 					version: "0.18.0"
 				},
@@ -10643,19 +10643,19 @@ define('javascript/plugins/ternMetadata',[
 				angular: {
 					name: Messages["orionAngularPluginName"],
 					description: Messages["orionAngularPluginDescription"],
-					url: "https://ternjs.net/doc/manual.html#plugin_angular",
+					url: "http://ternjs.net/doc/manual.html#plugin_angular",
 					version: "0.18.0"
 				},
 				commonjs: {
 					name: Messages['commonjsPluginName'],
 					description: Messages['commonjsPluginDescription'],
-					url: "https://ternjs.net/doc/manual.html#plugin_commonjs",
+					url: "http://ternjs.net/doc/manual.html#plugin_commonjs",
 					version: "0.18.0"
 				},
 				complete_strings: {
 					name: Messages['ternCompleteStringsPluginName'],
 					description: Messages['ternCompleteStringsPluginDescription'],
-					url: "https://ternjs.net/doc/manual.html#plugin_complete_strings",
+					url: "http://ternjs.net/doc/manual.html#plugin_complete_strings",
 					version: "0.18.0"
 				},
 				express: {
@@ -10667,7 +10667,7 @@ define('javascript/plugins/ternMetadata',[
 				es_modules: {
 					name: Messages["orionESModulesPluginName"],
 					description: Messages["orionESModulesPluginDescription"],
-					url: "https://ternjs.net/doc/manual.html#plugin_es_modules",
+					url: "http://ternjs.net/doc/manual.html#plugin_es_modules",
 					version: "0.18.0",
 				},
 				mongodb: {
@@ -10685,7 +10685,7 @@ define('javascript/plugins/ternMetadata',[
 				node: {
 					name: Messages["orionNodePluginName"],
 					description: Messages["orionNodePluginDescription"],
-					url: "https://ternjs.net/doc/manual.html#plugin_node",
+					url: "http://ternjs.net/doc/manual.html#plugin_node",
 					version: "0.18.0"
 				},
 				postgres: {
@@ -10703,13 +10703,13 @@ define('javascript/plugins/ternMetadata',[
 				requirejs: {
 					name: Messages["orionRequirePluginName"],
 					description: Messages["orionRequirePluginDescription"],
-					url: "https://ternjs.net/doc/manual.html#plugin_requirejs",
+					url: "http://ternjs.net/doc/manual.html#plugin_requirejs",
 					version: "0.18.0"
 				},
 				webpack: {
 					name: Messages["orionWebpackPluginName"],
 					description: Messages["orionWebpackPluginDescription"],
-					url: "https://ternjs.net/doc/manual.html#plugin_webpack",
+					url: "http://ternjs.net/doc/manual.html#plugin_webpack",
 					version: "0.18.0"
 				}
 			}
@@ -14008,22 +14008,22 @@ define("json!tern/defs/browser.json", function(){ return {
       },
       "createdCallback": {
         "!type": "fn()",
-        "!url": "https://w3c.github.io/webcomponents/spec/custom/index.html#dfn-created-callback",
+        "!url": "http://w3c.github.io/webcomponents/spec/custom/index.html#dfn-created-callback",
         "!doc": "This callback is invoked after custom element instance is created and its definition is registered. The actual timing of this callback is defined further in this specification."
       },
       "attachedCallback": {
         "!type": "fn()",
-        "!url": "https://w3c.github.io/webcomponents/spec/custom/index.html#dfn-entered-view-callback",
+        "!url": "http://w3c.github.io/webcomponents/spec/custom/index.html#dfn-entered-view-callback",
         "!doc": "Unless specified otherwise, this callback must be enqueued whenever custom element is inserted into a document and this document has a browsing context."
       },
       "detachedCallback": {
         "!type": "fn()",
-        "!url": "https://w3c.github.io/webcomponents/spec/custom/index.html#dfn-left-view-callback",
+        "!url": "http://w3c.github.io/webcomponents/spec/custom/index.html#dfn-left-view-callback",
         "!doc": "Unless specified otherwise, this callback must be enqueued whenever custom element is removed from the document and this document has a browsing context."
       },
       "attributeChangedCallback": {
         "!type": "fn()",
-        "!url": "https://w3c.github.io/webcomponents/spec/custom/index.html#dfn-attribute-changed-callback",
+        "!url": "http://w3c.github.io/webcomponents/spec/custom/index.html#dfn-attribute-changed-callback",
         "!doc": "Unless specified otherwise, this callback must be enqueued whenever custom element's attribute is added, changed or removed."
       }
     },
@@ -14168,7 +14168,7 @@ define("json!tern/defs/browser.json", function(){ return {
         "createDocumentType": {
           "!type": "fn(qualifiedName: string, publicId: string, systemId: string) -> +Node",
           "!url": "https://developer.mozilla.org/en/docs/DOM/DOMImplementation.createDocumentType",
-          "!doc": "Returns a DocumentType object which can either be used with DOMImplementation.createDocument upon document creation or they can be put into the document via Node.insertBefore() or Node.replaceChild(): https://www.w3.org/TR/DOM-Level-3-Cor...l#ID-B63ED1A31 (less ideal due to features not likely being as accessible: https://www.w3.org/TR/DOM-Level-3-Cor...createDocument ). In any case, entity declarations and notations will not be available: https://www.w3.org/TR/DOM-Level-3-Cor...-createDocType   "
+          "!doc": "Returns a DocumentType object which can either be used with DOMImplementation.createDocument upon document creation or they can be put into the document via Node.insertBefore() or Node.replaceChild(): http://www.w3.org/TR/DOM-Level-3-Cor...l#ID-B63ED1A31 (less ideal due to features not likely being as accessible: http://www.w3.org/TR/DOM-Level-3-Cor...createDocument ). In any case, entity declarations and notations will not be available: http://www.w3.org/TR/DOM-Level-3-Cor...-createDocType   "
         },
         "createHTMLDocument": {
           "!type": "fn(title: string) -> +Document",
@@ -14405,7 +14405,7 @@ define("json!tern/defs/browser.json", function(){ return {
       },
       "registerElement": {
         "!type": "fn(type: string, options?: ?)",
-        "!url": "https://w3c.github.io/webcomponents/spec/custom/#extensions-to-document-interface-to-register",
+        "!url": "http://w3c.github.io/webcomponents/spec/custom/#extensions-to-document-interface-to-register",
         "!doc": "The registerElement method of the Document interface provides a way to register a custom element and returns its custom element constructor."
       },
       "getElementsByClassName": "Element.prototype.getElementsByClassName",
@@ -16537,591 +16537,591 @@ define("json!tern/defs/chai.json", function(){ return {
     "should": {
       "Language": {
         "!doc": "Language Chains\n\n\n\nThe following are provided as chainable getters to\nimprove the readability of your assertions. They\ndo not provide an testing capability unless they\nhave been overwritten by a plugin.Chains\n\n",
-        "!url": "https://chaijs.com/api/bdd/#Language",
+        "!url": "http://chaijs.com/api/bdd/#Language",
         "!type": "fn() -> bool"
       },
       "not": {
         "!doc": ".not\n\n\n\nNegates any of assertions following in the chain.\n\nexpect(foo).to.not.equal('bar');\nexpect(goodFn).to.not.throw(Error);\nexpect({ foo: 'baz' }).to.have.property('foo')\n  .and.not.equal('bar');",
-        "!url": "https://chaijs.com/api/bdd/#not",
+        "!url": "http://chaijs.com/api/bdd/#not",
         "!type": "fn() -> bool"
       },
       "deep": {
         "!doc": ".deep\n\n\n\nSets the deep flag, later used by the equal and\nproperty assertions.\n\nexpect(foo).to.deep.equal({ bar: 'baz' });\nexpect({ foo: { bar: { baz: 'quux' } } })\n  .to.have.deep.property('foo.bar.baz', 'quux');",
-        "!url": "https://chaijs.com/api/bdd/#deep",
+        "!url": "http://chaijs.com/api/bdd/#deep",
         "!type": "fn() -> bool"
       },
       "a": {
         "!doc": ".a(type)\n\n  * @param { String } type\n  * @param { String } message_optional_\n\nThe a and an assertions are aliases that can be\nused either as language chains or to assert a value's\ntype.\n\n// typeof\nexpect('test').to.be.a('string');\nexpect({ foo: 'bar' }).to.be.an('object');\nexpect(null).to.be.a('null');\nexpect(undefined).to.be.an('undefined');\n\n// language chain\nexpect(foo).to.be.an.instanceof(Foo);",
-        "!url": "https://chaijs.com/api/bdd/#a",
+        "!url": "http://chaijs.com/api/bdd/#a",
         "!type": "fn(type: string, message: string) -> bool"
       },
       "include": {
         "!doc": ".include(value)\n\n  * @param { Object | String | Number } obj\n  * @param { String } message_optional_\n\nThe include and contain assertions can be used as either property\nbased language chains or as methods to assert the inclusion of an object\nin an array or a substring in a string. When used as language chains,\nthey toggle the contain flag for the keys assertion.\n\nexpect([1,2,3]).to.include(2);\nexpect('foobar').to.contain('foo');\nexpect({ foo: 'bar', hello: 'universe' }).to.include.keys('foo');",
-        "!url": "https://chaijs.com/api/bdd/#include",
+        "!url": "http://chaijs.com/api/bdd/#include",
         "!type": "fn(obj: object, message: string) -> bool"
       },
       "ok": {
         "!doc": ".ok\n\n\n\nAsserts that the target is truthy.\n\nexpect('everthing').to.be.ok;\nexpect(1).to.be.ok;\nexpect(false).to.not.be.ok;\nexpect(undefined).to.not.be.ok;\nexpect(null).to.not.be.ok;",
-        "!url": "https://chaijs.com/api/bdd/#ok",
+        "!url": "http://chaijs.com/api/bdd/#ok",
         "!type": "fn() -> bool"
       },
       "true": {
         "!doc": ".true\n\n\n\nAsserts that the target is true.\n\nexpect(true).to.be.true;\nexpect(1).to.not.be.true;",
-        "!url": "https://chaijs.com/api/bdd/#true",
+        "!url": "http://chaijs.com/api/bdd/#true",
         "!type": "fn() -> bool"
       },
       "false": {
         "!doc": ".false\n\n\n\nAsserts that the target is false.\n\nexpect(false).to.be.false;\nexpect(0).to.not.be.false;",
-        "!url": "https://chaijs.com/api/bdd/#false",
+        "!url": "http://chaijs.com/api/bdd/#false",
         "!type": "fn() -> bool"
       },
       "null": {
         "!doc": ".null\n\n\n\nAsserts that the target is null.\n\nexpect(null).to.be.null;\nexpect(undefined).not.to.be.null;",
-        "!url": "https://chaijs.com/api/bdd/#null",
+        "!url": "http://chaijs.com/api/bdd/#null",
         "!type": "fn() -> bool"
       },
       "undefined": {
         "!doc": ".undefined\n\n\n\nAsserts that the target is undefined.\n\nexpect(undefined).to.be.undefined;\nexpect(null).to.not.be.undefined;",
-        "!url": "https://chaijs.com/api/bdd/#undefined",
+        "!url": "http://chaijs.com/api/bdd/#undefined",
         "!type": "fn() -> bool"
       },
       "exist": {
         "!doc": ".exist\n\n\n\nAsserts that the target is neither null nor undefined.\n\nvar foo = 'hi'\n  , bar = null\n  , baz;\n\nexpect(foo).to.exist;\nexpect(bar).to.not.exist;\nexpect(baz).to.not.exist;",
-        "!url": "https://chaijs.com/api/bdd/#exist",
+        "!url": "http://chaijs.com/api/bdd/#exist",
         "!type": "fn() -> bool"
       },
       "empty": {
         "!doc": ".empty\n\n\n\nAsserts that the target's length is 0. For arrays, it checks\nthe length property. For objects, it gets the count of\nenumerable keys.\n\nexpect([]).to.be.empty;\nexpect('').to.be.empty;\nexpect({}).to.be.empty;",
-        "!url": "https://chaijs.com/api/bdd/#empty",
+        "!url": "http://chaijs.com/api/bdd/#empty",
         "!type": "fn() -> bool"
       },
       "arguments": {
         "!doc": ".arguments\n\n\n\nAsserts that the target is an arguments object.\n\nfunction test () {\n  expect(arguments).to.be.arguments;\n}",
-        "!url": "https://chaijs.com/api/bdd/#arguments",
+        "!url": "http://chaijs.com/api/bdd/#arguments",
         "!type": "fn() -> bool"
       },
       "equal": {
         "!doc": ".equal(value)\n\n  * @param { Mixed } value\n  * @param { String } message_optional_\n\nAsserts that the target is strictly equal (===) to value.\nAlternately, if the deep flag is set, asserts that\nthe target is deeply equal to value.\n\nexpect('hello').to.equal('hello');\nexpect(42).to.equal(42);\nexpect(1).to.not.equal(true);\nexpect({ foo: 'bar' }).to.not.equal({ foo: 'bar' });\nexpect({ foo: 'bar' }).to.deep.equal({ foo: 'bar' });",
-        "!url": "https://chaijs.com/api/bdd/#equal",
+        "!url": "http://chaijs.com/api/bdd/#equal",
         "!type": "fn(value: mixed, message: string) -> bool"
       },
       "eql": {
         "!doc": ".eql(value)\n\n  * @param { Mixed } value\n  * @param { String } message_optional_\n\nAsserts that the target is deeply equal to value.\n\nexpect({ foo: 'bar' }).to.eql({ foo: 'bar' });\nexpect([ 1, 2, 3 ]).to.eql([ 1, 2, 3 ]);",
-        "!url": "https://chaijs.com/api/bdd/#eql",
+        "!url": "http://chaijs.com/api/bdd/#eql",
         "!type": "fn(value: mixed, message: string) -> bool"
       },
       "above": {
         "!doc": ".above(value)\n\n  * @param { Number } value\n  * @param { String } message_optional_\n\nAsserts that the target is greater than value.Can also be used in conjunction with length to\nassert a minimum length. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(10).to.be.above(5);expect('foo').to.have.length.above(2);\nexpect([ 1, 2, 3 ]).to.have.length.above(2);",
-        "!url": "https://chaijs.com/api/bdd/#above",
+        "!url": "http://chaijs.com/api/bdd/#above",
         "!type": "fn(value: number, message: string) -> bool"
       },
       "least": {
         "!doc": ".least(value)\n\n  * @param { Number } value\n  * @param { String } message_optional_\n\nAsserts that the target is greater than or equal to value.Can also be used in conjunction with length to\nassert a minimum length. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(10).to.be.at.least(10);expect('foo').to.have.length.of.at.least(2);\nexpect([ 1, 2, 3 ]).to.have.length.of.at.least(3);",
-        "!url": "https://chaijs.com/api/bdd/#least",
+        "!url": "http://chaijs.com/api/bdd/#least",
         "!type": "fn(value: number, message: string) -> bool"
       },
       "below": {
         "!doc": ".below(value)\n\n  * @param { Number } value\n  * @param { String } message_optional_\n\nAsserts that the target is less than value.Can also be used in conjunction with length to\nassert a maximum length. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(5).to.be.below(10);expect('foo').to.have.length.below(4);\nexpect([ 1, 2, 3 ]).to.have.length.below(4);",
-        "!url": "https://chaijs.com/api/bdd/#below",
+        "!url": "http://chaijs.com/api/bdd/#below",
         "!type": "fn(value: number, message: string) -> bool"
       },
       "most": {
         "!doc": ".most(value)\n\n  * @param { Number } value\n  * @param { String } message_optional_\n\nAsserts that the target is less than or equal to value.Can also be used in conjunction with length to\nassert a maximum length. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(5).to.be.at.most(5);expect('foo').to.have.length.of.at.most(4);\nexpect([ 1, 2, 3 ]).to.have.length.of.at.most(3);",
-        "!url": "https://chaijs.com/api/bdd/#most",
+        "!url": "http://chaijs.com/api/bdd/#most",
         "!type": "fn(value: number, message: string) -> bool"
       },
       "within": {
         "!doc": ".within(start, finish)\n\n  * @param { Number } startlowerbound inclusive\n  * @param { Number } finishupperbound inclusive\n  * @param { String } message_optional_\n\nAsserts that the target is within a range.Can also be used in conjunction with length to\nassert a length range. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(7).to.be.within(5,10);expect('foo').to.have.length.within(2,4);\nexpect([ 1, 2, 3 ]).to.have.length.within(2,4);",
-        "!url": "https://chaijs.com/api/bdd/#within",
+        "!url": "http://chaijs.com/api/bdd/#within",
         "!type": "fn(start: number, finish: number, message: string) -> bool"
       },
       "instanceof": {
         "!doc": ".instanceof(constructor)\n\n  * @param { Constructor } constructor\n  * @param { String } message_optional_\n\nAsserts that the target is an instance of constructor.\n\nvar Tea = function (name) { this.name = name; }\n  , Chai = new Tea('chai');\n\nexpect(Chai).to.be.an.instanceof(Tea);\nexpect([ 1, 2, 3 ]).to.be.instanceof(Array);",
-        "!url": "https://chaijs.com/api/bdd/#instanceof",
+        "!url": "http://chaijs.com/api/bdd/#instanceof",
         "!type": "fn(constructor: constructor, message: string) -> bool"
       },
       "property": {
         "!doc": ".property(name, [value])\n\n  * @param { String } name\n  * @param { Mixed } value(optional)\n  * @param { String } message_optional_\n\nAsserts that the target has a property name, optionally asserting that\nthe value of that property is strictly equal to  value.\nIf the deep flag is set, you can use dot- and bracket-notation for deep\nreferences into objects and arrays.You can also use an array as the starting point of a deep.property\nassertion, or traverse nested arrays.Furthermore, property changes the subject of the assertion\nto be the value of that property from the original object. This\npermits for further chainable assertions on that property.\n\n// simple referencing\nvar obj = { foo: 'bar' };\nexpect(obj).to.have.property('foo');\nexpect(obj).to.have.property('foo', 'bar');\n\n// deep referencing\nvar deepObj = {\n    green: { tea: 'matcha' }\n  , teas: [ 'chai', 'matcha', { tea: 'konacha' } ]\n};\n\nexpect(deepObj).to.have.deep.property('green.tea', 'matcha');\nexpect(deepObj).to.have.deep.property('teas[1]', 'matcha');\nexpect(deepObj).to.have.deep.property('teas[2].tea', 'konacha');var arr = [\n    [ 'chai', 'matcha', 'konacha' ]\n  , [ { tea: 'chai' }\n    , { tea: 'matcha' }\n    , { tea: 'konacha' } ]\n];\n\nexpect(arr).to.have.deep.property('[0][1]', 'matcha');\nexpect(arr).to.have.deep.property('[1][2].tea', 'konacha');expect(obj).to.have.property('foo')\n  .that.is.a('string');\nexpect(deepObj).to.have.property('green')\n  .that.is.an('object')\n  .that.deep.equals({ tea: 'matcha' });\nexpect(deepObj).to.have.property('teas')\n  .that.is.an('array')\n  .with.deep.property('[2]')\n    .that.deep.equals({ tea: 'konacha' });",
-        "!url": "https://chaijs.com/api/bdd/#property",
+        "!url": "http://chaijs.com/api/bdd/#property",
         "!type": "fn(name: string, value: [mixed], message: string) -> bool"
       },
       "ownProperty": {
         "!doc": ".ownProperty(name)\n\n  * @param { String } name\n  * @param { String } message_optional_\n\nAsserts that the target has an own property name.\n\nexpect('test').to.have.ownProperty('length');",
-        "!url": "https://chaijs.com/api/bdd/#ownProperty",
+        "!url": "http://chaijs.com/api/bdd/#ownProperty",
         "!type": "fn(name: string, message: string) -> bool"
       },
       "length": {
         "!doc": ".length(value)\n\n  * @param { Number } length\n  * @param { String } message_optional_\n\nAsserts that the target's length property has\nthe expected value.Can also be used as a chain precursor to a value\ncomparison for the length property.\n\nexpect([ 1, 2, 3]).to.have.length(3);\nexpect('foobar').to.have.length(6);expect('foo').to.have.length.above(2);\nexpect([ 1, 2, 3 ]).to.have.length.above(2);\nexpect('foo').to.have.length.below(4);\nexpect([ 1, 2, 3 ]).to.have.length.below(4);\nexpect('foo').to.have.length.within(2,4);\nexpect([ 1, 2, 3 ]).to.have.length.within(2,4);",
-        "!url": "https://chaijs.com/api/bdd/#length",
+        "!url": "http://chaijs.com/api/bdd/#length",
         "!type": "fn(length: number, message: string) -> bool"
       },
       "match": {
         "!doc": ".match(regexp)\n\n  * @param { RegExp } RegularExpression\n  * @param { String } message_optional_\n\nAsserts that the target matches a regular expression.\n\nexpect('foobar').to.match(/^foo/);",
-        "!url": "https://chaijs.com/api/bdd/#match",
+        "!url": "http://chaijs.com/api/bdd/#match",
         "!type": "fn(RegularExpression: regexp, message: string) -> bool"
       },
       "string": {
         "!doc": ".string(string)\n\n  * @param { String } string\n  * @param { String } message_optional_\n\nAsserts that the string target contains another string.\n\nexpect('foobar').to.have.string('bar');",
-        "!url": "https://chaijs.com/api/bdd/#string",
+        "!url": "http://chaijs.com/api/bdd/#string",
         "!type": "fn(string: string, message: string) -> bool"
       },
       "keys": {
         "!doc": ".keys(key1, [key2], [...])\n\n  * @param { String... | Array } keys\n\nAsserts that the target has exactly the given keys, or\nasserts the inclusion of some keys when using the\ninclude or contain modifiers.\n\nexpect({ foo: 1, bar: 2 }).to.have.keys(['foo', 'bar']);\nexpect({ foo: 1, bar: 2, baz: 3 }).to.contain.keys('foo', 'bar');",
-        "!url": "https://chaijs.com/api/bdd/#keys",
+        "!url": "http://chaijs.com/api/bdd/#keys",
         "!type": "fn(keys: string) -> bool"
       },
       "throw": {
         "!doc": ".throw(constructor)\n\n  * @param { ErrorConstructor } constructor\n  * @param { String | RegExp } expectederror message\n  * @param { String } message_optional_\n  * @seehttps://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types  \n\nAsserts that the function target will throw a specific error, or specific type of error\n(as determined using instanceof), optionally with a RegExp or string inclusion test\nfor the error's message.Please note that when a throw expectation is negated, it will check each\nparameter independently, starting with error constructor type. The appropriate way\nto check for the existence of a type of error but for a message that does not match\nis to use and.\n\nvar err = new ReferenceError('This is a bad function.');\nvar fn = function () { throw err; }\nexpect(fn).to.throw(ReferenceError);\nexpect(fn).to.throw(Error);\nexpect(fn).to.throw(/bad function/);\nexpect(fn).to.not.throw('good function');\nexpect(fn).to.throw(ReferenceError, /bad function/);\nexpect(fn).to.throw(err);\nexpect(fn).to.not.throw(new RangeError('Out of range.'));expect(fn).to.throw(ReferenceError)\n   .and.not.throw(/good function/);",
-        "!url": "https://chaijs.com/api/bdd/#throw",
+        "!url": "http://chaijs.com/api/bdd/#throw",
         "!type": "fn(constructor: errorconstructor, expected: string, message: string) -> bool"
       },
       "respondTo": {
         "!doc": ".respondTo(method)\n\n  * @param { String } method\n  * @param { String } message_optional_\n\nAsserts that the object or class target will respond to a method.To check if a constructor will respond to a static function,\nset the itself flag.\n\nKlass.prototype.bar = function(){};\nexpect(Klass).to.respondTo('bar');\nexpect(obj).to.respondTo('bar');Klass.baz = function(){};\nexpect(Klass).itself.to.respondTo('baz');",
-        "!url": "https://chaijs.com/api/bdd/#respondTo",
+        "!url": "http://chaijs.com/api/bdd/#respondTo",
         "!type": "fn(method: string, message: string) -> bool"
       },
       "itself": {
         "!doc": ".itself\n\n\n\nSets the itself flag, later used by the respondTo assertion.\n\nfunction Foo() {}\nFoo.bar = function() {}\nFoo.prototype.baz = function() {}\n\nexpect(Foo).itself.to.respondTo('bar');\nexpect(Foo).itself.not.to.respondTo('baz');",
-        "!url": "https://chaijs.com/api/bdd/#itself",
+        "!url": "http://chaijs.com/api/bdd/#itself",
         "!type": "fn() -> bool"
       },
       "satisfy": {
         "!doc": ".satisfy(method)\n\n  * @param { Function } matcher\n  * @param { String } message_optional_\n\nAsserts that the target passes a given truth test.\n\nexpect(1).to.satisfy(function(num) { return num > 0; });",
-        "!url": "https://chaijs.com/api/bdd/#satisfy",
+        "!url": "http://chaijs.com/api/bdd/#satisfy",
         "!type": "fn(matcher: function, message: string) -> bool"
       },
       "closeTo": {
         "!doc": ".closeTo(expected, delta)\n\n  * @param { Number } expected\n  * @param { Number } delta\n  * @param { String } message_optional_\n\nAsserts that the target is equal expected, to within a +/- delta range.\n\nexpect(1.5).to.be.closeTo(1, 0.5);",
-        "!url": "https://chaijs.com/api/bdd/#closeTo",
+        "!url": "http://chaijs.com/api/bdd/#closeTo",
         "!type": "fn(expected: number, delta: number, message: string) -> bool"
       },
       "members": {
         "!doc": ".members(set)\n\n  * @param { Array } set\n  * @param { String } message_optional_\n\nAsserts that the target is a superset of set,\nor that the target and set have the same members.\n\nexpect([1, 2, 3]).to.include.members([3, 2]);\nexpect([1, 2, 3]).to.not.include.members([3, 2, 8]);\n\nexpect([4, 2]).to.have.members([2, 4]);\nexpect([5, 2]).to.not.have.members([5, 2, 1]);",
-        "!url": "https://chaijs.com/api/bdd/#members",
+        "!url": "http://chaijs.com/api/bdd/#members",
         "!type": "fn(set: array, message: string) -> bool"
       }
     },
     "assert": {
       "assert": {
         "!doc": "assert(expression, message)\n\n  * @param { Mixed } expressionto test for truthiness\n  * @param { String } messageto display on error\n\nWrite your own test expressions.\n\nassert('foo' !== 'bar', 'foo is not bar');\nassert(Array.isArray([]), 'empty arrays are arrays');",
-        "!url": "https://chaijs.com/api/assert/#assert",
+        "!url": "http://chaijs.com/api/assert/#assert",
         "!type": "fn(expression: mixed, message: string) -> bool"
       },
       "fail": {
         "!doc": ".fail(actual, expected, [message], [operator])\n\n  * @param { Mixed } actual\n  * @param { Mixed } expected\n  * @param { String } message\n  * @param { String } operator\n\nThrow a failure. Node.js assert module-compatible.\n\n",
-        "!url": "https://chaijs.com/api/assert/#fail",
+        "!url": "http://chaijs.com/api/assert/#fail",
         "!type": "fn(actual: mixed, expected: mixed, message: [string], operator: [string]) -> bool"
       },
       "ok": {
         "!doc": ".ok(object, [message])\n\n  * @param { Mixed } objectto test\n  * @param { String } message\n\nAsserts that object is truthy.\n\nassert.ok('everything', 'everything is ok');\nassert.ok(false, 'this will fail');",
-        "!url": "https://chaijs.com/api/assert/#ok",
+        "!url": "http://chaijs.com/api/assert/#ok",
         "!type": "fn(object: mixed, message: [string]) -> bool"
       },
       "notOk": {
         "!doc": ".notOk(object, [message])\n\n  * @param { Mixed } objectto test\n  * @param { String } message\n\nAsserts that object is falsy.\n\nassert.notOk('everything', 'this will fail');\nassert.notOk(false, 'this will pass');",
-        "!url": "https://chaijs.com/api/assert/#notOk",
+        "!url": "http://chaijs.com/api/assert/#notOk",
         "!type": "fn(object: mixed, message: [string]) -> bool"
       },
       "equal": {
         "!doc": ".equal(actual, expected, [message])\n\n  * @param { Mixed } actual\n  * @param { Mixed } expected\n  * @param { String } message\n\nAsserts non-strict equality (==) of actual and expected.\n\nassert.equal(3, '3', '== coerces values to strings');",
-        "!url": "https://chaijs.com/api/assert/#equal",
+        "!url": "http://chaijs.com/api/assert/#equal",
         "!type": "fn(actual: mixed, expected: mixed, message: [string]) -> bool"
       },
       "notEqual": {
         "!doc": ".notEqual(actual, expected, [message])\n\n  * @param { Mixed } actual\n  * @param { Mixed } expected\n  * @param { String } message\n\nAsserts non-strict inequality (!=) of actual and expected.\n\nassert.notEqual(3, 4, 'these numbers are not equal');",
-        "!url": "https://chaijs.com/api/assert/#notEqual",
+        "!url": "http://chaijs.com/api/assert/#notEqual",
         "!type": "fn(actual: mixed, expected: mixed, message: [string]) -> bool"
       },
       "strictEqual": {
         "!doc": ".strictEqual(actual, expected, [message])\n\n  * @param { Mixed } actual\n  * @param { Mixed } expected\n  * @param { String } message\n\nAsserts strict equality (===) of actual and expected.\n\nassert.strictEqual(true, true, 'these booleans are strictly equal');",
-        "!url": "https://chaijs.com/api/assert/#strictEqual",
+        "!url": "http://chaijs.com/api/assert/#strictEqual",
         "!type": "fn(actual: mixed, expected: mixed, message: [string]) -> bool"
       },
       "notStrictEqual": {
         "!doc": ".notStrictEqual(actual, expected, [message])\n\n  * @param { Mixed } actual\n  * @param { Mixed } expected\n  * @param { String } message\n\nAsserts strict inequality (!==) of actual and expected.\n\nassert.notStrictEqual(3, '3', 'no coercion for strict equality');",
-        "!url": "https://chaijs.com/api/assert/#notStrictEqual",
+        "!url": "http://chaijs.com/api/assert/#notStrictEqual",
         "!type": "fn(actual: mixed, expected: mixed, message: [string]) -> bool"
       },
       "deepEqual": {
         "!doc": ".deepEqual(actual, expected, [message])\n\n  * @param { Mixed } actual\n  * @param { Mixed } expected\n  * @param { String } message\n\nAsserts that actual is deeply equal to expected.\n\nassert.deepEqual({ tea: 'green' }, { tea: 'green' });",
-        "!url": "https://chaijs.com/api/assert/#deepEqual",
+        "!url": "http://chaijs.com/api/assert/#deepEqual",
         "!type": "fn(actual: mixed, expected: mixed, message: [string]) -> bool"
       },
       "notDeepEqual": {
         "!doc": ".notDeepEqual(actual, expected, [message])\n\n  * @param { Mixed } actual\n  * @param { Mixed } expected\n  * @param { String } message\n\nAssert that actual is not deeply equal to expected.\n\nassert.notDeepEqual({ tea: 'green' }, { tea: 'jasmine' });",
-        "!url": "https://chaijs.com/api/assert/#notDeepEqual",
+        "!url": "http://chaijs.com/api/assert/#notDeepEqual",
         "!type": "fn(actual: mixed, expected: mixed, message: [string]) -> bool"
       },
       "isTrue": {
         "!doc": ".isTrue(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is true.\n\nvar teaServed = true;\nassert.isTrue(teaServed, 'the tea has been served');",
-        "!url": "https://chaijs.com/api/assert/#isTrue",
+        "!url": "http://chaijs.com/api/assert/#isTrue",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isFalse": {
         "!doc": ".isFalse(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is false.\n\nvar teaServed = false;\nassert.isFalse(teaServed, 'no tea yet? hmm...');",
-        "!url": "https://chaijs.com/api/assert/#isFalse",
+        "!url": "http://chaijs.com/api/assert/#isFalse",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isNull": {
         "!doc": ".isNull(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is null.\n\nassert.isNull(err, 'there was no error');",
-        "!url": "https://chaijs.com/api/assert/#isNull",
+        "!url": "http://chaijs.com/api/assert/#isNull",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isNotNull": {
         "!doc": ".isNotNull(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is not null.\n\nvar tea = 'tasty chai';\nassert.isNotNull(tea, 'great, time for tea!');",
-        "!url": "https://chaijs.com/api/assert/#isNotNull",
+        "!url": "http://chaijs.com/api/assert/#isNotNull",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isUndefined": {
         "!doc": ".isUndefined(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is undefined.\n\nvar tea;\nassert.isUndefined(tea, 'no tea defined');",
-        "!url": "https://chaijs.com/api/assert/#isUndefined",
+        "!url": "http://chaijs.com/api/assert/#isUndefined",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isDefined": {
         "!doc": ".isDefined(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is not undefined.\n\nvar tea = 'cup of chai';\nassert.isDefined(tea, 'tea has been defined');",
-        "!url": "https://chaijs.com/api/assert/#isDefined",
+        "!url": "http://chaijs.com/api/assert/#isDefined",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isFunction": {
         "!doc": ".isFunction(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is a function.\n\nfunction serveTea() { return 'cup of tea'; };\nassert.isFunction(serveTea, 'great, we can have tea now');",
-        "!url": "https://chaijs.com/api/assert/#isFunction",
+        "!url": "http://chaijs.com/api/assert/#isFunction",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isNotFunction": {
         "!doc": ".isNotFunction(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is not a function.\n\nvar serveTea = [ 'heat', 'pour', 'sip' ];\nassert.isNotFunction(serveTea, 'great, we have listed the steps');",
-        "!url": "https://chaijs.com/api/assert/#isNotFunction",
+        "!url": "http://chaijs.com/api/assert/#isNotFunction",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isObject": {
         "!doc": ".isObject(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is an object (as revealed by\nObject.prototype.toString).\n\nvar selection = { name: 'Chai', serve: 'with spices' };\nassert.isObject(selection, 'tea selection is an object');",
-        "!url": "https://chaijs.com/api/assert/#isObject",
+        "!url": "http://chaijs.com/api/assert/#isObject",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isNotObject": {
         "!doc": ".isNotObject(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is not an object.\n\nvar selection = 'chai'\nassert.isObject(selection, 'tea selection is not an object');\nassert.isObject(null, 'null is not an object');",
-        "!url": "https://chaijs.com/api/assert/#isNotObject",
+        "!url": "http://chaijs.com/api/assert/#isNotObject",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isArray": {
         "!doc": ".isArray(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is an array.\n\nvar menu = [ 'green', 'chai', 'oolong' ];\nassert.isArray(menu, 'what kind of tea do we want?');",
-        "!url": "https://chaijs.com/api/assert/#isArray",
+        "!url": "http://chaijs.com/api/assert/#isArray",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isNotArray": {
         "!doc": ".isNotArray(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is not an array.\n\nvar menu = 'green|chai|oolong';\nassert.isNotArray(menu, 'what kind of tea do we want?');",
-        "!url": "https://chaijs.com/api/assert/#isNotArray",
+        "!url": "http://chaijs.com/api/assert/#isNotArray",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isString": {
         "!doc": ".isString(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is a string.\n\nvar teaOrder = 'chai';\nassert.isString(teaOrder, 'order placed');",
-        "!url": "https://chaijs.com/api/assert/#isString",
+        "!url": "http://chaijs.com/api/assert/#isString",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isNotString": {
         "!doc": ".isNotString(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is not a string.\n\nvar teaOrder = 4;\nassert.isNotString(teaOrder, 'order placed');",
-        "!url": "https://chaijs.com/api/assert/#isNotString",
+        "!url": "http://chaijs.com/api/assert/#isNotString",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isNumber": {
         "!doc": ".isNumber(value, [message])\n\n  * @param { Number } value\n  * @param { String } message\n\nAsserts that value is a number.\n\nvar cups = 2;\nassert.isNumber(cups, 'how many cups');",
-        "!url": "https://chaijs.com/api/assert/#isNumber",
+        "!url": "http://chaijs.com/api/assert/#isNumber",
         "!type": "fn(value: number, message: [string]) -> bool"
       },
       "isNotNumber": {
         "!doc": ".isNotNumber(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is not a number.\n\nvar cups = '2 cups please';\nassert.isNotNumber(cups, 'how many cups');",
-        "!url": "https://chaijs.com/api/assert/#isNotNumber",
+        "!url": "http://chaijs.com/api/assert/#isNotNumber",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isBoolean": {
         "!doc": ".isBoolean(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is a boolean.\n\nvar teaReady = true\n  , teaServed = false;\n\nassert.isBoolean(teaReady, 'is the tea ready');\nassert.isBoolean(teaServed, 'has tea been served');",
-        "!url": "https://chaijs.com/api/assert/#isBoolean",
+        "!url": "http://chaijs.com/api/assert/#isBoolean",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "isNotBoolean": {
         "!doc": ".isNotBoolean(value, [message])\n\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that value is not a boolean.\n\nvar teaReady = 'yep'\n  , teaServed = 'nope';\n\nassert.isNotBoolean(teaReady, 'is the tea ready');\nassert.isNotBoolean(teaServed, 'has tea been served');",
-        "!url": "https://chaijs.com/api/assert/#isNotBoolean",
+        "!url": "http://chaijs.com/api/assert/#isNotBoolean",
         "!type": "fn(value: mixed, message: [string]) -> bool"
       },
       "typeOf": {
         "!doc": ".typeOf(value, name, [message])\n\n  * @param { Mixed } value\n  * @param { String } name\n  * @param { String } message\n\nAsserts that value's type is name, as determined by\nObject.prototype.toString.\n\nassert.typeOf({ tea: 'chai' }, 'object', 'we have an object');\nassert.typeOf(['chai', 'jasmine'], 'array', 'we have an array');\nassert.typeOf('tea', 'string', 'we have a string');\nassert.typeOf(/tea/, 'regexp', 'we have a regular expression');\nassert.typeOf(null, 'null', 'we have a null');\nassert.typeOf(undefined, 'undefined', 'we have an undefined');",
-        "!url": "https://chaijs.com/api/assert/#typeOf",
+        "!url": "http://chaijs.com/api/assert/#typeOf",
         "!type": "fn(value: mixed, name: string, message: [string]) -> bool"
       },
       "notTypeOf": {
         "!doc": ".notTypeOf(value, name, [message])\n\n  * @param { Mixed } value\n  * @param { String } typeofname\n  * @param { String } message\n\nAsserts that value's type is not name, as determined by\nObject.prototype.toString.\n\nassert.notTypeOf('tea', 'number', 'strings are not numbers');",
-        "!url": "https://chaijs.com/api/assert/#notTypeOf",
+        "!url": "http://chaijs.com/api/assert/#notTypeOf",
         "!type": "fn(value: mixed, typeof: string, message: [string]) -> bool"
       },
       "instanceOf": {
         "!doc": ".instanceOf(object, constructor, [message])\n\n  * @param { Object } object\n  * @param { Constructor } constructor\n  * @param { String } message\n\nAsserts that value is an instance of constructor.\n\nvar Tea = function (name) { this.name = name; }\n  , chai = new Tea('chai');\n\nassert.instanceOf(chai, Tea, 'chai is an instance of tea');",
-        "!url": "https://chaijs.com/api/assert/#instanceOf",
+        "!url": "http://chaijs.com/api/assert/#instanceOf",
         "!type": "fn(object: object, constructor: constructor, message: [string]) -> bool"
       },
       "notInstanceOf": {
         "!doc": ".notInstanceOf(object, constructor, [message])\n\n  * @param { Object } object\n  * @param { Constructor } constructor\n  * @param { String } message\n\nAsserts value is not an instance of constructor.\n\nvar Tea = function (name) { this.name = name; }\n  , chai = new String('chai');\n\nassert.notInstanceOf(chai, Tea, 'chai is not an instance of tea');",
-        "!url": "https://chaijs.com/api/assert/#notInstanceOf",
+        "!url": "http://chaijs.com/api/assert/#notInstanceOf",
         "!type": "fn(object: object, constructor: constructor, message: [string]) -> bool"
       },
       "include": {
         "!doc": ".include(haystack, needle, [message])\n\n  * @param { Array | String } haystack\n  * @param { Mixed } needle\n  * @param { String } message\n\nAsserts that haystack includes needle. Works\nfor strings and arrays.\n\nassert.include('foobar', 'bar', 'foobar contains string \"bar\"');\nassert.include([ 1, 2, 3 ], 3, 'array contains value');",
-        "!url": "https://chaijs.com/api/assert/#include",
+        "!url": "http://chaijs.com/api/assert/#include",
         "!type": "fn(haystack: array, needle: mixed, message: [string]) -> bool"
       },
       "notInclude": {
         "!doc": ".notInclude(haystack, needle, [message])\n\n  * @param { Array | String } haystack\n  * @param { Mixed } needle\n  * @param { String } message\n\nAsserts that haystack does not include needle. Works\nfor strings and arrays.\ni\n    assert.notInclude('foobar', 'baz', 'string not include substring');\n    assert.notInclude([ 1, 2, 3 ], 4, 'array not include contain value');\n\n",
-        "!url": "https://chaijs.com/api/assert/#notInclude",
+        "!url": "http://chaijs.com/api/assert/#notInclude",
         "!type": "fn(haystack: array, needle: mixed, message: [string]) -> bool"
       },
       "match": {
         "!doc": ".match(value, regexp, [message])\n\n  * @param { Mixed } value\n  * @param { RegExp } regexp\n  * @param { String } message\n\nAsserts that value matches the regular expression regexp.\n\nassert.match('foobar', /^foo/, 'regexp matches');",
-        "!url": "https://chaijs.com/api/assert/#match",
+        "!url": "http://chaijs.com/api/assert/#match",
         "!type": "fn(value: mixed, regexp: regexp, message: [string]) -> bool"
       },
       "notMatch": {
         "!doc": ".notMatch(value, regexp, [message])\n\n  * @param { Mixed } value\n  * @param { RegExp } regexp\n  * @param { String } message\n\nAsserts that value does not match the regular expression regexp.\n\nassert.notMatch('foobar', /^foo/, 'regexp does not match');",
-        "!url": "https://chaijs.com/api/assert/#notMatch",
+        "!url": "http://chaijs.com/api/assert/#notMatch",
         "!type": "fn(value: mixed, regexp: regexp, message: [string]) -> bool"
       },
       "property": {
         "!doc": ".property(object, property, [message])\n\n  * @param { Object } object\n  * @param { String } property\n  * @param { String } message\n\nAsserts that object has a property named by property.\n\nassert.property({ tea: { green: 'matcha' }}, 'tea');",
-        "!url": "https://chaijs.com/api/assert/#property",
+        "!url": "http://chaijs.com/api/assert/#property",
         "!type": "fn(object: object, property: string, message: [string]) -> bool"
       },
       "notProperty": {
         "!doc": ".notProperty(object, property, [message])\n\n  * @param { Object } object\n  * @param { String } property\n  * @param { String } message\n\nAsserts that object does not have a property named by property.\n\nassert.notProperty({ tea: { green: 'matcha' }}, 'coffee');",
-        "!url": "https://chaijs.com/api/assert/#notProperty",
+        "!url": "http://chaijs.com/api/assert/#notProperty",
         "!type": "fn(object: object, property: string, message: [string]) -> bool"
       },
       "deepProperty": {
         "!doc": ".deepProperty(object, property, [message])\n\n  * @param { Object } object\n  * @param { String } property\n  * @param { String } message\n\nAsserts that object has a property named by property, which can be a\nstring using dot- and bracket-notation for deep reference.\n\nassert.deepProperty({ tea: { green: 'matcha' }}, 'tea.green');",
-        "!url": "https://chaijs.com/api/assert/#deepProperty",
+        "!url": "http://chaijs.com/api/assert/#deepProperty",
         "!type": "fn(object: object, property: string, message: [string]) -> bool"
       },
       "notDeepProperty": {
         "!doc": ".notDeepProperty(object, property, [message])\n\n  * @param { Object } object\n  * @param { String } property\n  * @param { String } message\n\nAsserts that object does not have a property named by property, which\ncan be a string using dot- and bracket-notation for deep reference.\n\nassert.notDeepProperty({ tea: { green: 'matcha' }}, 'tea.oolong');",
-        "!url": "https://chaijs.com/api/assert/#notDeepProperty",
+        "!url": "http://chaijs.com/api/assert/#notDeepProperty",
         "!type": "fn(object: object, property: string, message: [string]) -> bool"
       },
       "propertyVal": {
         "!doc": ".propertyVal(object, property, value, [message])\n\n  * @param { Object } object\n  * @param { String } property\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that object has a property named by property with value given\nby value.\n\nassert.propertyVal({ tea: 'is good' }, 'tea', 'is good');",
-        "!url": "https://chaijs.com/api/assert/#propertyVal",
+        "!url": "http://chaijs.com/api/assert/#propertyVal",
         "!type": "fn(object: object, property: string, value: mixed, message: [string]) -> bool"
       },
       "propertyNotVal": {
         "!doc": ".propertyNotVal(object, property, value, [message])\n\n  * @param { Object } object\n  * @param { String } property\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that object has a property named by property, but with a value\ndifferent from that given by value.\n\nassert.propertyNotVal({ tea: 'is good' }, 'tea', 'is bad');",
-        "!url": "https://chaijs.com/api/assert/#propertyNotVal",
+        "!url": "http://chaijs.com/api/assert/#propertyNotVal",
         "!type": "fn(object: object, property: string, value: mixed, message: [string]) -> bool"
       },
       "deepPropertyVal": {
         "!doc": ".deepPropertyVal(object, property, value, [message])\n\n  * @param { Object } object\n  * @param { String } property\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that object has a property named by property with value given\nby value. property can use dot- and bracket-notation for deep\nreference.\n\nassert.deepPropertyVal({ tea: { green: 'matcha' }}, 'tea.green', 'matcha');",
-        "!url": "https://chaijs.com/api/assert/#deepPropertyVal",
+        "!url": "http://chaijs.com/api/assert/#deepPropertyVal",
         "!type": "fn(object: object, property: string, value: mixed, message: [string]) -> bool"
       },
       "deepPropertyNotVal": {
         "!doc": ".deepPropertyNotVal(object, property, value, [message])\n\n  * @param { Object } object\n  * @param { String } property\n  * @param { Mixed } value\n  * @param { String } message\n\nAsserts that object has a property named by property, but with a value\ndifferent from that given by value. property can use dot- and\nbracket-notation for deep reference.\n\nassert.deepPropertyNotVal({ tea: { green: 'matcha' }}, 'tea.green', 'konacha');",
-        "!url": "https://chaijs.com/api/assert/#deepPropertyNotVal",
+        "!url": "http://chaijs.com/api/assert/#deepPropertyNotVal",
         "!type": "fn(object: object, property: string, value: mixed, message: [string]) -> bool"
       },
       "lengthOf": {
         "!doc": ".lengthOf(object, length, [message])\n\n  * @param { Mixed } object\n  * @param { Number } length\n  * @param { String } message\n\nAsserts that object has a length property with the expected value.\n\nassert.lengthOf([1,2,3], 3, 'array has length of 3');\nassert.lengthOf('foobar', 5, 'string has length of 6');",
-        "!url": "https://chaijs.com/api/assert/#lengthOf",
+        "!url": "http://chaijs.com/api/assert/#lengthOf",
         "!type": "fn(object: mixed, length: number, message: [string]) -> bool"
       },
       "throws": {
         "!doc": ".throws(function, [constructor/string/regexp], [string/regexp], [message])\n\n  * @param { Function } function\n  * @param { ErrorConstructor } constructor\n  * @param { RegExp } regexp\n  * @param { String } message\n  * @seehttps://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types  \n\nAsserts that function will throw an error that is an instance of\nconstructor, or alternately that it will throw an error with message\nmatching regexp.\n\nassert.throw(fn, 'function throws a reference error');\nassert.throw(fn, /function throws a reference error/);\nassert.throw(fn, ReferenceError);\nassert.throw(fn, ReferenceError, 'function throws a reference error');\nassert.throw(fn, ReferenceError, /function throws a reference error/);",
-        "!url": "https://chaijs.com/api/assert/#throws",
+        "!url": "http://chaijs.com/api/assert/#throws",
         "!type": "fn(function: function, constructor: [errorconstructor], regexp: [regexp], message: [string]) -> bool"
       },
       "doesNotThrow": {
         "!doc": ".doesNotThrow(function, [constructor/regexp], [message])\n\n  * @param { Function } function\n  * @param { ErrorConstructor } constructor\n  * @param { RegExp } regexp\n  * @param { String } message\n  * @seehttps://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types  \n\nAsserts that function will not throw an error that is an instance of\nconstructor, or alternately that it will not throw an error with message\nmatching regexp.\n\nassert.doesNotThrow(fn, Error, 'function does not throw');",
-        "!url": "https://chaijs.com/api/assert/#doesNotThrow",
+        "!url": "http://chaijs.com/api/assert/#doesNotThrow",
         "!type": "fn(function: function, constructor: [errorconstructor], regexp: [regexp], message: string) -> bool"
       },
       "operator": {
         "!doc": ".operator(val1, operator, val2, [message])\n\n  * @param { Mixed } val1\n  * @param { String } operator\n  * @param { Mixed } val2\n  * @param { String } message\n\nCompares two values using operator.\n\nassert.operator(1, '<', 2, 'everything is ok');\nassert.operator(1, '>', 2, 'this will fail');",
-        "!url": "https://chaijs.com/api/assert/#operator",
+        "!url": "http://chaijs.com/api/assert/#operator",
         "!type": "fn(val1: mixed, operator: string, val2: mixed, message: [string]) -> bool"
       },
       "closeTo": {
         "!doc": ".closeTo(actual, expected, delta, [message])\n\n  * @param { Number } actual\n  * @param { Number } expected\n  * @param { Number } delta\n  * @param { String } message\n\nAsserts that the target is equal expected, to within a +/- delta range.\n\nassert.closeTo(1.5, 1, 0.5, 'numbers are close');",
-        "!url": "https://chaijs.com/api/assert/#closeTo",
+        "!url": "http://chaijs.com/api/assert/#closeTo",
         "!type": "fn(actual: number, expected: number, delta: number, message: [string]) -> bool"
       },
       "sameMembers": {
         "!doc": ".sameMembers(set1, set2, [message])\n\n  * @param { Array } superset\n  * @param { Array } subset\n  * @param { String } message\n\nAsserts that set1 and set2 have the same members.\nOrder is not taken into account.\n\nassert.sameMembers([ 1, 2, 3 ], [ 2, 1, 3 ], 'same members');",
-        "!url": "https://chaijs.com/api/assert/#sameMembers",
+        "!url": "http://chaijs.com/api/assert/#sameMembers",
         "!type": "fn(superset: array, subset: array, message: [string]) -> bool"
       },
       "includeMembers": {
         "!doc": ".includeMembers(superset, subset, [message])\n\n  * @param { Array } superset\n  * @param { Array } subset\n  * @param { String } message\n\nAsserts that subset is included in superset.\nOrder is not taken into account.\n\nassert.includeMembers([ 1, 2, 3 ], [ 2, 1 ], 'include members');",
-        "!url": "https://chaijs.com/api/assert/#includeMembers",
+        "!url": "http://chaijs.com/api/assert/#includeMembers",
         "!type": "fn(superset: array, subset: array, message: [string]) -> bool"
       }
     },
     "expect": {
       "Language": {
         "!doc": "Language Chains\n\n\n\nThe following are provided as chainable getters to\nimprove the readability of your assertions. They\ndo not provide an testing capability unless they\nhave been overwritten by a plugin.Chains\n\n",
-        "!url": "https://chaijs.com/api/bdd/#Language",
+        "!url": "http://chaijs.com/api/bdd/#Language",
         "!type": "fn() -> bool"
       },
       "not": {
         "!doc": ".not\n\n\n\nNegates any of assertions following in the chain.\n\nexpect(foo).to.not.equal('bar');\nexpect(goodFn).to.not.throw(Error);\nexpect({ foo: 'baz' }).to.have.property('foo')\n  .and.not.equal('bar');",
-        "!url": "https://chaijs.com/api/bdd/#not",
+        "!url": "http://chaijs.com/api/bdd/#not",
         "!type": "fn() -> bool"
       },
       "deep": {
         "!doc": ".deep\n\n\n\nSets the deep flag, later used by the equal and\nproperty assertions.\n\nexpect(foo).to.deep.equal({ bar: 'baz' });\nexpect({ foo: { bar: { baz: 'quux' } } })\n  .to.have.deep.property('foo.bar.baz', 'quux');",
-        "!url": "https://chaijs.com/api/bdd/#deep",
+        "!url": "http://chaijs.com/api/bdd/#deep",
         "!type": "fn() -> bool"
       },
       "a": {
         "!doc": ".a(type)\n\n  * @param { String } type\n  * @param { String } message_optional_\n\nThe a and an assertions are aliases that can be\nused either as language chains or to assert a value's\ntype.\n\n// typeof\nexpect('test').to.be.a('string');\nexpect({ foo: 'bar' }).to.be.an('object');\nexpect(null).to.be.a('null');\nexpect(undefined).to.be.an('undefined');\n\n// language chain\nexpect(foo).to.be.an.instanceof(Foo);",
-        "!url": "https://chaijs.com/api/bdd/#a",
+        "!url": "http://chaijs.com/api/bdd/#a",
         "!type": "fn(type: string, message: string) -> bool"
       },
       "include": {
         "!doc": ".include(value)\n\n  * @param { Object | String | Number } obj\n  * @param { String } message_optional_\n\nThe include and contain assertions can be used as either property\nbased language chains or as methods to assert the inclusion of an object\nin an array or a substring in a string. When used as language chains,\nthey toggle the contain flag for the keys assertion.\n\nexpect([1,2,3]).to.include(2);\nexpect('foobar').to.contain('foo');\nexpect({ foo: 'bar', hello: 'universe' }).to.include.keys('foo');",
-        "!url": "https://chaijs.com/api/bdd/#include",
+        "!url": "http://chaijs.com/api/bdd/#include",
         "!type": "fn(obj: object, message: string) -> bool"
       },
       "ok": {
         "!doc": ".ok\n\n\n\nAsserts that the target is truthy.\n\nexpect('everthing').to.be.ok;\nexpect(1).to.be.ok;\nexpect(false).to.not.be.ok;\nexpect(undefined).to.not.be.ok;\nexpect(null).to.not.be.ok;",
-        "!url": "https://chaijs.com/api/bdd/#ok",
+        "!url": "http://chaijs.com/api/bdd/#ok",
         "!type": "fn() -> bool"
       },
       "true": {
         "!doc": ".true\n\n\n\nAsserts that the target is true.\n\nexpect(true).to.be.true;\nexpect(1).to.not.be.true;",
-        "!url": "https://chaijs.com/api/bdd/#true",
+        "!url": "http://chaijs.com/api/bdd/#true",
         "!type": "fn() -> bool"
       },
       "false": {
         "!doc": ".false\n\n\n\nAsserts that the target is false.\n\nexpect(false).to.be.false;\nexpect(0).to.not.be.false;",
-        "!url": "https://chaijs.com/api/bdd/#false",
+        "!url": "http://chaijs.com/api/bdd/#false",
         "!type": "fn() -> bool"
       },
       "null": {
         "!doc": ".null\n\n\n\nAsserts that the target is null.\n\nexpect(null).to.be.null;\nexpect(undefined).not.to.be.null;",
-        "!url": "https://chaijs.com/api/bdd/#null",
+        "!url": "http://chaijs.com/api/bdd/#null",
         "!type": "fn() -> bool"
       },
       "undefined": {
         "!doc": ".undefined\n\n\n\nAsserts that the target is undefined.\n\nexpect(undefined).to.be.undefined;\nexpect(null).to.not.be.undefined;",
-        "!url": "https://chaijs.com/api/bdd/#undefined",
+        "!url": "http://chaijs.com/api/bdd/#undefined",
         "!type": "fn() -> bool"
       },
       "exist": {
         "!doc": ".exist\n\n\n\nAsserts that the target is neither null nor undefined.\n\nvar foo = 'hi'\n  , bar = null\n  , baz;\n\nexpect(foo).to.exist;\nexpect(bar).to.not.exist;\nexpect(baz).to.not.exist;",
-        "!url": "https://chaijs.com/api/bdd/#exist",
+        "!url": "http://chaijs.com/api/bdd/#exist",
         "!type": "fn() -> bool"
       },
       "empty": {
         "!doc": ".empty\n\n\n\nAsserts that the target's length is 0. For arrays, it checks\nthe length property. For objects, it gets the count of\nenumerable keys.\n\nexpect([]).to.be.empty;\nexpect('').to.be.empty;\nexpect({}).to.be.empty;",
-        "!url": "https://chaijs.com/api/bdd/#empty",
+        "!url": "http://chaijs.com/api/bdd/#empty",
         "!type": "fn() -> bool"
       },
       "arguments": {
         "!doc": ".arguments\n\n\n\nAsserts that the target is an arguments object.\n\nfunction test () {\n  expect(arguments).to.be.arguments;\n}",
-        "!url": "https://chaijs.com/api/bdd/#arguments",
+        "!url": "http://chaijs.com/api/bdd/#arguments",
         "!type": "fn() -> bool"
       },
       "equal": {
         "!doc": ".equal(value)\n\n  * @param { Mixed } value\n  * @param { String } message_optional_\n\nAsserts that the target is strictly equal (===) to value.\nAlternately, if the deep flag is set, asserts that\nthe target is deeply equal to value.\n\nexpect('hello').to.equal('hello');\nexpect(42).to.equal(42);\nexpect(1).to.not.equal(true);\nexpect({ foo: 'bar' }).to.not.equal({ foo: 'bar' });\nexpect({ foo: 'bar' }).to.deep.equal({ foo: 'bar' });",
-        "!url": "https://chaijs.com/api/bdd/#equal",
+        "!url": "http://chaijs.com/api/bdd/#equal",
         "!type": "fn(value: mixed, message: string) -> bool"
       },
       "eql": {
         "!doc": ".eql(value)\n\n  * @param { Mixed } value\n  * @param { String } message_optional_\n\nAsserts that the target is deeply equal to value.\n\nexpect({ foo: 'bar' }).to.eql({ foo: 'bar' });\nexpect([ 1, 2, 3 ]).to.eql([ 1, 2, 3 ]);",
-        "!url": "https://chaijs.com/api/bdd/#eql",
+        "!url": "http://chaijs.com/api/bdd/#eql",
         "!type": "fn(value: mixed, message: string) -> bool"
       },
       "above": {
         "!doc": ".above(value)\n\n  * @param { Number } value\n  * @param { String } message_optional_\n\nAsserts that the target is greater than value.Can also be used in conjunction with length to\nassert a minimum length. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(10).to.be.above(5);expect('foo').to.have.length.above(2);\nexpect([ 1, 2, 3 ]).to.have.length.above(2);",
-        "!url": "https://chaijs.com/api/bdd/#above",
+        "!url": "http://chaijs.com/api/bdd/#above",
         "!type": "fn(value: number, message: string) -> bool"
       },
       "least": {
         "!doc": ".least(value)\n\n  * @param { Number } value\n  * @param { String } message_optional_\n\nAsserts that the target is greater than or equal to value.Can also be used in conjunction with length to\nassert a minimum length. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(10).to.be.at.least(10);expect('foo').to.have.length.of.at.least(2);\nexpect([ 1, 2, 3 ]).to.have.length.of.at.least(3);",
-        "!url": "https://chaijs.com/api/bdd/#least",
+        "!url": "http://chaijs.com/api/bdd/#least",
         "!type": "fn(value: number, message: string) -> bool"
       },
       "below": {
         "!doc": ".below(value)\n\n  * @param { Number } value\n  * @param { String } message_optional_\n\nAsserts that the target is less than value.Can also be used in conjunction with length to\nassert a maximum length. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(5).to.be.below(10);expect('foo').to.have.length.below(4);\nexpect([ 1, 2, 3 ]).to.have.length.below(4);",
-        "!url": "https://chaijs.com/api/bdd/#below",
+        "!url": "http://chaijs.com/api/bdd/#below",
         "!type": "fn(value: number, message: string) -> bool"
       },
       "most": {
         "!doc": ".most(value)\n\n  * @param { Number } value\n  * @param { String } message_optional_\n\nAsserts that the target is less than or equal to value.Can also be used in conjunction with length to\nassert a maximum length. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(5).to.be.at.most(5);expect('foo').to.have.length.of.at.most(4);\nexpect([ 1, 2, 3 ]).to.have.length.of.at.most(3);",
-        "!url": "https://chaijs.com/api/bdd/#most",
+        "!url": "http://chaijs.com/api/bdd/#most",
         "!type": "fn(value: number, message: string) -> bool"
       },
       "within": {
         "!doc": ".within(start, finish)\n\n  * @param { Number } startlowerbound inclusive\n  * @param { Number } finishupperbound inclusive\n  * @param { String } message_optional_\n\nAsserts that the target is within a range.Can also be used in conjunction with length to\nassert a length range. The benefit being a\nmore informative error message than if the length\nwas supplied directly.\n\nexpect(7).to.be.within(5,10);expect('foo').to.have.length.within(2,4);\nexpect([ 1, 2, 3 ]).to.have.length.within(2,4);",
-        "!url": "https://chaijs.com/api/bdd/#within",
+        "!url": "http://chaijs.com/api/bdd/#within",
         "!type": "fn(start: number, finish: number, message: string) -> bool"
       },
       "instanceof": {
         "!doc": ".instanceof(constructor)\n\n  * @param { Constructor } constructor\n  * @param { String } message_optional_\n\nAsserts that the target is an instance of constructor.\n\nvar Tea = function (name) { this.name = name; }\n  , Chai = new Tea('chai');\n\nexpect(Chai).to.be.an.instanceof(Tea);\nexpect([ 1, 2, 3 ]).to.be.instanceof(Array);",
-        "!url": "https://chaijs.com/api/bdd/#instanceof",
+        "!url": "http://chaijs.com/api/bdd/#instanceof",
         "!type": "fn(constructor: constructor, message: string) -> bool"
       },
       "property": {
         "!doc": ".property(name, [value])\n\n  * @param { String } name\n  * @param { Mixed } value(optional)\n  * @param { String } message_optional_\n\nAsserts that the target has a property name, optionally asserting that\nthe value of that property is strictly equal to  value.\nIf the deep flag is set, you can use dot- and bracket-notation for deep\nreferences into objects and arrays.You can also use an array as the starting point of a deep.property\nassertion, or traverse nested arrays.Furthermore, property changes the subject of the assertion\nto be the value of that property from the original object. This\npermits for further chainable assertions on that property.\n\n// simple referencing\nvar obj = { foo: 'bar' };\nexpect(obj).to.have.property('foo');\nexpect(obj).to.have.property('foo', 'bar');\n\n// deep referencing\nvar deepObj = {\n    green: { tea: 'matcha' }\n  , teas: [ 'chai', 'matcha', { tea: 'konacha' } ]\n};\n\nexpect(deepObj).to.have.deep.property('green.tea', 'matcha');\nexpect(deepObj).to.have.deep.property('teas[1]', 'matcha');\nexpect(deepObj).to.have.deep.property('teas[2].tea', 'konacha');var arr = [\n    [ 'chai', 'matcha', 'konacha' ]\n  , [ { tea: 'chai' }\n    , { tea: 'matcha' }\n    , { tea: 'konacha' } ]\n];\n\nexpect(arr).to.have.deep.property('[0][1]', 'matcha');\nexpect(arr).to.have.deep.property('[1][2].tea', 'konacha');expect(obj).to.have.property('foo')\n  .that.is.a('string');\nexpect(deepObj).to.have.property('green')\n  .that.is.an('object')\n  .that.deep.equals({ tea: 'matcha' });\nexpect(deepObj).to.have.property('teas')\n  .that.is.an('array')\n  .with.deep.property('[2]')\n    .that.deep.equals({ tea: 'konacha' });",
-        "!url": "https://chaijs.com/api/bdd/#property",
+        "!url": "http://chaijs.com/api/bdd/#property",
         "!type": "fn(name: string, value: [mixed], message: string) -> bool"
       },
       "ownProperty": {
         "!doc": ".ownProperty(name)\n\n  * @param { String } name\n  * @param { String } message_optional_\n\nAsserts that the target has an own property name.\n\nexpect('test').to.have.ownProperty('length');",
-        "!url": "https://chaijs.com/api/bdd/#ownProperty",
+        "!url": "http://chaijs.com/api/bdd/#ownProperty",
         "!type": "fn(name: string, message: string) -> bool"
       },
       "length": {
         "!doc": ".length(value)\n\n  * @param { Number } length\n  * @param { String } message_optional_\n\nAsserts that the target's length property has\nthe expected value.Can also be used as a chain precursor to a value\ncomparison for the length property.\n\nexpect([ 1, 2, 3]).to.have.length(3);\nexpect('foobar').to.have.length(6);expect('foo').to.have.length.above(2);\nexpect([ 1, 2, 3 ]).to.have.length.above(2);\nexpect('foo').to.have.length.below(4);\nexpect([ 1, 2, 3 ]).to.have.length.below(4);\nexpect('foo').to.have.length.within(2,4);\nexpect([ 1, 2, 3 ]).to.have.length.within(2,4);",
-        "!url": "https://chaijs.com/api/bdd/#length",
+        "!url": "http://chaijs.com/api/bdd/#length",
         "!type": "fn(length: number, message: string) -> bool"
       },
       "match": {
         "!doc": ".match(regexp)\n\n  * @param { RegExp } RegularExpression\n  * @param { String } message_optional_\n\nAsserts that the target matches a regular expression.\n\nexpect('foobar').to.match(/^foo/);",
-        "!url": "https://chaijs.com/api/bdd/#match",
+        "!url": "http://chaijs.com/api/bdd/#match",
         "!type": "fn(RegularExpression: regexp, message: string) -> bool"
       },
       "string": {
         "!doc": ".string(string)\n\n  * @param { String } string\n  * @param { String } message_optional_\n\nAsserts that the string target contains another string.\n\nexpect('foobar').to.have.string('bar');",
-        "!url": "https://chaijs.com/api/bdd/#string",
+        "!url": "http://chaijs.com/api/bdd/#string",
         "!type": "fn(string: string, message: string) -> bool"
       },
       "keys": {
         "!doc": ".keys(key1, [key2], [...])\n\n  * @param { String... | Array } keys\n\nAsserts that the target has exactly the given keys, or\nasserts the inclusion of some keys when using the\ninclude or contain modifiers.\n\nexpect({ foo: 1, bar: 2 }).to.have.keys(['foo', 'bar']);\nexpect({ foo: 1, bar: 2, baz: 3 }).to.contain.keys('foo', 'bar');",
-        "!url": "https://chaijs.com/api/bdd/#keys",
+        "!url": "http://chaijs.com/api/bdd/#keys",
         "!type": "fn(keys: string) -> bool"
       },
       "throw": {
         "!doc": ".throw(constructor)\n\n  * @param { ErrorConstructor } constructor\n  * @param { String | RegExp } expectederror message\n  * @param { String } message_optional_\n  * @seehttps://developer.mozilla.org/en/JavaScript/Reference/Global_Objects/Error#Error_types  \n\nAsserts that the function target will throw a specific error, or specific type of error\n(as determined using instanceof), optionally with a RegExp or string inclusion test\nfor the error's message.Please note that when a throw expectation is negated, it will check each\nparameter independently, starting with error constructor type. The appropriate way\nto check for the existence of a type of error but for a message that does not match\nis to use and.\n\nvar err = new ReferenceError('This is a bad function.');\nvar fn = function () { throw err; }\nexpect(fn).to.throw(ReferenceError);\nexpect(fn).to.throw(Error);\nexpect(fn).to.throw(/bad function/);\nexpect(fn).to.not.throw('good function');\nexpect(fn).to.throw(ReferenceError, /bad function/);\nexpect(fn).to.throw(err);\nexpect(fn).to.not.throw(new RangeError('Out of range.'));expect(fn).to.throw(ReferenceError)\n   .and.not.throw(/good function/);",
-        "!url": "https://chaijs.com/api/bdd/#throw",
+        "!url": "http://chaijs.com/api/bdd/#throw",
         "!type": "fn(constructor: errorconstructor, expected: string, message: string) -> bool"
       },
       "respondTo": {
         "!doc": ".respondTo(method)\n\n  * @param { String } method\n  * @param { String } message_optional_\n\nAsserts that the object or class target will respond to a method.To check if a constructor will respond to a static function,\nset the itself flag.\n\nKlass.prototype.bar = function(){};\nexpect(Klass).to.respondTo('bar');\nexpect(obj).to.respondTo('bar');Klass.baz = function(){};\nexpect(Klass).itself.to.respondTo('baz');",
-        "!url": "https://chaijs.com/api/bdd/#respondTo",
+        "!url": "http://chaijs.com/api/bdd/#respondTo",
         "!type": "fn(method: string, message: string) -> bool"
       },
       "itself": {
         "!doc": ".itself\n\n\n\nSets the itself flag, later used by the respondTo assertion.\n\nfunction Foo() {}\nFoo.bar = function() {}\nFoo.prototype.baz = function() {}\n\nexpect(Foo).itself.to.respondTo('bar');\nexpect(Foo).itself.not.to.respondTo('baz');",
-        "!url": "https://chaijs.com/api/bdd/#itself",
+        "!url": "http://chaijs.com/api/bdd/#itself",
         "!type": "fn() -> bool"
       },
       "satisfy": {
         "!doc": ".satisfy(method)\n\n  * @param { Function } matcher\n  * @param { String } message_optional_\n\nAsserts that the target passes a given truth test.\n\nexpect(1).to.satisfy(function(num) { return num > 0; });",
-        "!url": "https://chaijs.com/api/bdd/#satisfy",
+        "!url": "http://chaijs.com/api/bdd/#satisfy",
         "!type": "fn(matcher: function, message: string) -> bool"
       },
       "closeTo": {
         "!doc": ".closeTo(expected, delta)\n\n  * @param { Number } expected\n  * @param { Number } delta\n  * @param { String } message_optional_\n\nAsserts that the target is equal expected, to within a +/- delta range.\n\nexpect(1.5).to.be.closeTo(1, 0.5);",
-        "!url": "https://chaijs.com/api/bdd/#closeTo",
+        "!url": "http://chaijs.com/api/bdd/#closeTo",
         "!type": "fn(expected: number, delta: number, message: string) -> bool"
       },
       "members": {
         "!doc": ".members(set)\n\n  * @param { Array } set\n  * @param { String } message_optional_\n\nAsserts that the target is a superset of set,\nor that the target and set have the same members.\n\nexpect([1, 2, 3]).to.include.members([3, 2]);\nexpect([1, 2, 3]).to.not.include.members([3, 2, 8]);\n\nexpect([4, 2]).to.have.members([2, 4]);\nexpect([5, 2]).to.not.have.members([5, 2, 1]);",
-        "!url": "https://chaijs.com/api/bdd/#members",
+        "!url": "http://chaijs.com/api/bdd/#members",
         "!type": "fn(set: array, message: string) -> bool"
       }
     }
@@ -17604,63 +17604,63 @@ define("json!tern/defs/chai.json", function(){ return {
         }
       },
       Module: {
-        "!url": "https://docs.angularjs.org/api/angular.Module",
+        "!url": "http://docs.angularjs.org/api/angular.Module",
         "!doc": "Interface for configuring angular modules.",
         prototype: {
           animation: {
             "!type": "fn(name: string, animationFactory: fn()) -> !this",
-            "!url": "https://docs.angularjs.org/api/angular.Module#animation",
+            "!url": "http://docs.angularjs.org/api/angular.Module#animation",
             "!doc": "Defines an animation hook that can be later used with $animate service and directives that use this service."
           },
           config: {
             "!type": "fn(configFn: fn()) -> !this",
             "!effects": ["custom angular_callInject 0"],
-            "!url": "https://docs.angularjs.org/api/angular.Module#config",
+            "!url": "http://docs.angularjs.org/api/angular.Module#config",
             "!doc": "Use this method to register work which needs to be performed on module loading."
           },
           constant: "service.$provide.constant",
           controller: {
             "!type": "fn(name: string, constructor: fn()) -> !this",
             "!effects": ["custom angular_regFieldCall"],
-            "!url": "https://docs.angularjs.org/api/ng.$controllerProvider",
+            "!url": "http://docs.angularjs.org/api/ng.$controllerProvider",
             "!doc": "Register a controller."
           },
           directive: {
             "!type": "fn(name: string, directiveFactory: fn() -> directiveObj) -> !this",
             "!effects": ["custom angular_regFieldCall"],
-            "!url": "https://docs.angularjs.org/api/ng.$compileProvider#directive",
+            "!url": "http://docs.angularjs.org/api/ng.$compileProvider#directive",
             "!doc": "Register a new directive with the compiler."
           },
           factory: "service.$provide.factory",
           filter: {
             "!type": "fn(name: string, filterFactory: fn()) -> !this",
             "!effects": ["custom angular_callInject 1"],
-            "!url": "https://docs.angularjs.org/api/ng.$filterProvider",
+            "!url": "http://docs.angularjs.org/api/ng.$filterProvider",
             "!doc": "Register filter factory function."
           },
           provider: "service.$provide.provider",
           run: {
             "!type": "fn(initializationFn: fn()) -> !this",
             "!effects": ["custom angular_callInject 0"],
-            "!url": "https://docs.angularjs.org/api/angular.Module#run",
+            "!url": "http://docs.angularjs.org/api/angular.Module#run",
             "!doc": "Register work which should be performed when the injector is done loading all modules."
           },
           service: "service.$provide.service",
           value: "service.$provide.value",
           name: {
             "!type": "string",
-            "!url": "https://docs.angularjs.org/api/angular.Module#name",
+            "!url": "http://docs.angularjs.org/api/angular.Module#name",
             "!doc": "Name of the module."
           },
           requires: {
             "!type": "[string]",
-            "!url": "https://docs.angularjs.org/api/angular.Module#requires",
+            "!url": "http://docs.angularjs.org/api/angular.Module#requires",
             "!doc": "List of module names which must be loaded before this module."
           }
         }
       },
       Promise: {
-        "!url": "https://docs.angularjs.org/api/ng.$q",
+        "!url": "http://docs.angularjs.org/api/ng.$q",
         "!doc": "Allow for interested parties to get access to the result of the deferred task when it completes.",
         prototype: {
           then: "fn(successCallback: fn(value: ?), errorCallback: fn(reason: ?), notifyCallback: fn(value: ?)) -> +Promise",
@@ -17671,7 +17671,7 @@ define("json!tern/defs/chai.json", function(){ return {
         }
       },
       Deferred: {
-        "!url": "https://docs.angularjs.org/api/ng.$q",
+        "!url": "http://docs.angularjs.org/api/ng.$q",
         prototype: {
           resolve: "fn(value: ?)",
           reject: "fn(reason: ?)",
@@ -17680,14 +17680,14 @@ define("json!tern/defs/chai.json", function(){ return {
         }
       },
       ResourceClass: {
-        "!url": "https://docs.angularjs.org/api/ngResource.$resource",
+        "!url": "http://docs.angularjs.org/api/ngResource.$resource",
         prototype: {
           $promise: "+Promise",
           $save: "fn()"
         }
       },
       Resource: {
-        "!url": "https://docs.angularjs.org/api/ngResource.$resource",
+        "!url": "http://docs.angularjs.org/api/ngResource.$resource",
         prototype: {
           get: "fn(params: ?, callback: fn()) -> +ResourceClass",
           save: "fn(params: ?, callback: fn()) -> +ResourceClass",
@@ -17699,71 +17699,71 @@ define("json!tern/defs/chai.json", function(){ return {
       service: {
         $anchorScroll: {
           "!type": "fn()",
-          "!url": "https://docs.angularjs.org/api/ng.$anchorScroll",
+          "!url": "http://docs.angularjs.org/api/ng.$anchorScroll",
           "!doc": "Checks current value of $location.hash() and scroll to related element."
         },
         $animate: {
-          "!url": "https://docs.angularjs.org/api/ng.$animate",
+          "!url": "http://docs.angularjs.org/api/ng.$animate",
           "!doc": "Rudimentary DOM manipulation functions to insert, remove, move elements within the DOM.",
           addClass: {
             "!type": "fn(element: +Element, className: string, done?: fn()) -> !this",
-            "!url": "https://docs.angularjs.org/api/ng.$animate#addClass",
+            "!url": "http://docs.angularjs.org/api/ng.$animate#addClass",
             "!doc": "Adds the provided className CSS class value to the provided element."
           },
           enter: {
             "!type": "fn(element: +Element, parent: +Element, after: +Element, done?: fn()) -> !this",
-            "!url": "https://docs.angularjs.org/api/ng.$animate#enter",
+            "!url": "http://docs.angularjs.org/api/ng.$animate#enter",
             "!doc": "Inserts the element into the DOM either after the after element or within the parent element."
           },
           leave: {
             "!type": "fn(element: +Element, done?: fn()) -> !this",
-            "!url": "https://docs.angularjs.org/api/ng.$animate#leave",
+            "!url": "http://docs.angularjs.org/api/ng.$animate#leave",
             "!doc": "Removes the element from the DOM."
           },
           move: {
             "!type": "fn(element: +Element, parent: +Element, after: +Element, done?: fn()) -> !this",
-            "!url": "https://docs.angularjs.org/api/ng.$animate#move",
+            "!url": "http://docs.angularjs.org/api/ng.$animate#move",
             "!doc": "Moves element to be placed either after the after element or inside of the parent element."
           },
           removeClass: {
             "!type": "fn(element: +Element, className: string, done?: fn()) -> !this",
-            "!url": "https://docs.angularjs.org/api/ng.$animate#removeClass",
+            "!url": "http://docs.angularjs.org/api/ng.$animate#removeClass",
             "!doc": "Removes the provided className CSS class value from the provided element."
           }
         },
         $cacheFactory: {
           "!type": "fn(cacheId: string, options?: ?) -> cacheObj",
-          "!url": "https://docs.angularjs.org/api/ng.$cacheFactory",
+          "!url": "http://docs.angularjs.org/api/ng.$cacheFactory",
           "!doc": "Factory that constructs cache objects and gives access to them."
         },
         $compile: {
           "!type": "fn(element: +Element, transclude: fn(scope: ?), maxPriority: number)",
-          "!url": "https://docs.angularjs.org/api/ng.$compile",
+          "!url": "http://docs.angularjs.org/api/ng.$compile",
           "!doc": "Compiles a piece of HTML string or DOM into a template and produces a template function."
         },
         $controller: {
           "!type": "fn(controller: fn(), locals: ?) -> ?",
-          "!url": "https://docs.angularjs.org/api/ng.$controller",
+          "!url": "http://docs.angularjs.org/api/ng.$controller",
           "!doc": "Instantiates controllers."
         },
         $document: {
           "!type": "jQuery.fn",
-          "!url": "https://docs.angularjs.org/api/ng.$document",
+          "!url": "http://docs.angularjs.org/api/ng.$document",
           "!doc": "A jQuery (lite)-wrapped reference to the browser's window.document element."
         },
         $exceptionHandler: {
           "!type": "fn(exception: +Error, cause?: string)",
-          "!url": "https://docs.angularjs.org/api/ng.$exceptionHandler",
+          "!url": "http://docs.angularjs.org/api/ng.$exceptionHandler",
           "!doc": "Any uncaught exception in angular expressions is delegated to this service."
         },
         $filter: {
           "!type": "fn(name: string) -> fn(input: string) -> string",
-          "!url": "https://docs.angularjs.org/api/ng.$filter",
+          "!url": "http://docs.angularjs.org/api/ng.$filter",
           "!doc": "Retrieve a filter function."
         },
         $http: {
           "!type": "fn(config: ?) -> service.$q",
-          "!url": "https://docs.angularjs.org/api/ng.$http",
+          "!url": "http://docs.angularjs.org/api/ng.$http",
           "!doc": "Facilitates communication with remote HTTP servers.",
           "delete": "fn(url: string, config?: ?) -> +Promise",
           get: "fn(url: string, config?: ?) -> +Promise",
@@ -17774,186 +17774,186 @@ define("json!tern/defs/chai.json", function(){ return {
         },
         $interpolate: {
           "!type": "fn(text: string, mustHaveExpression?: bool, trustedContext?: string) -> fn(context: ?) -> string",
-          "!url": "https://docs.angularjs.org/api/ng.$interpolate",
+          "!url": "http://docs.angularjs.org/api/ng.$interpolate",
           "!doc": "Compiles a string with markup into an interpolation function."
         },
         $locale: {
-          "!url": "https://docs.angularjs.org/api/ng.$locale",
+          "!url": "http://docs.angularjs.org/api/ng.$locale",
           id: "string"
         },
         $location: {
-          "!url": "https://docs.angularjs.org/api/ng.$location",
+          "!url": "http://docs.angularjs.org/api/ng.$location",
           "!doc": "Parses the URL in the browser address bar.",
           absUrl: {
             "!type": "fn() -> string",
-            "!url": "https://docs.angularjs.org/api/ng.$location#absUrl",
+            "!url": "http://docs.angularjs.org/api/ng.$location#absUrl",
             "!doc": "Return full url representation."
           },
           hash: {
             "!type": "fn(value?: string) -> string",
-            "!url": "https://docs.angularjs.org/api/ng.$location#hash",
+            "!url": "http://docs.angularjs.org/api/ng.$location#hash",
             "!doc": "Get or set the hash fragment."
           },
           host: {
             "!type": "fn() -> string",
-            "!url": "https://docs.angularjs.org/api/ng.$location#host",
+            "!url": "http://docs.angularjs.org/api/ng.$location#host",
             "!doc": "Return host of current url."
           },
           path: {
             "!type": "fn(value?: string) -> string",
-            "!url": "https://docs.angularjs.org/api/ng.$location#path",
+            "!url": "http://docs.angularjs.org/api/ng.$location#path",
             "!doc": "Get or set the URL path."
           },
           port: {
             "!type": "fn() -> number",
-            "!url": "https://docs.angularjs.org/api/ng.$location#port",
+            "!url": "http://docs.angularjs.org/api/ng.$location#port",
             "!doc": "Returns the port of the current url."
           },
           protocol: {
             "!type": "fn() -> string",
-            "!url": "https://docs.angularjs.org/api/ng.$location#protocol",
+            "!url": "http://docs.angularjs.org/api/ng.$location#protocol",
             "!doc": "Return protocol of current url."
           },
           replace: {
             "!type": "fn()",
-            "!url": "https://docs.angularjs.org/api/ng.$location#replace",
+            "!url": "http://docs.angularjs.org/api/ng.$location#replace",
             "!doc": "Changes to $location during current $digest will be replacing current history record, instead of adding new one."
           },
           search: {
             "!type": "fn(search: string, paramValue?: string) -> string",
-            "!url": "https://docs.angularjs.org/api/ng.$location#search",
+            "!url": "http://docs.angularjs.org/api/ng.$location#search",
             "!doc": "Get or set the URL query."
           },
           url: {
             "!type": "fn(url: string, replace?: string) -> string",
-            "!url": "https://docs.angularjs.org/api/ng.$location#url",
+            "!url": "http://docs.angularjs.org/api/ng.$location#url",
             "!doc": "Get or set the current url."
           }
         },
         $log: {
-          "!url": "https://docs.angularjs.org/api/ng.$log",
+          "!url": "http://docs.angularjs.org/api/ng.$log",
           "!doc": "Simple service for logging.",
           debug: {
             "!type": "fn(message: string)",
-            "!url": "https://docs.angularjs.org/api/ng.$log#debug",
+            "!url": "http://docs.angularjs.org/api/ng.$log#debug",
             "!doc": "Write a debug message."
           },
           error: {
             "!type": "fn(message: string)",
-            "!url": "https://docs.angularjs.org/api/ng.$log#error",
+            "!url": "http://docs.angularjs.org/api/ng.$log#error",
             "!doc": "Write an error message."
           },
           info: {
             "!type": "fn(message: string)",
-            "!url": "https://docs.angularjs.org/api/ng.$log#info",
+            "!url": "http://docs.angularjs.org/api/ng.$log#info",
             "!doc": "Write an info message."
           },
           log: {
             "!type": "fn(message: string)",
-            "!url": "https://docs.angularjs.org/api/ng.$log#log",
+            "!url": "http://docs.angularjs.org/api/ng.$log#log",
             "!doc": "Write a log message."
           },
           warn: {
             "!type": "fn(message: string)",
-            "!url": "https://docs.angularjs.org/api/ng.$log#warn",
+            "!url": "http://docs.angularjs.org/api/ng.$log#warn",
             "!doc": "Write a warning message."
           }
         },
         $parse: {
           "!type": "fn(expression: string) -> fn(context: ?, locals: ?) -> ?",
-          "!url": "https://docs.angularjs.org/api/ng.$parse",
+          "!url": "http://docs.angularjs.org/api/ng.$parse",
           "!doc": "Converts Angular expression into a function."
         },
         $q: {
           "!type": "fn(executor: fn(resolve: fn(value: ?) -> +Promise, reject: fn(value: ?) -> +Promise)) -> +Promise",
-          "!url": "https://docs.angularjs.org/api/ng.$q",
+          "!url": "http://docs.angularjs.org/api/ng.$q",
           "!doc": "A promise/deferred implementation.",
           all: {
             "!type": "fn(promises: [+Promise]) -> +Promise",
-            "!url": "https://docs.angularjs.org/api/ng.$q#all",
+            "!url": "http://docs.angularjs.org/api/ng.$q#all",
             "!doc": "Combines multiple promises into a single promise."
           },
           defer: {
             "!type": "fn() -> +Deferred",
-            "!url": "https://docs.angularjs.org/api/ng.$q#defer",
+            "!url": "http://docs.angularjs.org/api/ng.$q#defer",
             "!doc": "Creates a Deferred object which represents a task which will finish in the future."
           },
           reject: {
             "!type": "fn(reason: ?) -> +Promise",
-            "!url": "https://docs.angularjs.org/api/ng.$q#reject",
+            "!url": "http://docs.angularjs.org/api/ng.$q#reject",
             "!doc": "Creates a promise that is resolved as rejected with the specified reason."
           },
           when: {
             "!type": "fn(value: ?) -> +Promise",
-            "!url": "https://docs.angularjs.org/api/ng.$q#when",
+            "!url": "http://docs.angularjs.org/api/ng.$q#when",
             "!doc": "Wraps an object that might be a value or a (3rd party) then-able promise into a $q promise."
           }
         },
         $rootElement: {
           "!type": "+Element",
-          "!url": "https://docs.angularjs.org/api/ng.$rootElement",
+          "!url": "http://docs.angularjs.org/api/ng.$rootElement",
           "!doc": "The root element of Angular application."
         },
         $rootScope: {
-          "!url": "https://docs.angularjs.org/api/ng.$rootScope",
+          "!url": "http://docs.angularjs.org/api/ng.$rootScope",
           $apply: {
             "!type": "fn(expression: string)",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$apply",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$apply",
             "!doc": "Execute an expression in angular from outside of the angular framework."
           },
           $broadcast: {
             "!type": "fn(name: string, args?: ?) -> eventObj",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$broadcast",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$broadcast",
             "!doc": "Dispatches an event name downwards to all child scopes."
           },
           $destroy: {
             "!type": "fn()",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$destroy",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$destroy",
             "!doc": "Removes the current scope (and all of its children) from the parent scope."
           },
           $digest: {
             "!type": "fn()",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$digest",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$digest",
             "!doc": "Processes all of the watchers of the current scope and its children."
           },
           $emit: {
             "!type": "fn(name: string, args?: ?) -> eventObj",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$emit",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$emit",
             "!doc": "Dispatches an event name upwards through the scope hierarchy."
           },
           $eval: {
             "!type": "fn(expression: string) -> ?",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$eval",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$eval",
             "!doc": "Executes the expression on the current scope and returns the result."
           },
           $evalAsync: {
             "!type": "fn(expression: string)",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$evalAsync",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$evalAsync",
             "!doc": "Executes the expression on the current scope at a later point in time."
           },
           $new: {
             "!type": "fn(isolate: bool) -> service.$rootScope",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$new",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$new",
             "!doc": "Creates a new child scope."
           },
           $on: {
             "!type": "fn(name: string, listener: fn(event: ?)) -> fn()",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$on",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$on",
             "!doc": "Listens on events of a given type."
           },
           $watch: {
             "!type": "fn(watchExpression: string, listener?: fn(), objectEquality?: bool) -> fn()",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$watch",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$watch",
             "!doc": "Registers a listener callback to be executed whenever the watchExpression changes."
           },
           $watchCollection: {
             "!type": "fn(obj: string, listener: fn()) -> fn()",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$watchCollection",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$watchCollection",
             "!doc": "Shallow watches the properties of an object and fires whenever any of the properties."
           },
           $id: {
             "!type": "number",
-            "!url": "https://docs.angularjs.org/api/ng.$rootScope.Scope#$id",
+            "!url": "http://docs.angularjs.org/api/ng.$rootScope.Scope#$id",
             "!doc": "Unique scope ID."
           }
         },
@@ -17983,105 +17983,105 @@ define("json!tern/defs/chai.json", function(){ return {
           isEnabled: "fn() -> bool"
         },
         $templateCache: {
-          "!url": "https://docs.angularjs.org/api/ng.$templateCache",
+          "!url": "http://docs.angularjs.org/api/ng.$templateCache",
           "!proto": "cacheObj"
         },
         $timeout: {
           "!type": "fn(fn: fn(), delay?: number, invokeApply?: bool) -> +Promise",
-          "!url": "https://docs.angularjs.org/api/ng.$timeout",
+          "!url": "http://docs.angularjs.org/api/ng.$timeout",
           "!doc": "Angular's wrapper for window.setTimeout.",
           cancel: "fn(promise: +Promise)"
         },
         $window: "<top>",
         $injector: {
-          "!url": "https://docs.angularjs.org/api/AUTO.$injector",
+          "!url": "http://docs.angularjs.org/api/AUTO.$injector",
           "!doc": "Retrieve object instances as defined by provider.",
           annotate: {
             "!type": "fn(f: fn()) -> [string]",
-            "!url": "https://docs.angularjs.org/api/AUTO.$injector#annotate",
+            "!url": "http://docs.angularjs.org/api/AUTO.$injector#annotate",
             "!doc": "Returns an array of service names which the function is requesting for injection."
           },
           get: {
             "!type": "fn(name: string) -> ?",
-            "!url": "https://docs.angularjs.org/api/AUTO.$injector#get",
+            "!url": "http://docs.angularjs.org/api/AUTO.$injector#get",
             "!doc": "Return an instance of a service."
           },
           has: {
             "!type": "fn(name: string) -> bool",
-            "!url": "https://docs.angularjs.org/api/AUTO.$injector#has",
+            "!url": "http://docs.angularjs.org/api/AUTO.$injector#has",
             "!doc": "Allows the user to query if the particular service exist."
           },
           instantiate: {
             "!type": "fn(type: fn(), locals?: ?) -> +!0",
-            "!url": "https://docs.angularjs.org/api/AUTO.$injector#instantiate",
+            "!url": "http://docs.angularjs.org/api/AUTO.$injector#instantiate",
             "!doc": "Create a new instance of JS type."
           },
           invoke: {
             "!type": "fn(type: fn(), self?: ?, locals?: ?) -> !0.!ret",
-            "!url": "https://docs.angularjs.org/api/AUTO.$injector#invoke",
+            "!url": "http://docs.angularjs.org/api/AUTO.$injector#invoke",
             "!doc": "Invoke the method and supply the method arguments from the $injector."
           }
         },
         $provide: {
-          "!url": "https://docs.angularjs.org/api/AUTO.$provide",
+          "!url": "http://docs.angularjs.org/api/AUTO.$provide",
           "!doc": "Use $provide to register new providers with the $injector.",
           constant: {
             "!type": "fn(name: string, value: ?) -> !this",
             "!effects": ["custom angular_regField"],
-            "!url": "https://docs.angularjs.org/api/AUTO.$provide#constant",
+            "!url": "http://docs.angularjs.org/api/AUTO.$provide#constant",
             "!doc": "A constant value."
           },
           decorator: {
             "!type": "fn(name: string, decorator: fn())",
             "!effects": ["custom angular_regFieldCall"],
-            "!url": "https://docs.angularjs.org/api/AUTO.$provide#decorator",
+            "!url": "http://docs.angularjs.org/api/AUTO.$provide#decorator",
             "!doc": "Decoration of service, allows the decorator to intercept the service instance creation."
           },
           factory: {
             "!type": "fn(name: string, providerFunction: fn()) -> !this",
             "!effects": ["custom angular_regFieldCall"],
-            "!url": "https://docs.angularjs.org/api/AUTO.$provide#factory",
+            "!url": "http://docs.angularjs.org/api/AUTO.$provide#factory",
             "!doc": "A short hand for configuring services if only $get method is required."
           },
           provider: {
             "!type": "fn(name: string, providerType: fn()) -> !this",
             "!effects": ["custom angular_regFieldCall"],
-            "!url": "https://docs.angularjs.org/api/AUTO.$provide#provider",
+            "!url": "http://docs.angularjs.org/api/AUTO.$provide#provider",
             "!doc": "Register a provider for a service."
           },
           service: {
             "!type": "fn(name: string, constructor: fn()) -> !this",
             "!effects": ["custom angular_regFieldNew"],
-            "!url": "https://docs.angularjs.org/api/AUTO.$provide#provider",
+            "!url": "http://docs.angularjs.org/api/AUTO.$provide#provider",
             "!doc": "Register a provider for a service."
           },
           value: {
             "!type": "fn(name: string, object: ?) -> !this",
             "!effects": ["custom angular_regField"],
-            "!url": "https://docs.angularjs.org/api/AUTO.$providevalue",
+            "!url": "http://docs.angularjs.org/api/AUTO.$providevalue",
             "!doc": "A short hand for configuring services if the $get method is a constant."
           }
         },
         $cookies: {
-          "!url": "https://docs.angularjs.org/api/ngCookies.$cookies",
+          "!url": "http://docs.angularjs.org/api/ngCookies.$cookies",
           "!doc": "Provides read/write access to browser's cookies.",
           text: "string"
         },
         $resource: {
           "!type": "fn(url: string, paramDefaults?: ?, actions?: ?) -> +Resource",
-          "!url": "https://docs.angularjs.org/api/ngResource.$resource",
+          "!url": "http://docs.angularjs.org/api/ngResource.$resource",
           "!doc": "Creates a resource object that lets you interact with RESTful server-side data sources."
         },
         $route: {
-          "!url": "https://docs.angularjs.org/api/ngRoute.$route",
+          "!url": "http://docs.angularjs.org/api/ngRoute.$route",
           "!doc": "Deep-link URLs to controllers and views.",
           reload: {
             "!type": "fn()",
-            "!url": "https://docs.angularjs.org/api/ngRoute.$route#reload",
+            "!url": "http://docs.angularjs.org/api/ngRoute.$route#reload",
             "!doc": "Reload the current route even if $location hasn't changed."
           },
           current: {
-            "!url": "https://docs.angularjs.org/api/ngRoute.$route#current",
+            "!url": "http://docs.angularjs.org/api/ngRoute.$route#current",
             "!doc": "Reference to the current route definition.",
             controller: "?",
             locals: "?"
@@ -18090,15 +18090,15 @@ define("json!tern/defs/chai.json", function(){ return {
         },
         $sanitize: {
           "!type": "fn(string) -> string",
-          "!url": "https://docs.angularjs.org/api/ngSanitize.$sanitize",
+          "!url": "http://docs.angularjs.org/api/ngSanitize.$sanitize",
           "!doc": "Sanitize HTML input."
         },
         $swipe: {
-          "!url": "https://docs.angularjs.org/api/ngTouch.$swipe",
+          "!url": "http://docs.angularjs.org/api/ngTouch.$swipe",
           "!doc": "A service that abstracts the messier details of hold-and-drag swipe behavior.",
           bind: {
             "!type": "fn(element: +Element, handlers: ?)",
-            "!url": "https://docs.angularjs.org/api/ngTouch.$swipe#bind",
+            "!url": "http://docs.angularjs.org/api/ngTouch.$swipe#bind",
             "!doc": "Abstracts the messier details of hold-and-drag swipe behavior."
           }
         }
@@ -18107,128 +18107,128 @@ define("json!tern/defs/chai.json", function(){ return {
     angular: {
       bind: {
         "!type": "fn(self: ?, fn: fn(), args?: ?) -> !custom:angular_bind",
-        "!url": "https://docs.angularjs.org/api/angular.bind",
+        "!url": "http://docs.angularjs.org/api/angular.bind",
         "!doc": "Returns a function which calls function fn bound to self."
       },
       bootstrap: {
         "!type": "fn(element: +Element, modules?: [string]) -> service.$injector",
-        "!url": "https://docs.angularjs.org/api/angular.bootstrap",
+        "!url": "http://docs.angularjs.org/api/angular.bootstrap",
         "!doc": "Use this function to manually start up angular application."
       },
       copy: {
         "!type": "fn(source: ?, target?: ?) -> !0",
-        "!url": "https://docs.angularjs.org/api/angular.copy",
+        "!url": "http://docs.angularjs.org/api/angular.copy",
         "!doc": "Creates a deep copy of source, which should be an object or an array."
       },
       element: {
         "!type": "fn(element: +Element) -> jQuery.fn",
-        "!url": "https://docs.angularjs.org/api/angular.element",
+        "!url": "http://docs.angularjs.org/api/angular.element",
         "!doc": "Wraps a raw DOM element or HTML string as a jQuery element."
       },
       equals: {
         "!type": "fn(o1: ?, o2: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.equals",
+        "!url": "http://docs.angularjs.org/api/angular.equals",
         "!doc": "Determines if two objects or two values are equivalent."
       },
       extend: {
         "!type": "fn(dst: ?, src: ?) -> !0",
-        "!url": "https://docs.angularjs.org/api/angular.extend",
+        "!url": "http://docs.angularjs.org/api/angular.extend",
         "!doc": "Extends the destination object dst by copying all of the properties from the src object(s) to dst."
       },
       forEach: {
         "!type": "fn(obj: ?, iterator: fn(value: ?, key: ?), context?: ?) -> !0",
         "!effects": ["call !1 this=!2 !0.<i> number"],
-        "!url": "https://docs.angularjs.org/api/angular.forEach",
+        "!url": "http://docs.angularjs.org/api/angular.forEach",
         "!doc": "Invokes the iterator function once for each item in obj collection, which can be either an object or an array."
       },
       fromJson: {
         "!type": "fn(json: string) -> ?",
-        "!url": "https://docs.angularjs.org/api/angular.fromJson",
+        "!url": "http://docs.angularjs.org/api/angular.fromJson",
         "!doc": "Deserializes a JSON string."
       },
       identity: {
         "!type": "fn(val: ?) -> !0",
-        "!url": "https://docs.angularjs.org/api/angular.identity",
+        "!url": "http://docs.angularjs.org/api/angular.identity",
         "!doc": "A function that returns its first argument."
       },
       injector: {
         "!type": "fn(modules: [string]) -> service.$injector",
-        "!url": "https://docs.angularjs.org/api/angular.injector",
+        "!url": "http://docs.angularjs.org/api/angular.injector",
         "!doc": "Creates an injector function"
       },
       isArray: {
         "!type": "fn(val: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.isArray",
+        "!url": "http://docs.angularjs.org/api/angular.isArray",
         "!doc": "Determines if a reference is an Array."
       },
       isDate: {
         "!type": "fn(val: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.isDate",
+        "!url": "http://docs.angularjs.org/api/angular.isDate",
         "!doc": "Determines if a reference is a date."
       },
       isDefined: {
         "!type": "fn(val: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.isDefined",
+        "!url": "http://docs.angularjs.org/api/angular.isDefined",
         "!doc": "Determines if a reference is defined."
       },
       isElement: {
         "!type": "fn(val: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.isElement",
+        "!url": "http://docs.angularjs.org/api/angular.isElement",
         "!doc": "Determines if a reference is a DOM element."
       },
       isFunction: {
         "!type": "fn(val: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.isFunction",
+        "!url": "http://docs.angularjs.org/api/angular.isFunction",
         "!doc": "Determines if a reference is a function."
       },
       isNumber: {
         "!type": "fn(val: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.isNumber",
+        "!url": "http://docs.angularjs.org/api/angular.isNumber",
         "!doc": "Determines if a reference is a number."
       },
       isObject: {
         "!type": "fn(val: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.isObject",
+        "!url": "http://docs.angularjs.org/api/angular.isObject",
         "!doc": "Determines if a reference is an object."
       },
       isString: {
         "!type": "fn(val: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.isString",
+        "!url": "http://docs.angularjs.org/api/angular.isString",
         "!doc": "Determines if a reference is a string."
       },
       isUndefined: {
         "!type": "fn(val: ?) -> bool",
-        "!url": "https://docs.angularjs.org/api/angular.isUndefined",
+        "!url": "http://docs.angularjs.org/api/angular.isUndefined",
         "!doc": "Determines if a reference is undefined."
       },
       lowercase: {
         "!type": "fn(val: string) -> string",
-        "!url": "https://docs.angularjs.org/api/angular.lowercase",
+        "!url": "http://docs.angularjs.org/api/angular.lowercase",
         "!doc": "Converts the specified string to lowercase."
       },
       module: {
         "!type": "fn(name: string, deps: [string]) -> !custom:angular_module",
-        "!url": "https://docs.angularjs.org/api/angular.module",
+        "!url": "http://docs.angularjs.org/api/angular.module",
         "!doc": "A global place for creating, registering and retrieving Angular modules."
       },
       Module: "Module",
       noop: {
         "!type": "fn()",
-        "!url": "https://docs.angularjs.org/api/angular.noop",
+        "!url": "http://docs.angularjs.org/api/angular.noop",
         "!doc": "A function that performs no operations."
       },
       toJson: {
         "!type": "fn(val: ?) -> string",
-        "!url": "https://docs.angularjs.org/api/angular.toJson",
+        "!url": "http://docs.angularjs.org/api/angular.toJson",
         "!doc": "Serializes input into a JSON-formatted string."
       },
       uppercase: {
         "!type": "fn(string) -> string",
-        "!url": "https://docs.angularjs.org/api/angular.uppercase",
+        "!url": "http://docs.angularjs.org/api/angular.uppercase",
         "!doc": "Converts the specified string to uppercase."
       },
       version: {
-        "!url": "https://docs.angularjs.org/api/angular.version",
+        "!url": "http://docs.angularjs.org/api/angular.version",
         full: "string",
         major: "number",
         minor: "number",
@@ -23425,86 +23425,86 @@ define('javascript/ternPlugins/resolver',[
         config: "fn() -> ?"
       },
       config: {
-        "!url": "https://requirejs.org/docs/api.html#config",
+        "!url": "http://requirejs.org/docs/api.html#config",
         baseUrl: {
           "!type": "string",
           "!doc": "the root path to use for all module lookups",
-          "!url": "https://requirejs.org/docs/api.html#config-baseUrl"
+          "!url": "http://requirejs.org/docs/api.html#config-baseUrl"
         },
         paths: {
           "!type": "?",
-          "!doc": "path mappings for module names not found directly under baseUrl. The path settings are assumed to be relative to baseUrl, unless the paths setting starts with a '/' or has a URL protocol in it ('like https:').",
-          "!url": "https://requirejs.org/docs/api.html#config-paths"
+          "!doc": "path mappings for module names not found directly under baseUrl. The path settings are assumed to be relative to baseUrl, unless the paths setting starts with a '/' or has a URL protocol in it ('like http:').",
+          "!url": "http://requirejs.org/docs/api.html#config-paths"
         },
         shim: {
           "!type": "?",
           "!doc": "Configure the dependencies, exports, and custom initialization for older, traditional 'browser globals' scripts that do not use define() to declare the dependencies and set a module value.",
-          "!url": "https://requirejs.org/docs/api.html#config-shim"
+          "!url": "http://requirejs.org/docs/api.html#config-shim"
         },
         map: {
           "!type": "?",
           "!doc": "For the given module prefix, instead of loading the module with the given ID, substitute a different module ID.",
-          "!url": "https://requirejs.org/docs/api.html#config-map"
+          "!url": "http://requirejs.org/docs/api.html#config-map"
         },
         config: {
           "!type": "?",
           "!doc": "There is a common need to pass configuration info to a module. That configuration info is usually known as part of the application, and there needs to be a way to pass that down to a module. In RequireJS, that is done with the config option for requirejs.config(). Modules can then read that info by asking for the special dependency 'module' and calling module.config().",
-          "!url": "https://requirejs.org/docs/api.html#config-moduleconfig"
+          "!url": "http://requirejs.org/docs/api.html#config-moduleconfig"
         },
         packages: {
           "!type": "?",
           "!doc": "configures loading modules from CommonJS packages. See the packages topic for more information.",
-          "!url": "https://requirejs.org/docs/api.html#config-packages"
+          "!url": "http://requirejs.org/docs/api.html#config-packages"
         },
         nodeIdCompat: {
           "!type": "?",
           "!doc": "Node treats module ID example.js and example the same. By default these are two different IDs in RequireJS. If you end up using modules installed from npm, then you may need to set this config value to true to avoid resolution issues.",
-          "!url": "https://requirejs.org/docs/api.html#config-nodeIdCompat"
+          "!url": "http://requirejs.org/docs/api.html#config-nodeIdCompat"
         },
         waitSeconds: {
           "!type": "number",
           "!doc": "The number of seconds to wait before giving up on loading a script. Setting it to 0 disables the timeout. The default is 7 seconds.",
-          "!url": "https://requirejs.org/docs/api.html#config-waitSeconds"
+          "!url": "http://requirejs.org/docs/api.html#config-waitSeconds"
         },
         context: {
           "!type": "number",
           "!doc": "A name to give to a loading context. This allows require.js to load multiple versions of modules in a page, as long as each top-level require call specifies a unique context string. To use it correctly, see the Multiversion Support section.",
-          "!url": "https://requirejs.org/docs/api.html#config-context"
+          "!url": "http://requirejs.org/docs/api.html#config-context"
         },
         deps: {
           "!type": "?",
           "!doc": "An array of dependencies to load. Useful when require is defined as a config object before require.js is loaded, and you want to specify dependencies to load as soon as require() is defined. Using deps is just like doing a require([]) call, but done as soon as the loader has processed the configuration. It does not block any other require() calls from starting their requests for modules, it is just a way to specify some modules to load asynchronously as part of a config block.",
-          "!url": "https://requirejs.org/docs/api.html#config-deps"
+          "!url": "http://requirejs.org/docs/api.html#config-deps"
         },
         callback: {
           "!type": "fn()",
           "!doc": "A function to execute after deps have been loaded. Useful when require is defined as a config object before require.js is loaded, and you want to specify a function to require after the configuration's deps array has been loaded.",
-          "!url": "https://requirejs.org/docs/api.html#config-callback"
+          "!url": "http://requirejs.org/docs/api.html#config-callback"
         },
         enforceDefine: {
           "!type": "bool",
           "!doc": "If set to true, an error will be thrown if a script loads that does not call define() or have a shim exports string value that can be checked. See Catching load failures in IE for more information.",
-          "!url": "https://requirejs.org/docs/api.html#config-enforceDefine"
+          "!url": "http://requirejs.org/docs/api.html#config-enforceDefine"
         },
         xhtml: {
           "!type": "bool",
           "!doc": "If set to true, document.createElementNS() will be used to create script elements.",
-          "!url": "https://requirejs.org/docs/api.html#config-xhtml"
+          "!url": "http://requirejs.org/docs/api.html#config-xhtml"
         },
         urlArgs: {
           "!type": "string",
           "!doc": "Extra query string arguments appended to URLs that RequireJS uses to fetch resources. Most useful to cache bust when the browser or server is not configured correctly.",
-          "!url": "https://requirejs.org/docs/api.html#config-urlArgs"
+          "!url": "http://requirejs.org/docs/api.html#config-urlArgs"
         },
         scriptType: {
           "!type": "string",
           "!doc": "Specify the value for the type='' attribute used for script tags inserted into the document by RequireJS. Default is 'text/javascript'. To use Firefox's JavaScript 1.8 features, use 'text/javascript;version=1.8'.",
-          "!url": "https://requirejs.org/docs/api.html#config-scriptType"
+          "!url": "http://requirejs.org/docs/api.html#config-scriptType"
         },
         skipDataMain: {
           "!type": "bool",
           "!doc": "Introduced in RequireJS 2.1.9: If set to true, skips the data-main attribute scanning done to start module loading. Useful if RequireJS is embedded in a utility library that may interact with other RequireJS library on the page, and the embedded version should not do data-main loading.",
-          "!url": "https://requirejs.org/docs/api.html#config-skipDataMain"
+          "!url": "http://requirejs.org/docs/api.html#config-skipDataMain"
         }
       },
       RequireJSError: {
@@ -23513,12 +23513,12 @@ define('javascript/ternPlugins/resolver',[
           "requireType": {
             "!type": "string",
             "!doc": "A string value with a general classification, like 'timeout', 'nodefine', 'scripterror'.",
-            "!url": "https://requirejs.org/docs/api.html#errors"
+            "!url": "http://requirejs.org/docs/api.html#errors"
           },
           "requireModules": {
             "!type": "[string]",
             "!doc": "An array of module names/URLs that timed out.",
-            "!url": "https://requirejs.org/docs/api.html#errors"
+            "!url": "http://requirejs.org/docs/api.html#errors"
           }
         }
       }
@@ -23528,7 +23528,7 @@ define('javascript/ternPlugins/resolver',[
       onError: {
         "!type": "fn(err: +RequireJSError)",
         "!doc": "To detect errors that are not caught by local errbacks, you can override requirejs.onError()",
-        "!url": "https://requirejs.org/docs/api.html#requirejsonerror"
+        "!url": "http://requirejs.org/docs/api.html#requirejsonerror"
       },
       load: {
         "!type": "fn(context: ?, moduleName: string, url: string)"
@@ -24413,12 +24413,12 @@ module.exports={
     {
       "name": "Yusuke Suzuki",
       "email": "utatane.tea@gmail.com",
-      "web": "https://github.com/Constellation"
+      "web": "http://github.com/Constellation"
     }
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/estools/estraverse.git"
+    "url": "http://github.com/estools/estraverse.git"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.3.13",
@@ -36865,7 +36865,7 @@ define('eslint/lib/load-rules-async',[
 				// any tab after a space /
 				var lineStart = /^(?=[\t ]* \t)/; // smart-tabs enabled
 				//var lineStart = /^(?=[\t ]*( \t|\t ))/; // smart-tabs disabled
-				//var lineStart = /^(?:<script>)*(?=[\t ]* \t)/; // include <script> at start of line
+
 				/**
 				 * @description Check the Program node in the AST (the whole AST)
 				 * @param {Object} node The AST node
@@ -43776,6 +43776,13 @@ define('javascript/ternPlugins/eslint',[
 							range: element.related.range
 						};
 					}
+					// Don't insert annotations at Program node start (0) as we may be in a HTML file script block
+					if (strippedMessage.node && strippedMessage.nodeType === 'Program'){
+						strippedMessage.line = undefined;
+						strippedMessage.column = undefined;
+						var programStartRange = Finder.findProgramStartRange(file.ast);
+						strippedMessage.node.range = programStartRange;
+					}
 					strippedMessages.push(strippedMessage);
 				});
 			} catch(e) {
@@ -43804,8 +43811,8 @@ define('javascript/ternPlugins/eslint',[
  * Copyright (c) 2015, 2016 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
- * (https://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
- * License v1.0 (https://www.eclipse.org/org/documents/edl-v10.html). 
+ * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
+ * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html). 
  *
  * Contributors:
  *     IBM Corporation - initial API and implementation
@@ -43828,7 +43835,7 @@ define('javascript/ternPlugins/express',[
 			nodes: {top:true, member:false, prop:false},
 			template: "var ${app} = require('express');",
 			doc: Messages['expressrequire'],
-			url: "https://expressjs.com/en/4x/api.html"
+			url: "http://expressjs.com/en/4x/api.html"
 			
 		},
 		{
@@ -43839,7 +43846,7 @@ define('javascript/ternPlugins/express',[
 					  "${cursor}\n"+ 
 					  "app.listen(${timeout});\n",
 			doc: Messages['expressInstance'],
-			url: "https://expressjs.com/en/4x/api.html#app"
+			url: "http://expressjs.com/en/4x/api.html#app"
 		},
 		{
 			name: "express app get",
@@ -43847,35 +43854,35 @@ define('javascript/ternPlugins/express',[
 			template: "var value = app.get(${id}, function(request, result){\n" +
 					  "\t${cursor}\n});\n",
 			doc: Messages['expressGet'],
-			url: "https://expressjs.com/en/4x/api.html#app.get"
+			url: "http://expressjs.com/en/4x/api.html#app.get"
 		},
 		{
 			name: "express app set",
 			nodes: {top:true, member:false, prop:false},
 			template: "app.set(${id}, ${value});\n",
 			doc: Messages['expressSet'],
-			url: "https://expressjs.com/en/4x/api.html#app.set"
+			url: "http://expressjs.com/en/4x/api.html#app.set"
 		},
 		{
 			name: "express app use",
 			nodes: {top:true, member:false, prop:false},
 			template: "app.use(${fnOrObject});\n",
 			doc: Messages['expressUse'],
-			url: "https://expressjs.com/en/4x/api.html#app.use"
+			url: "http://expressjs.com/en/4x/api.html#app.use"
 		},
 		{
 			name: "express app engine",
 			nodes: {top:true, member:false, prop:false},
 			template: "app.engine(${fnOrObject});\n",
 			doc: Messages['expressEngine'],
-			url: "https://expressjs.com/en/4x/api.html#app.engine"
+			url: "http://expressjs.com/en/4x/api.html#app.engine"
 		},
 		{
 			name: "express app param",
 			nodes: {top:true, member:false, prop:false},
 			template: "app.param(${id}, ${value});\n",
 			doc: Messages['expressParam'],
-			url: "https://expressjs.com/en/4x/api.html#app.param"
+			url: "http://expressjs.com/en/4x/api.html#app.param"
 		},
 		{
 			name: "express app error use",
@@ -43884,7 +43891,7 @@ define('javascript/ternPlugins/express',[
   					  "\tresult.send(${code}, ${message});\n" + 
 					  "});\n",
 			doc: Messages['expressUseError'],
-			url: "https://expressjs.com/en/4x/api.html#app.use"
+			url: "http://expressjs.com/en/4x/api.html#app.use"
 		}
 		/* eslint-enable missing-nls */
 	];
@@ -43941,7 +43948,7 @@ define('javascript/ternPlugins/express',[
 		    		"!doc": "Built-in middleware function.  Pass the name of the directory that contains the static assets."
 		    	},
 	          "!type": "fn() -> app",
-	          "!url": "https://expressjs.com",
+	          "!url": "http://expressjs.com",
 	          "!doc": "Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications."
           }
       },
@@ -44390,7 +44397,7 @@ define('javascript/ternPlugins/express',[
     },
     "links": {
       "!type": "fn(links: ?) -> ?",
-      "!doc": "Set Link header field with the given `links`.\n\nExamples:\n\n   res.links({\n     next: 'https://api.example.com/users?page=2',\n     last: 'https://api.example.com/users?page=5'\n   });\n\n@param {Object} links\n@return {ServerResponse}\n@public"
+      "!doc": "Set Link header field with the given `links`.\n\nExamples:\n\n   res.links({\n     next: 'http://api.example.com/users?page=2',\n     last: 'http://api.example.com/users?page=5'\n   });\n\n@param {Object} links\n@return {ServerResponse}\n@public"
     },
     "send": {
       "!type": "fn(body: ?) -> !this",
@@ -44434,7 +44441,7 @@ define('javascript/ternPlugins/express',[
     },
     "append": {
       "!type": "fn(field: string, val: string|[?]) -> ?",
-      "!doc": "Append additional header `field` with value `val`.\n\nExample:\n\n   res.append('Link', ['<https://localhost/>', '<https://localhost:3000/>']);\n   res.append('Set-Cookie', 'foo=bar; Path=/; HttpOnly');\n   res.append('Warning', '199 Miscellaneous warning');\n\n@param {String} field\n@param {String|Array} val\n@return {ServerResponse} for chaining\n@public"
+      "!doc": "Append additional header `field` with value `val`.\n\nExample:\n\n   res.append('Link', ['<http://localhost/>', '<http://localhost:3000/>']);\n   res.append('Set-Cookie', 'foo=bar; Path=/; HttpOnly');\n   res.append('Warning', '199 Miscellaneous warning');\n\n@param {String} field\n@param {String|Array} val\n@return {ServerResponse} for chaining\n@public"
     },
     "header": {
       "!type": "fn(field: ?, val: ?) -> !this",
@@ -44454,11 +44461,11 @@ define('javascript/ternPlugins/express',[
     },
     "location": {
       "!type": "fn(url: string) -> !this",
-      "!doc": "Set the location header to `url`.\n\nThe given `url` can also be \"back\", which redirects\nto the _Referrer_ or _Referer_ headers or \"/\".\n\nExamples:\n\n   res.location('/foo/bar').;\n   res.location('https://example.com');\n   res.location('../login');\n\n@param {String} url\n@return {ServerResponse} for chaining\n@public"
+      "!doc": "Set the location header to `url`.\n\nThe given `url` can also be \"back\", which redirects\nto the _Referrer_ or _Referer_ headers or \"/\".\n\nExamples:\n\n   res.location('/foo/bar').;\n   res.location('http://example.com');\n   res.location('../login');\n\n@param {String} url\n@return {ServerResponse} for chaining\n@public"
     },
     "redirect": {
       "!type": "fn(url: ?)",
-      "!doc": "Redirect to the given `url` with optional response `status`\ndefaulting to 302.\n\nThe resulting `url` is determined by `res.location()`, so\nit will play nicely with mounted apps, relative paths,\n`\"back\"` etc.\n\nExamples:\n\n   res.redirect('/foo/bar');\n   res.redirect('https://example.com');\n   res.redirect(301, 'https://example.com');\n   res.redirect('../login'); // /blog/post/1 -> /blog/login\n\n@public"
+      "!doc": "Redirect to the given `url` with optional response `status`\ndefaulting to 302.\n\nThe resulting `url` is determined by `res.location()`, so\nit will play nicely with mounted apps, relative paths,\n`\"back\"` etc.\n\nExamples:\n\n   res.redirect('/foo/bar');\n   res.redirect('http://example.com');\n   res.redirect(301, 'http://example.com');\n   res.redirect('../login'); // /blog/post/1 -> /blog/login\n\n@public"
     },
     "vary": {
       "!type": "fn(field: [?]|string) -> !this",
@@ -45802,8 +45809,8 @@ define('javascript/signatures',[
  * Copyright (c) 2015, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License v1.0
- * (https://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
- * License v1.0 (https://www.eclipse.org/org/documents/edl-v10.html).
+ * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
+ * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html).
  *
  * Contributors:
  *	 IBM Corporation - initial API and implementation
@@ -45898,22 +45905,22 @@ define('javascript/ruleData',[
 		metadata: {
 			"accessor-pairs" : {
 				description: Messages['accessor-pairs-description'],
-				url: 'https://eslint.org/docs/rules/accessor-pairs'
+				url: 'http://eslint.org/docs/rules/accessor-pairs'
 			},
 			"check-tern-plugin" : {
 				description: Messages['check-tern-plugin-description']
 			},
 			"curly" : {
 				description: Messages['curly-description'],
-				url: 'https://eslint.org/docs/rules/curly'
+				url: 'http://eslint.org/docs/rules/curly'
 			},
 			"eqeqeq": {
 				description: Messages['eqeqeq-description'],
-				url: "https://eslint.org/docs/rules/eqeqeq"
+				url: "http://eslint.org/docs/rules/eqeqeq"
 			},
 			"missing-doc" : {
 				description: Messages['missing-doc-description'],
-				url: 'https://eslint.org/docs/rules/valid-jsdoc'
+				url: 'http://eslint.org/docs/rules/valid-jsdoc'
 			},
 			"missing-nls" : {
 				description: Messages['missing-nls-description']
@@ -45923,255 +45930,255 @@ define('javascript/ruleData',[
 			},
 			"new-parens" : {
 				description: Messages['new-parens-description'],
-				url: 'https://eslint.org/docs/rules/new-parens'
+				url: 'http://eslint.org/docs/rules/new-parens'
 			},
 			"no-caller": {
 				description: Messages['no-caller-description'],
-				url: 'https://eslint.org/docs/rules/no-caller'
+				url: 'http://eslint.org/docs/rules/no-caller'
 			},
 			"no-comma-dangle" : {
 				description: Messages['no-comma-dangle-description'],
-				url: 'https://eslint.org/docs/rules/no-comma-dangle'
+				url: 'http://eslint.org/docs/rules/no-comma-dangle'
 			},
 			"no-cond-assign" : {
 				description: Messages['no-cond-assign-description'],
-				url: 'https://eslint.org/docs/rules/no-cond-assign'
+				url: 'http://eslint.org/docs/rules/no-cond-assign'
 			},
 			"no-console" : {
 				description: Messages['no-console-description'],
-				url: 'https://eslint.org/docs/rules/no-console'
+				url: 'http://eslint.org/docs/rules/no-console'
 			},
 			"no-constant-condition" : {
 				description: Messages['no-constant-condition-description'],
-				url: 'https://eslint.org/docs/rules/no-constant-condition'
+				url: 'http://eslint.org/docs/rules/no-constant-condition'
 			},
 			"no-const-assign" : {
 				description: Messages['no-const-assign-description'],
-				url: 'https://eslint.org/docs/rules/no-const-assign'
+				url: 'http://eslint.org/docs/rules/no-const-assign'
 			},
 			"no-control-regex" : {
 				description: Messages['no-control-regex-description'],
-				url: 'https://eslint.org/docs/rules/no-control-regex'
+				url: 'http://eslint.org/docs/rules/no-control-regex'
 			},
 			"no-debugger" : {
 				description: Messages['no-debugger-description'],
-				url: 'https://eslint.org/docs/rules/no-debugger'
+				url: 'http://eslint.org/docs/rules/no-debugger'
 			},
 			"no-dupe-keys" : {
 				description: Messages['no-dupe-keys-description'],
-				url: 'https://eslint.org/docs/rules/no-dupe-keys'
+				url: 'http://eslint.org/docs/rules/no-dupe-keys'
 			},
 			"no-duplicate-case": {
 				description: Messages['no-duplicate-case-description'],
-				url: 'https://eslint.org/docs/rules/no-duplicate-case'
+				url: 'http://eslint.org/docs/rules/no-duplicate-case'
 			},
 			"no-else-return" : {
 				description: Messages['no-else-return-description'],
-				url: 'https://eslint.org/docs/rules/no-else-return'
+				url: 'http://eslint.org/docs/rules/no-else-return'
 			},
 			"no-empty-block" : {
 				description: Messages['no-empty-block-description'],
-				url: 'https://eslint.org/docs/rules/no-empty'
+				url: 'http://eslint.org/docs/rules/no-empty'
 			},
 			"no-empty-character-class" : {
 				description: Messages['no-empty-character-class-description'],
-				url: 'https://eslint.org/docs/rules/no-empty-character-class'
+				url: 'http://eslint.org/docs/rules/no-empty-character-class'
 			},
 			"no-empty-label" : {
 				description: Messages['no-empty-label-description'],
-				url: 'https://eslint.org/docs/rules/no-empty-label'
+				url: 'http://eslint.org/docs/rules/no-empty-label'
 			},
 			"no-eq-null" : {
 				description: Messages['no-eq-null-description'],
-				url: 'https://eslint.org/docs/rules/no-eq-null'
+				url: 'http://eslint.org/docs/rules/no-eq-null'
 			},
 			"no-eval" : {
 				description: Messages['no-eval-description'],
-				url: 'https://eslint.org/docs/rules/no-eval'
+				url: 'http://eslint.org/docs/rules/no-eval'
 			},
 			"no-extend-native" : {
 				description: Messages['no-extend-native-description'],
-				url: 'https://eslint.org/docs/rules/no-extend-native'
+				url: 'http://eslint.org/docs/rules/no-extend-native'
 			},
 			"no-extra-bind" : {
 				description: Messages['no-extra-bind-description'],
-				url: 'https://eslint.org/docs/rules/no-extra-bind'
+				url: 'http://eslint.org/docs/rules/no-extra-bind'
 			},
 			"no-extra-boolean-cast" : {
 				description: Messages['no-extra-boolean-cast-description'],
-				url: 'https://eslint.org/docs/rules/no-extra-boolean-cast'
+				url: 'http://eslint.org/docs/rules/no-extra-boolean-cast'
 			},
 			"no-extra-parens" : {
 				description: Messages['no-extra-parens-description'],
-				url: 'https://eslint.org/docs/rules/no-extra-parens'
+				url: 'http://eslint.org/docs/rules/no-extra-parens'
 			},
 			"no-extra-semi": {
 				description: Messages['no-extra-semi-description'],
-				url: 'https://eslint.org/docs/rules/no-extra-semi'
+				url: 'http://eslint.org/docs/rules/no-extra-semi'
 			},
 			"no-fallthrough" : {
 				description: Messages['no-fallthrough-description'],
-				url: 'https://eslint.org/docs/rules/no-fallthrough'
+				url: 'http://eslint.org/docs/rules/no-fallthrough'
 			},
 			"no-implicit-coercion" : {
 				description: Messages['no-implicit-coercion-description'],
-				url: 'https://eslint.org/docs/rules/no-implicit-coercion'
+				url: 'http://eslint.org/docs/rules/no-implicit-coercion'
 			},
 			"no-implied-eval" : {
 				description: Messages['no-implied-eval-description'],
-				url: 'https://eslint.org/docs/rules/no-implied-eval'
+				url: 'http://eslint.org/docs/rules/no-implied-eval'
 			},
 			"no-invalid-regexp": {
 				description: Messages['no-invalid-regexp-description'],
-				url: 'https://eslint.org/docs/rules/no-invalid-regexp'
+				url: 'http://eslint.org/docs/rules/no-invalid-regexp'
 			},
 			"no-invalid-this": {
 				description: Messages['no-invalid-this-description'],
-				url: 'https://eslint.org/docs/rules/no-invalid-this'
+				url: 'http://eslint.org/docs/rules/no-invalid-this'
 			},
 			"no-irregular-whitespace" : {
 				description: Messages['no-irregular-whitespace-description'],
-				url: 'https://eslint.org/docs/rules/no-irregular-whitespace'
+				url: 'http://eslint.org/docs/rules/no-irregular-whitespace'
 			},
 			"no-iterator": {
 				description: Messages['no-iterator-description'],
-				url: 'https://eslint.org/docs/rules/no-iterator'
+				url: 'http://eslint.org/docs/rules/no-iterator'
 			},
 			"no-jslint" : {
 				description: Messages['no-jslint-description']
 			},
 			"no-native-reassign" : {
 				description: Messages['no-native-reassign-description'],
-				url: 'https://eslint.org/docs/rules/no-native-reassign'
+				url: 'http://eslint.org/docs/rules/no-native-reassign'
 			},
 			"no-lone-blocks" : {
 				description: Messages['no-lone-blocks-description'],
-				url: 'https://eslint.org/docs/rules/no-lone-blocks'
+				url: 'http://eslint.org/docs/rules/no-lone-blocks'
 			},
 			"no-mixed-spaces-and-tabs" : {
 				description: Messages['no-mixed-spaces-and-tabs-description'],
-				url: 'https://eslint.org/docs/rules/no-mixed-spaces-and-tabs'
+				url: 'http://eslint.org/docs/rules/no-mixed-spaces-and-tabs'
 			},
 			"no-negated-in-lhs" : {
 				description: Messages['no-negated-in-lhs-description'],
-				url: 'https://eslint.org/docs/rules/no-negated-in-lhs'
+				url: 'http://eslint.org/docs/rules/no-negated-in-lhs'
 			},
 			"no-new-array": {
 				description: Messages['no-new-array-description'],
-				url: 'https://eslint.org/docs/rules/no-array-constructor'
+				url: 'http://eslint.org/docs/rules/no-array-constructor'
 			},
 			"no-new-func" : {
 				description: Messages['no-new-func-description'],
-				url: 'https://eslint.org/docs/rules/no-new-func'
+				url: 'http://eslint.org/docs/rules/no-new-func'
 			},
 			"no-new-object" : {
 				description: Messages['no-new-object-description'],
-				url: 'https://eslint.org/docs/rules/no-new-object'
+				url: 'http://eslint.org/docs/rules/no-new-object'
 			},
 			"no-new-wrappers" : {
 				description: Messages['no-new-wrappers-description'],
-				url: 'https://eslint.org/docs/rules/no-new-wrappers'
+				url: 'http://eslint.org/docs/rules/no-new-wrappers'
 			},
 			"no-obj-calls" : {
 				description: Messages['no-obj-calls-description'],
-				url: 'https://eslint.org/docs/rules/no-obj-calls'
+				url: 'http://eslint.org/docs/rules/no-obj-calls'
 			},
 			"no-param-reassign" : {
 				description: Messages['no-param-reassign-description'],
-				url: 'https://eslint.org/docs/rules/no-param-reassign'
+				url: 'http://eslint.org/docs/rules/no-param-reassign'
 			},
 			"no-proto" : {
 				description: Messages['no-proto-description'],
-				url: 'https://eslint.org/docs/rules/no-proto'
+				url: 'http://eslint.org/docs/rules/no-proto'
 			},
 			"no-redeclare" : {
 				description: Messages['no-redeclare-description'],
-				url: 'https://eslint.org/docs/rules/no-redeclare'
+				url: 'http://eslint.org/docs/rules/no-redeclare'
 			},
 			"no-regex-spaces" : {
 				description: Messages['no-regex-spaces-description'],
-				url: 'https://eslint.org/docs/rules/no-regex-spaces'
+				url: 'http://eslint.org/docs/rules/no-regex-spaces'
 			},
 			"no-reserved-keys" : {
 				description: Messages['no-reserved-keys-description'],
-				url: 'https://eslint.org/docs/rules/no-reserved-keys'
+				url: 'http://eslint.org/docs/rules/no-reserved-keys'
 			},
 			"no-self-compare" : {
 				description: Messages['no-self-compare-description'],
-				url: 'https://eslint.org/docs/rules/no-self-compare'
+				url: 'http://eslint.org/docs/rules/no-self-compare'
 			},
 			"no-self-assign" : {
 				description: Messages['no-self-assign-description'],
-				url: 'https://eslint.org/docs/rules/no-self-assign'
+				url: 'http://eslint.org/docs/rules/no-self-assign'
 			},
 			"no-shadow" : {
 				description: Messages['no-shadow-description'],
-				url: 'https://eslint.org/docs/rules/no-shadow'
+				url: 'http://eslint.org/docs/rules/no-shadow'
 			},
 			"no-shadow-global" : {
 				description: Messages['no-shadow-global-description']
 			},
 			"no-sparse-arrays" : {
 				description: Messages['no-sparse-arrays-description'],
-				url: 'https://eslint.org/docs/rules/no-sparse-arrays'
+				url: 'http://eslint.org/docs/rules/no-sparse-arrays'
 			},
 			"no-throw-literal" : {
 				description: Messages['no-throw-literal-description'],
-				url: 'https://eslint.org/docs/rules/no-throw-literal'
+				url: 'http://eslint.org/docs/rules/no-throw-literal'
 			},
 			"no-trailing-spaces" : {
 				description: Messages['no-trailing-spaces-description'],
-				url: 'https://eslint.org/docs/rules/no-trailing-spaces'
+				url: 'http://eslint.org/docs/rules/no-trailing-spaces'
 			},
 			"no-undef" : {
 				description: Messages['no-undef-description'],
-				url: 'https://eslint.org/docs/rules/no-undef'
+				url: 'http://eslint.org/docs/rules/no-undef'
 			},
 			"no-undef-expression" : {
 				description: Messages['no-undef-expression-description']
 			},
 			"no-undef-init" : {
 				description: Messages['no-undef-init-description'],
-				url: 'https://eslint.org/docs/rules/no-undef-init'
+				url: 'http://eslint.org/docs/rules/no-undef-init'
 			},
 			"no-unreachable" : {
 				description: Messages['no-unreachable-description'],
-				url: 'https://eslint.org/docs/rules/no-unreachable'
+				url: 'http://eslint.org/docs/rules/no-unreachable'
 			},
 			"no-unused-expressions" : {
 				description: Messages['no-unused-expressions-description'],
-				url: 'https://eslint.org/docs/rules/no-unused-expressions'
+				url: 'http://eslint.org/docs/rules/no-unused-expressions'
 			},
 			"no-unused-params" : {
 				description: Messages['no-unused-params-description']
 			},
 			"no-unused-vars" : {
 				description: Messages['no-unused-vars-description'],
-				url: 'https://eslint.org/docs/rules/no-unused-vars'
+				url: 'http://eslint.org/docs/rules/no-unused-vars'
 			},
 			"no-use-before-define" : {
 				description: Messages['no-use-before-define-description'],
-				url: 'https://eslint.org/docs/rules/no-use-before-define'
+				url: 'http://eslint.org/docs/rules/no-use-before-define'
 			},
 			"no-void" : {
 				description: Messages['no-void-description'],
-				url: 'https://eslint.org/docs/rules/no-void'
+				url: 'http://eslint.org/docs/rules/no-void'
 			},
 			"no-with" : {
 				description: Messages['no-with-description'],
-				url: 'https://eslint.org/docs/rules/no-with'
+				url: 'http://eslint.org/docs/rules/no-with'
 			},
 			"quotes" : {
 				description: Messages['quotes-description'],
-				url: 'https://eslint.org/docs/rules/quotes'
+				url: 'http://eslint.org/docs/rules/quotes'
 			},
 			"radix" : {
 				description: Messages['radix-description'],
-				url: 'https://eslint.org/docs/rules/radix'
+				url: 'http://eslint.org/docs/rules/radix'
 			},
 			"semi" : {
 				description: Messages['semi-description'],
-				url: 'https://eslint.org/docs/rules/semi'
+				url: 'http://eslint.org/docs/rules/semi'
 			},
 			"unknown-require" : {
 				description: Messages['unknown-require-description']
@@ -46181,18 +46188,18 @@ define('javascript/ruleData',[
 			},
 			"use-isnan" : {
 				description: Messages['use-isnan-description'],
-				url: 'https://eslint.org/docs/rules/use-isnan'
+				url: 'http://eslint.org/docs/rules/use-isnan'
 			},
 			"valid-typeof" : {
 				description: Messages['valid-typeof-description'],
-				url: 'https://eslint.org/docs/rules/valid-typeof'
+				url: 'http://eslint.org/docs/rules/valid-typeof'
 			},
 			"type-checked-consistent-return" : {
 				description: Messages['type-checked-consistent-return-description']
 			},
 			"yoda" : {
 				description: Messages['yoda-description'],
-				url: 'https://eslint.org/docs/rules/yoda'
+				url: 'http://eslint.org/docs/rules/yoda'
 			}
 		}
 	};
@@ -46204,8 +46211,8 @@ define('javascript/ruleData',[
  * Copyright (c) 2015, 2016 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
- * (https://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
- * License v1.0 (https://www.eclipse.org/org/documents/edl-v10.html). 
+ * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
+ * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html). 
  *
  * Contributors:
  *     IBM Corporation - Allow original requirejs plugin to find files in Orion workspace
@@ -46534,7 +46541,7 @@ define('javascript/ternPlugins/jsdoc',[
 				var template = "eslint-env ${library:" + envsListTemplate +"}";
 				_p = createProposal("eslint-env", "", prefix, template);
 				_p.doc = Messages['eslintEnvDirective'];
-				_p.url = "https://eslint.org/docs/user-guide/configuring.html#specifying-environments";
+				_p.url = "http://eslint.org/docs/user-guide/configuring.html#specifying-environments";
 				proposals.push(_p);
 			}
 			keys = Object.keys(block);
@@ -46597,7 +46604,7 @@ define('javascript/ternPlugins/jsdoc',[
 					if(!_p.doc) {
 						_p.doc = Messages['eslintEnvProposalDescription'];
 					}
-					_p.url = "https://eslint.org/docs/user-guide/configuring.html#specifying-environments";
+					_p.url = "http://eslint.org/docs/user-guide/configuring.html#specifying-environments";
 					proposals.push(_p);
 				}
 			}
@@ -46790,357 +46797,357 @@ define('javascript/ternPlugins/jsdoc',[
 			name: "eslint",  //$NON-NLS-0$
 			desc: Messages['eslintRuleEnableDisable'],
 			template: "eslint ${rule-id}:${0/1} ${cursor}", //$NON-NLS-0$  
-			url: "https://eslint.org/docs/user-guide/configuring.html#configuring-rules"
+			url: "http://eslint.org/docs/user-guide/configuring.html#configuring-rules"
 	    },
 	    "eslint-enable": {
 			name: "eslint-enable",  //$NON-NLS-0$
 			desc: Messages['eslintRuleEnable'],
 			template: "eslint-enable ${rule-id} ${cursor}", //$NON-NLS-0$  
-			url: "https://eslint.org/docs/user-guide/configuring.html#configuring-rules"
+			url: "http://eslint.org/docs/user-guide/configuring.html#configuring-rules"
 	    },
 	    "eslint-disable": {
 			name: "eslint-disable",  //$NON-NLS-0$
 			desc: Messages['eslintRuleDisable'],
 			template: "eslint-disable ${rule-id} ${cursor}", //$NON-NLS-0$
-			url: "https://eslint.org/docs/user-guide/configuring.html#configuring-rules"
+			url: "http://eslint.org/docs/user-guide/configuring.html#configuring-rules"
 	    }
 	};
 	
 	var tags = {
 		"abstract": {
 			"name": "@abstract",
-			"url": "https://usejsdoc.org/tags-abstract.html",
+			"url": "http://usejsdoc.org/tags-abstract.html",
 			"desc": "This member must be implemented (or overridden) by the inheritor."
 		},
 		"access": {
 			"name": "@access",
-			"url": "https://usejsdoc.org/tags-access.html",
+			"url": "http://usejsdoc.org/tags-access.html",
 			"desc": "Specify the access level of this member (private, public, or protected)."
 		},
 		"alias": {
 			"name": "@alias",
-			"url": "https://usejsdoc.org/tags-alias.html",
+			"url": "http://usejsdoc.org/tags-alias.html",
 			"desc": "Treat a member as if it had a different name."
 		},
 		"augments": {
 			"name": "@augments",
-			"url": "https://usejsdoc.org/tags-augments.html",
+			"url": "http://usejsdoc.org/tags-augments.html",
 			"desc": "Indicate that a symbol inherits from, ands adds to, a parent symbol."
 		},
 		"author": {
 			"name": "@author",
-			"url": "https://usejsdoc.org/tags-author.html",
+			"url": "http://usejsdoc.org/tags-author.html",
 			"desc": "Identify the author of an item.",
 			"template": "@author ${cursor}"
 		},
 		"borrows": {
 			"name": "@borrows",
-			"url": "https://usejsdoc.org/tags-borrows.html",
+			"url": "http://usejsdoc.org/tags-borrows.html",
 			"desc": "This object uses something from another object."
 		},
 		"callback": {
 			"name": "@callback",
-			"url": "https://usejsdoc.org/tags-callback.html",
+			"url": "http://usejsdoc.org/tags-callback.html",
 			"desc": "Document a callback function.",
 			"template": "@callback ${cursor}"
 		},
 		"class": {
 			"name": "@class",
-			"url": "https://usejsdoc.org/tags-class.html",
+			"url": "http://usejsdoc.org/tags-class.html",
 			"desc": "This function is intended to be called with the \"new\" keyword.",
 			"template": "@class ${cursor}"
 		},
 		"classdesc": {
 			"name": "@classdesc",
-			"url": "https://usejsdoc.org/tags-classdesc.html",
+			"url": "http://usejsdoc.org/tags-classdesc.html",
 			"desc": "Use the following text to describe the entire class."
 		},
 		"constant": {
 			"name": "@constant",
-			"url": "https://usejsdoc.org/tags-constant.html",
+			"url": "http://usejsdoc.org/tags-constant.html",
 			"desc": "Document an object as a constant."
 		},
 		"constructs": {
 			"name": "@constructs",
-			"url": "https://usejsdoc.org/tags-constructs.html",
+			"url": "http://usejsdoc.org/tags-constructs.html",
 			"desc": "This function member will be the constructor for the previous class."
 		},
 		"copyright": {
 			"name": "@copyright",
-			"url": "https://usejsdoc.org/tags-copyright.html",
+			"url": "http://usejsdoc.org/tags-copyright.html",
 			"desc": "Document some copyright information."
 		},
 		"default": {
 			"name": "@default",
-			"url": "https://usejsdoc.org/tags-default.html",
+			"url": "http://usejsdoc.org/tags-default.html",
 			"desc": "Document the default value."
 		},
 		"deprecated": {
 			"name": "@deprecated",
-			"url": "https://usejsdoc.org/tags-deprecated.html",
+			"url": "http://usejsdoc.org/tags-deprecated.html",
 			"desc": "Document that this is no longer the preferred way.",
 			"template": "@deprecated ${cursor}"
 		},
 		"description": {
 			"name": "@description",
-			"url": "https://usejsdoc.org/tags-description.html",
+			"url": "http://usejsdoc.org/tags-description.html",
 			"desc": "Describe a symbol.",
 			"template": "@description ${cursor}"
 		},
 		"enum": {
 			"name": "@enum",
-			"url": "https://usejsdoc.org/tags-enum.html",
+			"url": "http://usejsdoc.org/tags-enum.html",
 			"desc": "Document a collection of related properties."
 		},
 		"event": {
 			"name": "@event",
-			"url": "https://usejsdoc.org/tags-event.html",
+			"url": "http://usejsdoc.org/tags-event.html",
 			"desc": "Document an event."
 		},
 		"example": {
 			"name": "@example",
-			"url": "https://usejsdoc.org/tags-example.html",
+			"url": "http://usejsdoc.org/tags-example.html",
 			"desc": "Provide an example of how to use a documented item."
 		},
 		"exports": {
 			"name": "@exports",
-			"url": "https://usejsdoc.org/tags-exports.html",
+			"url": "http://usejsdoc.org/tags-exports.html",
 			"desc": "Identify the member that is exported by a JavaScript module."
 		},
 		"external": {
 			"name": "@external",
-			"url": "https://usejsdoc.org/tags-external.html",
+			"url": "http://usejsdoc.org/tags-external.html",
 			"desc": "Identifies an external class, namespace, or module."
 		},
 		"file": {
 			"name": "@file",
-			"url": "https://usejsdoc.org/tags-file.html",
+			"url": "http://usejsdoc.org/tags-file.html",
 			"desc": "Describe a file."
 		},
 		"fires": {
 			"name": "@fires",
-			"url": "https://usejsdoc.org/tags-fires.html",
+			"url": "http://usejsdoc.org/tags-fires.html",
 			"desc": "Describe the events this method may fire."
 		},
 		"function": {
 			"name": "@function",
-			"url": "https://usejsdoc.org/tags-function.html",
+			"url": "http://usejsdoc.org/tags-function.html",
 			"desc": "Describe a function or method.",
 			"template": "@function ${cursor}"
 		},
 		"global": {
 			"name": "@global",
-			"url": "https://usejsdoc.org/tags-global.html",
+			"url": "http://usejsdoc.org/tags-global.html",
 			"desc": "Document a global object."
 		},
 		"ignore": {
 			"name": "@ignore",
-			"url": "https://usejsdoc.org/tags-ignore.html",
+			"url": "http://usejsdoc.org/tags-ignore.html",
 			"desc": "Omit a symbol from the documentation."
 		},
 		"implements": {
 			"name": "@implements",
-			"url": "https://usejsdoc.org/tags-implements.html",
+			"url": "http://usejsdoc.org/tags-implements.html",
 			"desc": "This symbol implements an interface."
 		},
 		"inheritdoc": {
 			"name": "@inheritdoc",
-			"url": "https://usejsdoc.org/tags-inheritdoc.html",
+			"url": "http://usejsdoc.org/tags-inheritdoc.html",
 			"desc": "Indicate that a symbol should inherit its parent's documentation."
 		},
 		"inner": {
 			"name": "@inner",
-			"url": "https://usejsdoc.org/tags-inner.html",
+			"url": "http://usejsdoc.org/tags-inner.html",
 			"desc": "Document an inner object."
 		},
 		"instance": {
 			"name": "@instance",
-			"url": "https://usejsdoc.org/tags-instance.html",
+			"url": "http://usejsdoc.org/tags-instance.html",
 			"desc": "Document an instance member."
 		},
 		"interface": {
 			"name": "@interface",
-			"url": "https://usejsdoc.org/tags-interface.html",
+			"url": "http://usejsdoc.org/tags-interface.html",
 			"desc": "This symbol is an interface that others can implement."
 		},
 		"kind": {
 			"name": "@kind",
-			"url": "https://usejsdoc.org/tags-kind.html",
+			"url": "http://usejsdoc.org/tags-kind.html",
 			"desc": "What kind of symbol is this?"
 		},
 		"lends": {
 			"name": "@lends",
-			"url": "https://usejsdoc.org/tags-lends.html",
+			"url": "http://usejsdoc.org/tags-lends.html",
 			"desc": "Document properties on an object literal as if they belonged to a symbol with a given name.",
 			"template": "@lends ${cursor}"
 		},
 		"license": {
 			"name": "@license",
-			"url": "https://usejsdoc.org/tags-license.html",
+			"url": "http://usejsdoc.org/tags-license.html",
 			"desc": "Identify the license that applies to this code.",
 			"template": "@license ${cursor}"
 		},
 		"listens": {
 			"name": "@listens",
-			"url": "https://usejsdoc.org/tags-listens.html",
+			"url": "http://usejsdoc.org/tags-listens.html",
 			"desc": "List the events that a symbol listens for."
 		},
 		"member": {
 			"name": "@member",
-			"url": "https://usejsdoc.org/tags-member.html",
+			"url": "http://usejsdoc.org/tags-member.html",
 			"desc": "Document a member."
 		},
 		"memberof": {
 			"name": "@memberof",
-			"url": "https://usejsdoc.org/tags-memberof.html",
+			"url": "http://usejsdoc.org/tags-memberof.html",
 			"desc": "This symbol belongs to a parent symbol."
 		},
 		"mixes": {
 			"name": "@mixes",
-			"url": "https://usejsdoc.org/tags-mixes.html",
+			"url": "http://usejsdoc.org/tags-mixes.html",
 			"desc": "This object mixes in all the members from another object."
 		},
 		"mixin": {
 			"name": "@mixin",
-			"url": "https://usejsdoc.org/tags-mixin.html",
+			"url": "http://usejsdoc.org/tags-mixin.html",
 			"desc": "Document a mixin object."
 		},
 		"module": {
 			"name": "@module",
-			"url": "https://usejsdoc.org/tags-module.html",
+			"url": "http://usejsdoc.org/tags-module.html",
 			"desc": "Document a JavaScript module."
 		},
 		"name": {
 			"name": "@name",
-			"url": "https://usejsdoc.org/tags-name.html",
+			"url": "http://usejsdoc.org/tags-name.html",
 			"desc": "Document the name of an object.",
 			"template": "@name ${cursor}"
 		},
 		"namespace": {
 			"name": "@namespace",
-			"url": "https://usejsdoc.org/tags-namespace.html",
+			"url": "http://usejsdoc.org/tags-namespace.html",
 			"desc": "Document a namespace object."
 		},
 		"override": {
 			"name": "@override",
-			"url": "https://usejsdoc.org/tags-override.html",
+			"url": "http://usejsdoc.org/tags-override.html",
 			"desc": "Indicate that a symbol overrides its parent."
 		},
 		"param": {
 			"name": "@param",
-			"url": "https://usejsdoc.org/tags-param.html",
+			"url": "http://usejsdoc.org/tags-param.html",
 			"desc": "Document the parameter to a function.",
 			"template": "@param {${type}} ${cursor}"
 		},
 		"private": {
 			"name": "@private",
-			"url": "https://usejsdoc.org/tags-private.html",
+			"url": "http://usejsdoc.org/tags-private.html",
 			"desc": "This symbol is meant to be private.",
 			"template": "@private ${cursor}"
 		},
 		"property": {
 			"name": "@property",
-			"url": "https://usejsdoc.org/tags-property.html",
+			"url": "http://usejsdoc.org/tags-property.html",
 			"desc": "Document a property of an object."
 		},
 		"protected": {
 			"name": "@protected",
-			"url": "https://usejsdoc.org/tags-protected.html",
+			"url": "http://usejsdoc.org/tags-protected.html",
 			"desc": "This symbol is meant to be protected."
 		},
 		"public": {
 			"name": "@public",
-			"url": "https://usejsdoc.org/tags-public.html",
+			"url": "http://usejsdoc.org/tags-public.html",
 			"desc": "This symbol is meant to be public.",
 			"template": "@public ${cursor}"
 		},
 		"readonly": {
 			"name": "@readonly",
-			"url": "https://usejsdoc.org/tags-readonly.html",
+			"url": "http://usejsdoc.org/tags-readonly.html",
 			"desc": "This symbol is meant to be read-only."
 		},
 		"requires": {
 			"name": "@requires",
-			"url": "https://usejsdoc.org/tags-requires.html",
+			"url": "http://usejsdoc.org/tags-requires.html",
 			"desc": "This file requires a JavaScript module."
 		},
 		"returns": {
 			"name": "@returns",
-			"url": "https://usejsdoc.org/tags-returns.html",
+			"url": "http://usejsdoc.org/tags-returns.html",
 			"desc": "Document the return value of a function.",
 			"template": "@returns {${type}} ${cursor}"
 		},
 		"see": {
 			"name": "@see",
-			"url": "https://usejsdoc.org/tags-see.html",
+			"url": "http://usejsdoc.org/tags-see.html",
 			"desc": "Refer to some other documentation for more information.",
 			"template": "@see ${cursor}"
 		},
 		"since": {
 			"name": "@since",
-			"url": "https://usejsdoc.org/tags-since.html",
+			"url": "http://usejsdoc.org/tags-since.html",
 			"desc": "When was this feature added?",
 			"template": "@since ${cursor}"
 		},
 		"static": {
 			"name": "@static",
-			"url": "https://usejsdoc.org/tags-static.html",
+			"url": "http://usejsdoc.org/tags-static.html",
 			"desc": "Document a static member."
 		},
 		"summary": {
 			"name": "@summary",
-			"url": "https://usejsdoc.org/tags-summary.html",
+			"url": "http://usejsdoc.org/tags-summary.html",
 			"desc": "A shorter version of the full description."
 		},
 		"this": {
 			"name": "@this",
-			"url": "https://usejsdoc.org/tags-this.html",
+			"url": "http://usejsdoc.org/tags-this.html",
 			"desc": "What does the 'this' keyword refer to here?"
 		},
 		"throws": {
 			"name": "@throws",
-			"url": "https://usejsdoc.org/tags-throws.html",
+			"url": "http://usejsdoc.org/tags-throws.html",
 			"desc": "Describe what errors could be thrown.",
 			"template": "@throws {${type}} ${cursor}"
 		},
 		"todo": {
 			"name": "@todo",
-			"url": "https://usejsdoc.org/tags-todo.html",
+			"url": "http://usejsdoc.org/tags-todo.html",
 			"desc": "Document tasks to be completed."
 		},
 		"tutorial": {
 			"name": "@tutorial",
-			"url": "https://usejsdoc.org/tags-tutorial.html",
+			"url": "http://usejsdoc.org/tags-tutorial.html",
 			"desc": "Insert a link to an included tutorial file."
 		},
 		"type": {
 			"name": "@type",
-			"url": "https://usejsdoc.org/tags-type.html",
+			"url": "http://usejsdoc.org/tags-type.html",
 			"desc": "Document the type of an object."
 		},
 		"typedef": {
 			"name": "@typedef",
-			"url": "https://usejsdoc.org/tags-typedef.html",
+			"url": "http://usejsdoc.org/tags-typedef.html",
 			"desc": "Document a custom type."
 		},
 		"variation": {
 			"name": "@variation",
-			"url": "https://usejsdoc.org/tags-variation.html",
+			"url": "http://usejsdoc.org/tags-variation.html",
 			"desc": "Distinguish different objects with the same name."
 		},
 		"version": {
 			"name": "@version",
-			"url": "https://usejsdoc.org/tags-version.html",
+			"url": "http://usejsdoc.org/tags-version.html",
 			"desc": "Documents the version number of an item."
 		},
 		"link": {
 			"name": "{@link}",
-			"url": "https://usejsdoc.org/tags-inline-link.html",
+			"url": "http://usejsdoc.org/tags-inline-link.html",
 			"desc": "Link to another item in the documentation."
 		},
 		"inline-tutorial": {
 			"name": "{@tutorial}",
-			"url": "https://usejsdoc.org/tags-inline-tutorial.html",
+			"url": "http://usejsdoc.org/tags-inline-tutorial.html",
 			"desc": "Link to a tutorial."
 		}
 	};
@@ -47810,7 +47817,7 @@ define('javascript/ternPlugins/mysql',[
 });
 /*******************************************************************************
  * @license
- * Copyright (c) 2016, 2018 IBM Corporation and others.
+ * Copyright (c) 2016 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -48564,7 +48571,7 @@ define('javascript/ternPlugins/occurrences',[
 	 */
 	function _popBlock() {
 		var scope = scopes[scopes.length-1];
-		if (!scope.blocks || scope.blocks.length === 0){
+		if (!scope.isLet || !scope.blocks || scope.blocks.length === 0){
 			return false;
 		}
 		var block = scope.blocks.pop();
@@ -48574,24 +48581,23 @@ define('javascript/ternPlugins/occurrences',[
 			}
 			return false;
 		}
-		if(scope.isLet && Array.isArray(block.occurrences)) {
-			var i, j;
-			var len = block.occurrences.length;
-			if (defscope && defscope === block){
-				for(i = 0; i < len; i++) {
-					occurrences.push(block.occurrences[i]);
-				}
-				return true;
+		var i, j;
+		var len = block.occurrences.length;
+		if (defscope && defscope === block){
+			for(i = 0; i < len; i++) {
+				occurrences.push(block.occurrences[i]);
 			}
-			// We popped out of a scope but don't know where the define is, treat the occurrences like they belong to the outer scope (Bug 445410)
-			if (scope.blocks.length > 0){
-				for (j=0; j< len; j++) {
-					scope.blocks[scope.blocks.length - 1].occurrences.push(block.occurrences[j]);
-				}
-			} else {
-				for (j=0; j< len; j++) {
-					scope.occurrences.push(block.occurrences[j]);
-				}
+			return true;
+		}
+
+		// We popped out of a scope but don't know where the define is, treat the occurrences like they belong to the outer scope (Bug 445410)
+		if (scope.blocks.length > 0){
+			for (j=0; j< len; j++) {
+				scope.blocks[scope.blocks.length - 1].occurrences.push(block.occurrences[j]);
+			}
+		} else {
+			for (j=0; j< len; j++) {
+				scope.occurrences.push(block.occurrences[j]);
 			}
 		}
 		return false;
@@ -49974,8 +49980,8 @@ define('javascript/ternPlugins/refs',[
  * Copyright (c) 2016, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
- * (https://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
- * License v1.0 (https://www.eclipse.org/org/documents/edl-v10.html). 
+ * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
+ * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html). 
  *
  * Contributors:
  *     IBM Corporation - Allow original requirejs plugin to find files in Orion workspace
@@ -50127,7 +50133,7 @@ define('javascript/ternPlugins/templates',[
 			name: "eslint", //$NON-NLS-1$
 			nodes: {top:true, member:false, prop:false, doc:false, jsdoc:false},
 			template: "/* eslint ${rule-id}:${0/1}*/", //$NON-NLS-1$
-			url: "https://eslint.org/docs/user-guide/configuring.html#configuring-rules", //$NON-NLS-1$
+			url: "http://eslint.org/docs/user-guide/configuring.html#configuring-rules", //$NON-NLS-1$
 			doc: Messages['eslintRuleEnableDisable'],
 			ecma: 5
 		},
@@ -50136,7 +50142,7 @@ define('javascript/ternPlugins/templates',[
 			name: "eslint-env", //$NON-NLS-1$
 			nodes: {top:true, member:false, prop:false, doc:false, jsdoc:false},
 			template: "/* eslint-env ${library}*/", //$NON-NLS-1$
-			url: "https://eslint.org/docs/user-guide/configuring.html#specifying-environments", //$NON-NLS-1$
+			url: "http://eslint.org/docs/user-guide/configuring.html#specifying-environments", //$NON-NLS-1$
 			doc: Messages['eslintEnvDirective'],
 			ecma: 5
 		},
@@ -50145,7 +50151,7 @@ define('javascript/ternPlugins/templates',[
 			name: "eslint-enable", //$NON-NLS-1$
 			nodes: {top:true, member:false, prop:false, doc:false, jsdoc:false},
 			template: "/* eslint-enable ${rule-id} */", //$NON-NLS-1$
-			url: "https://eslint.org/docs/user-guide/configuring.html#configuring-rule", //$NON-NLS-1$
+			url: "http://eslint.org/docs/user-guide/configuring.html#configuring-rule", //$NON-NLS-1$
 			doc: Messages['eslintRuleEnable'],
 			ecma: 5
 		},
@@ -50154,7 +50160,7 @@ define('javascript/ternPlugins/templates',[
 			name: "eslint-disable", //$NON-NLS-1$
 			nodes: {top:true, member:false, prop:false, doc:false, jsdoc:false},
 			template: "/* eslint-disable ${rule-id} */", //$NON-NLS-1$
-			url: "https://eslint.org/docs/user-guide/configuring.html#configuring-rules", //$NON-NLS-1$
+			url: "http://eslint.org/docs/user-guide/configuring.html#configuring-rules", //$NON-NLS-1$
 			doc: Messages['eslintRuleDisable'],
 			ecma: 5
 		},
@@ -50266,7 +50272,7 @@ define('javascript/ternPlugins/templates',[
 					  "], function(${importname}) {\n"+  //$NON-NLS-1$
 					  "\t${cursor}\n"+  //$NON-NLS-1$
 					  "});", //$NON-NLS-1$
-			url: "https://requirejs.org/docs/api.html#deffunc", 
+			url: "http://requirejs.org/docs/api.html#deffunc", 
 			doc: Messages['defineSimple'],
 			ecma: 5
 		},

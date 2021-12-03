@@ -857,6 +857,7 @@ public class SarlBatchCompiler {
 		return this.encoding;
 	}
 
+
 	/** Replies the current generator config.
 	 *
 	 * @return the generator config.

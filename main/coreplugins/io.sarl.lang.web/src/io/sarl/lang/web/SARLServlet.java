@@ -24,6 +24,10 @@
 package io.sarl.lang.web;
 
 import com.google.inject.Injector;
+import com.google.inject.Provider;
+
+import io.sarl.lang.SARLStandaloneSetup;
+import io.sarl.lang.compiler.batch.SarlBatchCompiler;
 
 import java.io.IOException;
 import java.util.stream.Collectors;
@@ -34,6 +38,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.eclipse.xtext.util.DisposableRegistry;
+import org.eclipse.xtext.web.server.XtextServiceDispatcher.ServiceDescriptor;
+import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider;
+import org.eclipse.xtext.web.server.persistence.ResourceBaseProviderImpl;
 import org.eclipse.xtext.web.servlet.XtextServlet;
 
 /**
@@ -41,10 +48,11 @@ import org.eclipse.xtext.web.servlet.XtextServlet;
  */
 @WebServlet(name = "XtextServices", urlPatterns = "/xtext-service/*")
 public class SARLServlet extends XtextServlet {
-	
+
 	private static final long serialVersionUID = 1L;
-	
+
 	DisposableRegistry disposableRegistry;
+
 	
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) 
@@ -63,16 +71,27 @@ public class SARLServlet extends XtextServlet {
 		System.out.println("TEST POST !");
 		
 		String requestData = req.getReader().lines().collect(Collectors.joining());
+		
 
 		System.out.println(requestData);
+		
+		Injector injector = SARLStandaloneSetup.doSetup();
+		Provider<SarlBatchCompiler> batch = injector.getProvider(SarlBatchCompiler.class);
+		batch.get();
 	}
 	
+	@Override
+	protected void doService(ServiceDescriptor service, HttpServletResponse response) {
+		super.doService(service, response);
+	}
+
 	public void init() throws ServletException {
 		super.init();
-		//Injector injector = new SARLWebSetup().createInjectorAndDoEMFRegistration();
-		//this.disposableRegistry = injector.getInstance(DisposableRegistry.class);
+//		IResourceBaseProvider resourceBaseProvider = new ResourceBaseProviderImpl("");
+//		 Injector injector = new SARLWebSetup(resourceBaseProvider).createInjectorAndDoEMFRegistration();
+//		 this.disposableRegistry = injector.getInstance(DisposableRegistry.class);
 	}
-	
+
 	public void destroy() {
 		if (disposableRegistry != null) {
 			disposableRegistry.dispose();
@@ -80,5 +99,5 @@ public class SARLServlet extends XtextServlet {
 		}
 		super.destroy();
 	}
-	
+
 }

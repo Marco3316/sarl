@@ -405,7 +405,7 @@ Workflow {
 			
 			 fragment = web.WebIntegrationFragment {
 				framework = "Orion"
-				highlightingPath = "xtext/sarl-syntax.js"
+				highlightingPath = "xtext-resources/generated/sarl-syntax.js"
 			}
 			
 

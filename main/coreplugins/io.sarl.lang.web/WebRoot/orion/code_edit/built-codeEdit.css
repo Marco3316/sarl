@@ -412,7 +412,7 @@
 	overflow: visible;
 }
 .comment {
-	color: #157B07;
+	color: #357d21;
 }
 .constant {
 	color: blue;
@@ -466,7 +466,7 @@
 	color: #7D7755;
 }
 .entity-other-attribute-name {
-	color: #157B07;
+	color: #357d21;
 }
 .invalid-illegal {
 	color: white;
@@ -483,7 +483,7 @@
 	background-color: #EAF2FE;
 }
 .meta.tag {
-	color: #247575;
+	color: #3f7f7f;
 }
 .punctuation-definition-comment {
 	color: #3f5fbf;
@@ -540,7 +540,7 @@
 .annotation.selectedLinkedGroup {
 }
 .annotation.blame {
-	color: black;
+	color: #707070;
 	background-color: rgb(255, 132, 44);
 }
 .annotation.currentBlame {
@@ -870,12 +870,6 @@
 .fsToolbarLayout {
 	height: 26px; 
 }
-.footerLayout {
-	height: 35px;
-	padding-left: 8px;
-	font-size:0.9em;
-	font-weight:bold;
-}
 .bannerLeftArea{
 	
 	-ms-flex: 1 6 20%;
@@ -922,12 +916,6 @@
 }
   
 }
-.footer {
-	display: none;
-}
-.footer-visible {
-	display: block;
-}
 .bannerRightArea{
 	-ms-flex: 1 6 20%;
 	-moz-box-ordinal-group: 3;
@@ -952,6 +940,7 @@
 	overflow: hidden;
     position: absolute;
     top: 0;
+	    
     bottom: 0;
     left: 35px;
     right: 0;
@@ -960,10 +949,6 @@
 }
 .content-fixedHeight-animation {
     transition: left 0.3s ease; 
-}
-.content-fixedHeight-withFooter {
-	    
-	bottom: 35px;
 }
 .content-fixedHeight-maximized {
 	top: 0;
@@ -977,49 +962,19 @@
 .footer-fixed-bottom {
 	position: fixed;
 	bottom: 0;
+	z-index: 50;
 	right: 0;
 	left: 0;
 	
-	height: 35px;
-}
-.footerBlock {
-	float: left;
-	margin: 8px;
-	color: #7F7F7F;
-	font-weight: bold;
-}
-.footerBlockShutdown {
-	color: red;
-	font-size: 10pt;
-}
-.footerRightBlock {
-	float: right;
-	margin: 8px 8px 0 4px;
-}
-.footerRightBlock ul {
-	margin: 0;
-	margin-top:4px;
-	font-size: .9em;
-	margin-right: 4px;
-}
-.footerRightBlock li {
-	display: inline;
-}
-.footerRightBlock li:after {
-	content: ' ';
-	padding: 0 8px;
-}
-.footerRightBlock li:last-child:after {
-	content: none;
+	height: 0;
+	background:#ededed;
 }
 .layoutBlock {
 	clear: both;
 	margin: 0;
-	vertical-align: baseline;
-}
-.layoutBlock:not(.footerLayout) {
 	
-	padding: 4px 4px 0 4px;	
+	padding: 4px 4px 0 4px;
+	vertical-align: baseline;
 }
 .layoutLeft {
 	float: left;
@@ -1131,7 +1086,7 @@
 	position: relative;
 	left: 0;
 	top: 0;
-	height: calc(100% - 35px);
+	height: calc(100% - 29px);
 	overflow-x: visible;
 }
 .projectNavSidebarWrapper > .sidebar {
@@ -1179,7 +1134,7 @@
 	color: white;
 	display: flex;
 	flex-direction: row;
-	height: 35px;
+	height: 26px;
 }
 .editorTabContainerOuter {
 	height: 100%;
@@ -1203,20 +1158,9 @@
 .editorTab {
 	border-top: 1px solid black;
 	border-right: 1px solid black;
-	padding-top: 1px;
 	display: flex;
 	flex: 0 1 auto;
-}
-.editorTabContent {
-	display: flex;
-	flex: 0 1 auto;
-	margin: 3px;
-	overflow-x: hidden;
-}
-.editorTabContentFocus {
-	outline: none;
-	display: flex;
-	flex: 0 1 auto;
+    overflow-x: hidden;
 }
 .editorTabsDisabled {
 	border: none !important;
@@ -1242,6 +1186,8 @@
 }
 .editorViewerHeaderTitle {
 	padding-left: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
 	overflow: hidden;
     white-space: nowrap;
     flex: 1 1 auto;
@@ -1251,13 +1197,12 @@
 }
 .editorViewerTabDropdown {
 	justify-content: flex-end;
-	margin-right: 10px;
-	margin-left: 10px;
+	margin-right: 12px;
 }
 .editorViewerContent {
 	position: absolute;
 	width: 100%;
-	top: 34px;
+	top: 26px;
 	bottom: 0;
 	overflow: auto
 }
@@ -1272,8 +1217,6 @@
 	height: 40%;
 }
 .focusedEditorTab {
-	border-top: 2px solid;
-	padding-top: 0;
 	background: white;
 	color: black;
 }
@@ -1413,6 +1356,7 @@ and (max-device-width : 1024px)  {
 	float: left;
     position: absolute;
     top: 0;
+	   
     bottom: 0;
     -webkit-animation: slide 0.5s forwards;
     -webkit-animation-delay: 2s;
@@ -1429,10 +1373,6 @@ and (max-device-width : 1024px)  {
 }
 .sideMenu.animating {
 	z-index: 0;
-}
-.sideMenu.content-fixedHeight-withFooter {
-	   
-    bottom: 35px;
 }
 .sideMenu-maximized {
 	top: 0;
@@ -1478,7 +1418,6 @@ and (max-device-width : 1024px)  {
 	position: absolute;
 	width: 100%;
 	z-index: 100;
-	outline:none;
 }
 .sideMenuScrollButton.visible {
 	display: block;
@@ -1826,13 +1765,6 @@ and (max-device-width : 1024px)  {
 	z-index: 100;
 	display: none;
 }
-.footer {
-	background:white;
-}
-.logoFooter { 
-	float: left;
-	margin-top:6px;
-}
 a {
 	text-decoration: none;
 	color: #00749c;
@@ -2001,7 +1933,7 @@ a.currentLocation:hover {
 	border-bottom: 1px dotted;
 }
 a.breadcrumb.currentLocation {
-	margin: 3px;
+	margin: 0;
 }
 .tooltipContainer .currentLocation {
 	color: white;
@@ -2069,10 +2001,9 @@ a.breadcrumb.currentLocation {
 	white-space: nowrap;
 }
 .sidebarToolbar {
-	display: flex;
+	display: inline;
 	overflow: visible;
 	padding: 0 !important;
-	background-color: transparent !important;
 }
 .searchbox {
     background-image: url(../../images/core_sprites.png);
@@ -2140,7 +2071,6 @@ a.breadcrumb.currentLocation {
 }
 .commandButton.disabled {
 	color: #cdcdcd;
-	border-color: #cdcdcd;
 }
 .primaryButton{
 	background: #1bb199;
@@ -2374,6 +2304,7 @@ a.breadcrumb.currentLocation {
 	margin: 0; 
 	cursor: default;
 	font-size: 12px;
+	margin: 0;
 	outline: none;
 	padding: 3px 0 3px;
 }
@@ -2465,9 +2396,6 @@ a.breadcrumb.currentLocation {
 	position: relative !important;
 	z-index: 200 !important;
 }
-.dropdownSelection.dropdownTriggerOpen {
-	background-color: #CEDBEC !important;
-}
 .checkedMenuItem {
 	margin: 4px 6px 2px 0;
 	vertical-align: bottom;
@@ -2490,8 +2418,6 @@ a.breadcrumb.currentLocation {
 	clear: both;
 	float: left;
 	border: 1px solid #158d7a;
-}
-.tooltip:not(:focus) {
 	box-shadow: 0px 0px 10pt -2pt rgba(0, 0, 0, 0.5);
 }
 .tooltip.left {
@@ -2503,7 +2429,7 @@ a.breadcrumb.currentLocation {
 	color: #3b4b54;
 }
 .tooltip .operationStatus {
-	color: #bfffff;
+	color: #00aed1;
 }
 .tooltip .operationError {
 	color: #a6b5bc;
@@ -2698,8 +2624,7 @@ a.breadcrumb.currentLocation {
 	border-top-right-radius: 1px;
 }
 .dialogTitle > .dismissButton {
-    margin-right: 5px;
-    padding-right: 0;
+	margin-right: 0;	
 }
 .dialogTitleText {
 	margin: 2px 2px 0;
@@ -2716,7 +2641,7 @@ a.breadcrumb.currentLocation {
 	color: rgb(221, 221, 221);
 	cursor: pointer;
 }
-.parameterPopup .dismissButton:hover, .dialogTitle .dismissButton:hover, .dialogTitle .dismissButton:focus {
+.parameterPopup .dismissButton:hover, .dialogTitle .dismissButton:hover {
 	color: white;
 }
 .dialogButtons {
@@ -2760,7 +2685,6 @@ a.breadcrumb.currentLocation {
 }
 .core-sprite-git-logo {
 	font-size: 20px !important;
-	line-height: 18px !important;
 }
 .sprite-switch-check-x {
 	font-size: 14px;
@@ -2965,7 +2889,6 @@ html[dir="rtl"] .parametersDismiss {
 	cursor: pointer;
     border-radius: 1px;
 	padding: 2px;
-	padding-top: 1px;
 	font: 8pt Lucida Sans Unicode,Lucida Grande,Verdana,Arial,Helvetica,Myriad,Tahoma,clean,sans-serif;  
 	margin: 0 4px 0;
 	vertical-align: middle;
@@ -3024,6 +2947,7 @@ label.parameterInput {
 	font-weight: normal;
 	vertical-align: middle;
 	color:#333;
+	outline:none;
 }
 button.dismissButton.parameterInput {
 	color: whitesmoke;
@@ -3042,7 +2966,6 @@ input.parameterInput[type=checkbox] {
 textarea.parameterInput {
 	vertical-align: top;
 	width: 50em;
-	outline: none;
 }
 div.parameterInput[contenteditable="true"] {
 	width: 30em;
@@ -3090,7 +3013,7 @@ div.parameterInput[contenteditable="true"]:before {
 	border: none;
 }
 .mainNavColumn {
-	display: inline;
+	display: inline-block;
 	vertical-align: baseline;
 	white-space: nowrap;
 }
@@ -3347,9 +3270,6 @@ html[dir="rtl"] .keyAssistFloat {
 	padding-left: 0;
 	padding-right: 0;
 }
-.keyAssistInput::placeholder {
-	color: #b4a454;
-}
 .keyAssistBindingInput {
 	font-size: 10pt;
 	font-weight: bold;
@@ -3367,11 +3287,7 @@ html[dir="rtl"] .keyAssistFloat {
 	border-collapse: collapse;
 	outline: none;
 }
-.keyAssistSection th {
-	text-align: start;
-}
 .keyAssistItem {
-	outline: none;
 }
 .keyAssistItem.selected {
 	color: black;
@@ -3384,24 +3300,18 @@ html[dir="rtl"] .keyAssistFloat {
 .keyAssistEditButton {
 	display: block;
 	visibility: hidden;
+	font-size: 13px !important;
 	color: white !important;
-}
-.keyAssistEditButton .core-sprite-edit {
-	font-size: 12px;
 }
 .keyAssistEditButtonVisible {
 	visibility: visible;
 }
 .keyAssistActions {
-	padding-right: 4px;
 	border-top-right-radius: 4px;
 	border-bottom-right-radius: 4px;
 }
 .keyAssistItem:hover .keyAssistEditButton  {
 	visibility: visible;
-}
-.keyAssistEditButton:focus {
-  background-color: #a5b5bc;
 }
 .keyAssistSpacer {
 	width: 16px;
@@ -3416,7 +3326,6 @@ html[dir="rtl"] .keyAssistFloat {
 .keyAssistName {
 	text-align: left;
 	padding: 3px;
-	padding-left: 20px;
 }
 .keyAssistAccel {
 	
@@ -3426,9 +3335,6 @@ html[dir="rtl"] .keyAssistFloat {
 	text-align: right;
 	padding: 3px;
 	min-width: 150px;
-}
-.keyAssistItem.selected .keyAssistAccel {
-    color: black;
 }
 .inputCompletionContainer {
 	border-radius:1px;
@@ -3529,7 +3435,8 @@ html[dir="rtl"] #treeButtons {
 .secondaryColumn {
 	color: #666666;	
 	padding-right: 8px;
-	vertical-align:middle;
+	padding-top: 8px;
+	vertical-align:top;
 	white-space: nowrap;
 }
 html[dir="rtl"] .secondaryColumn { 
@@ -3561,14 +3468,13 @@ html[dir="rtl"] .secondaryColumnLeft {
 	text-align: right;
 }
 .primaryColumn {
-	color: #266c8f;
+	color: #3087B3;
 	text-decoration: none;
 	vertical-align:top;
 }
 .checkColumn {
 	padding: 0;
 	padding-left:10px;
-	vertical-align: middle;
 }
 html[dir="rtl"] .checkColumn { 
 	padding-right:10px;
@@ -3582,12 +3488,6 @@ html[dir="rtl"] .checkColumn {
 }
 .selectionModelContainer {
 	outline: none;
-	padding-left: 3px;
-	padding-right: 3px;
- 	width: calc(100% - 6px);
-}
-.selectionModelContainer > div > table{
-  border-spacing: 0px 3px;
 }
 .treeIterationCursor {
 	border-radius:4px;
@@ -3741,9 +3641,6 @@ html[dir="rtl"] .uploadChooser{
 .setting-control[type="number"] {
 	width: 120px;
 }
-.userProfile input.setting-control {
-	width: 300px;
-}
 .local {
 	display: table;
 }
@@ -3757,9 +3654,6 @@ html[dir="rtl"] .uploadChooser{
 	overflow-x: visible;
 }
 .local .setting-content > div {
-	display: table-row;
-}
-.local .setting-content > div > label {
 	display: table-row;
 }
 .local .setting-header {
@@ -3791,9 +3685,11 @@ html[dir="rtl"] .local .setting-label {
 	width: 600px;
 	height: 400px;
 	z-index: 150;
+	border: 1px inset;
 	box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.2);
 	border: 1px solid #BBBBBB;
-	border-collapse: separate;
+    border-collapse: separate;
+    border-radius: 1px;
 }
 .centralNavigation {
 	margin-bottom:2px;
@@ -3829,8 +3725,8 @@ html[dir="rtl"] .groupedContentDivider{
 	font-family: sans-serif;
 }
 .currentLocation{
-	margin-left:3px;
-	margin-right:3px;
+	margin-left:auto;
+	margin-right:auto;
 }
 .modifiedFileMarker{
 	padding-left:5px;
@@ -3928,7 +3824,7 @@ html[dir="rtl"] .sectionWrapper, html[dir="rtl"] .sectionTable{
 	border-color: #e3e7ea;
 	transition: all 0.1s ease;
 }
-.sectionWrapper.sectionClosed:not(:focus) {
+.sectionWrapper.sectionClosed {
 	box-shadow: none;
 }
 .sectionWrapper.sectionClosed:hover {
@@ -3938,7 +3834,7 @@ html[dir="rtl"] .sectionWrapper, html[dir="rtl"] .sectionTable{
 .sectionTable td {
 	border-bottom: 1px solid #f1f3f4;
 	vertical-align: middle;
-	color: #505050;
+	color: #606060;
 }
 .sectionTable tr:last-child td{
 	border-bottom: 0;

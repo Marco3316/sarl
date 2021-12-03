@@ -29,15 +29,30 @@ import io.sarl.lang.SARLRuntimeModule;
 import io.sarl.lang.SARLStandaloneSetup;
 import io.sarl.lang.ide.SARLIdeModule;
 import org.eclipse.xtext.util.Modules2;
+import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider;
 
 /**
  * Initialization support for running Xtext languages in web applications.
  */
 public class SARLWebSetup extends SARLStandaloneSetup {
 	
+//	@Override
+//	public Injector createInjector() {
+//		return Guice.createInjector(Modules2.mixin(new SARLRuntimeModule(), new SARLIdeModule(), new SARLWebModule()));
+//	}
+	
+	private IResourceBaseProvider resourceBaseProvider;
+
+	public SARLWebSetup(IResourceBaseProvider resourceBaseProvider) {
+		this.resourceBaseProvider = resourceBaseProvider;
+	}
+
 	@Override
 	public Injector createInjector() {
-		return Guice.createInjector(Modules2.mixin(new SARLRuntimeModule(), new SARLIdeModule(), new SARLWebModule()));
+		SARLWebModule webModule = new SARLWebModule(this.resourceBaseProvider);
+		SARLRuntimeModule runtimeModule = new SARLRuntimeModule();
+		SARLIdeModule ideModule = new SARLIdeModule();
+		return Guice.createInjector(Modules2.mixin(runtimeModule, ideModule, webModule));
 	}
 	
 }

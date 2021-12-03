@@ -87,6 +87,16 @@
 			<version>${project.version}</version>
 		</dependency>
 		<dependency>
+			<groupId>io.sarl.maven</groupId>
+			<artifactId>io.sarl.maven.batchcompiler</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.xtext</groupId>
+			<artifactId>org.eclipse.xtext.web</artifactId>
+			<version>2.25.0</version>
+		</dependency>
+		<dependency>
 			<groupId>org.eclipse.xtext</groupId>
 			<artifactId>org.eclipse.xtext.xbase.web</artifactId>
 			<version>2.25.0</version>
@@ -121,19 +131,26 @@
 		<!-- <artifactId>codemirror</artifactId> -->
 		<!-- <version>5.62.2</version> -->
 		<!-- </dependency> -->
-<!-- 		<dependency> -->
-<!-- 			<groupId></groupId> -->
-<!-- 			<artifactId></artifactId> -->
-<!-- 			<version></version> -->
-<!-- 			<scope>system</scope> -->
-<!-- 			<systemPath>${project.basedir}/lib/.jar</systemPath> -->
-<!-- 		</dependency> -->
+		<!-- <dependency> -->
+		<!-- <groupId></groupId> -->
+		<!-- <artifactId></artifactId> -->
+		<!-- <version></version> -->
+		<!-- <scope>system</scope> -->
+		<!-- <systemPath>${project.basedir}/lib/.jar</systemPath> -->
+		<!-- </dependency> -->
 		<dependency>
 			<groupId>org.eclipse.jetty</groupId>
 			<artifactId>jetty-annotations</artifactId>
 			<version>9.4.34.v20201102</version>
 			<scope>provided</scope>
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.eclipse.jdt/org.eclipse.jdt.core -->
+		<dependency>
+			<groupId>org.eclipse.jdt</groupId>
+			<artifactId>org.eclipse.jdt.core</artifactId>
+			<version>3.27.0</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>slf4j-simple</artifactId>

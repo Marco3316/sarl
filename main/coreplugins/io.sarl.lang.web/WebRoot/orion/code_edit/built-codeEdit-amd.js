@@ -234,13 +234,8 @@ define('orion/nls/root/messages',{//Default message bundle
 	"EditorLinkWorkspace": "Edit",
 	"EditorRelatedLinkProj": "Show Project",
 	"sidebar": "Sidebar",
-	"toolbar": "Toolbar",
-	"Key Bindings": "Key Bindings",
-	"KeyBinding": "Key Binding",
-	"Command": "Command",
 	"Filter bindings:": "Filter bindings:",
 	"Filter bindings": "Type characters to filter by name or key combination",
-	"Bindings": "Bindings",
 	"BindingPrompt": "Enter the new binding",
 	"NoBinding": "---",
 	"orionClientLabel": "Orion client repository",
@@ -254,8 +249,8 @@ define('orion/nls/root/messages',{//Default message bundle
 	"View this file or folder on a web site hosted by Orion": "View this file or folder on a web site hosted by Orion.",
 	"ShowAllKeyBindings": "Show a list of all the keybindings on this page",
 	"Show Keys": "Show Keys",
-	"HideShowBannerFooter": "Hide or show the page banner and footer",
-	"Toggle Banner and Footer": "Toggle Banner and Footer",
+	"HideShowBannerFooter": "Hide or show the page banner",
+	"Toggle Banner and Footer": "Toggle Banner",
 	"ChooseFileOpenEditor": "Choose a file by name and open an editor on it",
 	"FindFile": "Open File...",
 	"System Configuration Details": "System Configuration Details",
@@ -275,8 +270,6 @@ define('orion/nls/root/messages',{//Default message bundle
 	"SplashTitleGit": "Loading Git Repositories",
 	"LoadingPage": "Loading Page",
 	"LoadingPlugins": "Loading Plugins",
-	"AuthenticatingUser": "Authenticating user...",
-	"AuthenticatedUser": "Authenticated user",
 	"LoadingResources": "Loading Resources",
 	"plugin_started": "\"${0}\" started",
 	"plugin_lazy activation": "\"${0}\" lazily activated",
@@ -313,7 +306,6 @@ define('orion/nls/root/messages',{//Default message bundle
 	"Sample Orion Plugin": "Sample Orion Plug-in",
 	"Generate a sample plugin for integrating with Orion.": "Generate a sample plug-in for integrating with Orion.",
 	"Browser": "Web Browser",
-	"Outline": "Outline",
 	"OutlineProgress": "Getting outline for ${0} from ${1}",
 	"FormatProgress" : "Formatting ${0} from ${1}",
 	"outlineTimeout": "Outline service timed out. Try reloading the page and opening the outline again.",
@@ -327,7 +319,6 @@ define('orion/nls/root/messages',{//Default message bundle
 	"Wrote: ${0}": "Wrote: ${0}",
 	"GenerateHTML": "Generate HTML file",
 	"GenerateHTMLTooltip": "Write an HTML file generated from the current Markdown editor content",
-	"ShutdownWarning": "WARNING: This service will be shutdown permanently on ${0}. Please export your data before that date and time. There are no backups and all data will be destroyed.",
 	"alt text": "alt text",
 	"blockquote": "blockquote",
 	"code": "code",
@@ -396,12 +387,7 @@ define('orion/nls/root/messages',{//Default message bundle
 	"fixAll": "Fix all",
 	"nextSplitter" : "Next Splitter",
 	"nextSplitterTooltip": "Move focus through the available splitters",
-	"Confirm": "Confirm",
-	"CONFIRM": "Confirm",
-	"PROMPT": "Prompt",
-	"ALERT": "Alert",
-	"Up": "Up",
-	"Down": "Down"
+	"Confirm": "Confirm"
 });
 
 
@@ -444,7 +430,7 @@ define('orion/i18nUtil',[], function() {
 });
 /*******************************************************************************
  * @license
- * Copyright (c) 2012, 2019 IBM Corporation and others.
+ * Copyright (c) 2012 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -502,72 +488,11 @@ define('orion/util',[],function() {
 		});
 	}
 
-	/**
-	 * @description Save the setting to persistent storage.
-	 * 
-	 * Currently this function saves to localStorage
-	 * @param {string} key 
-	 * @param {string} value
-	 * @since 20.0
-	 */
-	function saveSetting(key, value) {
-		//TODO make this pluggable to not only work with localStorage
-		localStorage.setItem(key, value);
-	}
-
-	/**
-	 * @description Retrieve the setting from persistent storage.
-	 * 
-	 * Currently this function reads from localStorage
-	 * @param {string} key 
-	 * @since 20.0
-	 */
-	function readSetting(key) {
-		//TODO make this pluggable to not only work with localStorage
-		return localStorage.getItem(key);
-	}
-
-	/**
-	 * @description Remove the setting from persistent storage.
-	 * 
-	 * Currently this function removes from localStorage
-	 * @param {string} key 
-	 * @since 20.0
-	 */
-	function deleteSetting(key) {
-		//TODO make this pluggable to not only work with localStorage
-		localStorage.removeItem(key);
-	}
-
-	/**
-	 * @description Clears out the saved settings from persistent storage
-	 * 
-	 * @since 20.0
-	 */
-	function clearSettings() {
-		//TODO make this pluggable to not only work with localStorage
-		localStorage.clear();
-	}
-
-	function computeAuditId(fileClient, path, removeWorkspaceSegment) {
-		var rootUrl = fileClient.fileServiceRootURL(path);
-		var rootSegmentsCount = rootUrl.split('/').length;
-		var segmentsToRemove = rootSegmentsCount + (removeWorkspaceSegment ? 1 : 0);
-		return path.split('/').slice(segmentsToRemove).join('/');
-	}
-
 	return {
-		readSetting: readSetting,
-		saveSetting: saveSetting,
-		deleteSetting: deleteSetting,
-		clearSettings: clearSettings,
-
 		formatMessage: formatMessage,
 		
 		createElement: createElement,
 		confineDialogTab: confineDialogTab,
-		
-		computeAuditId: computeAuditId,
 		
 		/** Browsers */
 		isIE: isIE,
@@ -595,7 +520,7 @@ define('orion/util',[],function() {
 });
 /*******************************************************************************
  * @license
- * Copyright (c) 2012, 2019 IBM Corporation and others.
+ * Copyright (c) 2012 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -736,7 +661,7 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 	 * @param {Node} node
 	 */
 	function empty(node) {
-		while (node && node.hasChildNodes()) {
+		while (node.hasChildNodes()) {
 			var child = node.firstChild;
 			node.removeChild(child);
 		}
@@ -775,9 +700,8 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 	/* 
 	 * Inspired by http://brianwhitmer.blogspot.com/2009/05/jquery-ui-tabbable-what.html
 	 */
-	function firstTabbable(node, allowFocusable) {
-		var tabIndex = _getTabIndex(node);
-		if ((tabIndex >= 0 || allowFocusable && tabIndex >= -1) && !node.disabled && node.offsetParent && window.getComputedStyle(node).visibility === "visible") {
+	function firstTabbable(node) {
+		if (_getTabIndex(node) >= 0 && !node.disabled && node.offsetParent) {
 			return node;
 		}
 		if (node.hasChildNodes()) {
@@ -800,7 +724,7 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 				}
 			}
 		}
-		if (_getTabIndex(node) >= 0 && !node.disabled && node.offsetParent && window.getComputedStyle(node).visibility === "visible") {
+		if (_getTabIndex(node) >= 0 && !node.disabled && node.offsetParent) {
 			return node;
 		}
 		return null;
@@ -831,8 +755,8 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 	
 					var e = focusElement.ownerDocument.createEvent("MouseEvents");
 					e.initMouseEvent("contextmenu", true, true,
-						focusElement.ownerDocument.defaultView, 1, 0, 0, xPos, yPos, false,
-						false, false, false,2, null);
+					    focusElement.ownerDocument.defaultView, 1, 0, 0, xPos, yPos, false,
+					    false, false, false,2, null);
 					return !focusElement.dispatchEvent(e);				
 				}
 			}, true);
@@ -945,7 +869,7 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 			if (targetNode.nodeType === 3) { // TEXT_NODE
 				targetNode.parentNode.replaceChild(document.createTextNode(replaceText), targetNode);
 			} else if (targetNode.nodeType === 1 && attribute) { // ELEMENT_NODE
-				setSafeAttribute(targetNode, attribute, replaceText);
+				targetNode.setAttribute(attribute, replaceText); //$NON-NLS-0$
 			}
 		});
 	}
@@ -1070,79 +994,6 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 		return offsetParent;
 	}
 	
-	function getPathTo(element) {
-		if (!element) return "";
-		if (element.id !== "") {
-			return 'id("' + element.id +'")';
-		}
-		if (element === document.body) {
-			return element.tagName;
-		}
-		var ix= 0;
-		var siblings = element.parentNode && element.parentNode.childNodes || [];
-		for (var i= 0; i < siblings.length; i++) {
-			var sibling = siblings[i];
-			if (sibling === element) {
-				return getPathTo(element.parentNode)+ '/'+ element.tagName+'['+(ix+1)+']';
-			}
-			if (sibling.nodeType === Node.ELEMENT_NODE && sibling.tagName === element.tagName) {
-				ix++;
-			}
-		}
-	}
-	
-	/**
-	 * Return focus to the element that was active before the <code>hidingParent</code> was
-	 * shown if the parent contains the active element. If the previous active node is no
-	 * longer available, the first tabbable in the nearest ancestor is focused.
-	 * 
-	 * @name orion.webui.littlelib.returnFocus
-	 * @function
-	 * @static
-	 * @param {Element} hidingParent The node that is hiding
-	 * @param {Element} previousActiveElement The previously focus node
-	 */
-	function returnFocus(hidingParent, previousActiveElement, hideCallback) {
-		var activeElement = document.activeElement;
-		var focusPath = getPathTo(previousActiveElement);
-		var hasFocus = hidingParent && (hidingParent === activeElement || (hidingParent.compareDocumentPosition(activeElement) & 16) !== 0);
-		var deferred;
-		if (hideCallback) {
-			deferred = hideCallback();
-		}
-		function restore() {
-			var temp = previousActiveElement;
-			if (hasFocus) {
-				while (temp && temp !== document.body) {
-					if (document.compareDocumentPosition(temp) !== 1 && temp.offsetParent) {
-						var tabbable = firstTabbable(temp, previousActiveElement === temp);
-						if (tabbable) {
-							temp = tabbable;
-							break;
-						}
-					}
-					if (temp.classList.contains("contextMenu")) {
-						if (temp.triggerNode) {
-							temp = temp.triggerNode;
-							continue;
-						}
-						break;
-					}
-					temp = temp.parentNode;
-				}
-				if (!temp && focusPath) {
-					temp = document.evaluate(focusPath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null).singleNodeValue;
-				}
-				if (temp) {
-					temp.focus();
-					return true;
-				}
-			}
-			return false;
-		}
-		return deferred && deferred.then ? deferred.then(restore) : restore();
-	}
-	
 	/**
 	 * Cancels the default behavior of an event and stops its propagation.
 	 * @name orion.webui.littlelib.stop
@@ -1163,7 +1014,6 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 	function setFramesEnabled(enable) {
 		var frames = document.getElementsByTagName("iframe"); //$NON-NLS-0$
 		for (var i = 0; i<frames.length; i++) {
-			if (frames[i].parentNode === document.body) continue;
 			frames[i].parentNode.style.pointerEvents = enable ? "" : "none"; //$NON-NLS-0$
 		}
 	}
@@ -1178,7 +1028,7 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 	 * @returns A valid html id string
 	 */
 	function validId(str) {
-		return str.replace(/\s/g, '-').replace(/[^A-Za-z0-9_.-]/g, '.');
+		return str.replace(/\s/, '-').replace(/[^A-Za-z0-9_.-]/, '.');
 	}
 	
 	/**
@@ -1217,7 +1067,7 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 			parent = document.createElement("div"); //$NON-NLS-0$
 		}
 
-		setSafeInnerHTML(parent, templateString);	
+		parent.innerHTML = templateString;	
 		if (parent.children.length > 1) {
 			newNodes = parent.children;
 		} else {
@@ -1226,33 +1076,6 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 		
 		return newNodes;
 	}
-
-  /**
-   * @description This function is a delegate to set the value of an attribute on a given node
-   * @param {Element} node
-   * @param {string} name
-   * @param {?} value
-   * @since 20.0
-   */
-  function setSafeAttribute(node, name, value) {
-	if(node instanceof Element && name !== null && name !== undefined) {
-			//TODO - add more checks, this is not sufficient
-	  node.setAttribute(name, value);
-	}
-	}
-	
-	/**
-   * @description This function is a delegate to set the value of innerHTML on a given node
-   * @param {Element} node
-   * @param {string} value
-   * @since 20.0
-   */
-  function setSafeInnerHTML(node, value) {
-	if(node instanceof Element && (value instanceof String || typeof value === "string")) {
-			//TODO - we do not allow third party content, so not a problem currently
-	  node.innerHTML = value;
-	}
-  }
 
 	//return module exports
 	return {
@@ -1275,12 +1098,9 @@ define('orion/webui/littlelib',["orion/util"], function(util) {
 		validId: validId,
 		getOffsetParent: getOffsetParent,
 		removeAutoDismiss: removeAutoDismiss,
-		returnFocus: returnFocus,
 		keyName: keyName,
 		KEY: KEY,
-		createNodes: createNodes,
-		setSafeAttribute: setSafeAttribute,
-		setSafeInnerHTML: setSafeInnerHTML
+		createNodes: createNodes
 	};
 });
 
@@ -1542,7 +1362,7 @@ define('orion/EventTarget',[],function() {
 });
 /*******************************************************************************
  * @license
- * Copyright (c) 2012, 2019 IBM Corporation and others.
+ * Copyright (c) 2012 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -1596,14 +1416,10 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 		_init: function(options) {
 			this._dropdownNode = lib.node(options.dropdown);
 			if (!this._dropdownNode) { throw "no dom node for dropdown found"; } //$NON-NLS-0$
-			if (options.name) {
-				lib.setSafeAttribute(this._dropdownNode, "aria-label", options.name);
-			}
 			this._populate = options.populate;
 			this._selectionClass = options.selectionClass;
 			this._parentDropdown = options.parentDropdown;
 			this._positioningNode = options.positioningNode;
-			this._trapTabs = options.trapTabs;
 			
 			if (!this._parentDropdown) {
 				//if a parentDropdown isn't specified move up in dom tree looking for one
@@ -1616,7 +1432,8 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 					parentNode = parentNode.parentNode;
 				}
 			}
-			this._dropdownNode.tabIndex = -1;
+			
+			this._dropdownNode.tabIndex = 0;
 
 			if (options.triggerNode) {
 				this._triggerNode = options.triggerNode;
@@ -1641,20 +1458,13 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 			}.bind(this);
 			
 			if (!options.skipTriggerEventListeners) {
-				// click on trigger opens or closes.
+				// click on trigger opens or toggles.
 				this._triggerNode.addEventListener("click", triggerClickHandler, false); //$NON-NLS-0$
 
-				// if trigger node is not key enabled, then add key handler for ENTER, SPACE and DOWN arrow
+				// if trigger node is not key enabled...
 				if (this._triggerNode.tagName.toLowerCase() === "span") { //$NON-NLS-0$
 					this._triggerNode.addEventListener("keydown", function(event) { //$NON-NLS-0$
 						if (event.keyCode === lib.KEY.ENTER || event.keyCode === lib.KEY.SPACE) {
-							triggerClickHandler(event);
-						}
-					}.bind(this), false);
-				} else {
-					// add key handler for DOWN arrow
-					this._triggerNode.addEventListener("keydown", function(event) { //$NON-NLS-0$
-						if (event.keyCode === lib.KEY.DOWN) {
 							triggerClickHandler(event);
 						}
 					}.bind(this), false);
@@ -1682,7 +1492,7 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 					var mbItems = menuBar.dropdown.getItems();
 					for (var i = 0; i < mbItems.length; i++) {
 						var mbItem = mbItems[i];
-						if (mbItem.classList.contains("dropdownTriggerOpen")) { //$NON-NLS-0$
+						if (mbItem.classList.contains("dropdownTriggerOpen")) {
 							openMBItem = mbItem;
 						}
 					}
@@ -1722,7 +1532,7 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 		 */			
 		toggle: function(mouseEvent /* optional */) {
 			if (this.isVisible()) {
-				return this.close(true);
+				return this.close();
 			}
 			return this.open(mouseEvent);
 		},
@@ -1754,7 +1564,6 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 					this._boundAutoDismiss = this._autoDismiss.bind(this);
 
 					this._triggerNode.classList.add("dropdownTriggerOpen"); //$NON-NLS-0$
-					lib.setSafeAttribute(this._triggerNode, "aria-expanded", "true");
 					if (this._selectionClass) {
 						this._triggerNode.classList.add(this._selectionClass);
 					}
@@ -1784,10 +1593,6 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 					
 					if (this._parentDropdown) {
 						this._parentDropdown.submenuOpen(this);
-					}
-					
-					if (this._trapTabs) {
-						lib.trapTabs(this._dropdownNode);
 					}
 				}
 			}
@@ -1868,14 +1673,13 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 			var actionTaken = false;
 			if (this.isVisible()) {
 				this._triggerNode.classList.remove("dropdownTriggerOpen"); //$NON-NLS-0$
-				lib.setSafeAttribute(this._triggerNode, "aria-expanded", "false");
 				if (this._selectionClass) {
 					this._triggerNode.classList.remove(this._selectionClass);
 				}
 				this._dropdownNode.classList.remove("dropdownMenuOpen"); //$NON-NLS-0$
 				lib.setFramesEnabled(true);
 				if (restoreFocus) {
-					lib.returnFocus(this._dropdownNode, this._triggerNode);
+					this._triggerNode.focus();
 				}
 				
 				this._isVisible = false;
@@ -1898,19 +1702,14 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 		 *
 		 */
 		getItems: function() {
-			var items = lib.$$array("li:not(.dropdownSeparator) [role^='menuitem']", this._dropdownNode, true); //$NON-NLS-0$
+			var items = lib.$$array("li:not(.dropdownSeparator) > [role='menuitem']", this._dropdownNode, true); //$NON-NLS-0$
 			// We only want the direct li children, not any descendants.  But we can't preface a query with ">"
 			// So we do some reachy filtering here.
 			var filtered = [];
 			var self = this;
 			items.forEach(function(item) {
-				var menuitem = item;
-				if (menuitem.parentNode.tagName.toLowerCase() === "label") {
-					// if the parent is a label, go up one more (this can happen with input menu items, such as checkbox)
-					menuitem = item.parentNode;
-				}
-				if (menuitem.parentNode.parentNode === self._dropdownNode) {
-					filtered.push(menuitem);
+				if (item.parentNode.parentNode === self._dropdownNode) {
+					filtered.push(item);
 				}
 			});
 			
@@ -1936,8 +1735,8 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 		 * A key is down in the dropdown node
 		 */
 		 _dropdownKeyDown: function(event) {
-		 	if (event.keyCode === lib.KEY.TAB && !this._trapTabs) {
-		 		if (this._selectedItem || this._isVisible) {
+		 	if (event.keyCode === lib.KEY.TAB) {
+		 		if (this._selectedItem) {
 		 			var keepIterating = true;
 		 			while (keepIterating) {
 						keepIterating = this.close(true);
@@ -1948,7 +1747,7 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 		 		}
 		 		return;  // Allow the TAB to propagate
 		 	}
-			if (event.keyCode === lib.KEY.UP || event.keyCode === lib.KEY.DOWN || event.keyCode === lib.KEY.RIGHT || event.keyCode === lib.KEY.LEFT || event.keyCode === lib.KEY.ENTER || event.keyCode === lib.KEY.SPACE) {
+			if (event.keyCode === lib.KEY.UP || event.keyCode === lib.KEY.DOWN || event.keyCode === lib.KEY.RIGHT || event.keyCode === lib.KEY.ENTER || event.keyCode === lib.KEY.LEFT) {
 				var items = this.getItems();
 				var isMenuBar = this._dropdownNode.getAttribute("role") === "menubar";
 				if (items.length && items.length > 0) {
@@ -1959,16 +1758,18 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 							index = items.indexOf(this._selectedItem.parentNode);
 						}
 						if (index >= 0) {
-							if (event.keyCode === lib.KEY.UP) {
-								if (isMenuBar) {
-									if (this._selectedItem.classList.contains("dropdownTrigger") && this._selectedItem.dropdown) { //$NON-NLS-0$
-										var dropdown = this._selectedItem.dropdown;
-										dropdown.open();
-										var menuitems = dropdown.getItems();
-										dropdown._selectItem(menuitems[menuitems.length - 1]); // select last item in submenu
+							if (event.keyCode === lib.KEY.UP && !isMenuBar) {
+								if (index > 0) {
+									index--;
+									this._selectItem(items[index]);
+								} else if (this._triggerNode) {
+									var parentMenu = this._triggerNode.parentNode.parentNode;
+									if (parentMenu.getAttribute("role") === "menubar") {
+										this.close(true);
+										if (this._parentDropdown) {
+											this._parentDropdown._dropdownNode.focus();
+										}
 									}
-								} else {
-									this._selectItem(items[index > 0 ? index - 1 : items.length - 1]);
 								}
 							} else if (event.keyCode === lib.KEY.DOWN) {
 								if (isMenuBar) {
@@ -1977,58 +1778,48 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 										this._selectedItem.dropdown._selectItem(); // select first item in submenu
 									}
 								} else {
-									this._selectItem(items[index < items.length - 1 ? index + 1 : 0]);
+									if (index < items.length - 1) {
+										index++;
+										this._selectItem(items[index]);
+									}
 								}
 							} else if (event.keyCode === lib.KEY.RIGHT) {
 								if (isMenuBar) {
-									this._selectItem(items[index < items.length - 1 ? index + 1 : 0]);
+									if (index < items.length - 1) {
+										index++;
+										this._selectItem(items[index]);
+									}
 								} else {
 									if (this._selectedItem.classList.contains("dropdownTrigger") && this._selectedItem.dropdown) { //$NON-NLS-0$
 										this._selectedItem.dropdown.open();
 										this._selectedItem.dropdown._selectItem(); // select first item in submenu
-									} else {
-										this._closeThenOpen(this._selectedItem, event.keyCode, true);
 									}
 								}
-							} else if (event.keyCode === lib.KEY.LEFT) {
-								if (isMenuBar) {
-									this._selectItem(items[index > 0 ? index - 1 : items.length - 1]);
-								} else {
-									if (this._parentDropdown) {
-										this.close(true);
-										this._parentDropdown._dropdownNode.focus();
-									} else {
-										this._closeThenOpen(this._selectedItem, event.keyCode, true);
-									}
-								}
-							} else if (event.keyCode === lib.KEY.ENTER || event.keyCode === lib.KEY.SPACE) {
-								if (!(event.target === this._dropdownNode || event.target.getAttribute("role") === "menuitem")) {
-									return;
-								}
+							} else if (event.keyCode === lib.KEY.ENTER) {
 								if (this._selectedItem.classList.contains("dropdownTrigger") && this._selectedItem.dropdown) { //$NON-NLS-0$
 									this._selectedItem.dropdown.open();
 									this._selectedItem.dropdown._selectItem(); // select first item in submenu
 								} else {
 									this._selectedItem.click();
-									// click handling auto closes menus without restoring focus to trigger, so need to restore here
-									lib.returnFocus(this._dropdownNode, this._triggerNode);
+								}
+							} else if (event.keyCode === lib.KEY.LEFT) {
+								if (isMenuBar) {
+									if (index > 0) {
+										index--;
+										this._selectItem(items[index]);
+									}
+								} else {
+									if (this._selectedItem.parentNode.parentNode.classList.contains("dropdownMenuOpen")) { //$NON-NLS-0$
+										this.close(true);
+										if (this._parentDropdown) {
+											this._parentDropdown._dropdownNode.focus();
+										}
+									}
 								}
 							}
 						}
 					} else {
-						if (event.keyCode === lib.KEY.UP) {
-							this._selectItem(items[items.length - 1]); // select last item in menu
-						} else if (event.keyCode === lib.KEY.RIGHT || event.keyCode === lib.KEY.LEFT) {
-							this._closeThenOpen(this._triggerNode, event.keyCode, false);
-						} else {
-							// DOWN, ENTER, or SPACE: select first item in menu
-							if (event.keyCode === lib.KEY.ENTER || event.keyCode === lib.KEY.SPACE) {
-								if (!(event.target === this._dropdownNode || event.target.getAttribute("role") === "menuitem")) {
-									return;
-								}
-							}
-							this._selectItem(items[0]);
-						}
+						this._selectItem(items[0]);	
 					}
 					lib.stop(event);
 				}
@@ -2042,50 +1833,11 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 		 },
 		 
 		 /**
-		  * Closes the menubar menu containing the specified item
-		  * and opens the menu next to it in the specified direction.
-		  * @param {Object} item An item within a menu
-		  * @param {Integer} direction Either KEY.RIGHT or KEY.LEFT typed by user
-		  * @param {Boolean} select If true, select the first item
-		  */
-		 _closeThenOpen: function(item, direction, select) {
-			while (item.parentNode && (document !== item.parentNode) && item.parentNode.getAttribute("role") !== "menubar")  {
-				item = item.parentNode;
-			}
-			if (!item.parentNode || document === item.parentNode) {
-				return; // item is not in a menubar
-			}
-			var trigger = item.childNodes[0];
-			var menuBar = item.parentNode;
-			var mbItems = menuBar.dropdown.getItems();
-			var mbItem = null;
-			for (var i = 0; i < mbItems.length; i++) {
-				if (mbItems[i] === trigger) {
-					if (direction === lib.KEY.LEFT) {
-						mbItem = i > 0 ? mbItems[i - 1] : mbItems[mbItems.length - 1];
-					} else {
-						mbItem = i < mbItems.length - 1 ? mbItems[i + 1] : mbItems[0];
-					}
-					break;
-				}
-			}
-			trigger.dropdown._closeSelectedSubmenu();
-			trigger.dropdown.close(false);
-			if (mbItem) {
-				mbItem.dropdown.open();
-				if (select) {
-					mbItem.dropdown._selectItem();
-				}
-
-			}
-		 },
-		 
-		 /**
 		  * Selects the specified dropdown menu item or the first
 		  * dropdown menu item if none is specified.
 		  * @param {Object} item The dropdown menu item that should be selected. See @ref getItems() for details. Optional.
 		  */
-		 _selectItem: function(item) {
+		 _selectItem: function(item){
 		 	var itemToSelect = item || this.getItems()[0];
 		 	if (itemToSelect) {
 		 		if (this._selectedItem) {
@@ -2093,7 +1845,6 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 			 	}
 			 	this._selectedItem = itemToSelect;
 			 	this._selectedItem.classList.add("dropdownMenuItemSelected"); //$NON-NLS-0$	
-			 	this._selectedItem.focus();
 			 	if (this._buttonsAdded) {
 			 		var itemBounds = this._selectedItem.getBoundingClientRect();
 			 		var menuBounds = this._dropdownNode.getBoundingClientRect();
@@ -2111,6 +1862,11 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 		 			}
 		 			updateScrollButtonVisibility.call(this);
 				}
+		 	}
+		 	if (document.activeElement !== this._dropdownNode) {
+		 		// ensure that the dropdown node has the focus in 
+		 		// order for keydown events to be handled properly
+		 		this._dropdownNode.focus();
 		 	}
 		 },
 		 
@@ -2176,10 +1932,9 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 		innerNodeType = innerNodeType === undefined ? "span" : innerNodeType; //$NON-NLS-0$
 	 	
 	 	var element = document.createElement(innerNodeType); //$NON-NLS-0$
+		//element.tabIndex = 0;
 		element.className = "dropdownMenuItem"; //$NON-NLS-0$
-		lib.setSafeAttribute(element, "role", "menuitem");
-		element.tabIndex = -1;
-		element.style.outline = "none";
+		element.setAttribute("role", "menuitem");  //$NON-NLS-0$ //$NON-NLS-1$
 		
 		if (text) {
 			var span = document.createElement("span");  //$NON-NLS-0$
@@ -2189,7 +1944,7 @@ define('orion/webui/dropdown',['orion/webui/littlelib', 'orion/EventTarget'], fu
 		}
 	 	
 	 	var li = document.createElement("li"); //$NON-NLS-0$
-		lib.setSafeAttribute(li, "role", "none");
+	 	li.setAttribute("role", "none");
 	 	li.appendChild(element); //$NON-NLS-0$
 		
 		return li;
@@ -2729,17 +2484,17 @@ define('text',['module'], function (module) {
 });
 
 
-define('text!orion/webui/dropdowntriggerbutton.html',[],function () { return '<button class="dropdownTrigger" aria-haspopup="menu" aria-expanded="false">${ButtonText}</button><ul class="dropdownMenu" role="menu"></ul>';});
+define('text!orion/webui/dropdowntriggerbutton.html',[],function () { return '<button class="dropdownTrigger" aria-haspopup="true" aria-expanded="false">${ButtonText}<!--span class="dropdownArrowDown core-sprite-openarrow" ></span--></button><ul class="dropdownMenu" role="menu"></ul>';});
 
 
-define('text!orion/webui/dropdowntriggerbuttonwitharrow.html',[],function () { return '<button class="dropdownTrigger dropdownDefaultButton" aria-haspopup="menu" aria-expanded="false">${ButtonText}<span class="dropdownArrowDown core-sprite-openarrow"></span></button><ul class="dropdownMenu" role="menu"></ul>';});
+define('text!orion/webui/dropdowntriggerbuttonwitharrow.html',[],function () { return '<button class="dropdownTrigger dropdownDefaultButton" aria-haspopup="true" aria-expanded="false">${ButtonText}<span class="dropdownArrowDown core-sprite-openarrow"></span></button><ul class="dropdownMenu" role = "menu"></ul>';});
 
 
-define('text!orion/webui/checkedmenuitem.html',[],function () { return '<li role="none"><label class="dropdownMenuItem" tabindex="-1" style="outline:none;"><input class="checkedMenuItem" type="checkbox" role="menuitemcheckbox" />${ItemText}</label></li>';});
+define('text!orion/webui/checkedmenuitem.html',[],function () { return '<li><label class="dropdownMenuItem" role="menuitem"><input class="checkedMenuItem" type="checkbox" />${ItemText}</label></li>';});
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2012, 2019 IBM Corporation and others.
+ * Copyright (c) 2012, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -2749,9 +2504,6 @@ define('text!orion/webui/checkedmenuitem.html',[],function () { return '<li role
  ******************************************************************************/
 /*eslint-env browser, amd*/
 define('orion/webui/tooltip',['orion/webui/littlelib'], function(lib) {
-	
-	var ID_INDEX = 0;
-	var RANDOM = Date.now();
 
 	/**
 	 * Attaches tooltip behavior to a given node.  The tooltip will be assigned class "tooltip" which can be
@@ -2864,21 +2616,22 @@ define('orion/webui/tooltip',['orion/webui/littlelib'], function(lib) {
 				var self = this;
 				lib.addAutoDismiss([this._tip, this._node], function() {self.hide();});
 
+				if (this._showByKB) {
+					this._tip.tabIndex = "0";
+				}
 				this._tip.addEventListener("keydown", function (e) {
 					if (e.keyCode === lib.KEY.ESCAPE) {
-						lib.returnFocus(self._tipInner, self._originalFocus, function() {
-							self.hide(0);
-						});
+						self._node.focus();
+						self.hide();
 					}
 				}, false);
 
 				if (this._trigger === "mouseover") { //$NON-NLS-0$
-					lib.setSafeAttribute(this._tipInner, "role", "tooltip");
-					// if we are in an iframe dialog, need to use a different ID string to ensure unique id
-					this._tipInner.id = "tooltip-" + RANDOM + "-" + ID_INDEX++; //$NON-NLS-1$ //$NON-NLS-0$
+					this._tipInner.setAttribute("role", "tooltip"); //$NON-NLS-2$ //$NON-NLS-1$
+					this._tipInner.id = "tooltip" + Date.now(); //$NON-NLS-0$
 					var label = this._node.getAttribute("aria-label");
 					if (this._text !== label) {
-						lib.setSafeAttribute(this._node, "aria-describedby", this._tipInner.id);
+						this._node.setAttribute("aria-describedby", this._tipInner.id); //$NON-NLS-0$
 				 	}
 
 					// see https://bugs.eclipse.org/bugs/show_bug.cgi?id=398960
@@ -2898,7 +2651,6 @@ define('orion/webui/tooltip',['orion/webui/littlelib'], function(lib) {
 					}, false);
 				}
 			}
-			this._tipInner.tabIndex = this._showByKB ? 0 : -1;
 			return this._tip;
 		},
 		
@@ -3054,7 +2806,7 @@ define('orion/webui/tooltip',['orion/webui/littlelib'], function(lib) {
 		/**
 		 * Show the tooltip.
 		 */			
-		show: function(delay) {
+		show: function() {
 			if(this.isTurnedOff){
 				return;
 			}
@@ -3065,16 +2817,14 @@ define('orion/webui/tooltip',['orion/webui/littlelib'], function(lib) {
 				window.clearTimeout(this._timeout);
 				this._timeout = null;
 			}
-			var showDelay = delay !== undefined ? delay : this._showDelay;
-			if (showDelay) {
-				this._timeout = window.setTimeout(this._showImmediately.bind(this), showDelay);	
+			if (this._showDelay) {
+				this._timeout = window.setTimeout(this._showImmediately.bind(this), this._showDelay);	
 			} else {
 				this._showImmediately();
 			}
 		},
 		
 		_showImmediately: function() {
-			this._originalFocus = document.activeElement;
 			var positioned = false;
 			var index = 0;
 			// See if the tooltip can fit anywhere around the anchor
@@ -3094,10 +2844,10 @@ define('orion/webui/tooltip',['orion/webui/littlelib'], function(lib) {
 			}
 			
 			if (this._showByKB) {
-				this._tipInner.focus();
+				this._tip.focus();
 			}
 			
-			lib.trapTabs(this._tipInner);
+			lib.trapTabs(this._tip);
 			
 			if (this._afterShowing) {
 				this._afterShowing();
@@ -3143,7 +2893,6 @@ define('orion/webui/tooltip',['orion/webui/littlelib'], function(lib) {
 				this._tail = null;
 			}
 			if (this._node) {
-				this._node.removeAttribute("aria-describedby"); //$NON-NLS-0$
 				this._node.removeEventListener("click", this._clickHandler, false); //$NON-NLS-0$
 				this._node.removeEventListener("mouseover", this._mouseoverHandler, false); //$NON-NLS-0$
 				this._node.removeEventListener("focus", this._focusHandler, false); //$NON-NLS-0$
@@ -3215,23 +2964,12 @@ define('orion/metrics',[
 			current.logTiming(timingCategory, timingVar, timingValue, timingLabel);
 		});
 	}
-
-	/** @callback */
-	function _logAudit(action, type, value, error) {
-		_services.forEach(function(current) {
-			if (current.logAudit) {
-				current.logAudit(action, type, value, error);
-			}
-		});
-	}
-
 	/** @callback */
 	function _logEvent(category, action, label, value, details) {
 		_services.forEach(function(current) {
 			current.logEvent(category, action, label || "", value, details);
 		});
 	}
-
 	/** @callback */
 	function _logPageLoadTiming(timingVar, timingLabel) {
 		/* 
@@ -3287,16 +3025,6 @@ define('orion/metrics',[
 		 */
 		logPageLoadTiming: function(timingVar, timingLabel) {
 			_logPageLoadTiming(timingVar, timingLabel);
-		},
-		/**
-		 * @description Log an audit event
-		 * @function
-		 * @param {String} action The name of the action logged
-		 * @param {String} type The type of target acted upon
-		 * @param {String} value The event value to log
-		 */
-		logAudit: function(action, type, value, error) {
-			_logAudit(action, type, value, error);
 		}
 	};
 	
@@ -3304,7 +3032,6 @@ define('orion/metrics',[
 		Metrics: Metrics,
 		logTiming: _logTiming,
 		logEvent: _logEvent,
-		logAudit: _logAudit,
 		logPageLoadTiming: _logPageLoadTiming
 	};
 });
@@ -3330,7 +3057,7 @@ define('orion/urlModifier',[],function() {
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2010, 2019 IBM Corporation and others.
+ * Copyright (c) 2010,2012 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -3502,26 +3229,6 @@ define('orion/commands',[
 		// bind name to fragment variable
 		lib.processTextNodes(buttonFragment, {ButtonText: name});
 		parent.appendChild(buttonFragment);
-
-		var trigger = parent.firstChild;
-		var inMenubar = false;
-		var parentNode = parent.parentNode;
-		while(parentNode && (document !== parentNode)) {
-			if (parentNode.getAttribute("role") === "menubar") { //$NON-NLS-0$
-				inMenubar = true;
-				break;
-			}
-			parentNode = parentNode.parentNode;
-		}
-		if (inMenubar) {
-			lib.setSafeAttribute(trigger, "role", "menuitem");
-		} else {
-			// menu button
-			if (trigger.tagName.toLowerCase() !== "button") {
-				lib.setSafeAttribute(trigger, "role", "button");
-			}
-		}
-
 		var newMenu = parent.lastChild;
 		var menuButton;
 		var dropdownArrow;
@@ -3544,14 +3251,13 @@ define('orion/commands',[
 		if (buttonIconClass) {
 			if(!showName) {
 				menuButton.textContent = ""; //$NON-NLS-0$
-				lib.setSafeAttribute(menuButton, "aria-label", name);
+				menuButton.setAttribute("aria-label", name); //$NON-NLS-0$
 			}
 			_addImageToElement({ spriteClass: "commandSprite", imageClass: buttonIconClass }, menuButton, name); //$NON-NLS-0$
 			menuButton.classList.add("orionButton"); //$NON-NLS-0$
 		}
 		menuButton.dropdown = new Dropdown.Dropdown({
 			dropdown: newMenu, 
-			name: name,
 			populate: populateFunction,
 			selectionClass: selectionClass,
 			skipTriggerEventListeners: !!dropdownArrow,
@@ -3575,7 +3281,6 @@ define('orion/commands',[
 		var itemParent = parent.lastChild;
 		var checkbox = lib.$(".checkedMenuItem", itemParent); //$NON-NLS-0$
 		checkbox.checked = checked;
-		lib.setSafeAttribute(checkbox, "aria-checked", checked);
 		checkbox.addEventListener("change", onChange, false); //$NON-NLS-0$
 		return checkbox;
 	}
@@ -3643,7 +3348,7 @@ define('orion/commands',[
 		}
 		if (parentElement.nodeName.toLowerCase() === "ul") {
 			var li = document.createElement("li");
-			lib.setSafeAttribute(li, "role", "none");
+			li.setAttribute("role", "none");
 			parentElement.appendChild(li);
 			parentElement = li;
 		} else {
@@ -3684,7 +3389,7 @@ define('orion/commands',[
 	function createCommandItem(parent, command, commandInvocation, id, keyBinding, useImage, callback) {
 		var element;
 		var clickTarget;
-		useImage = useImage || (!command.name && command.hasImage && command.hasImage());
+		useImage = useImage || command.hasImage && command.hasImage();
 		
 		var renderButton = function() {
 				if (useImage) {
@@ -3692,7 +3397,7 @@ define('orion/commands',[
 						_addImageToElement(command, element, id);
 						// ensure there is accessible text describing this image
 						if (command.name) {
-							lib.setSafeAttribute(element, "aria-label", command.name);
+							element.setAttribute("aria-label", command.name); //$NON-NLS-0$
 						}
 					} else {
 						element.classList.add("commandButton"); //$NON-NLS-0$
@@ -3713,7 +3418,7 @@ define('orion/commands',[
 				_addImageToElement(command, element, id);
 				// ensure there is accessible text describing this image
 				if (command.name) {
-					lib.setSafeAttribute(element, "aria-label", command.name);
+					element.setAttribute("aria-label", command.name); //$NON-NLS-0$
 				}
 			} else {
 				element.className = "commandLink"; //$NON-NLS-0$
@@ -3735,13 +3440,13 @@ define('orion/commands',[
 		} else {
 			if (command.type === "switch") { //$NON-NLS-0$
 				element = clickTarget = document.createElement("div"); //$NON-NLS-0$
-				lib.setSafeAttribute(element, "role", "button");
+				element.setAttribute("role", "button"); //$NON-NLS-0$ //$NON-NLS-1$
 				element.tabIndex = 0;
 				element.className = "orionSwitch"; //$NON-NLS-0$
 				if (command.name) {
-					lib.setSafeAttribute(element, "aria-label", command.name);
+					element.setAttribute("aria-label", command.name); //$NON-NLS-0$
 				}
-				lib.setSafeAttribute(element, "aria-pressed", command.checked ? "true" : "false");
+				element.setAttribute("aria-pressed", command.checked ? "true" : "false"); //$NON-NLS-0$ //$NON-NLS-1$ //$NON-NLS-2$
 				var span1 = document.createElement("span"); //$NON-NLS-0$
 				span1.className = "orionSwitchInner"; //$NON-NLS-0$
 				span1.classList.add(command.imageClass);
@@ -3752,7 +3457,6 @@ define('orion/commands',[
 				element.addEventListener("keydown", function(e) { //$NON-NLS-0$
 					if (e.keyCode === lib.KEY.ENTER || e.keyCode === lib.KEY.SPACE) {
 						element.click();
-						e.preventDefault();
 					}
 				}, false);
 				element.addEventListener("click", function(e) { //$NON-NLS-0$
@@ -3829,7 +3533,7 @@ define('orion/commands',[
 		}
 		if (parent.nodeName.toLowerCase() === "ul") { //$NON-NLS-0$
 			var li = document.createElement("li"); //$NON-NLS-0$
-			lib.setSafeAttribute(li, "role", "none");
+			li.setAttribute("role", "none");
 			parent.appendChild(li);
 			parent = li;
 		} else {
@@ -3851,9 +3555,9 @@ define('orion/commands',[
 	
 	function toggleSwitch(element) {
 		if (element.getAttribute("aria-pressed") === "true") { //$NON-NLS-0$ //$NON-NLS-1$
-			lib.setSafeAttribute(element, "aria-pressed", "false");
+			element.setAttribute("aria-pressed", "false"); //$NON-NLS-0$ //$NON-NLS-1$
 		} else {
-			lib.setSafeAttribute(element, "aria-pressed", "true");
+			element.setAttribute("aria-pressed", "true"); //$NON-NLS-0$ //$NON-NLS-1$
 		}
 	}
 
@@ -4092,23 +3796,17 @@ define('orion/commands',[
 			choices.forEach(function(choice) {
 				if (choice.name) {
 					var itemNode = document.createElement("li"); //$NON-NLS-0$
-					lib.setSafeAttribute(itemNode, "role", "none");
+					itemNode.setAttribute("role", "none");
 					parent.appendChild(itemNode);
 					var node = document.createElement("span"); //$NON-NLS-0$
-					node.tabIndex = -1; 
+					node.tabIndex = 0; 
+					node.setAttribute("role", "menuitem");  //$NON-NLS-2$ //$NON-NLS-1$
 					node.classList.add("dropdownMenuItem"); //$NON-NLS-0$
-					node.style.outline = "none";
 					if (addCheck) {
-						lib.setSafeAttribute(node, "role", "menuitemradio");
-						lib.setSafeAttribute(node, "aria-checked", choice.checked ? "true" : "false");
 						var check = document.createElement("span"); //$NON-NLS-0$
 						check.classList.add("check"); //$NON-NLS-0$
-						lib.setSafeAttribute(check, "role", "none");
-						lib.setSafeAttribute(check, "aria-hidden", "true");
 						check.appendChild(document.createTextNode(choice.checked ? "\u25CF" : "")); //$NON-NLS-1$ //$NON-NLS-0$
 						node.appendChild(check);
-					} else {
-						lib.setSafeAttribute(node, "role", "menuitem");
 					}
 					if (choice.imageClass) {
 						var image = document.createElement("span"); //$NON-NLS-0$
@@ -4478,14 +4176,14 @@ define('orion/explorers/navigationUtils',[], function() {
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2011, 2019 IBM Corporation and others.
+ * Copyright (c) 2011, 2013 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
  * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html). 
  *
  *******************************************************************************/
-define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
+define ('orion/bidiFormat',[], function() {
 
     var TextSegment = (function() {
         var TextSegment = function (obj) {
@@ -4514,19 +4212,19 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
             if (!bounds) {
                 return false;
             }
-            if (typeof bounds.start === "undefined") {
+            if (typeof(bounds.start) === "undefined") {
                 bounds.start = "";
             }
-            if (typeof bounds.end === "undefined") {
+            if (typeof(bounds.end) === "undefined") {
                 bounds.end = "";
             }
-            if (typeof bounds.startAfter !== "undefined") {
+            if (typeof(bounds.startAfter) !== "undefined") {
                 bounds.start = bounds.startAfter;
                 bounds.after = true;
             } else {
                 bounds.after = false;
             }
-            if (typeof bounds.endBefore !== "undefined") {
+            if (typeof(bounds.endBefore) !== "undefined") {
                 bounds.end = bounds.endBefore;
                 bounds.before = true;
             } else {
@@ -4544,7 +4242,7 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
             } else {
                 bounds.useLength = false;
             }
-            bounds.loops = typeof bounds.loops !== "undefined" ? !!bounds.loops : true;
+            bounds.loops = typeof(bounds.loops) !== "undefined" ? !!bounds.loops : true;
             return true;
         }
 
@@ -4579,11 +4277,11 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
 
         return {
             handleSubcontents: function (segments, args, subs, origContent, locale) { // jshint unused: false
-                if (!subs.content || typeof subs.content !== "string" || subs.content.length === 0) {
+                if (!subs.content || typeof(subs.content) !== "string" || subs.content.length === 0) {
                     return segments;
                 }
                 var sLoops = true;
-                if (typeof subs.loops !== "undefined") {
+                if (typeof(subs.loops) !== "undefined") {
                     sLoops = !!subs.loops;
                 }
                 for (var j = 0; true; j++) {
@@ -4716,7 +4414,7 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
                     }
                 }
                 for (var i =  0; i < cases.length; i++) {
-                    if (!cases[i].handler || typeof cases[i].handler.handle !== "function") {
+                    if (!cases[i].handler || typeof(cases[i].handler.handle) !== "function") {
                         cases[i].handler = args.commonHandler;
                     }
                     if (cases[i].args) {
@@ -4794,15 +4492,15 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
                     cases = args.cases;
                 }
                 var points = [];
-                if (typeof args.points !== "undefined") {
+                if (typeof(args.points) !== "undefined") {
                     if (Array.isArray(args.points)) {
                         points = args.points;
-                    } else if (typeof args.points === "string") {
+                    } else if (typeof(args.points) === "string") {
                         points = args.points.split("");
                     }
                 }
                 var subs = {};
-                if (typeof args.subs === "object") {
+                if (typeof(args.subs) === "object") {
                     subs = args.subs;
                 }
                 var aBounds = [];
@@ -4920,7 +4618,7 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
                         result += c;
                     }
                 }
-                var mark = typeof guiDir === "undefined" || !((/^(rtl|ltr)$/i).test(guiDir)) ? "" :
+                var mark = typeof(guiDir) === "undefined" || !((/^(rtl|ltr)$/i).test(guiDir)) ? "" :
                     guiDir === "rtl" ? RLO : LRO;
                 return mark + result + (mark === "" ? "" : PDF);
             },
@@ -4970,7 +4668,7 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
             if (!fullCheck) {
                 return args;
             }
-            if (typeof args.points === "undefined") {
+            if (typeof(args.points) === "undefined") {
                 args.points = [];
             }
             if (!args.cases) {
@@ -4995,7 +4693,7 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
                     localGui: args.dir
                 })];
             var parse = common.handle;
-            if (args.handler && typeof args.handler === "function") {
+            if (args.handler && typeof(args.handler) === "function") {
                 parse = args.handler.handle;
             }
             parse(content, segments, args, locale);
@@ -5645,7 +5343,7 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
         checked.contentEditable = true;
         var isSupported = ("oninput" in checked);
         if (!isSupported) {
-          lib.setSafeAttribute(checked, 'oninput', 'return;');
+          checked.setAttribute('oninput', 'return;');
           isSupported = typeof checked['oninput'] == 'function';
         }
         checked = null;
@@ -5661,9 +5359,9 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
             event = document.createEvent('Event');
             event.initEvent('TF', true, true);
         }
-        lib.setSafeAttribute(element, "data-tf-type", type);
+        element.setAttribute("data-tf-type", type);
         var sArgs = args === "undefined"? "{}" : JSON.stringify(Array.isArray(args)? args[0] : args);
-        lib.setSafeAttribute(element, "data-tf-args", sArgs);
+        element.setAttribute("data-tf-args", sArgs);
         var dir = "ltr";
         if (isRtl === "undefined") {
             if (element.dir) {
@@ -5674,8 +5372,8 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
             }
             isRtl = dir.toLowerCase() === "rtl";
         }
-        lib.setSafeAttribute(element, "data-tf-dir", isRtl);
-        lib.setSafeAttribute(element, "data-tf-locale", misc.getLocaleDetails(locale).lang);
+        element.setAttribute("data-tf-dir", isRtl);
+        element.setAttribute("data-tf-locale", misc.getLocaleDetails(locale).lang);
         if (isInputEventSupported(element)) {
             var ehandler = element.oninput;
             element.oninput = function(event) {
@@ -5705,7 +5403,7 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
         element.removeAttribute("data-tf-args");
         element.removeAttribute("data-tf-dir");
         element.removeAttribute("data-tf-locale");
-        lib.setSafeInnerHTML(element, element.textContent || "");
+        element.innerHTML = element.textContent || "";
     }
 
     // This function is called for each user's input into the attached editable html element
@@ -5738,10 +5436,10 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
         var div = document.createElement('div');
         div.appendChild(tempRange.cloneContents());
         textOffset += div.textContent.length;
-        lib.setSafeInnerHTML(element,
-            getHandler(element.getAttribute("data-tf-type")).
+
+        element.innerHTML = getHandler(element.getAttribute("data-tf-type")).
             format(txt, JSON.parse(element.getAttribute("data-tf-args")), (element.getAttribute("data-tf-dir") === "true"? true : false),
-            true, element.getAttribute("data-tf-locale")));
+            true, element.getAttribute("data-tf-locale"));
         var parent = element;
         var node = element;
         var newOffset = 0;
@@ -5824,7 +5522,7 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2011, 2019 IBM Corporation and others.
+ * Copyright (c) 2011, 2013 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -5832,11 +5530,10 @@ define ('orion/bidiFormat',['orion/webui/littlelib'], function(lib) {
  *
  *******************************************************************************/
 define ('orion/bidiUtils',[
-  "orion/webui/littlelib",
 	"orion/util",
 	"orion/bidiFormat"
 ],
-function(lib, util, bidiFormat) { /* BDL */
+function(util, bidiFormat) { /* BDL */
 	
 	var bidiEnabledStorage = "/orion/preferences/bidi/bidiEnabled"; //$NON-NLS-0$
 	var bidiLayoutStorage = "/orion/preferences/bidi/bidiLayout"; //$NON-NLS-0$	
@@ -5858,7 +5555,7 @@ function(lib, util, bidiFormat) { /* BDL */
 		if (isBidi && isBidiEnabled()) {
 			var htmlElement = document.getElementsByTagName("html")[0];
 			if (htmlElement){ //should be always true
-				lib.setSafeAttribute(htmlElement, "dir", "rtl");
+				htmlElement.setAttribute ("dir", "rtl");
 			}
 		}
 	}
@@ -5872,7 +5569,7 @@ function(lib, util, bidiFormat) { /* BDL */
 	 * @returns {Boolean} true if globalization settings exist and bidi is enabled.
 	 */		
 	function isBidiEnabled() {
-		var bidiEnabled = util.readSetting(bidiEnabledStorage);
+		var bidiEnabled = localStorage.getItem(bidiEnabledStorage);
 		if (bidiEnabled && bidiEnabled === "true") {		//$NON-NLS-0$
 			return true;
 		}
@@ -5884,7 +5581,7 @@ function(lib, util, bidiFormat) { /* BDL */
 	 * @returns {String} text direction.
 	 */	
 	function getBidiLayout() {
-		var _bidiLayout = util.readSetting(bidiLayoutStorage);
+		var _bidiLayout = localStorage.getItem(bidiLayoutStorage);
 		if (_bidiLayout && (_bidiLayout === "rtl" || _bidiLayout === "ltr" || _bidiLayout === "auto")) {	//$NON-NLS-0$ //$NON-NLS-1$ //$NON-NLS-2$
 			return _bidiLayout;
 		}
@@ -6261,7 +5958,6 @@ define('orion/uiUtils',[
 		var selectTo = options.selectTo;
 		var isInitialValid = options.isInitialValid;
 		var insertAsChild = options.insertAsChild;
-		var previousActiveElement = document.activeElement;
 		
 		var done = false;
 		var handler = function(isKeyEvent) {
@@ -6274,33 +5970,38 @@ define('orion/uiUtils',[
 				if (!editBox) {
 					return;
 				}
-				function hide() {
-					done = true;
-					lib.returnFocus(editBox, previousActiveElement, function() {
-						if (hideRefNode) {
-							refNode.style.display = "";
-						}
-					});
-					// some clients remove temporary dom structures in the onComplete processing, so check that we are still in DOM
-					if (editBox.parentNode) {
-						editBox.parentNode.removeChild(editBox);
+				if (isKeyEvent && event.keyCode === lib.KEY.ESCAPE) {
+					if (hideRefNode) {
+						refNode.style.display = "";
 					}
+					done = true;
+					editBox.parentNode.removeChild(editBox);
 					if (onEditDestroy) {
 						onEditDestroy();
 					}
-				}
-				if (isKeyEvent && event.keyCode === lib.KEY.ESCAPE) {
-					hide();
 					return;
 				}
 				if (isKeyEvent && event.keyCode !== lib.KEY.ENTER) {
 					return;
 				} else if (newValue.length === 0 || (!isInitialValid && newValue === initialText)) {
-					// Do nothing
+					if (hideRefNode) {
+						refNode.style.display = "";
+					}
+					done = true;
 				} else {
 					onComplete(newValue);
+					if (hideRefNode && refNode.parentNode) {
+						refNode.style.display = "";
+					}
+					done = true;
 				}
-				hide();
+				// some clients remove temporary dom structures in the onComplete processing, so check that we are still in DOM
+				if (editBox.parentNode) {
+					editBox.parentNode.removeChild(editBox);
+				}
+				if (onEditDestroy) {
+					onEditDestroy();
+				}
 			};
 		};
 	
@@ -6320,7 +6021,7 @@ define('orion/uiUtils',[
 		bidiUtils.initInputField(editBox);
 		editBox.addEventListener("keydown", handler(true), false); //$NON-NLS-0$
 		editBox.addEventListener("blur", handler(false), false); //$NON-NLS-0$
-		window.setTimeout(function() {
+		window.setTimeout(function() { 
 			editBox.focus(); 
 			if (initialText) {
 				var box = lib.node(id);
@@ -6528,7 +6229,7 @@ define('orion/uiUtils',[
 });
 
 
-define('text!orion/webui/submenutriggerbutton.html',[],function () { return '<li class="dropdownSubMenu" role="none"><span class="dropdownTrigger dropdownMenuItem" aria-expanded = "false" aria-haspopup="true" role="menuitem" tabindex="-1" style="outline:none"><span class="dropdownCommandName">${ButtonText}</span><span class="dropdownArrowRight core-sprite-closedarrow" aria-hidden="true"></span></span><ul class="dropdownMenu" role="menu"></ul></li>';});
+define('text!orion/webui/submenutriggerbutton.html',[],function () { return '<li class="dropdownSubMenu" role="none"><span class="dropdownTrigger dropdownMenuItem"  aria-expanded = "false" aria-haspopup="true" role="menuitem"><span class="dropdownCommandName">${ButtonText}</span><span class="dropdownArrowRight core-sprite-closedarrow" aria-hidden="true"></span></span><ul class="dropdownMenu" role="menu"></ul></li>';});
 
 /*******************************************************************************
  * @license
@@ -6938,7 +6639,7 @@ define('text!orion/webui/submenutriggerbutton.html',[],function () { return '<li
 }));
 /*******************************************************************************
  * @license
- * Copyright (c) 2010, 2019 IBM Corporation and others.
+ * Copyright (c) 2010,2012 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -6949,7 +6650,6 @@ define('text!orion/webui/submenutriggerbutton.html',[],function () { return '<li
 /*eslint-env browser, amd*/
  
 define('orion/commandRegistry',[
-	'i18n!orion/nls/messages',
 	'orion/commands',
 	'orion/keyBinding',
 	'orion/explorers/navigationUtils',
@@ -6963,7 +6663,7 @@ define('orion/commandRegistry',[
 	'orion/metrics',
 	'orion/Deferred',
 	'orion/EventTarget'
-], function(messages, Commands, mKeyBinding, mNavUtils, bidiUtils, PageUtil, UIUtil, lib, mDropdown, mTooltip, SubMenuButtonFragment, mMetrics, mDeferred, mEventTarget) {
+], function(Commands, mKeyBinding, mNavUtils, bidiUtils, PageUtil, UIUtil, lib, mDropdown, mTooltip, SubMenuButtonFragment, mMetrics, mDeferred, mEventTarget) {
 
 	/**
 	 * Constructs a new command registry with the given options.
@@ -7159,12 +6859,11 @@ define('orion/commandRegistry',[
 		 * @param {DOMElement} node the dom node that is displaying the command, or a node in the parameter collector area
 		 * @param {Function} fillFunction a function that will fill the parameter area
 		 * @param {Function} onClose a function that will be called when the user closes the collector
-		 * @param {String} name the label that will be used for the dialog title
 		 */
-		openParameterCollector: function(node, fillFunction, onClose, name) {
+		openParameterCollector: function(node, fillFunction, onClose) {
 			if (this._parameterCollector) {
 				this._parameterCollector.close();
-				this._parameterCollector.open(node, fillFunction, onClose, name);
+				this._parameterCollector.open(node, fillFunction, onClose);
 			}
 		},
 		
@@ -7200,18 +6899,18 @@ define('orion/commandRegistry',[
 		 * Open a parameter collector to confirm a command or collect user input.
 		 *
 		 * @param {Boolean} modal indicates whether the confirmation prompt should be modal.
-		 * @param {String}  determines the popup dialog's type, could be "PROMPT", "CONFIRM" or "ALERT"
+		 * @param {String}  determinds the popup dialog's type, could be "PROMPT" or "CONFIRM"
 		 * @param {DOMElement} node the dom node that is displaying the command
 		 * @param {String} message the message to show when confirming the command
 		 * @param {Array} an array of button label, callback, type objects; if the type is "yes", either input.value or true will be passed to callback depends on the dialog's type
 		 * @param {String} default message in the input box.
-		 * @param [Optional]{String} postion of the popupDialog if specified, have to be one of "below", "right"
+		 * @param [Optional]{String} postion of the popupDialog if specified, postion of the popupDialog if specified, have to be one of "below", "right"
 		 */
 		_popupDialog: function(modal, style, node, message, buttonStringCallList, defaultInput, positionString) {
 			var result;
 			if (this._parameterCollector && !modal) {
 				var self = this;
-				var closeFunction = function(){self._parameterCollector.close();};
+				var closeFunction = function(){self._parameterCollector.close();}
 				var fillFunction = function(parent, buttonParent) {
 					var label = document.createElement("span"); //$NON-NLS-0$
 					label.classList.add("parameterPrompt"); //$NON-NLS-0$
@@ -7219,7 +6918,7 @@ define('orion/commandRegistry',[
 					parent.appendChild(label);
 					if(style === "PROMPT"){
 						var input = document.createElement("input");
-						lib.setSafeAttribute(input, "value", defaultInput);
+						input.setAttribute("value", defaultInput);
 						input.classList.add("parameterInput");
 						bidiUtils.initInputField(input);
 						parent.appendChild(input);
@@ -7257,7 +6956,7 @@ define('orion/commandRegistry',[
 				this._parameterCollector.close();
 				if(!node){
 					// Do this if this is a confirm or if this is a prompt but without node specified.
-					var opened = this._parameterCollector.open(node, fillFunction, function(){}, messages[style]);
+					var opened = this._parameterCollector.open(node, fillFunction, function(){});
 				}
 				if (!opened) {
 					var tooltip = new mTooltip.Tooltip({
@@ -7270,14 +6969,11 @@ define('orion/commandRegistry',[
 					});
 					var parameterArea = tooltip.contentContainer();
 					parameterArea.classList.add("parameterPopup"); //$NON-NLS-0$
-					var parent = parameterArea.parentNode;
-					lib.setSafeAttribute(parent, "role", "dialog");
-					lib.setSafeAttribute(parent, "aria-modal", "true");
-					var dialogName = node.getAttribute("aria-label") || node.textContent || messages[style] || messages["Command"];
-					lib.setSafeAttribute(parent, "aria-label", dialogName);
 					var originalFocusNode = window.document.activeElement;
 					closeFunction = function() {
-						lib.returnFocus(parameterArea, originalFocusNode);
+						if (originalFocusNode) {
+							originalFocusNode.focus();
+						}
 						tooltip.destroy();
 					};
 					var messageArea = document.createElement("div"); //$NON-NLS-0$
@@ -7383,11 +7079,7 @@ define('orion/commandRegistry',[
 					// Consult shouldCollectParameters() again to verify we still need collection. Due to updateParameters(), the CommandInvocation
 					// could have dynamically set its parameters to null (meaning no collection should be done).
 					if (commandInvocation.parameters.shouldCollectParameters()) {
-						var dialogName = messages["Command"]; // default name
-						if (commandInvocation.domNode && commandInvocation.domNode.textContent) {
-							dialogName = commandInvocation.domNode.textContent;
-						}
-						collecting = this._parameterCollector.collectParameters(commandInvocation,cancelCallback, dialogName);
+						collecting = this._parameterCollector.collectParameters(commandInvocation,cancelCallback);
 						// The parameter collector cannot collect.  We will do a default implementation using a popup.
 						if (!collecting) {
 							var tooltip = new mTooltip.Tooltip({
@@ -7401,13 +7093,11 @@ define('orion/commandRegistry',[
 							});
 							var parameterArea = tooltip.contentContainer();
 							parameterArea.classList.add("parameterPopup"); //$NON-NLS-0$
-							var parent = parameterArea.parentNode;
-							lib.setSafeAttribute(parent, "role", "dialog");
-							lib.setSafeAttribute(parent, "aria-modal", "true");
-							lib.setSafeAttribute(parent, "aria-label", dialogName);
 							var originalFocusNode = window.document.activeElement;
 							var focusNode = this._parameterCollector.getFillFunction(commandInvocation, function() {
-								lib.returnFocus(parameterArea, originalFocusNode);
+								if (originalFocusNode) {
+									originalFocusNode.focus();
+								}
 								tooltip.destroy();
 								if (commandInvocation.domParent) commandInvocation.domParent.classList.remove("parameterPopupOpen"); //$NON-NLS-0$
 							}, cancelCallback)(parameterArea);
@@ -7495,7 +7185,7 @@ define('orion/commandRegistry',[
 			}
 			for (var scopedBinding in scopes) {
 				if (scopes[scopedBinding].length && scopes[scopedBinding].length > 0) {
-					keyAssist.createHeader(scopedBinding, lib.validId(scopedBinding) + "Scope"); //$NON-NLS-0$
+					keyAssist.createHeader(scopedBinding);
 					scopes[scopedBinding].forEach(function(binding) {
 						keyAssist.createItem(binding.keyBinding, binding.command.name || binding.command.tooltip, binding.command.id, execute(binding));
 					});
@@ -8236,7 +7926,7 @@ define('orion/commandRegistry',[
 								nested = false;
 								if (parent.nodeName.toLowerCase() === "ul") { //$NON-NLS-0$
 									menuParent = document.createElement("li"); //$NON-NLS-0$
-									lib.setSafeAttribute(menuParent, "role", "none");
+									menuParent.setAttribute("role", "none");
 									parent.appendChild(menuParent);
 								}
 							} else {
@@ -8325,12 +8015,12 @@ define('orion/commandRegistry',[
 				destroyButton = parent.lastChild;
 				newMenu = destroyButton.lastChild;
 				menuButton = newMenu.previousSibling;
-				menuButton.dropdown = new mDropdown.Dropdown({dropdown: newMenu, name: name, populate: populateFunction, parentDropdown: parent.dropdown});
+				menuButton.dropdown = new mDropdown.Dropdown({dropdown: newMenu, populate: populateFunction, parentDropdown: parent.dropdown});
 				newMenu.dropdown = menuButton.dropdown;
 			} else {
 				if (parent.nodeName.toLowerCase() === "ul") { //$NON-NLS-0$
 					menuParent = document.createElement("li"); //$NON-NLS-0$
-					lib.setSafeAttribute(menuParent, "role", "none");
+					menuParent.setAttribute("role", "none");
 					parent.appendChild(menuParent);
 					destroyButton = menuParent;
 				}
@@ -8388,10 +8078,10 @@ define('orion/commandRegistry',[
 			if (!this._checkForTrailingSeparator(dropdown, "menu")) { //$NON-NLS-0$
 				var item = document.createElement("li"); //$NON-NLS-0$
 				item.classList.add("dropdownSeparator"); //$NON-NLS-0$
-				lib.setSafeAttribute(item, "role", "none");
+				item.setAttribute("role", "none");
 				var sep = document.createElement("span"); //$NON-NLS-0$
 				sep.classList.add("dropdownSeparator"); //$NON-NLS-0$
-				lib.setSafeAttribute(sep, "role", "separator");
+				sep.setAttribute("role", "separator");
 				item.appendChild(sep);
 				dropdown.appendChild(item);
 			}
@@ -8409,7 +8099,7 @@ define('orion/commandRegistry',[
 			var sep;
 			if (parent.nodeName.toLowerCase() === "ul") { //$NON-NLS-0$
 				sep = document.createElement("li"); //$NON-NLS-0$
-				lib.setSafeAttribute(sep, "role", "none");
+				sep.setAttribute("role", "none");
 				parent.appendChild(sep);
 			} else {
 				sep = document.createElement("span"); //$NON-NLS-0$
@@ -8689,7 +8379,7 @@ define('orion/commandRegistry',[
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2013, 2019 IBM Corporation and others.
+ * Copyright (c) 2013 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -8726,20 +8416,13 @@ define('orion/keyAssist',[
 			keyAssistDiv.id = "keyAssist"; //$NON-NLS-1$
 			keyAssistDiv.style.display = "none"; //$NON-NLS-1$
 			keyAssistDiv.classList.add("keyAssistFloat"); //$NON-NLS-1$
-			lib.setSafeAttribute(keyAssistDiv, "role", "dialog");
-			lib.setSafeAttribute(keyAssistDiv, "aria-modal", "true");
-			lib.setSafeAttribute(keyAssistDiv, "aria-label", messages["Key Bindings"]);
-
+			keyAssistDiv.setAttribute("role", "menu"); //$NON-NLS-2$ //$NON-NLS-1$
 			var keyAssistInput = this._keyAssistInput = document.createElement("input"); //$NON-NLS-1$
 			keyAssistInput.classList.add("keyAssistInput"); //$NON-NLS-1$
 			keyAssistInput.type = "text"; //$NON-NLS-1$
-			lib.setSafeAttribute(keyAssistInput, "aria-label", messages["Filter bindings:"]);
+			keyAssistInput.setAttribute("aria-label", "Filter bindings:");
 			keyAssistInput.placeholder = messages["Filter bindings"]; //$NON-NLS-1$
-			lib.setSafeAttribute(keyAssistInput, "role", "combobox");
-			lib.setSafeAttribute(keyAssistInput, "aria-haspopup", "grid");
-			lib.setSafeAttribute(keyAssistInput, "aria-expanded", "true");
-			lib.setSafeAttribute(keyAssistInput, "aria-autocomplete", "list");
-			lib.setSafeAttribute(keyAssistInput, "aria-controls", "keyAssistList");
+			keyAssistInput.setAttribute("aria-autocomplete", "list"); //$NON-NLS-1$ //$NON-NLS-0$
 			keyAssistDiv.appendChild(keyAssistInput);
 
 			var keyAssistContents = this._keyAssistContents = document.createElement("div"); //$NON-NLS-1$
@@ -8749,9 +8432,7 @@ define('orion/keyAssist',[
 			}
 			keyAssistDiv.appendChild(keyAssistContents);
 			var keyAssistTable = this._keyAssistTable = document.createElement('table'); //$NON-NLS-1$
-			lib.setSafeAttribute(keyAssistTable, "role", "grid");
-			lib.setSafeAttribute(keyAssistTable, "aria-label", messages["Bindings"]);
-			keyAssistTable.id = "keyAssistList"; //$NON-NLS-1$
+			keyAssistTable.tabIndex = 0;
 			keyAssistTable.classList.add("keyAssistList"); //$NON-NLS-1$
 			keyAssistContents.appendChild(keyAssistTable);
 			document.body.appendChild(keyAssistDiv);
@@ -8762,16 +8443,13 @@ define('orion/keyAssist',[
 			keyAssistTable.addEventListener("keydown", function (e) { //$NON-NLS-1$
 				this._keyDown(e);
 			}.bind(this));
-			keyAssistTable.addEventListener("focus", function (e) { //$NON-NLS-1$
-				this.selectRow(this._selectedIndex !== -1 ? this._selectedIndex : 0);
-			}.bind(this));
 			keyAssistInput.addEventListener("input", function (e) { //$NON-NLS-1$
 				this.filterChanged();
 			}.bind(this));
 			keyAssistContents.addEventListener(util.isFirefox ? "DOMMouseScroll" : "mousewheel", function (e) { //$NON-NLS-2$ //$NON-NLS-1$
 				this._scrollWheel(e);
 			}.bind(this));
-			keyAssistDiv.addEventListener("keydown", function (e) { //$NON-NLS-1$
+			document.addEventListener("keydown", function (e) { //$NON-NLS-1$
 				if (e.keyCode === lib.KEY.ESCAPE) {
 					this.hide();
 				}
@@ -8801,7 +8479,7 @@ define('orion/keyAssist',[
 				if (JSON.stringify(args.prevBinding) === JSON.stringify(row.curBinding)) {
 					// Update the binding showm in the table
 					var bindingStr = args.newBinding ? UIUtil.getUserKeyString(args.newBinding) : "---"; //$NON-NLS-1$
-					row.childNodes[1].firstChild.textContent = bindingStr;
+					row.childNodes[2].firstChild.textContent = bindingStr;
 					row.curBinding = args.newBinding;							
 				}
 			}
@@ -8813,11 +8491,10 @@ define('orion/keyAssist',[
 			this._selectedRow = null;
 			this._keyAssistContents.scrollTop = 0;
 			this._idCount = 0;
-			lib.setSafeAttribute(this._keyAssistInput, "aria-activedescendant", "");
 			for (var i=0; i<this._providers.length; i++) {
 				this._providers[i].showKeyBindings(this);
 			}
-			this.createHeader(messages["Global"], "GlobalScope"); //$NON-NLS-0$
+			this.createHeader(messages["Global"]);
 			this.commandRegistry.showKeyBindings(this);
 		},
 		createItem: function (binding, name, cmdID, execute) {
@@ -8841,7 +8518,7 @@ define('orion/keyAssist',[
 			}
 			var row = this._keyAssistTable.insertRow(-1);
 			row.id = "keyAssist-keyBinding-" + this._idCount++; //$NON-NLS-1$
-			lib.setSafeAttribute(row, "role", "row");
+			row.setAttribute("role", "menuitem"); //$NON-NLS-2$ //$NON-NLS-1$
 			row.cmdID = cmdID;
 			row._execute = execute;
 			row.curBinding = binding;
@@ -8853,31 +8530,25 @@ define('orion/keyAssist',[
 			}.bind(this));
 			
 			var column = row.insertCell(-1);
+			column.classList.add("keyAssistSpacer"); //$NON-NLS-1$
+			column.appendChild(document.createElement("div")); //$NON-NLS-1$
+			
+			var column = row.insertCell(-1);
 			column.classList.add("keyAssistName"); //$NON-NLS-1$
-			column.headers = this._lastHeaderID; //$NON-NLS-0$
-			lib.setSafeAttribute(column, "role", "gridcell");
 			column.appendChild(document.createTextNode(name));
 			
 			column = row.insertCell(-1);
 			column.classList.add("keyAssistAccel"); //$NON-NLS-1$
-			column.headers = this._lastHeaderID; //$NON-NLS-0$
-			lib.setSafeAttribute(column, "role", "gridcell");
 			var bindingSpan = document.createElement("span"); //$NON-NLS-1$
 			bindingSpan.textContent = bindingString;
 			column.appendChild(bindingSpan);
 			
 			column = row.insertCell(-1);
 			column.classList.add("keyAssistActions"); //$NON-NLS-1$
-			column.headers = this._lastHeaderID; //$NON-NLS-0$
 			var eb = document.createElement("button"); //$NON-NLS-1$
-			eb.tabIndex = -1;
 			eb.classList.add("keyAssistEditButton"); //$NON-NLS-1$
-			eb.classList.add("orionButton"); //$NON-NLS-1$
-			eb.classList.add("commandImage"); //$NON-NLS-1$
-			var span = document.createElement("span"); //$NON-NLS-0$
-			span.classList.add("core-sprite-edit"); //$NON-NLS-1$
-			eb.appendChild(span);
-			lib.setSafeAttribute(eb, "aria-label", messages["Edit"]);
+			eb.classList.add("core-sprite-edit"); //$NON-NLS-1$
+			eb.setAttribute("aria-label", messages["Edit"]); //$NON-NLS-1$
 			//eb.textContent = "E"; //$NON-NLS-1$
 			eb.addEventListener("click", function(evt) {
 				lib.stop(evt);
@@ -8963,7 +8634,7 @@ define('orion/keyAssist',[
 				lib.stop(e);
 			}.bind(this));
 			
-			var bindingField = this.bindingField = row.childNodes[1];
+			var bindingField = this.bindingField = row.childNodes[2];
 			bindingField.firstChild.style.display = "none"; //$NON-NLS-1$
 
 			// Make the edit control the correct width to avoid resizing the panel
@@ -8982,22 +8653,15 @@ define('orion/keyAssist',[
 			keyAssistKBEdit.focus();
 			this._editingABinding = true;
 		},
-		createHeader: function (name, id) {
+		createHeader: function (name) {
 			this._lastHeader = name;
-			this._lastHeaderID = id;
-			var rowgroup = document.createElement("tbody");
-			this._keyAssistTable.appendChild(rowgroup);
-			var row = rowgroup.insertRow(-1);
-			row.classList.add("keyAssistSection"); //$NON-NLS-0$
-			var column = document.createElement('th'); //$NON-NLS-0$
-			column.id = id;
-			column.colSpan = 3;
-			column.scope = "rowgroup"; //$NON-NLS-0$
-			var heading = document.createElement("h2"); //$NON-NLS-0$
-			lib.setSafeAttribute(heading, "role", "presentation");
+			var row = this._keyAssistTable.insertRow(-1);
+			row.classList.add("keyAssistSection"); //$NON-NLS-1$
+			var column = row.insertCell(-1);
+			column.colSpan = 4;
+			var heading = document.createElement("h2"); //$NON-NLS-1$
 			heading.appendChild(document.createTextNode(name));
 			column.appendChild(heading);
-			row.appendChild(column);
 		},
 		execute: function () {
 			window.setTimeout(function () {
@@ -9026,10 +8690,13 @@ define('orion/keyAssist',[
 			if (!this.isVisible()) {
 				return;
 			}
+			var activeElement = document.activeElement;
 			var keyAssistDiv = this._keyAssistDiv;
-			lib.returnFocus(keyAssistDiv, this._previousActiveElement, function() {
-				keyAssistDiv.style.display = "none"; //$NON-NLS-1$
-			});
+			var hasFocus = keyAssistDiv === activeElement || (keyAssistDiv.compareDocumentPosition(activeElement) & 16) !== 0;
+			keyAssistDiv.style.display = "none"; //$NON-NLS-1$
+			if (hasFocus && document.compareDocumentPosition(this._previousActiveElement) !== 1) {
+				this._previousActiveElement.focus();
+			}
 			this._previousActiveElement = null;
 		},
 		isVisible: function () {
@@ -9058,34 +8725,20 @@ define('orion/keyAssist',[
 			this.selectRow(selectedIndex, rows);
 		},
 		selectRow: function(index, rows) {
-			var row, editButton;
-			if (!rows) {
-				rows = this._keyAssistTable.querySelectorAll(".keyAssistItem");
-			}
 			if (this._selectedIndex !== -1) {
 				row = rows[this._selectedIndex];
 				row.classList.remove("selected"); //$NON-NLS-1$
-				lib.setSafeAttribute(row, "aria-selected", "false");
-				editButton = row.querySelector(".keyAssistEditButton");
-				if (editButton) {
-					editButton.classList.remove("keyAssistEditButtonVisible"); //$NON-NLS-1$
-					editButton.tabIndex = -1;
-				}
+				row.childNodes[3].firstChild.classList.remove("keyAssistEditButtonVisible"); //$NON-NLS-1$
 				this._selectedRow = null;
 			}
 			
 			if (index >= 0 && index < rows.length) {
 				this._selectedIndex = index;
 				this._selectedRow = rows[this._selectedIndex];
-				row = this._selectedRow;
+				var row = this._selectedRow;
 				row.classList.add("selected"); //$NON-NLS-1$
-				lib.setSafeAttribute(row, "aria-selected", "true");
-				editButton = row.querySelector(".keyAssistEditButton");
-				if (editButton) {
-					editButton.classList.add("keyAssistEditButtonVisible"); //$NON-NLS-1$
-					editButton.tabIndex = 0;
-				}
-				lib.setSafeAttribute(this._keyAssistInput, "aria-activedescendant", row.id);
+				row.childNodes[3].firstChild.classList.add("keyAssistEditButtonVisible"); //$NON-NLS-1$
+				this._keyAssistTable.setAttribute("aria-activedescendant", row.id); //$NON-NLS-1$
 				this._keyAssistTable.focus();
 				var rowRect = row.getBoundingClientRect();
 				var parent = this._keyAssistContents;
@@ -9105,14 +8758,13 @@ define('orion/keyAssist',[
 			if (this.isVisible()) {
 				return;
 			}
-			lib.trapTabs(this._keyAssistDiv);
 			this._previousActiveElement = document.activeElement;
-			this._filterString = "";
 			this.createContents();
 			this._keyAssistContents.style.height = Math.floor(this._keyAssistDiv.parentNode.clientHeight * 0.75) + "px"; //$NON-NLS-1$
 			this._keyAssistDiv.style.display = "block"; //$NON-NLS-1$
 			this._keyAssistInput.value = this._filterString;
 			this._keyAssistInput.focus();
+			this._keyAssistInput.select();
 			
 			metrics.logEvent("KeyBinding", "Panel", "Opened"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$
 		},
@@ -9283,21 +8935,18 @@ define('orion/navigate/nls/root/messages',{//Default message bundle
 	"Fetching children of ": "Fetching children of ",
 	"Paste": "Paste",
 	"Open With": "Open With",
-	"Loading ${0}": "Loading ${0}",
+	"Loading ": "Loading ",
 	"New": "New",
 	"File": "File",
 	"Actions": "Actions",
 	"Orion Content": "Orion Content",
 	"File System": "File System",
 	"Root": "Root",
-	"Name": "Name",
-	"Date Modified": "Date Modified",
-	"Size": "Size",
 	"Create new content": "Create new content",
 	"Import from HTTP...": "HTTP",
 	"File URL:": "File URL:",
 	"ImportURL": "Import a file from a URL and optionally unzip it",
-	"Unzip *.zip files": "Unzip *.zip files",
+	"Unzip *.zip files:": "Unzip *.zip files:",
 	"Extracted from:": "Extracted from:",
 	"FolderDropNotSupported": "Did not drop ${0}. Folder drop is not supported in this browser.",
 	"CreateFolderErr": "You cannot copy files directly into the workspace. Create a folder first.",
@@ -9309,7 +8958,7 @@ define('orion/navigate/nls/root/messages',{//Default message bundle
 	"Enter project name:": "Enter project name:",
 	"Create new project" : "Create new project",
 	"Creating project ${0}": "Creating project ${0}",
-	"NoFile": "Use the ${0} menu to create new files and folders. Click a file to start coding, or go to the Git page to bring in existing code.",
+	"NoFile": "Use the ${0} menu to create new files and folders. Click a file to start coding.",
 	"Download": "Download",
 	"Download_tooltips": "Download the file contents as the displayed name",
 	"Downloading...": "Reading file contents...",
@@ -9334,8 +8983,8 @@ define('orion/navigate/nls/root/messages',{//Default message bundle
 	"startApplication": "Start the application",
 	"manage": "Manage",
 	"manageThisApplicationOnRemote": "Manage this application on remote server",
-	"deleteLaunchConfiguration": "Delete",
-	"editLaunchConfiguration": "Edit",
+	"deleteLaunchConfiguration": "Delete this launch configuration",
+	"editLaunchConfiguration": "Edit this launch configuration",
 	"deployThisApplication": "Deploy the App from the Workspace",
 	"associatedFolder": "Associated Folder",
 	"associateAFolderFromThe": "Associate a folder from the workspace with this project.",
@@ -9343,13 +8992,13 @@ define('orion/navigate/nls/root/messages',{//Default message bundle
 	"convertThisFolderIntoA": "Convert this folder into a project",
 	"thisFolderIsAProject": "This folder is a project already.",
 	"basic": "Basic",
-	"createAnEmptyProject.": "Create an empty project",
+	"createAnEmptyProject.": "Create an empty project.",
 	"sFTP": "SFTP",
-	"createAProjectFromAn": "Create a project from an SFTP site",
+	"createAProjectFromAn": "Create a project from an SFTP site.",
 	'readMeCommandName': 'Readme File',  //$NON-NLS-0$  //$NON-NLS-1$
 	'readMeCommandTooltip': 'Create a README.md file in this project',  //$NON-NLS-0$  //$NON-NLS-1$
 	'zipArchiveCommandName': 'Zip Archive',  //$NON-NLS-0$  //$NON-NLS-1$
-	'zipArchiveCommandTooltip': 'Create a project from a local zip archive',  //$NON-NLS-0$  //$NON-NLS-1$
+	'zipArchiveCommandTooltip': 'Create a project from a local zip archive.',  //$NON-NLS-0$  //$NON-NLS-1$
 	'Url:': 'Url:',  //$NON-NLS-0$  //$NON-NLS-1$
 	'notZip' : 'The following files are not zip files: ${0}. Would you like to continue the import?', //$NON-NLS-0$  //$NON-NLS-1$
 	'notZipMultiple' : 'There are multiple non-zip files being uploaded. Would you like to continue the import?', //$NON-NLS-0$  //$NON-NLS-1$
@@ -9607,8 +9256,7 @@ define('orion/fileClient',[
 					}
 				}
 			}
-			return -1;
-			//throw new Error(i18nUtil.formatMessage(messages['NoFileSrv'], itemLocation));
+			throw new Error(i18nUtil.formatMessage(messages['NoFileSrv'], itemLocation));
 		};
 		/**
 		 * Returns the file service managing this location
@@ -10633,7 +10281,6 @@ define('orion/edit/nls/root/messages',{
 	"Actions": "Actions",
 	"Navigator": "Navigator",
 	"FolderNavigator": "Folder Navigator",
-	"ProjectNavigator": "Project Navigator",
 	"Project": "Project",
 	"New": "New",
 	"File": "File",
@@ -10641,7 +10288,7 @@ define('orion/edit/nls/root/messages',{
 	"Tools": "Tools",
 	"Add": "Add",
 	"noActions": "There are no actions for the current selection.",
-	"NoFile": "Use the ${0} to create new files and folders. Click a file to start coding, or go to the Git page to bring in existing code.",
+	"NoFile": "Use the ${0} to create new files and folders. Click a file to start coding.",
 	"LocalEditorSettings": "Local Editor Settings",
 	"EditorSettings": "Editor Settings",
 	"NoProject": "${0} is not a project. To convert it to a project use ${1}.",
@@ -10666,6 +10313,7 @@ define('orion/edit/nls/root/messages',{
 	"UnnamedCommand": "Unnamed",
 	"Search": "Search...",
 	"Show Debug": "Debug...",
+	"ClickEditLabel": "Click to edit",
 	"ProjectInfo": "Project Information",
 	"Name": "Name",
 	"Description": "Description",
@@ -10675,16 +10323,12 @@ define('orion/edit/nls/root/messages',{
 	'gettingWorkspaceInfo': 'Getting workspace information...',
 	"showProblems": "Show Problems...",
 	"showTooltip": "Show Tooltip",
-	"showTooltipTooltip": "Shows the tooltip based on the caret position",
-	"showLineTooltip": "Show Line Tooltip",
-	"showLineTooltipTooltip": "Shows the tooltip based on the current line",
+	"showTooltipTooltip": "Shows the tooltip immediately based on the caret position",
 	"emptyDeploymentInfoMessage": "Use the Launch Configurations dropdown to deploy this project",
 	"Orion": "Orion",
 	"OK": "Ok",
 	"Format" : "Format Code",
 	"FormatTooltip":"Format editor contents",
-	"fileContents":"${0} contents",
-	"fileContentsSplit":"${0} contents split",
 	"References" : "References",
 	"ReferencesTooltip":"Find references in project",
 	"FindReferences": "Finding references",
@@ -10699,7 +10343,7 @@ define('orion/edit/nls/root/messages',{
 	"showTabDropdown": "Display Open Editor Tabs",
 	"Collaborate": "Collaborate",
 	"CollaborateToolTip": "Start a Collaboration session on the current file",
-	"closeOthers":"Close Other Tabs",
+	"closeOthers":"Close Others Tabs",
 	"closeTotheRight":"Close Tabs To The Right",
 	"keepOpen":"Keep Open",
 	"closeSelf":"Close"
@@ -10711,22 +10355,21 @@ define('orion/edit/nls/root/messages',{
  * Copyright (c) 2012 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
- * (https://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
- * License v1.0 (https://www.eclipse.org/org/documents/edl-v10.html). 
+ * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
+ * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html). 
  *
  * Contributors:
  *     IBM Corporation - initial API and implementation
  *******************************************************************************/
 /*eslint-env browser, amd*/
 /*global StopIteration*/
-// URL Shim -- see https://url.spec.whatwg.org/ and https://dvcs.w3.org/hg/url/raw-file/tip/Overview.html
+// URL Shim -- see http://url.spec.whatwg.org/ and http://dvcs.w3.org/hg/url/raw-file/tip/Overview.html
 
-/*eslint-disable no-extra-parens */
 (function() {
     try {
         var testURL;
         if (typeof self.URL === "function" && self.URL.length !== 0 &&
-                (testURL = new self.URL("https://www.w3.org?q")).protocol === "https:" && testURL.query) {
+                (testURL = new self.URL("http://www.w3.org?q")).protocol === "http:" && testURL.query) {
             return;
         }
     } catch (e) {}
@@ -10816,7 +10459,7 @@ define('orion/edit/nls/root/messages',{
         };
     }
 
-    // See https://url.spec.whatwg.org/#interface-urlquery
+    // See http://url.spec.whatwg.org/#interface-urlquery
     function URLQuery(url) {
         Object.defineProperty(this, "_url", {
             get: function() {
@@ -11084,7 +10727,7 @@ define('orion/edit/nls/root/messages',{
         return result;
     }
 
-    // See https://url.spec.whatwg.org/#api
+    // See http://url.spec.whatwg.org/#api
     function URL(input, base) {
         var baseURL;
         if (base) {
@@ -11509,7 +11152,7 @@ define('orion/objects',[], function() {
 });
 /*******************************************************************************
  * @license
- * Copyright (c) 2012, 2019 IBM Corporation and others.
+ * Copyright (c) 2012 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -11579,16 +11222,13 @@ define('orion/widgets/input/DropDownMenu',['orion/objects', 'orion/webui/littlel
 		click: function() {
 			if( this._dropdownMenu.style.display === 'none' ){ //$NON-NLS-0$
 				this.updateContent ( this.getContentNode() , function () {
-					this.previousActiveElement = document.activeElement;
 					lib.setFramesEnabled(false);
-					lib.trapTabs(this._dropdownMenu);
 					this._dropdownMenu.style.display = '';
 					this._positionDropdown();
 					if (this.selectionClass) {
 						this._triggerNode.classList.add(this.selectionClass);
 					}
 					this.handle = lib.addAutoDismiss( [ this._triggerNode, this._dropdownMenu], this.clearPanel.bind(this) );
-					this.focus();
 					if (this.options.onShow) {
 						this.options.onShow();
 					}
@@ -11600,21 +11240,19 @@ define('orion/widgets/input/DropDownMenu',['orion/objects', 'orion/webui/littlel
 		
 		clearPanel: function(){
 			if (!this.isVisible()) { return; }
-			lib.returnFocus(this._dropdownMenu, this.previousActiveElement, function() {
-				this._dropdownMenu.style.display = 'none'; //$NON-NLS-0$
-				lib.setFramesEnabled(true);
-				if (this.selectionClass) {
-					this._triggerNode.classList.remove(this.selectionClass);
-				}
-				if (this.options.onHide) {
-					this.options.onHide();
-				}
-			}.bind(this));
+			this._dropdownMenu.style.display = 'none'; //$NON-NLS-0$
+			lib.setFramesEnabled(true);
+			if (this.selectionClass) {
+				this._triggerNode.classList.remove(this.selectionClass);
+			}
+			if (this.options.onHide) {
+				this.options.onHide();
+			}
 		},
 		
 		// Add content to the dropdown container
 		addContent: function( content ){
-			lib.setSafeInnerHTML(this._dropdownMenu, content);
+			this._dropdownMenu.innerHTML = content;
 		},
 		
 		getContentNode: function(){
@@ -12418,7 +12056,7 @@ define('orion/extensionCommands',["orion/Deferred", "orion/commands", 	'orion/Pa
 			}
 			
 			var showCommand = true;
-			var contentType = contentTypes ? mContentTypes.getFilenameContentType(item.Name || item.Location, contentTypes) : null;
+			var contentType = contentTypes ? mContentTypes.getFilenameContentType(item.Name, contentTypes) : null;
 			contentType = contentType || {
 				id:"application/octet-stream"
 			};
@@ -14494,7 +14132,7 @@ define('orion/editor/nls/root/messages',{//Default message bundle
 	"previous": "Previous", //$NON-NLS-1$ //$NON-NLS-0$
 	"replace": "Replace", //$NON-NLS-1$ //$NON-NLS-0$
 	"replaceAll": "Replace All", //$NON-NLS-1$ //$NON-NLS-0$
-	"findWhat": "Find What", //$NON-NLS-1$ //$NON-NLS-0$
+	"findWith": "Find With", //$NON-NLS-1$ //$NON-NLS-0$
 	"replaceWith": "Replace With", //$NON-NLS-1$ //$NON-NLS-0$
 	"caseInsensitive": "Aa", //$NON-NLS-1$ //$NON-NLS-0$
 	"selectedLines": "Sel", //$NON-NLS-1$ //$NON-NLS-0$
@@ -15541,7 +15179,7 @@ define("orion/editor/annotations", ['i18n!orion/editor/nls/messages', 'orion/edi
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2011, 2019 IBM Corporation and others.
+ * Copyright (c) 2011, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License v1.0
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
@@ -15574,9 +15212,8 @@ define('orion/editorCommands',[
 	'orion/regex',
 	'orion/PageUtil',
 	'orion/uiUtils',
-	'orion/util',
-	'orion/urlModifier'
-], function(messages, i18nUtil, lib, fileUtil, DropDownMenu, Deferred, URITemplate, mCommands, mKeyBinding, mCommandRegistry, mExtensionCommands, mContentTypes, mSearchUtils, objects, mPageUtil, PageLinks, mAnnotations, regex, PageUtil, mUIUtils, util, urlModifier) {
+	'orion/util'
+], function(messages, i18nUtil, lib, fileUtil, DropDownMenu, Deferred, URITemplate, mCommands, mKeyBinding, mCommandRegistry, mExtensionCommands, mContentTypes, mSearchUtils, objects, mPageUtil, PageLinks, mAnnotations, regex, PageUtil, mUIUtils, util) {
 
 	var exports = {};
 
@@ -15594,7 +15231,7 @@ define('orion/editorCommands',[
 		iframe.type = "text/html"; //$NON-NLS-0$
 		iframe.sandbox = "allow-scripts allow-same-origin allow-forms allow-popups"; //$NON-NLS-0$
 		iframe.frameborder = options.border !== undefined ? options.border : 1;
-		iframe.src = urlModifier(href);
+		iframe.src = href;
 		iframe.className = "delegatedUI"; //$NON-NLS-0$
 		if (options.width) {
 			delegatedParent.style.width = options.width;
@@ -15719,7 +15356,6 @@ define('orion/editorCommands',[
 			this._createFindCommnand();
 			this._createBlameCommand();
 			this._createDiffCommand();
-			this._createShowTooltipCommand();
 			this._createUndoStackCommands();
 			this._createClipboardCommands();
 			this._createDelimiterCommands();
@@ -15805,12 +15441,11 @@ define('orion/editorCommands',[
 			commandRegistry.registerCommandContribution(this.saveToolbarId || this.toolbarId, "orion.openResource", 1, this.saveToolbarId ? "orion.menuBarFileGroup/orion.edit.saveGroup" : null, false, new mKeyBinding.KeyBinding('f', true, true)); //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-0$
 			commandRegistry.registerCommandContribution(this.saveToolbarId || this.toolbarId, "orion.edit.save", 2, this.saveToolbarId ? "orion.menuBarFileGroup/orion.edit.saveGroup" : null, false, new mKeyBinding.KeyBinding('s', true), null, this); //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-3$
 			commandRegistry.registerCommandContribution(this.saveToolbarId || this.toolbarId, "eclipse.file.refresh", 3, this.saveToolbarId ? "orion.menuBarFileGroup/orion.edit.saveGroup" : null, false, null, null, this);
-			commandRegistry.registerCommandContribution(this.editToolbarId || this.pageNavId, "orion.edit.gotoLine", 3, this.editToolbarId ? "orion.menuBarEditGroup/orion.findGroup" : null, !this.editToolbarId, new mKeyBinding.KeyBinding('g', !util.isMac, false, false, util.isMac), new mCommandRegistry.URLBinding("gotoLine", "line"), this); //$NON-NLS-4$ //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-5$
+			commandRegistry.registerCommandContribution(this.editToolbarId || this.pageNavId, "orion.edit.gotoLine", 3, this.editToolbarId ? "orion.menuBarEditGroup/orion.findGroup" : null, !this.editToolbarId, new mKeyBinding.KeyBinding('l', !util.isMac, false, false, util.isMac), new mCommandRegistry.URLBinding("gotoLine", "line"), this); //$NON-NLS-4$ //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-5$
 			commandRegistry.registerCommandContribution(this.editToolbarId || this.pageNavId, "orion.edit.find", 0, this.editToolbarId ? "orion.menuBarEditGroup/orion.findGroup" : null, !this.editToolbarId, new mKeyBinding.KeyBinding('f', true), new mCommandRegistry.URLBinding("find", "find"), this); //$NON-NLS-4$ //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-5$
 			commandRegistry.registerCommandContribution(this.editToolbarId || this.pageNavId , "orion.edit.format", 2, this.editToolbarId ? "orion.menuBarEditGroup/orion.edit.formatGroup" : null, !this.editToolbarId, new mKeyBinding.KeyBinding('f', false, true, true), new mCommandRegistry.URLBinding("format", "format"), this); //$NON-NLS-4$ //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-5$
 			commandRegistry.registerCommandContribution(this.toolbarId, "orion.keyAssist", 0, "orion.menuBarToolsGroup", false, new mKeyBinding.KeyBinding(191, false, true, !util.isMac, util.isMac)); //$NON-NLS-1$ //$NON-NLS-0$ //$NON-NLS-2$
 			commandRegistry.registerCommandContribution(this.toolbarId , "orion.edit.showTooltip", 1, "orion.menuBarToolsGroup", false, null, null, this);//$NON-NLS-1$ //$NON-NLS-2$ 
-			commandRegistry.registerCommandContribution(this.toolbarId , "orion.edit.showLineTooltip", 1, "orion.menuBarToolsGroup", false, new mKeyBinding.KeyBinding(112, true, true), null, this);//$NON-NLS-1$ //$NON-NLS-2$ 
 			commandRegistry.registerCommandContribution(this.toolbarId , "orion.edit.blame", 2, "orion.menuBarToolsGroup", false, new mKeyBinding.KeyBinding('b', true, true), new mCommandRegistry.URLBinding("blame", "blame"), this); //$NON-NLS-4$ //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-5$
 			commandRegistry.registerCommandContribution(this.toolbarId , "orion.edit.diff", 3, "orion.menuBarToolsGroup", false, new mKeyBinding.KeyBinding('d', true, true), new mCommandRegistry.URLBinding("diff", "diff"), this); //$NON-NLS-4$ //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-5$
 			commandRegistry.registerCommandContribution(this.toolbarId , "orion.edit.references", 5, "orion.menuBarToolsGroup", false, new mKeyBinding.KeyBinding('y', true, true), null, this);
@@ -15956,7 +15591,7 @@ define('orion/editorCommands',[
 				editorActions.sort(function (a, b) {
 					return textView.getActionDescription(a).name.localeCompare(textView.getActionDescription(b).name);
 				});
-				keyAssist.createHeader(messages["Editor"], "EditorScope"); //$NON-NLS-0$
+				keyAssist.createHeader(messages["Editor"]);
 				var execute = function (actionID) {
 					return function () {
 						textView.focus();
@@ -15971,11 +15606,12 @@ define('orion/editorCommands',[
 					if (bindings.length > 0) {
 						for (var j = 0; j < bindings.length; j++) {
 							binding = bindings[j];
+							var bindingString = mUIUtils.getUserKeyString(binding);
 							if (binding.scopeName) {
 								if (!scopes[binding.scopeName]) {
 									scopes[binding.scopeName] = [];
 								}
-								scopes[binding.scopeName].push({binding: binding, name: actionDescription.name, execute: execute(actionID)});
+								scopes[binding.scopeName].push({bindingString: bindingString, name: actionDescription.name, execute: execute(actionID)});
 							} else {
 								keyAssist.createItem(binding, actionDescription.name, actionID, execute(actionID));
 							}
@@ -15986,10 +15622,10 @@ define('orion/editorCommands',[
 				}
 				for (var scopedBinding in scopes) {
 					if (scopes[scopedBinding].length) {
-						keyAssist.createHeader(scopedBinding, lib.validId(scopedBinding) + "Scope"); //$NON-NLS-0$
+						keyAssist.createHeader(scopedBinding);
 						for (var k = 0; k < scopes[scopedBinding].length; k++) {
 							binding = scopes[scopedBinding][k];
-							keyAssist.createItem(binding.binding, binding.name, binding.name, binding.execute);
+							keyAssist.createItem(binding, binding.name, binding.name, binding.execute);
 						}
 					}
 				}
@@ -16012,7 +15648,13 @@ define('orion/editorCommands',[
 					if (!dropDown || dropDown.isDestroyed()) {
 						dropDown = settingsCommand.settingsDropDown = new DropDownMenu(data.domNode.parentNode, data.domNode, {
 							noClick: true,
-							selectionClass: 'dropdownSelection' //$NON-NLS-0$
+							selectionClass: 'dropdownSelection', //$NON-NLS-0$
+							onShow: function() {
+								dropDown.focus();
+							},
+							onHide: function() {
+								that.editor.focus();
+							}
 						});
 						dropDown.updateContent = localSettings.show.bind(localSettings);
 						var menu = dropDown.getContentNode();
@@ -16242,7 +15884,7 @@ define('orion/editorCommands',[
 					window.__electron.remote.dialog.showOpenDialog({properties: ['openDirectory']}, function(result) {
 						if (!result) return;
 						that.fileClient.changeWorkspace(result[0]).then(function() {
-							util.deleteSetting("/inlineSearchOtherScope");
+							localStorage.removeItem("/inlineSearchOtherScope");
 							var searchClient = that.serviceRegistry.getService("orion.core.search.client");
 							if (searchClient) {
 								searchClient.setLocationOther(null);
@@ -16273,7 +15915,7 @@ define('orion/editorCommands',[
 									name: folderLocation,
 									callback: function() {
 										that.fileClient.changeWorkspace(folderLocation).then(function() {
-											util.deleteSetting("/inlineSearchOtherScope");
+											localStorage.removeItem("/inlineSearchOtherScope");
 											var searchClient = that.serviceRegistry.getService("orion.core.search.client");
 											if (searchClient) {
 												searchClient.setLocationOther(null);
@@ -16629,40 +16271,6 @@ define('orion/editorCommands',[
 			});
 			this.commandService.addCommand(diffCommand);
 		},
-
-		_createShowTooltipCommand: function(){
-			var that = this;
-			
-			function doit(all) {
-				var editor = this.editor;
-				var tooltip = editor.getTooltip();
-				var tv = editor.getTextView();
-				var offset = tv.getCaretOffset();
-				var pos = tv.getLocationAtOffset(offset);
-				tooltip.show({
-					x: pos.x,
-					y: pos.y,
-					getTooltipInfo: function() {
-						return editor._getTooltipInfo(this.x, this.y, all);
-					}
-				}, false, true);
-			}
-			
-			var showLineTooltipCommand = new mCommands.Command({
-				name: messages.showLineTooltip,
-				tooltip: messages.showLineTooltipTooltip,
-				id: "orion.edit.showLineTooltip", //$NON-NLS-0$
-				visibleWhen: /** @callback */ function(items, data) {
-					var editor = data.handler.editor || that.editor;
-					return editor && editor.installed;
-				},
-				callback: function() {
-					doit.bind(this)(true);
-				}
-			});
-			this.commandService.addCommand(showLineTooltipCommand);
-		},
-
 		_onServiceRemoved: function(serviceReference) {
 			if (serviceReference.getProperty("objectClass").indexOf("orion.edit.command") !== -1) { //$NON-NLS-1$ //$NON-NLS-2$
 				this._recreateEditCommands = true;
@@ -17292,7 +16900,7 @@ define('embeddedEditor/helper/embeddedFileImpl',[
 });
 /*******************************************************************************
  * @license
- * Copyright (c) 2010, 2019 IBM Corporation and others.
+ * Copyright (c) 2010, 2016 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -17304,13 +16912,7 @@ define('embeddedEditor/helper/embeddedFileImpl',[
 /* eslint-disable missing-nls */
 /*eslint-env browser, amd*/
 /*global URL*/
-define('orion/pluginregistry',[
-    "orion/Deferred",
-    "orion/util",
-    "orion/EventTarget", 
-    "orion/urlModifier", 
-    "orion/URL-shim"
-], function(Deferred, util, EventTarget, urlModifier) {
+define('orion/pluginregistry',["orion/Deferred", "orion/EventTarget", "orion/urlModifier", "orion/URL-shim"], function(Deferred, EventTarget, urlModifier) {
     
     function _equal(obj1, obj2) {
         var keys1 = Object.keys(obj1);
@@ -18351,9 +17953,7 @@ define('orion/pluginregistry',[
                 };
 
                 function log(state) {
-                    if (util.readSetting("pluginLogging")) {
-                        console.log(state + "(" + (Date.now() - channel._startTime) + "ms)=" + url);
-                    }
+                    if (localStorage.pluginLogging) console.log(state + "(" + (Date.now() - channel._startTime) + "ms)=" + url); //$NON-NLS-1$ //$NON-NLS-0$
                 }
 
                 function sendTimeout(message) {
@@ -18393,11 +17993,11 @@ define('orion/pluginregistry',[
 
                 var isWorker = !!(url.match(workerRegex) && typeof(Worker) !== "undefined");
                 var isSharedWorker = !!(url.match(sharedWorkerRegex) && typeof(SharedWorker) !== "undefined");
-                if ((!util.readSetting("useSharedWorkers") || !isSharedWorker) && url.match(sharedWorkerRegex)) {
+                if ((!localStorage.useSharedWorkers || !isSharedWorker) && url.match(sharedWorkerRegex)) {
                     url = url.replace(sharedWorkerRegex, workerJS);
                     isSharedWorker = false;
                 }
-                if ((!util.readSetting("useWorkers") || !isWorker) && url.match(workerRegex)) {
+                if ((!localStorage.useWorkers || !isWorker) && url.match(workerRegex)) {
                     url = url.replace(workerRegex, pluginHtml);
                     isWorker = isSharedWorker = false;
                 }               
@@ -19235,27 +18835,10 @@ define("orion/editor/undoStack", [], function() { //$NON-NLS-0$
 		 */
 		markClean: function() {
 			this._commitUndo();
-			var previousState = {
-				cleanChange: this.cleanChange,
-			};
 			this.cleanChange = this.stack[this.index - 1];
 			if (this.cleanChange) {
 				this.cleanChange.type = 2;
 			}
-			return previousState;
-		},
-		/** 
-		 * Reverts the clean state of the stack to a previous state.
-		 *
-		 * <p>
-		 * This function is typically called when the content of view associated with the stack failed to saved.
-		 * </p>
-		 *
-		 * @see orion.editor.UndoStack#isClean
-		 * @see orion.editor.UndoStack#markClean
-		 */
-		markUnclean: function(previousState) {
-			this.cleanChange = previousState.cleanChange;
 		},
 		/**
 		 * Returns true if current state of stack is the same
@@ -20193,485 +19776,7 @@ define('orion/editor/textModelFactory',[
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2017, 2018 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials are made 
- * available under the terms of the Eclipse Public License v1.0 
- * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
- * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html). 
- *
- * Contributors: IBM Corporation - initial API and implementation
- *******************************************************************************/
-/*eslint-env browser, amd*/
-define('lsp/utils',[
-	'orion/Deferred'
-], function(Deferred) {
-
-	var severities = {
-		1: 'error',
-		2: 'warning',
-		3: 'info'
-	};
-
-	/**
-	 * @name getPosition
-	 * @description Return a document position object for use with the protocol
-	 * @param {?} editor The given editor
-	 * @param {number} offset The Orion editor offset
-	 * @returns {?} Return a position based on the given offset
-	 */
-	function getPosition(editor, offset) {
-		var line = editor.getLineAtOffset(offset);
-		var lineOffset = editor.getLineStart(line);
-		return {
-			line: line,
-			character: offset - lineOffset
-		};
-	}
-
-	function computeHoverInfo(lspProviderImpl, inputManager, editor, args) {
-		if (args.proposal && args.proposal.kind === 'java') {
-			return args.proposal.hover;
-		}
-		if (args.offset === undefined) {
-			return "";
-		}
-		return lspProviderImpl.hover(inputManager.getFileMetadata().Location, getPosition(editor, args.offset)).then(function(result) {
-				if (result) {
-					var hover = {
-						type: 'markdown'
-					};
-					if (Array.isArray(result.contents)) {
-						if (result.contents.length === 0) {
-							return new Deferred().resolve('');
-						}
-						var hoverContents = result.contents[0];
-						if (typeof hoverContents === 'string' && hoverContents.length === 0) {
-							return new Deferred().resolve('');
-						}
-						if (typeof result.contents[0] === 'object') {
-							// this must be a MarkedString with { language: string, value: string }
-							hover.content = result.contents[0].value;
-						} else {
-							hover.content = result.contents[0];
-						}
-					} else if (typeof result.contents === 'string') {
-						if (result.contents.length === 0) {
-							return new Deferred().resolve('');
-						}
-						hover.content = result.contents;
-					} else if (result.contents !== null && typeof result.contents === 'object') {
-						hover.content = result.contents.value;
-					}
-					return new Deferred().resolve(hover);
-				}
-				return new Deferred().resolve('');
-			},
-			/* @callback */
-			function(err) {
-				return new Deferred().resolve('');
-			});
-	}
-
-	function computeOccurrences(lspProviderImpl, inputManager, editor, args) {
-		var text = editor.getSelectionText();
-
-		if (text.trim().length === 0) {
-			return new Deferred().resolve([]);
-		}
-		return lspProviderImpl.documentHighlight(inputManager.getFileMetadata().Location, getPosition(editor, args.selection.start)).then(function(results) {
-				if (results && Array.isArray(results) && results.length > 0) {
-					return results.map(function(result) {
-						var offset = editor.getLineStart(result.range.start.line);
-						return {
-							start: result.range.start.character + offset,
-							end: result.range.end.character + offset,
-							readAccess: result.kind === lspProviderImpl.ipc.DOCUMENT_HIGHLIGHT_KIND.Read
-						};
-					});
-				}
-				return new Deferred().resolve([]);
-			},
-			/* @callback */
-			function(err) {
-				return new Deferred().resolve([]);
-			});
-	}
-
-	function _findContainerIndex(list, container) {
-		var item = list[list.length - 1];
-		if (item && item.label === container) {
-			return list.length - 1;
-		}
-		for (var i = 0; i < list.length; i++) {
-			if (list[i].label === container) {
-				return i;
-			}
-		}
-		return -1;
-	}
-
-	/**
-	 * @name resolveSymbolKind
-	 * @description Converts the given symbol kind into its name
-	 * @param {number} num The symbl kind
-	 * @returns {String} The name of the symbol kind
-	 */
-	function resolveSymbolKind(num) {
-		switch (num) {
-			case 1:
-				return 'File';
-			case 2:
-				return 'Module';
-			case 3:
-				return 'Namespace';
-			case 4:
-				return 'Package';
-			case 5:
-				return 'Class';
-			case 6:
-				return 'Method';
-			case 7:
-				return 'Property';
-			case 8:
-				return 'Field';
-			case 9:
-				return 'Constructor';
-			case 10:
-				return 'Enum';
-			case 11:
-				return 'Interface';
-			case 12:
-				return 'Function';
-			case 13:
-				return 'Variable';
-			case 14:
-				return 'Constant';
-			case 15:
-				return 'String';
-			case 16:
-				return 'Number';
-			case 17:
-				return 'Boolean';
-			case 18:
-				return 'Array';
-			default:
-				return 'Unknown';
-		}
-	}
-
-	function documentSymbol(lspProviderImpl, inputManager) {
-		return lspProviderImpl.documentSymbol(inputManager.getFileMetadata().Location).then(function(results) {
-			if (Array.isArray(results) && results.length > 0) {
-				var outline = [];
-				results.forEach(function(result) {
-					var offset = result.location.range.start.character;
-					var node = {
-						label: result.name,
-						labelPost: ' (' + resolveSymbolKind(result.kind) + ')',
-						line: result.location.range.start.line + 1,
-						offset: offset,
-						length: result.location.range.end.character - offset,
-						children: []
-					};
-					if (!result.containerName) {
-						outline.push(node);
-					} else {
-						var idx = _findContainerIndex(outline, result.containerName),
-							_p;
-						if (idx < 0) {
-							_p = {
-								label: result.containerName,
-								children: []
-							};
-							outline.push(_p);
-						} else {
-							_p = outline[idx];
-						}
-						_p.children.push(node);
-					}
-				});
-				return outline;
-			}
-			return new Deferred().resolve([]);
-		});
-	}
-
-	function getRange(editor, offset, offset2) {
-		return {
-			start: getPosition(editor, offset),
-			end: getPosition(editor, offset2)
-		};
-	}
-
-	function convertRange(editor, range) {
-		var startLineOffset = editor.getLineStart(range.start.line);
-		var endLineOffset = editor.getLineStart(range.end.line);
-		return {
-			start: range.start.character + startLineOffset,
-			end: range.end.character + endLineOffset,
-		};
-	}
-
-	/**
-	 * @name toProblems
-	 * @description Convert the diagnostics data to Orion problems
-	 * @param {?} info The diagnostics info
-	 * @param {?} config The configuration to set severites with 
-	 * @returns {[?]} The array of Orion problem objects
-	 */
-	function toProblems(info) {
-		var problems = [];
-		info.forEach(function(item) {
-			var severity = getSeverity(item.severity);
-			if (!severity) {
-				return;
-			}
-			problems.push({
-				description: item.message,
-				id: item.code,
-				severity: severity,
-				range: item.range
-			});
-		});
-		return problems;
-	}
-
-	/**
-	 * @name getSeverity
-	 * @description Returns the severity for the given problem id or null if there is no configuration entry for it
-	 * @param {String} id The id of the problem
-	 * @returns {String | null} The name of the severity or null if its 'ignore'
-	 */
-	function getSeverity(severity) {
-		if (severities[severity] === 3) {
-			return null;
-		}
-		return severities[severity];
-	}
-
-	/**
-	 * @name getPosition
-	 * @description Return a document position object for use with the protocol
-	 * @param {?} editorContext The backing editor context
-	 * @param {number} offset The Orion editor offset
-	 * @returns {Deferred} Return a deferred that will resolve to a position object for the protocol textDocument requests
-	 */
-	function getEditorContextPosition(editorContext, offset) {
-		return editorContext.getLineAtOffset(offset).then(function(line) {
-			return editorContext.getLineStart(line).then(function(lineOffset) {
-				return {
-					line: line,
-					character: offset - lineOffset
-				};
-			});
-		});
-	}
-
-	function computeContentAssist(provider, editorContext, args) {
-		return editorContext.getFileMetadata().then(function(meta) {
-			return getEditorContextPosition(editorContext, args.selection.start).then(function(position) {
-				return provider.completion(meta.location, position).then(function(results) {
-						// textDocument/completion requests may return a CompletionItem[] or a CompletionList
-						var items = results;
-						if (results.items) {
-							items = results.items;
-						}
-						if (Array.isArray(items) && items.length > 0) {
-							return Deferred.all(resolveCompletionItems(provider, editorContext, items)).then(function(proposals) {
-								return new Deferred().resolve(proposals);
-							});
-						}
-						return new Deferred().resolve([]);
-					},
-					/* @callback */
-					function(err) {
-						return new Deferred().resolve([]);
-					});
-			});
-		});
-	}
-
-	/**
-	 * Converts the completion result kind into a human-readable string
-	 */
-	function resolveCompletionKind(num) {
-		switch (num) {
-			case 1:
-				return 'Text';
-			case 2:
-				return 'Method';
-			case 3:
-				return 'Function';
-			case 4:
-				return 'Constructor';
-			case 5:
-				return 'Field';
-			case 6:
-				return 'Variable';
-			case 7:
-				return 'Class';
-			case 8:
-				return 'Interface';
-			case 9:
-				return 'Module';
-			case 10:
-				return 'Property';
-			case 11:
-				return 'Unit';
-			case 12:
-				return 'Value';
-			case 13:
-				return 'Enum';
-			case 14:
-				return 'Keyword';
-			case 15:
-				return 'Snippet';
-			case 16:
-				return 'Color';
-			case 17:
-				return 'File';
-			case 18:
-				return 'Reference';
-			default:
-				return 'Unknown';
-		}
-	}
-
-	function resolveCompletionItems(provider, editorContext, items) {
-		return items.map(function(completionItem) {
-			return provider.completionItemResolve(completionItem).then(function(item) {
-				var temp = {
-					name: item.label,
-					description: ' (' + resolveCompletionKind(item.kind) + ')',
-					relevance: 100,
-					style: 'emphasis', //$NON-NLS-1$
-					overwrite: true,
-					kind: 'java' //$NON-NLS-1$
-				};
-				if (item.textEdit) {
-					temp.proposal = item.textEdit.newText;
-				} else if (item.insertText) {
-					temp.proposal = item.insertText;
-				} else {
-					temp.proposal = item.label;
-				}
-				if (temp.proposal) {
-					var mod = temp.proposal;
-					var index = mod.indexOf("${");
-					temp.positions = [];
-					if (index === -1) {
-						temp.escapePosition = mod.length;
-					} else {
-						while (index !== -1) {
-							mod = mod.substring(0, index) + mod.substring(index + 4);
-							var endIndex = mod.indexOf("}");
-							mod = mod.substring(0, endIndex) + mod.substring(endIndex + 1);
-							temp.positions.push({
-								offset: index,
-								length: endIndex - index
-							});
-							index = mod.indexOf("${");
-						}
-						temp.proposal = mod;
-						temp.escapePosition = mod.length;
-					}
-				}
-				if (item.documentation) {
-					temp.hover = {
-						content: item.documentation,
-						type: 'markdown'
-					};
-				}
-				if (Array.isArray(item.additionalTextEdits) && item.additionalTextEdits.length !== 0) {
-					var tempEdits = [];
-					item.additionalTextEdits.forEach(function(additionalEdit) {
-						var newEdit = Object.create(null);
-						newEdit.text = additionalEdit.newText;
-						newEdit.range = additionalEdit.range;
-						tempEdits.push(newEdit);
-					});
-					temp.additionalEdits = tempEdits;
-				}
-				return convertEachProposal(editorContext, item, temp);
-			});
-		});
-	}
-
-	function convertEdit(editorContext, edit) {
-		var range = edit.range;
-		return editorContext.getLineStart(range.start.line).then(function(startLineOffset) {
-			return editorContext.getLineStart(range.end.line).then(function(endLineOffset) {
-				return {
-					text: edit.newText,
-					start: range.start.character + startLineOffset,
-					end: range.end.character + endLineOffset,
-				};
-			});
-		});
-	}
-
-	/**
-	 * Converts the linked mode and escape positional offsets of this
-	 * proposal to the full offset within the document.
-	 * 
-	 * @param {Deferred} deferred the promise for resolving the converted proposal
-	 * @param editorContext the current context of the editor
-	 * @param item the converted JSON item from the LSP
-	 * @param proposal the proposal to have its linked mode and escape positions converted
-	 */
-	function convertPositions(deferred, editorContext, item, proposal) {
-		editorContext.getLineStart(item.textEdit.range.start.line).then(function(startLineOffset) {
-			var completionOffset = item.textEdit.range.start.character + startLineOffset;
-			for (var i = 0; i < proposal.positions.length; i++) {
-				proposal.positions[i].offset = completionOffset + proposal.positions[i].offset;
-			}
-			proposal.escapePosition = completionOffset + proposal.escapePosition;
-			deferred.resolve(proposal);
-		});
-	}
-
-	function convertEachProposal(editorContext, item, proposal) {
-		var deferred = new Deferred();
-		if (proposal.additionalEdits) {
-			var additionalEditsLength = proposal.additionalEdits.length;
-			proposal.additionalEdits.forEach(function(edit, index) {
-				return convertEdit(editorContext, edit).then(function(newAdditionalEdit) {
-					edit.offset = newAdditionalEdit.start;
-					edit.length = newAdditionalEdit.end - edit.offset;
-					delete edit.range;
-					if (index === additionalEditsLength - 1) {
-						if (item.textEdit) {
-							convertPositions(deferred, editorContext, item, proposal);
-						} else {
-							deferred.resolve(proposal);
-						}
-					}
-				});
-			});
-		} else if (item.textEdit) {
-			convertPositions(deferred, editorContext, item, proposal);
-		} else {
-			// let Orion calculate it, see escapePosition() in actions.js
-			delete proposal.escapePosition;
-			deferred.resolve(proposal);
-		}
-		return deferred;
-	}
-
-	return {
-		getPosition: getPosition,
-		computeHoverInfo: computeHoverInfo,
-		computeOccurrences: computeOccurrences,
-		getRange: getRange,
-		toProblems: toProblems,
-		documentSymbol: documentSymbol,
-		computeContentAssist: computeContentAssist,
-		convertRange: convertRange
-	};
-});
-/*******************************************************************************
- * @license
- * Copyright (c) 2016, 2018 IBM Corporation and others.
+ * Copyright (c) 2016, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -20683,15 +19788,13 @@ define('lsp/utils',[
 /*eslint-env browser, amd*/
 
 define ('orion/formatter',[
-	'orion/Deferred',
-	'lsp/utils'
-], function(Deferred, Utils) {
+	'orion/Deferred'
+], function(Deferred) {
 	
-	function Formatter(serviceRegistry, inputManager, editor, languageServerRegistry) {
+	function Formatter(serviceRegistry, inputManager, editor) {
 		this.serviceRegistry = serviceRegistry;
 		this.inputManager = inputManager;
 		this.editor = editor;
-		this.languageServerRegistry = languageServerRegistry;
 	}
 	
 	Formatter.prototype = {
@@ -20716,78 +19819,16 @@ define ('orion/formatter',[
 			}
 			return null;
 		},
-		getLspFormatter : function() {
-			// check lsp extensions
-			var inputManagerContentType = this.inputManager.getContentType();
-			return this.languageServerRegistry.getServerByContentType(inputManagerContentType);
-		},
 		isVisible: function() {
-			if (!!this.getFormatter()) {
-				return true;
-			}
-			var languageServer = this.getLspFormatter();
-			if (languageServer) {
-				return languageServer.isFormatDocumentEnabled() || languageServer.isRangeFormatDocumentEnabled();
-			}
-			return false;
+			return !!this.getFormatter();
 		},
 		
 		doFormat: function() {
-			var selection = this.editor.getSelection();
 			var service = this.getFormatter();
 			if (service) {
+				var selection = this.editor.getSelection();
 				var context = {start: selection.start, end: selection.end};
 				return service.format(this.editor.getEditorContext(), context);
-			}
-			// check lsp formatters
-			var lspFormatter = this.getLspFormatter();
-			if (lspFormatter) {
-				var textView = this.editor.getTextView();
-				var options = {
-					tabSize: textView.getOptions("tabSize"),
-					insertSpaces: textView.getOptions("expandTab")
-				};
-				if (selection.start !== selection.end) {
-					// we want to format the selected text only
-					var start = Utils.getPosition(this.editor, selection.start);
-					var end = Utils.getPosition(this.editor, selection.end);
-					return lspFormatter.rangeFormatting(this.inputManager.getFileMetadata().Location, start, end, options).then(
-						function(edits) {
-							if (Array.isArray(edits) && edits.length !== 0) {
-								this.editor.setText({
-									text: edits.map(function(e) {
-										return e.newText;
-									}),
-									selection: edits.map(function(edit) {
-										var range = edit.range;
-										return {
-											start: this.editor.getLineStart(range.start.line) + range.start.character,
-											end: this.editor.getLineStart(range.end.line) + range.end.character
-										};
-									}.bind(this)),
-									preserveSelection: true
-								});
-							}
-						}.bind(this));
-				}
-				return lspFormatter.formatDocument(this.inputManager.getFileMetadata().Location, options).then(
-					function(edits) {
-						if (Array.isArray(edits) && edits.length !== 0) {
-							this.editor.setText({
-								text: edits.map(function(e) {
-									return e.newText;
-								}),
-								selection: edits.map(function(edit) {
-									var range = edit.range;
-									return {
-										start: this.editor.getLineStart(range.start.line) + range.start.character,
-										end: this.editor.getLineStart(range.end.line) + range.end.character
-									};
-								}.bind(this)),
-								preserveSelection: true
-							});
-						}
-					}.bind(this));
 			}
 			return new Deferred().resolve();
 		}
@@ -20799,1029 +19840,7 @@ define ('orion/formatter',[
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2016, 2017 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials are made
- * available under the terms of the Eclipse Public License v1.0
- * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
- * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html).
- *
- * Contributors:
- *     IBM Corporation - initial API and implementation
- *******************************************************************************/
-/*eslint-env amd, browser*/
-define('lsp/ipc',[], function() {
-
-	/**
-	 * The object of codes for the server to indicate how the host
-	 * should synchronize document changes to the language server.
-	 */
-	IPC.prototype.TEXT_DOCUMENT_SYNC_KIND = Object.freeze({
-		None: 0,
-		Full: 1,
-		Incremental: 2
-	});
-
-	/**
-	 * The object of codes for a DocumentHighlight to indicate what
-	 * what kind of highlighting it is.
-	 */
-	IPC.prototype.DOCUMENT_HIGHLIGHT_KIND = Object.freeze({
-		None: 1,
-		Read: 2,
-		Write: 3
-	});
-
-	/**
-	 * The object of error codes
-	 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#response-message
-	 */
-	IPC.prototype.ERROR_CODES = Object.freeze({
-		ParseError: -32700,
-		InvalidRequest: -32600,
-		MethodNotFound: -32601,
-		InvalidParams: -32602,
-		InternalError: -32603,
-		ServerErrorStart: -32099,
-		ServerErrorEnd: -32000,
-		ServerNotInitialized: -32002,
-		UnknownErrorCode: -32001
-	});
-
-	/**
-	 * The map of error types
-	 */
-	IPC.prototype.ERROR_TYPES = Object.freeze({
-		1: 'error',
-		2: 'warn',
-		3: 'info'
-	});
-
-	/**
-	 * The collection of message types corresponding to the launguage server protocol
-	 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md
-	 */
-	IPC.prototype.MESSAGE_TYPES = Object.freeze({
-		/**
-		 * @description The initialize request is sent as the first request from the client to the server.
-		 * @kind request
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#initialize
-		 */
-		initialize: 'initialize',
-		/**
-		 * @description The initialized notification is sent from the client to the server after the client
-		 * is fully initialized and is able to listen to arbritary requests and notifications sent from the server.
-		 * @kind request
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#initialized
-		 */
-		initialized: 'initialized',
-		/**
-		 * @description The shutdown request is sent from the client to the server. 
-		 * It asks the server to shut down, but to not exit (otherwise the response might not be delivered correctly to the client). 
-		 * There is a separate exit notification that asks the server to exit.
-		 * @kind request
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#shutdown
-		 */
-		shutdown: 'shutdown',
-		/**
-		 * @description The base protocol offers support for request cancellation.
-		 * @kind request
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#cancelRequest
-		 */
-		cancelRequest: '$/cancelRequest',
-		/**
-		 * @kind notification
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#status-notification
-		 */
-		status: 'language/status',
-		/**
-		 * @kind notification
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#exit
-		 */
-		exit: 'exit',
-		/**
-		 * @kind notification
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#window_showMessage
-		 */
-		showMessage: 'window/showMessage',
-		/**
-		 * @description The show message request is sent from a server to a client to ask the client to display a particular message in the user interface. 
-		 * In addition to the show message notification the request allows to pass actions and to wait for an answer from the client.
-		 * @kind request
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#window_showMessageRequest
-		 */
-		showMessageRequest: 'window/showMessageRequest',
-		/**
-		 * @kind notification
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#window_logMessage
-		 */
-		logMessage: 'window/logMessage',
-		/**
-		 * @kind notification
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#telemetry_event
-		 */
-		telemetryEvent: 'telemetry/event',
-		/**
-		 * @description The client/registerCapability request is sent from the server to the client to register for a new capability on the client side.
-		 * Not all clients need to support dynamic capability registration. A client opts in via the ClientCapabilities.dynamicRegistration property.
-		 * @kind request
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#client_registerCapability
-		 */
-		registerCapability: 'client/registerCapability',
-		/**
-		 * @description The client/unregisterCapability request is sent from the server to the client to unregister a previously register capability.
-		 * @kind request
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#client_unregisterCapability
-		 */
-		unregisterCapability: 'client/unregisterCapability',
-		/**
-		 * @kind notification
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#didchangeconfiguration-notification
-		 */
-		didChangeConfiguration: 'workspace/didChangeConfiguration',
-		/**
-		 * @kind notification
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#didchangewatchedfiles-notification
-		 */
-		didChangeWatchedFiles: 'workspace/didChangeWatchedFiles',
-		/**
-		 * @description The workspace symbol request is sent from the client to the server to list project-wide symbols matching the query string.
-		 * @kind request
-		 * @see https://github.com/Microsoft/language-server-protocol/blob/master/protocol.md#workspace-symbols
-		 */
-		workspaceSymbol: 'workspace/symbol',
-		/**
-		 * @description The workspace/executeCommand request is sent from the client to the server to trigger command execution on the server.
-		 * In most cases the server creates a WorkspaceEdit structure and applies the changes to the workspace using the request workspace/applyEdit
-		 * which is sent from the server to the client.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#workspace_executeCommand
-		 */
-		workspaceExecuteCommand: 'workspace/executeCommand',
-		/**
-		 * @description The workspace/applyEdit request is sent from the server to the client to modify resource on the client side.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#workspace_applyEdit
-		 */
-		workspaceApplyEdit: 'workspace/applyEdit',
-		/**
-		 * @description The code action request is sent from the client to the server to compute commands for a given text document and range. 
-		 * The request is triggered when the user moves the cursor into a problem marker in the editor or presses the lightbulb associated with a marker.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_codeAction
-		 */
-		codeAction: 'textDocument/codeAction',
-		/**
-		 * @description The code lens request is sent from the client to the server to compute code lenses for a given text document.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_codeLens
-		 */
-		codeLens: 'textDocument/codeLens',
-		/**
-		 * @description The Completion request is sent from the client to the server to compute completion items at a given cursor position. 
-		 * Completion items are presented in the IntelliSense user interface. If computing full completion items is expensive, 
-		 * servers can additionally provide a handler for the completion item resolve request. This request is sent when a completion item is selected in the user interface.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_completion
-		 */
-		completion: 'textDocument/completion',
-		/**
-		 * @description The goto definition request is sent from the client to the server to resolve the definition location of a symbol at a given text document position.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_definition
-		 */
-		definition: 'textDocument/definition',
-		/**
-		 * @kind notification
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_didOpen
-		 */
-		didOpen: 'textDocument/didOpen',
-		/**
-		 * @kind notification
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_didChange
-		 */
-		didChange: 'textDocument/didChange',
-		/**
-		 * @kind notification
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_didClose
-		 */
-		didClose: 'textDocument/didClose',
-		/**
-		 * @kind notification
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_didSave
-		 */
-		didSave: 'textDocument/didSave',
-		/**
-		 * @description The document highlight request is sent from the client to the server to resolve a document highlights for a given text document position.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_documentHighlight
-		 */
-		documentHighlight: 'textDocument/documentHighlight',
-		/**
-		 * @description The document symbol request is sent from the client to the server to list all symbols found in a given text document.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_documentSymbol
-		 */
-		documentSymbol: 'textDocument/documentSymbol',
-		/**
-		 * @description The document formatting request is sent from the server to the client to format a whole document.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_formatting
-		 */
-		formatting: 'textDocument/formatting',
-		/**
-		 * @description The hover request is sent from the client to the server to request hover information at a given text document position.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_hover
-		 */
-		hover: 'textDocument/hover',
-		/**
-		 * @description The document on type formatting request is sent from the client to the server to format parts of the document during typing.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_onTypeFormatting
-		 */
-		onTypeFormatting: 'textDocument/onTypeFormatting',
-		/**
-		 * @kind notification
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_publishDiagnostics
-		 */
-		publishDiagnostics: 'textDocument/publishDiagnostics',
-		/**
-		 * @description The document range formatting request is sent from the client to the server to format a given range in a document.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_rangeFormatting
-		 */
-		rangeFormatting: 'textDocument/rangeFormatting',
-		/**
-		 * @description The references request is sent from the client to the server to resolve project-wide references for the symbol denoted by the given text document position.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_references
-		 */
-		references: 'textDocument/references',
-		/**
-		 * @description The rename request is sent from the client to the server to perform a workspace-wide rename of a symbol.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_rename
-		 */
-		rename: 'textDocument/rename',
-		/**
-		 * @description The signature help request is sent from the client to the server to request signature information at a given cursor position.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_signatureHelp
-		 */
-		signatureHelp: 'textDocument/signatureHelp',
-		/**
-		 * @description The request is sent from the client to the server to resolve additional information for a given completion item.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#completionItem_resolve
-		 */
-		completionItemResolve: 'completionItem/resolve',
-		/**
-		 * @description The code lens resolve request is sent from the client to the server to resolve the command for a given code lens item.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#codeLens_resolve
-		 */
-		codeLensResolve: 'codeLens/resolve',
-		/**
-		 * @description The document will save notification is sent from the client to the server before the document is actually saved.
-		 * @kind notification
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_willSave
-		 */
-		willSave: 'textDocument/willSave',
-		/**
-		 * @description The document will save request is sent from the client to the server before the document is actually saved.
-		 * The request can return an array of TextEdits which will be applied to the text document before it is saved.
-		 * Please note that clients might drop results if computing the text edits took too long or if a server constantly fails on this request.
-		 * This is done to keep the save fast and reliable.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_willSaveWaitUntil
-		 */
-		willSaveWaitUntil: 'textDocument/willSaveWaitUntil',
-		/**
-		 * @description The document links request is sent from the client to the server to request the location of links in a document.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#textDocument_documentLink
-		 */
-		documentLink: 'textDocument/documentLink',
-		/**
-		 * @description The document link resolve request is sent from the client to the server to resolve the target of a given document link.
-		 * @kind request
-		 * @see https://github.com/othomann/language-server-protocol/blob/master/protocol.md#documentLink_resolve
-		 */
-		documentLinkResolve: 'documentLink/resolve'
-	});
-
-	/**
-	 * @name IPC
-	 * @description Creates a new IPC class
-	 * @param {String} channel The channel
-	 * @param {String} language The id of the language 
-	 * @returns {IPC} A new class
-	 * @since 13.0
-	 */
-	function IPC(lspService, language, serviceRegistry) {
-		this.lspService = lspService;
-		this.languageId = language;
-		this.serviceRegistry = serviceRegistry;
-		this.id = 1;
-	}
-
-	IPC.prototype.sendMessage = function sendMessage(id, message, params) {
-		return this.lspService.sendMessage(id, message, params);
-	};
-
-	/**
-	 * @name IPC.prototype.didOpen
-	 * @description The document open notification is sent from the client to the server to signal newly opened text documents. 
-	 * The document's truth is now managed by the client and the server must not try to read the document's truth using the document's uri.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {String} languageId The content type of the source
-	 * @param {String} text The optional current source code
-	 */
-	IPC.prototype.didOpen = function didOpen(uri, languageId, version, text) {
-		return this.sendMessage(0, this.MESSAGE_TYPES.didOpen, {
-			textDocument: {
-				uri: uri,
-				languageId: languageId,
-				version: version,
-				text: text
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.didClose
-	 * @description The document close notification is sent from the client to the server when the document got closed in the client. 
-	 * The document's truth now exists where the document's uri points to (e.g. if the document's uri is a file uri the truth now exists on disk).
-	 * @function
-	 * @param {String} uri The URI of the file
-	 */
-	IPC.prototype.didClose = function didClose(uri) {
-		return this.sendMessage(0, this.MESSAGE_TYPES.didClose, {
-			textDocument: {
-				uri: uri,
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.didSave
-	 * @description The document save notification is sent from the client to the server when the document was saved in the client.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {String} [text] the text content of the saved document
-	 */
-	IPC.prototype.didSave = function didSave(uri, text) {
-		return this.sendMessage(0, this.MESSAGE_TYPES.didSave, {
-			textDocument: {
-				uri: uri,
-			},
-			text: text
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.didChange
-	 * @description The document change notification is sent from the client to the server to signal changes to a text document. 
-	 * In 2.0 the shape of the params has changed to include proper version numbers and language ids.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {Number} version the version of the document
-	 * @param Array<TextDocumentContentChangeEvent> changes the changes in the document
-	 */
-	IPC.prototype.didChange = function didChange(uri, version, changes) {
-		return this.sendMessage(0, this.MESSAGE_TYPES.didChange, {
-			textDocument: {
-				uri: uri,
-				version: version
-			},
-			contentChanges: changes
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.documentHighlight
-	 * @description The document highlight request is sent from the client to the server to resolve a document highlights for a given text document position.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {{line: number, character: number}} offset The offset into the file to compute the highlight for
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.documentHighlight = function documentHighlight(uri, position) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.documentHighlight, {
-			position: position,
-			textDocument: {
-				uri: uri,
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.completion
-	 * @description The Completion request is sent from the client to the server to compute completion items at a given cursor position. 
-	 * Completion items are presented in the IntelliSense user interface. If computing full completion items is expensive, servers can additionally provide a handler for the completion item resolve request. 
-	 * This request is sent when a completion item is selected in the user interface.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {{line: number, character: number}} offset The offset into the file to compute completions at
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.completion = function completion(uri, position) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.completion, {
-			position: position,
-			textDocument: {
-				uri: uri,
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.hover
-	 * @description The hover request is sent from the client to the server to request hover information at a given text document position.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {{line: number, character: number}} offset The offset into the file to hover at
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.hover = function hover(uri, position) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.hover, {
-			position: position,
-			textDocument: {
-				uri: uri,
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.documentSymbol
-	 * @description The document symbol request is sent from the client to the server to list all symbols found in a given text document.
-	 * @function
-	 * @param {String} uri The URI for the file to find symbols in
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.documentSymbol = function documentSymbol(uri) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.documentSymbol, {
-			textDocument: {
-				uri: uri,
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.formatDocument
-	 * @description The document formatting request is sent from the server to the client to format a whole document.
-	 * @function
-	 * @param {String} uri The URI for the file to find symbols in
-	 * @param {FormattingOptions} options the formatting options
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.formatDocument = function formatDocument(uri, options) {
-		return this.sendMessage(
-			this.id++,
-			this.MESSAGE_TYPES.formatting,
-			{
-				textDocument: {
-					uri: uri,
-				},
-				options: options
-			});
-	};
-
-	/**
-	 * @name IPC.prototype.codeLens
-	 * @description The code lens request is sent from the client to the server to compute code lenses for a given text document.
-	 * @function
-	 * @param {String} uri The URI to request the lens within
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.codeLens = function codeLens(uri) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.codeLens, {
-			textDocument: {
-				uri: uri
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.references
-	 * @description The references request is sent from the client to the server to resolve project-wide references for the symbol denoted by the given text document position.
-	 * @function
-	 * @param {String} uri The URI to request the references from
-	 * @param {{line: number, character: number}} offset The offset into the file to compute references for
-	 * @param context extra context info (i.e for the java server it is possible to specify whether to include declarations)
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.references = function references(uri, position, context) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.references, {
-			position: position,
-			context: context,
-			textDocument: {
-				uri: uri
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.definition
-	 * @description The goto definition request is sent from the client to the server to resolve the definition location of a symbol at a given text document position.
-	 * @function
-	 * @param {String} uri The URI to request the definition from
-	 * @param {{line: number, character: number}} offset The offset into the file to compute the definition for
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.definition = function definition(uri, position) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.definition, {
-			position: position,
-			textDocument: {
-				uri: uri
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.shutdown
-	 * @description The shutdown request is sent from the client to the server. It asks the server to shut down, but to not exit (otherwise the response might not be delivered correctly to the client). 
-	 * There is a separate exit notification that asks the server to exit.
-	 * @function
-	 * @returns {Deferred} The deferred to return the results of the request. In this case the result is always 
-.
-	 */
-	IPC.prototype.shutdown = function shutdown() {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.shutdown, {});
-	};
-
-	/**
-	 * @name IPC.prototype.showMessageRequest
-	 * @description The show message request is sent from a server to a client to ask the client to display a particular message in the user interface. 
-	 * In addition to the show message notification the request allows to pass actions and to wait for an answer from the client.
-	 * @function
-	 * @param {number} type The type of the message {@see #messageTypes}
-	 * @param {String} message The message to send
-	 * @param {Array.<String>} actions Ant command actions to be processed
-	 * @returns {Deferred} The deferred to return the results of the request. In this case the result is always 
-.
-	 */
-	IPC.prototype.showMessageRequest = function showMessageRequest(type, message, actions) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.showMessageRequest, {
-			type: type,
-			message: message,
-			actions: actions
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.workspaceSymbol
-	 * @description The workspace symbol request is sent from the client to the server to list project-wide symbols matching the query string.
-	 * @function
-	 * @param {String} query The string query
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.workspaceSymbol = function workspaceSymbol(query) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.workspaceSymbol, {
-			query: query
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.codeAction
-	 * @description The code action request is sent from the client to the server to compute commands for a given text document and range. 
-	 * The request is triggered when the user moves the cursor into a problem marker in the editor or presses the lightbulb associated with a marker.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {{line:number, character:number}} start The start position
-	 * @param {{line:number, character:number}} end The end position
-	 * @param {Array.<{}>} diagnostics The array of diagnostic objects
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.codeAction = function codeAction(uri, start, end, diagnostics) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.codeAction, {
-			textDocument: {
-				uri: uri
-			},
-			range: {
-				start: start,
-				end: end
-			},
-			context: {
-				diagnostics: diagnostics
-			}
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.onTypeFormatting
-	 * @description The document on type formatting request is sent from the client to the server to format parts of the document during typing.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {{line:number, character:number}} position The position of the edit
-	 * @param {string} char The character typed
-	 * @param {?} options The formatting options
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.onTypeFormatting = function onTypeFormatting(uri, position, char, options) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.onTypeFormatting, {
-			textDocument: {
-				uri: uri
-			},
-			position: position,
-			char: char,
-			options: options
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.rangeFormatting
-	 * @description The document range formatting request is sent from the client to the server to format a given range in a document.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {{line:number, character:number}} start The start position
-	 * @param {{line:number, character:number}} end The end position
-	 * @param {?} options The formatting options
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.rangeFormatting = function rangeFormatting(uri, start, end, options) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.rangeFormatting, {
-			textDocument: {
-				uri: uri
-			},
-			range: {
-				start: start,
-				end: end
-			},
-			options: options
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.codeLensResolve
-	 * @description the code lens resolve request is sent from the client to the server to resolve the command for a given code lens item.
-	 * @function
-	 * @param {?} codeLens The result from a codeLens request
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.codeLensResolve = function codeLensResolve(codeLens) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.codeLensResolve, {
-			codeLens: codeLens
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.rename
-	 * @description The rename request is sent from the client to the server to perform a workspace-wide rename of a symbol.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {{line:number, character:number}} position The position in the editor to invoke the rename from
-	 * @param {String} newName The new name to set
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.rename = function rename(uri, position, newName) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.rename, {
-			textDocument: {
-				uri: uri
-			},
-			position: position,
-			newName: newName
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.signatureHelp
-	 * @description The signature help request is sent from the client to the server to request signature information at a given cursor position.
-	 * @function
-	 * @param {String} uri The URI of the file
-	 * @param {{line:number, character:number}} position The position in the editor
-	 * @param {Array.<String>} signatures
-	 * @param {String} activeSignature
-	 * @param {String} activeParameter
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.signatureHelp = function signatureHelp(uri, position, signatures, activeSignature, activeParameter) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.signatureHelp, {
-			textDocument: {
-				uri: uri,
-				position: position
-			},
-			signatures: signatures,
-			activeSignature: activeSignature,
-			activeParameter: activeParameter
-		});
-	};
-
-	/**
-	 * @name IPC.prototype.completionItemResolve
-	 * @description The request is sent from the client to the server to resolve additional information for a given completion item.
-	 * @function
-	 * @param {?} completionItem A completion item response from a completion request
-	 * @returns {Deferred} The deferred to return the results of the request
-	 */
-	IPC.prototype.completionItemResolve = function completionItemResolve(completionItem) {
-		return this.sendMessage(this.id++, this.MESSAGE_TYPES.completionItemResolve, completionItem);
-	};
-	return IPC;
-});
-/*******************************************************************************
- * @license
- * Copyright (c) 2016, 2019 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials are made
- * available under the terms of the Eclipse Public License v1.0
- * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
- * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html).
- *
- * Contributors:
- *     IBM Corporation - initial API and implementation
- *******************************************************************************/
-/* eslint-env amd, browser */
-define('lsp/languageServer',[
-	"orion/Deferred",
-	"lsp/ipc",
-	"lsp/utils",
-	"orion/util"
-], function(Deferred, IPC, Utils, util) {
-	var
-		LOG_ERRORS = util.readSetting('java.langserver.logmessage.error') === 'true',
-		LOG_WARNINGS = util.readSetting('java.langserver.logmessage.warn') === 'true',
-		LOG_INFO = util.readSetting('java.langserver.logmessage.error.info') === 'true';
-
-	/**
-	 * @name LanguageServer
-	 * @description Creates a new instance of the language server placeholder. This object wraps the server impl, 
-	 * options and identifying information in one place. The functions from the underlying IPC instance are wrapped in the promise-like
-	 * function and set directly on this instance
-	 * @class 
-	 * @param {String} id The optional identifier for this language server
-	 * @param {?} options The optional collection of options
-	 * @param {serviceRegistry} the given service registry
-	 * @returns {LanguageServer} Returns a new instance of LanguageServer
-	 * @since 13.0
-	 */
-	function LanguageServer(lspServiceRef, id, serviceRegistry, markerServiceID) {
-		this._id = id;
-		this.started = false;
-		this.serviceRef = lspServiceRef;
-		var lspService = this.lspService = serviceRegistry.getService(lspServiceRef);
-		this.ipc = new IPC(lspService, id, serviceRegistry);
-		Object.keys(IPC.prototype).forEach(function(key) {
-			//this mitigates having to check for own property
-			if (typeof IPC.prototype[key] === 'function') {
-				this[key] = _ipcCall(key, this.ipc);
-			}
-		}.bind(this), this);
-
-		/**
-		 * Default logging listener
-		 */
-		lspService.addEventListener(this.ipc.MESSAGE_TYPES.logMessage, function handleNotification(evt) {
-			var data = evt.data;
-			if (data !== null && typeof data === 'object') {
-				if (data.params && (LOG_ERRORS && data.params.type === 1) || (LOG_WARNINGS && data.params.type === 2) || (LOG_INFO && data.params.type === 3)) {
-					if (typeof data === 'object' && data !== null) {
-						console.log(JSON.stringify(data));
-					} else if (typeof data === 'string') {
-						console.log(data);
-					}
-				}
-			}
-		});
-		/**
-		 * Listener to handle diagnostics notifications
-		 */
-		lspService.addEventListener(this.ipc.MESSAGE_TYPES.publishDiagnostics, function handleNotification(evt) {
-			var data = evt.data;
-			var markerService = serviceRegistry.getService(markerServiceID);
-			if (markerService) {
-				markerService._setProblems(Utils.toProblems(data.params.diagnostics), data.params.uri);
-			}
-			console.log(JSON.stringify(data));
-		});
-		/**
-		 * Listener to handle status notifications
-		 */
-		lspService.addEventListener(this.ipc.MESSAGE_TYPES.status, function handleNotification(evt) {
-			var data = evt.data;
-			var statusService = serviceRegistry.getService("orion.page.message"); //$NON-NLS-1$
-			if (statusService) {
-				if (data.params.type === "Started") {
-					statusService.setProgressResult("Java " + data.params.type + " " + data.params.message);
-				} else {
-					statusService.setProgressMessage("Java " + data.params.type + " " + data.params.message);
-				}
-			}
-		});
-	}
-	
-	LanguageServer.prototype = {
-		getProperty: function(key) {
-			if (key === 'id') {
-				return this._id;
-			}
-			return this.serviceRef.getProperty(key);
-		},
-
-		start: function() {
-			if (this.started) return new Deferred(this.capabilities);
-			this.started = true;
-			return this.lspService.start().then(function(capabilities) {
-				return this.capabilities = capabilities;
-			}.bind(this));
-		},
-
-		getCapabilities: function() {
-			return this.capabilities;
-		},
-
-		/**
-		 * Retrieves the method in which the server wishes to have documents synchronized by.
-		 * 
-		 * @return {number} a TextDocumentSyncKind, may be None, Full, or Incremental
-		 */
-		getTextDocumentSync: function() {
-			if (this.capabilities && this.capabilities.textDocumentSync) {
-				var kind = this.capabilities.textDocumentSync;
-				if (this.capabilities.textDocumentSync.change) {
-					kind = this.capabilities.textDocumentSync.change;
-				}
-				switch (kind) {
-					case this.ipc.TEXT_DOCUMENT_SYNC_KIND.None:
-					case this.ipc.TEXT_DOCUMENT_SYNC_KIND.Incremental:
-					case this.ipc.TEXT_DOCUMENT_SYNC_KIND.Full:
-						return kind;
-				}
-			}
-			return this.ipc.TEXT_DOCUMENT_SYNC_KIND.None;
-		},
-
-		/**
-		 * Returns whether the content of the saved document should be included in a
-		 * 'textDocument/didSave' notification to the server.
-		 * 
-		 * @return {boolean} true if the document's text content should be included
-		 *                   with the 'textDocument/didSave' notification to the
-		 *                   server, false otherwise
-		 */
-		includeTextOnSave: function() {
-			if (this.capabilities && this.capabilities.textDocumentSync && this.capabilities.textDocumentSync.save) {
-				return this.capabilities.textDocumentSync.save.includeText === true;
-			}
-			return false;
-		},
-
-		isDefinitionEnabled: function() {
-			return this.capabilities && this.capabilities.definitionProvider;
-		},
-
-		isReferencesEnabled: function() {
-			return this.capabilities && this.capabilities.referencesProvider;
-		},
-		
-		isFormatDocumentEnabled: function() {
-			return this.capabilities && this.capabilities.documentFormattingProvider;
-		},
-	
-		isRangeFormatDocumentEnabled: function() {
-			return this.capabilities && this.capabilities.documentRangeFormattingProvider;
-		},
-		
-		isDocumentSymbolEnabled: function() {
-			return this.capabilities && this.capabilities.documentSymbolProvider;
-		},
-		
-		isDocumentHighlightEnabled: function() {
-			return this.capabilities && this.capabilities.documentHighlightProvider;
-		},
-		
-		isHoverEnabled: function() {
-			return this.capabilities && this.capabilities.hoverProvider;
-		}
-
-	};
-
-	/**
-	 * @name _ipcCall
-	 * @description Create a deferred-wrappped function call
-	 * @private
-	 * @param {String} method The name of the method to wrap
-	 * @param {IPC} ls The protocol impl to call back to
-	 * @returns {function} Returns a function wrapper for the named IPC function
-	 */
-	function _ipcCall(method, ls) {
-		return function() {
-			var d;
-			try {
-				var result = ls[method].apply(ls, Array.prototype.slice.call(arguments));
-				if (result && typeof result.then === "function") {
-					return result;
-				}
-				d = new Deferred();
-				d.resolve(result);
-			} catch (e) {
-				d = new Deferred();
-				d.reject(e);
-			}
-			return d.promise;
-		};
-	}
-
-	return LanguageServer;
-});
-/*******************************************************************************
- * @license
- * Copyright (c) 2016, 2017 IBM Corporation and others.
- * All rights reserved. This program and the accompanying materials are made
- * available under the terms of the Eclipse Public License v1.0
- * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
- * License v1.0 (http://www.eclipse.org/org/documents/edl-v10.html).
- *
- * Contributors:
- *     IBM Corporation - initial API and implementation
- *******************************************************************************/
-/*eslint-env amd, es6*/
-define('lsp/languageServerRegistry',[
-	"lsp/languageServer"
-], function(LanguageServer) {
-
-	var _registry,
-		_srvcreg,
-		_contentTypes,
-		_markerServiceID;
-
-	/**
-	 * @name LanguageServerRegistry
-	 * @description The registry of all available language servers, cached by language ID
-	 * @param {?} serviceRegistry The backing Orion service registry
-	 * @returns {LanguageServerRegistry} A new instance of the registry
-	 * @since 13.0
-	 */
-	function LanguageServerRegistry(serviceRegistry, markerServiceID) {
-		_srvcreg = serviceRegistry;
-		_markerServiceID = markerServiceID;
-	}
-
-	LanguageServerRegistry.prototype = {
-		/**
-		 * @name LanguageServerRegistry.prototype.init
-		 * @description Initialize the language server registry if not already initialized
-		 * @function
-		 */
-		init: function init() {
-			if (!_registry && !_contentTypes && _srvcreg) {
-				var srvcs = _srvcreg.getServiceReferences("orion.languages.server");
-				if (srvcs) {
-					_registry = new Map(); //map by languageId
-					_contentTypes = new Map(); //map by contentTypes
-					srvcs.forEach(function(ref) {
-						var id = ref.getProperty("languageId"),
-							contentTypes = ref.getProperty("contentType");
-						if (id && contentTypes) {
-							var languageServer = new LanguageServer(ref, id, _srvcreg, _markerServiceID);
-							if (Array.isArray(contentTypes)) {
-								for (var i = 0, max = contentTypes.length; i < max; i++) {
-									_contentTypes.set(contentTypes[i], languageServer);
-								}
-							} else {
-								_contentTypes.set(contentTypes, languageServer);
-							}
-							_registry.set(id, LanguageServer);
-						}
-					});
-				}
-			}
-		},
-		/**
-		 * @name LanguageServerRegistry.prototype.getServerById
-		 * @description Returns the registered language server for the given language id
-		 * @function
-		 * @param {String} languageId The id of the language to look for a server for
-		 * @returns {LanguageServer} A language server impl - if one is mapped, null otherwise
-		 */
-		getServerById: function getServerById(languageId) {
-			this.init();
-			var value = _registry.get(languageId);
-			return value ? value : null;
-		},
-		/**
-		 * @name LanguageServerRegistry.prototype.getServerByContentType
-		 * @description Returns the registered language server for the given content type
-		 * @function
-		 * @param {String} contentType The content type to look for a server for
-		 * @returns {LanguageServer} A language server impl - if one is mapped
-		 */
-		getServerByContentType: function getServerByContentType(contentType) {
-			if (!contentType) {
-				return null;
-			}
-			this.init();
-			var value = _contentTypes.get(contentType.id);
-			return value ? value : null;
-		}
-	};
-
-	return {
-		LanguageServerRegistry: LanguageServerRegistry
-	};
-});
-/*******************************************************************************
- * @license
- * Copyright (c) 2010, 2019 IBM Corporation and others.
+ * Copyright (c) 2010, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License v1.0
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
@@ -21842,10 +19861,8 @@ define('orion/inputManager',[
 	'orion/PageUtil',
 	'orion/editor/textModelFactory',
 	'orion/formatter',
-	'lsp/languageServerRegistry',
-	'orion/metrics',
-	'orion/util'
-], function(messages, mNavigatorRenderer, i18nUtil, Deferred, EventTarget, objects, PageUtil, mTextModelFactory, mFormatter, mLanguageServerRegistry, mMetrics, util) {
+	'orion/metrics'
+], function(messages, mNavigatorRenderer, i18nUtil, Deferred, EventTarget, objects, PageUtil, mTextModelFactory, mFormatter, mMetrics) {
 
 	function Idle(options){
 		this._document = options.document || document;
@@ -21908,9 +19925,7 @@ define('orion/inputManager',[
 				newError.Severity = parsedError.Severity || newError.Severity;
 				newError.Message = parsedError.Message || newError.Message;
 			} catch (e) {
-				if (responseText.length < 200) {
-					newError.Message = responseText;
-				}
+				newError.Message = responseText;
 			}
 		} else {
 			try {
@@ -21972,7 +19987,6 @@ define('orion/inputManager',[
 		this.generalPreferences = options.generalPreferences || {};
 		this.isEditorTabsEnabled = options.isEditorTabsEnabled || false;
 		this._input = this._title = "";
-		this.languageServerRegistry = new mLanguageServerRegistry.LanguageServerRegistry(this.serviceRegistry, options.problemsServiceID || "orion.core.marker"); //$NON-NLS-0$
 		if (this.fileClient) {
 			this.fileClient.addEventListener("Changed", function(evt) { //$NON-NLS-0$
 				if (this._fileMetadata && this._fileMetadata._saving) {
@@ -22053,16 +20067,10 @@ define('orion/inputManager',[
 						if (this._fileMetadata && !this._fileMetadata._saving && this._fileMetadata.Location === data.Location && this._fileMetadata.ETag !== data.ETag) {
 							this._fileMetadata = objects.mixin(this._fileMetadata, data);
 							var doSync = function(){
-								progress(fileClient.read(resource), messages.Reading, fileURI).then(
-									function(contents) {
-										editor.setInput(fileURI, null, contents, null, nofocus);
-										this._clearUnsavedChanges();
-										mMetrics.logAudit("read", "orion-file", {id: util.computeAuditId(fileClient, resource), isData: true});
-									}.bind(this),
-									function(error) {
-										mMetrics.logAudit("read", "orion-file", {id: util.computeAuditId(fileClient, resource), isData: true}, error);
-									}
-								);
+								progress(fileClient.read(resource), messages.Reading, fileURI).then(function(contents) {
+									editor.setInput(fileURI, null, contents, null, nofocus);
+									this._clearUnsavedChanges();
+								}.bind(this));
 							};
 							if (this.syncEnabled && !editor.isDirty()){
 								doSync();
@@ -22104,8 +20112,7 @@ define('orion/inputManager',[
 				this._acceptPatch = null;
 				if (!this._isSameParent(metadataURI)) {
 					var uri = new URL(metadataURI);
-					var treeType = util.readSetting("useCompressedTree")
-					uri.query.set("tree", treeType ? "compressed" : "decorated"); //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$
+					uri.query.set("tree", localStorage.useCompressedTree ? "compressed" : "decorated"); //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$
 					metadataURI = uri.href;
 				}
 				progress(this._read(metadataURI, true), messages.ReadingMetadata, resource).then(function(metadata) {
@@ -22130,46 +20137,28 @@ define('orion/inputManager',[
 							if(typeof textModelFactory.getDefaultReadOptions === "function") {
 								defaultReadOptions = textModelFactory.getDefaultReadOptions();
 							}
-							progress(fileClient.read(resource, false, true, defaultReadOptions), messages.Reading, fileURI).then(
-								function(contents) {
-									clearProgressTimeout();
-									if (typeof contents !== "string") { //$NON-NLS-0$
-										this._acceptPatch = contents.acceptPatch;
-										contents = contents.result;
-									}
-									this._setInputContents(this._parsedLocation, fileURI, contents, metadata);
-									mMetrics.logAudit("read", "orion-file", {id: util.computeAuditId(fileClient, resource), isData: true});
-								}.bind(this),
-								function(error) {
-									errorHandler(error);
-									mMetrics.logAudit("read", "orion-file", {id: util.computeAuditId(fileClient, resource), isData: true}, error);
+							progress(fileClient.read(resource, false, true, defaultReadOptions), messages.Reading, fileURI).then(function(contents) {
+								clearProgressTimeout();
+								if (typeof contents !== "string") { //$NON-NLS-0$
+									this._acceptPatch = contents.acceptPatch;
+									contents = contents.result;
 								}
-							);
+								this._setInputContents(this._parsedLocation, fileURI, contents, metadata);
+							}.bind(this), errorHandler);
 						} else {
-							progress(fileClient._getService(resource).readBlob(resource), messages.Reading, fileURI).then(
-								function(contents) {
-									clearProgressTimeout();
-									if (isText) {
-										decode(contents, charset, function(result) {
-											this._setInputContents(this._parsedLocation, fileURI, result, metadata);
-										}.bind(this), errorHandler);
-										return;
-									}
-									this._setInputContents(this._parsedLocation, fileURI, contents, metadata);
-									mMetrics.logAudit("read", "orion-file", {id: util.computeAuditId(fileClient, resource), isData: true});
-								}.bind(this),
-								function(error) {
-									errorHandler(error);
-									mMetrics.logAudit("read", "orion-file", {id: util.computeAuditId(fileClient, resource), isData: true}, error);
+							progress(fileClient._getService(resource).readBlob(resource), messages.Reading, fileURI).then(function(contents) {
+								clearProgressTimeout();
+								if (isText) {
+									decode(contents, charset, function(result) {
+										this._setInputContents(this._parsedLocation, fileURI, result, metadata);
+									}.bind(this), errorHandler);
+									return;
 								}
-							);
+								this._setInputContents(this._parsedLocation, fileURI, contents, metadata);
+							}.bind(this), errorHandler);
 						}
 					}
-				}.bind(this),
-				function(error) {
-					mMetrics.logAudit("read", "orion-file", {id: util.computeAuditId(fileClient, resource), isData: true}, error);
-					errorHandler(error);
-				});
+				}.bind(this), errorHandler);
 			}
 		},
 		processParameters: function(input) {
@@ -22261,7 +20250,7 @@ define('orion/inputManager',[
 			this.dispatchEvent({ type: "Saving", inputManager: this}); //$NON-NLS-0$
 
 			function _save(that) {
-				var previousUndoState = editor.markClean();
+				editor.markClean();
 				var contents = editor.getText();
 				var data = contents;
 				if (that._getSaveDiffsEnabled() && !that._errorSaving) {
@@ -22305,21 +20294,12 @@ define('orion/inputManager',[
 					if (that.postSave) {
 						that.postSave(closing);
 					}
-					// get the lsp service matching the current content type
-					var lspLanguageServer = that.languageServerRegistry.getServerByContentType(that.getContentType());
-					if (lspLanguageServer) {
-						var text = lspLanguageServer.includeTextOnSave() ? that.getEditor().getText() : undefined;
-						lspLanguageServer.didSave(that.getFileMetadata().Location, text);
-					}
-					mMetrics.logAudit("update", "orion-file", {id: util.computeAuditId(that.fileClient, resource), isData: true, requestData: {updateType: "Content Change"}});
 					return done(result);
 				}
 				function errorHandler(error) {
 					that.reportStatus("");
 					var errorMsg = handleError(statusService, error);
 					mMetrics.logEvent("status", "exception", (that._autoSaveActive ? "Auto-save: " : "Save: ") + errorMsg.Message); //$NON-NLS-3$ //$NON-NLS-2$ //$NON-NLS-1$ //$NON-NLS-0$
-					mMetrics.logAudit("update", "orion-file", {id: util.computeAuditId(that.fileClient, resource), isData: true, requestData: {updateType: "Content Change"}}, error);
-					editor.markUnclean(previousUndoState);
 					that._errorSaving = true;
 					return done();
 				}
@@ -22496,30 +20476,23 @@ define('orion/inputManager',[
 					this._setNoInput("");
 				}
 			}.bind(this);
-			if (editor && editor.isDirty()) {
+			if (editor && editor.isDirty() && !this.isEditorTabsEnabled) {
 				var oldLocation = this._location;
 				var oldResource = oldInput.resource;
 				var newResource = input.resource;
-				if (this._errorSaving && (oldResource !== newResource || encodingChanged)) {
-					window.location.hash = oldLocation;
-					this.reveal(this.getFileMetadata());
-					return;
-				}
-				if (!this.isEditorTabsEnabled) {
-					if (oldResource !== newResource || encodingChanged) {
-						if (this._autoSaveEnabled) {
-							this.save();
-							afterConfirm();
-						} else if(this.syncEnabled && this.isUnsavedWarningNeeed()) {
-							var cancelCallback = function() {
-								window.location.hash = oldLocation;
-								this.reveal(this.getFileMetadata());
-								return;
-							}.bind(this);
-							this.confirmUnsavedChanges(afterConfirm, cancelCallback);
-						}else{
-							afterConfirm();
-						}
+				if (oldResource !== newResource || encodingChanged) {
+					if (this._autoSaveEnabled) {
+						this.save();
+						afterConfirm();
+					} else if(this.syncEnabled && this.isUnsavedWarningNeeed()) {
+						var cancelCallback = function() {
+							window.location.hash = oldLocation;
+							this.reveal(this.getFileMetadata());
+							return;
+						}.bind(this);
+						this.confirmUnsavedChanges(afterConfirm, cancelCallback);
+					}else{
+						afterConfirm();
 					}
 				}
 			}else{
@@ -22643,7 +20616,7 @@ define('orion/inputManager',[
 			this._logMetrics("open"); //$NON-NLS-0$
 			this.dispatchEvent(evt);
 			this.editor = editor = evt.editor;
-			this._formatter = new mFormatter.Formatter(this.serviceRegistry, this, editor, this.languageServerRegistry);
+			this._formatter = new mFormatter.Formatter(this.serviceRegistry, this, editor);
 			if (!isDir) {
 				if (!noSetInput) {
 					editor.setInput(title, null, contents);
@@ -23396,7 +21369,7 @@ define("orion/editor/util", [], function() { //$NON-NLS-0$
 });
 /*******************************************************************************
  * @license
- * Copyright (c) 2010, 2019 IBM Corporation and others.
+ * Copyright (c) 2010, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -23417,9 +21390,8 @@ define("orion/editor/textView", [
 	'orion/editor/util',
 	'orion/util',
 	'orion/bidiUtils',
-	'orion/webui/littlelib',
 	'orion/metrics'
-], function(messages, mTextModel, mKeyModes, mEventTarget, mTextTheme, textUtil, util, bidiUtils, lib, mMetrics) {
+], function(messages, mTextModel, mKeyModes, mEventTarget, mTextTheme, textUtil, util, bidiUtils, mMetrics) {
 
 	/** @private */
 	function getWindow(doc) {
@@ -23459,7 +21431,7 @@ define("orion/editor/textView", [
 		if (attributes) {
 			for (var a in attributes) {
 				if (attributes.hasOwnProperty(a)) {
-					lib.setSafeAttribute(node, a, attributes[a]);
+					node.setAttribute(a, attributes[a]);
 				}
 			}
 		}
@@ -24107,7 +22079,7 @@ define("orion/editor/textView", [
 			var span, style, oldSpan, oldStyle, text, oldText, end = 0, oldEnd = 0, next, i;
 			if (util.isFirefox && lineText.length > 2000) {
 				if (div) {
-					lib.setSafeInnerHTML(lineDiv, "");
+					lineDiv.innerHTML = "";
 					div.lineWidth = undefined;
 				}
 				var frag = doc.createDocumentFragment();
@@ -24283,7 +22255,7 @@ define("orion/editor/textView", [
 			var child = util.createElement(_parent.ownerDocument, tagName);
 			child.appendChild(doc.createTextNode(style && style.text ? style.text : text));
 			if (style && style.html) {
-				lib.setSafeInnerHTML(child, style.html);
+				child.innerHTML = style.html;
 				child.ignore = true;
 			} else if (style && style.node) {
 				if (this.drawing) {
@@ -24362,7 +22334,7 @@ define("orion/editor/textView", [
 							lineChild.appendChild(span);
 							lineChild.appendChild(doc.createTextNode(text.substring(index + 1)));
 							result = new TextRect(span.getBoundingClientRect());
-							lib.setSafeInnerHTML(lineChild, "");
+							lineChild.innerHTML = "";
 							lineChild.appendChild(textNode);
 							if (!this._createdDiv) {
 								/*
@@ -24741,7 +22713,7 @@ define("orion/editor/textView", [
 						}
 						newText.push("</span>"); //$NON-NLS-1$
 					}
-					lib.setSafeInnerHTML(lineChild, newText.join(""));
+					lineChild.innerHTML = newText.join("");
 					var rangeChild = lineChild.firstChild;
 					while (rangeChild) {
 						rect = rangeChild.getBoundingClientRect();
@@ -24758,7 +22730,7 @@ define("orion/editor/textView", [
 						rangeChild = rangeChild.nextSibling;
 					}
 					if (!that._createdDiv) {
-						lib.setSafeInnerHTML(lineChild, "");
+						lineChild.innerHTML = "";
 						lineChild.appendChild(textNode);
 						/*
 						 * Removing the element node that holds the selection start or end
@@ -25095,7 +23067,6 @@ define("orion/editor/textView", [
 	 * @property {String|DOMElement} parent the parent element for the view, it can be either a DOM element or an ID for a DOM element.
 	 * @property {orion.editor.TextModel} [model] the text model for the view. If it is not set the view creates an empty {@link orion.editor.TextModel}.
 	 * @property {Boolean} [readonly=false] whether or not the view is read-only.
-	 * @property {String} [label=Text View] the text view label.
 	 * @property {Boolean} [fullSelection=true] whether or not the view is in full selection mode.
 	 * @property {Boolean} [tabMode=true] whether or not the tab keypress is consumed by the view or is used for focus traversal.
 	 * @property {Boolean} [expandTab=false] whether or not the tab key inserts white spaces.
@@ -26354,7 +24325,6 @@ define("orion/editor/textView", [
 					div = div.nextSibling;
 				}
 			}
-			if (!div) { return; }
 			if (ruler) {
 				div.rulerChanged = true;
 			} else {
@@ -27192,14 +25162,16 @@ define("orion/editor/textView", [
 				var startIME = true;
 				
 				/*
-				* Bug in Safari. Some key combinations send key events
+				* Bug in Safari. Some Control+key combinations send key events
 				* with keyCode equals to 229. This is unexpected and causes the
 				* view to start an IME composition. The fix is to ignore these
 				* events.
 				*/
 				if (util.isSafari && util.isMac) {
-					startIME = false;
-					e.keyCode = 0x81;
+					if (e.ctrlKey) {
+						startIME = false;
+						e.keyCode = 0x81;
+					}
 				}
 				if (startIME) {
 					this._startIME();
@@ -27317,11 +25289,6 @@ define("orion/editor/textView", [
 				}
 			}
 			if (!ignore) {
-				if (e.key && !util.isFirefox) {
-					this._doContent(e.key);
-					if (e.preventDefault) { e.preventDefault(); }
-					return false;
-				}
 				var key = util.isOpera ? e.which : (e.charCode !== undefined ? e.charCode : e.keyCode);
 				if (key > 31) {
 					this._doContent(String.fromCharCode (key));
@@ -27348,7 +25315,7 @@ define("orion/editor/textView", [
 			}
 			this._handleDocKeyUp(e);
 			// don't commit for space (it happens during JP composition)  
-			if (e.keyCode === 13 && !util.isMac) {
+			if (e.keyCode === 13) {
 				this._commitIME();
 			}
 		},
@@ -28429,9 +26396,6 @@ define("orion/editor/textView", [
 			if (selections.length > 1) {
 				this._setSelection(selections[0], true);
 			}
-			if (this._tooltip) {
-				this._tooltip.hide();
-			}
 			return true;
 		},
 		_doHome: function (args) {
@@ -28933,14 +26897,14 @@ define("orion/editor/textView", [
 				div1.style.position = "fixed"; //$NON-NLS-1$
 				div1.style.left = "-1000px"; //$NON-NLS-1$
 				_parent.appendChild(div1);
-				lib.setSafeInnerHTML(div1, newArray(2).join("a"));
+				div1.innerHTML = newArray(2).join("a"); //$NON-NLS-1$
 				rect1 = div1.getBoundingClientRect();
 				charWidth = Math.ceil(rect1.right - rect1.left);
 				if (this._wrapOffset || this._marginOffset) {
-					lib.setSafeInnerHTML(div1, newArray(this._wrapOffset + 1 + (util.isWebkit ? 0 : 1)).join(" "));
+					div1.innerHTML = newArray(this._wrapOffset + 1 + (util.isWebkit ? 0 : 1)).join(" "); //$NON-NLS-1$
 					rect1 = div1.getBoundingClientRect();
 					wrapWidth = Math.ceil(rect1.right - rect1.left);
-					lib.setSafeInnerHTML(div1, newArray(this._marginOffset + 1).join(" "));
+					div1.innerHTML = newArray(this._marginOffset + 1).join(" "); //$NON-NLS-1$
 					rect2 = div1.getBoundingClientRect();
 					marginWidth = Math.ceil(rect2.right - rect2.left);
 				}
@@ -29085,7 +27049,7 @@ define("orion/editor/textView", [
 			div.style.bottom = "0px"; //$NON-NLS-1$
 			div.style.cursor = "default"; //$NON-NLS-1$
 			div.style.display = "none"; //$NON-NLS-1$
-			lib.setSafeAttribute(div, "aria-hidden", "true");
+			div.setAttribute("aria-hidden", "true"); //$NON-NLS-1$ //$NON-NLS-2$
 			this._rootDiv.appendChild(div);
 			return div;
 		},
@@ -29143,7 +27107,8 @@ define("orion/editor/textView", [
 			rootDiv.style.height = "100%"; //$NON-NLS-1$
 			rootDiv.style.overflow = "hidden"; //$NON-NLS-1$
 			rootDiv.style.WebkitTextSizeAdjust = "100%"; //$NON-NLS-1$
-			this._setLabel(this._label, true);
+			rootDiv.setAttribute("role", "application"); //$NON-NLS-1$ //$NON-NLS-2$
+			rootDiv.setAttribute("aria-label", "Text View"); //$NON-NLS-1$
 			_parent.appendChild(rootDiv);
 			
 			var leftDiv = this._createRulerParent(doc, "textviewLeftRuler"); //$NON-NLS-1$
@@ -29215,7 +27180,7 @@ define("orion/editor/textView", [
 			clientDiv.style.outline = "none"; //$NON-NLS-1$
 			clientDiv.style.zIndex = "1"; //$NON-NLS-1$
 			clientDiv.style.WebkitUserSelect = "text"; //$NON-NLS-1$
-			lib.setSafeAttribute(clientDiv, "spellcheck", "false");
+			clientDiv.setAttribute("spellcheck", "false"); //$NON-NLS-1$ //$NON-NLS-2$
 			if (util.isIOS || util.isAndroid) {
 				clientDiv.style.WebkitTapHighlightColor = "transparent"; //$NON-NLS-1$
 			}
@@ -29299,7 +27264,6 @@ define("orion/editor/textView", [
 			return {
 				parent: {value: undefined, update: null},
 				model: {value: undefined, update: this.setModel},
-				label: {value: "Text View", update: this._setLabel},
 				scrollAnimation: {value: 0, update: null},
 				readonly: {value: false, update: this._setReadOnly},
 				fullSelection: {value: true, update: this._setFullSelection},
@@ -29518,12 +27482,12 @@ define("orion/editor/textView", [
 					clipboardDiv.style.left = "-1000px"; //$NON-NLS-1$
 					this._rootDiv.appendChild(clipboardDiv);
 				}
-				lib.setSafeInnerHTML(clipboardDiv, "<pre contenteditable=''></pre>");
+				clipboardDiv.innerHTML = "<pre contenteditable=''></pre>"; //$NON-NLS-1$
 				clipboardDiv.firstChild.focus();
 				var that = this;
 				var _getText = function() {
 					var noteText = that._getTextFromElement(clipboardDiv);
-					lib.setSafeInnerHTML(clipboardDiv, "");
+					clipboardDiv.innerHTML = "";
 					return convert(noteText);
 				};
 				
@@ -30504,7 +28468,7 @@ define("orion/editor/textView", [
 					cursorDiv.style.color = "transparent"; //$NON-NLS-1$
 					cursorDiv.style.position = "absolute"; //$NON-NLS-1$
 					cursorDiv.style.pointerEvents = "none"; //$NON-NLS-1$
-					lib.setSafeInnerHTML(cursorDiv, "&nbsp;");
+					cursorDiv.innerHTML = "&nbsp;"; //$NON-NLS-1$
 					viewDiv.appendChild(cursorDiv);
 					this._updateDOMSelection();
 				}
@@ -30513,14 +28477,6 @@ define("orion/editor/textView", [
 					this._cursorDiv.parentNode.removeChild(this._cursorDiv);
 					this._cursorDiv = null;
 				}
-			}
-		},
-		_setLabel: function(label) {
-			if (label === "__hidden__" ) {
-				lib.setSafeAttribute(this._rootDiv, "aria-hidden", "true");
-			} else {
-				lib.setSafeAttribute(this._rootDiv, "role", "application");
-				lib.setSafeAttribute(this._rootDiv, "aria-label", label);
 			}
 		},
 		_setMarginOffset: function(marginOffset, init) {
@@ -31240,7 +29196,7 @@ define("orion/editor/textView", [
 						if (annotation) {
 							applyStyle(annotation.style, widthDiv);
 							if (annotation.html) {
-								lib.setSafeInnerHTML(widthDiv, annotation.html);
+								widthDiv.innerHTML = annotation.html;
 							}
 						}
 						widthDiv.lineIndex = lineIndex;
@@ -31268,7 +29224,7 @@ define("orion/editor/textView", [
 							if (annotation) {
 								applyStyle(annotation.style, lineDiv);
 								if (annotation.html) {
-									lib.setSafeInnerHTML(lineDiv, annotation.html);
+									lineDiv.innerHTML = annotation.html;
 								}
 								lineDiv.annotation = annotation;
 							}
@@ -31316,7 +29272,7 @@ define("orion/editor/textView", [
 							lineDiv.style.position = "absolute"; //$NON-NLS-1$
 							lineDiv.style.top = arrowWidth + lineHeight + Math.floor(lineIndex * divHeight) + "px"; //$NON-NLS-1$
 							if (annotation.html) {
-								lib.setSafeInnerHTML(lineDiv, annotation.html);
+								lineDiv.innerHTML = annotation.html;
 							}
 							lineDiv.annotation = annotation;
 							lineDiv.lineIndex = lineIndex;
@@ -31395,7 +29351,7 @@ define("orion/editor/textView", [
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2010, 2019 IBM Corporation and others.
+ * Copyright (c) 2010, 2015 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -31462,8 +29418,8 @@ function Tooltip (view, editor) {
 			var tooltipDiv = this._tooltipDiv = util.createElement(document, "div"); //$NON-NLS-0$
 			tooltipDiv.tabIndex = 0;
 			tooltipDiv.className = "textviewTooltip"; //$NON-NLS-0$
-			lib.setSafeAttribute(tooltipDiv, "aria-live", "assertive");
-			lib.setSafeAttribute(tooltipDiv, "aria-atomic", "true");
+			tooltipDiv.setAttribute("aria-live", "assertive"); //$NON-NLS-1$ //$NON-NLS-2$
+			tooltipDiv.setAttribute("aria-atomic", "true"); //$NON-NLS-1$ //$NON-NLS-2$
 			this._tooltipDiv.style.visibility = "hidden"; //$NON-NLS-0$
 			this._tipShowing = false;
 			document.body.appendChild(tooltipDiv);
@@ -31554,11 +29510,10 @@ function Tooltip (view, editor) {
 		 */
 		show: function(tooltipInfo, locked, giveFocus) {
 			this._locked = locked;
+			this._giveFocus = giveFocus;
 			this._topPixel = this._view.getTopPixel();
 			this._leftPixel = this._view.getHorizontalPixel();
-			var info = tooltipInfo.getTooltipInfo();
-			info.giveFocus = giveFocus;
-			this._processInfo(info);
+			this._processInfo(tooltipInfo.getTooltipInfo());
 		},
 		
 		/**
@@ -31703,7 +29658,7 @@ function Tooltip (view, editor) {
 			
 			var newTooltipContents;
 			if (update && this._tooltipContents) {
-				lib.setSafeInnerHTML(this._tooltipContents, "");
+				this._tooltipContents.innerHTML = "";
 				newTooltipContents = this._tooltipContents;
 			} else {
  				newTooltipContents = util.createElement(this._tooltipDiv.ownerDocument, "div"); //$NON-NLS-0$
@@ -31805,8 +29760,9 @@ function Tooltip (view, editor) {
 			this._tooltipDiv.style.visibility = "visible"; //$NON-NLS-0$
 			this._tipShowing = true;
 			
-			if (info.giveFocus) {
+			if (this._giveFocus) {
 				this._setInitialFocus(this._tooltipDiv);
+				this._giveFocus = undefined;
 			}
 		},
 		
@@ -32060,9 +30016,7 @@ function Tooltip (view, editor) {
 			var toFocus = lib.firstTabbable(tooltipDiv);
 			if (toFocus) {
 				toFocus.focus();
-				return;
 			}
-			tooltipDiv.focus();
 		},
 		_isInRect: function(rect, x, y) {
 			if (!rect){
@@ -32136,7 +30090,7 @@ function Tooltip (view, editor) {
 			if (data.title && !data.hiddenTitle) {
 				var titleDiv = util.createElement(document, "div"); //$NON-NLS-0$;
 				if (this.hover.renderMarkDown) {
-					lib.setSafeInnerHTML(titleDiv, this.hover.renderMarkDown(data.title));
+					titleDiv.innerHTML = this.hover.renderMarkDown(data.title);
 				} else {
 					titleDiv.textContent = data.title;
 				}
@@ -32181,7 +30135,7 @@ function Tooltip (view, editor) {
 					}
 					case 'markdown': {
 						if (this.hover.renderMarkDown) {
-							lib.setSafeInnerHTML(contentDiv, this.hover.renderMarkDown(data.content));
+							contentDiv.innerHTML = this.hover.renderMarkDown(data.content);
 						}
 						break;
 					}
@@ -32343,7 +30297,7 @@ function Tooltip (view, editor) {
 				if (annotation.html) {
 					var htmlHolder = util.createElement(document, "div"); //$NON-NLS-0$
 					htmlHolder.className = "tooltipImage"; //$NON-NLS-0$
-					lib.setSafeInnerHTML(htmlHolder, annotation.html);
+					htmlHolder.innerHTML = annotation.html;
 					if (htmlHolder.lastChild) {
 						textUtil.addEventListener(htmlHolder.lastChild, "click", function() {
 							var start = annotation.start, end = annotation.end;
@@ -32405,7 +30359,7 @@ function Tooltip (view, editor) {
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2009, 2019 IBM Corporation and others.
+ * Copyright (c) 2009, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License v1.0
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
@@ -32536,16 +30490,8 @@ define("orion/editor/editor", [
 		 * Marks the current state of the editor as clean. Meaning there are no unsaved modifications.
 		 */
 		markClean: function() {
-			var previousState = this.getUndoStack().markClean();
+			this.getUndoStack().markClean();
 			this.setDirty(false);
-			return previousState;
-		},
-		/**
-		 * Marks the current state of the editor as unclean. Usually called when saving changes failed.
-		 */
-		markUnclean: function(previousState) {
-			this.getUndoStack().markUnclean(previousState);
-			this.setDirty(true);
 		},
 		/**
 		 * Called when the dirty state of the editor changes.
@@ -33249,7 +31195,7 @@ define("orion/editor/editor", [
 		},
 
 		/** @private */
-		_getTooltipInfo: function(x, y, all) {
+		_getTooltipInfo: function(x, y) {
 			var textView = this._textView;
 			var annotationModel = this.getAnnotationModel();
 			if (!annotationModel) { return null; }
@@ -33258,21 +31204,16 @@ define("orion/editor/editor", [
 			if (!textView.isValidTextPosition(x, y)) { return null; }
 			var offset = textView.getOffsetAtLocation(x, y);
 			if (offset === -1) { return null; }
-			var allAnnotations;
-			if (all) {
-				var lineIndex = this.getLineAtOffset(offset);
-				allAnnotations = this.getAnnotationRuler()._getAnnotationsAtLineIndex(lineIndex);
-			} else {
-				var annotations = annotationStyler.getAnnotationsByType(annotationModel, offset, offset + 1);
-				allAnnotations = [];
-				for (var i = 0; i < annotations.length; i++) {
-					if (annotations[i].rangeStyle) {
-						allAnnotations.push(annotations[i]);
-					}
+			offset = this.mapOffset(offset);
+			var annotations = annotationStyler.getAnnotationsByType(annotationModel, offset, offset + 1);
+			var rangeAnnotations = [];
+			for (var i = 0; i < annotations.length; i++) {
+				if (annotations[i].rangeStyle) {
+					rangeAnnotations.push(annotations[i]);
 				}
 			}
 			var info = {
-				contents: allAnnotations,
+				contents: rangeAnnotations,
 				position: "below", //$NON-NLS-0$
 				context: {source: "editor", offset: offset} //$NON-NLS-0$
 			};
@@ -33715,7 +31656,7 @@ define("orion/editor/editor", [
 				var lineIndex = model.getLineAtOffset(caretOffset);
 				var lineStart = model.getLineStart(lineIndex);
 				var offsetInLine = caretOffset - lineStart;
-				if (util.readSetting("languageTools")) {
+				if (localStorage.languageTools){
 					_status = util.formatMessage(messages.lineColumnOffset, lineIndex + 1, offsetInLine + 1, caretOffset);
 				} else {
 					_status = util.formatMessage(messages.lineColumn, lineIndex + 1, offsetInLine + 1);
@@ -34308,12 +32249,6 @@ define("orion/editor/find", [ //$NON-NLS-0$
 			var textView = this._editor.getTextView();
 			if (textView) {
 				textView.removeEventListener("Focus", this._listeners.onEditorFocus); //$NON-NLS-0$
-			}
-			this._returnFocus();
-		},
-		_returnFocus: function() {
-			var textView = this._editor.getTextView();
-			if (textView) {
 				textView.focus();
 			}
 		},
@@ -34741,7 +32676,7 @@ define("orion/editor/find", [ //$NON-NLS-0$
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2014, 2019 IBM Corporation and others. All rights reserved.
+ * Copyright (c) 2014 IBM Corporation and others. All rights reserved.
  * This program and the accompanying materials are made available under the
  * terms of the Eclipse Public License v1.0
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
@@ -34756,9 +32691,8 @@ define('orion/editor/findUI',[
 	'orion/editor/find',
 	'orion/objects',
 	'orion/editor/util',
-	'orion/util',
-	'orion/webui/littlelib'
-], function(messages, mFind, objects, textUtil, util, lib) {
+	'orion/util', 
+], function(messages, mFind, objects, textUtil, util) {
 	
 	function FindUI(editor, undoStack, options) {
 		mFind.Find.call(this, editor, undoStack, options);
@@ -34826,8 +32760,8 @@ define('orion/editor/findUI',[
 			root.className = "textViewFind"; //$NON-NLS-0$
 			textUtil.addEventListener(root, "keydown", function(e) { that._handleKeyDown(e); }); //$NON-NLS-0$
 			this._rootDiv = root;
-			lib.setSafeAttribute(root, "role", "dialog");
-			lib.setSafeAttribute(root, "aria-label", messages.findReplace);
+			root.setAttribute("role", "dialog");
+			root.setAttribute("aria-label", messages.findReplace);
 			this._createContents(document, root);
 			view._rootDiv.insertBefore(root, view._rootDiv.firstChild);
 		},
@@ -34837,7 +32771,7 @@ define('orion/editor/findUI',[
 			findInput.className = "textViewFindInput"; //$NON-NLS-0$
 			this._findInput = findInput;
 			findInput.type = "text"; //$NON-NLS-0$
-			findInput.placeholder = messages.findWhat;
+			findInput.placeholder = messages.findWith;
 			textUtil.addEventListener(findInput, "input", function(evt) { //$NON-NLS-0$
 				return that._handleInput(evt);
 			});
@@ -34885,7 +32819,7 @@ define('orion/editor/findUI',[
 				button.appendChild(document.createTextNode(text)); //$NON-NLS-0$
 			}
 			if (ariaLabel) {
-				lib.setSafeAttribute(button, "aria-label", ariaLabel);
+				button.setAttribute("aria-label", ariaLabel);
 			}
 			parentDom.appendChild(button);
 			return button;
@@ -35093,7 +33027,7 @@ define("orion/editor/actions", [ //$NON-NLS-0$
 
 			textView.setAction("tab", function() { //$NON-NLS-0$
 				return this.indentLines();
-			}.bind(this), {name: messages.indentLines});
+			}.bind(this));
 
 			textView.setAction("shiftTab", function() { //$NON-NLS-0$
 				return this.unindentLines();
@@ -35124,7 +33058,7 @@ define("orion/editor/actions", [ //$NON-NLS-0$
 				return this.deleteLines(data);
 			}.bind(this), {name: messages.deleteLines});
 
-			textView.setKeyBinding(new mKeyBinding.KeyBinding("g", !util.isMac, false, false, util.isMac), "gotoLine"); //$NON-NLS-1$ //$NON-NLS-2$
+			textView.setKeyBinding(new mKeyBinding.KeyBinding("l", !util.isMac, false, false, util.isMac), "gotoLine"); //$NON-NLS-1$ //$NON-NLS-2$
 			textView.setAction("gotoLine", function() { //$NON-NLS-0$
 				return this.gotoLine();
 			}.bind(this), {name: messages.gotoLine});
@@ -37380,7 +35314,6 @@ define("orion/editor/rulers", [
 					theme = rulerTheme;
 				}
 				options.themeClass = theme;
-				options.label = "__hidden__";
 				options.noScroll = true;
 				options.readonly = true;
 				return options;
@@ -37979,7 +35912,6 @@ define("orion/editor/linkedMode", [
 				
 				// Cancel this modification and apply same modification to all positions in changing group
 				this.ignoreVerify = true;
-				var delta = 0;
 				for (i = sortedPositions.length - 1; i >= 0; i--) {
 					pos = sortedPositions[i];
 					if (pos.model === model && pos.group === changed.group) {
@@ -37988,11 +35920,9 @@ define("orion/editor/linkedMode", [
 							text = evnt.text[i];
 						}
 						this.editor.setText(text, pos.oldOffset + deltaStart , pos.oldOffset + deltaEnd, false);
-						delta = pos.oldOffset <= evnt.start ? delta + changeCount : delta;
 					}
 				}
 				this.ignoreVerify = false;
-				this.editor.setCaretOffset(evnt.end + delta);
 				evnt.text = null;
 				this._updateAnnotations(sortedPositions);
 			}.bind(this)
@@ -38015,7 +35945,7 @@ define("orion/editor/linkedMode", [
 			return bindings;
 		},
 		/**
-		 * Starts Linked Mode and registers the listeners.
+		 * Starts Linked Mode, selects the first position and registers the listeners.
 		 * @param {Object} linkedModeModel An object describing the model to be used by linked mode.
 		 * Contains one or more position groups. If a position in a group is edited, the other positions in
 		 * the same group are edited the same way. The model structure is as follows:
@@ -38065,15 +35995,7 @@ define("orion/editor/linkedMode", [
 				this.linkedModeModel.nextModel = linkedModeModel;
 			}
 			this.linkedModeModel = linkedModeModel;
-			var select = true;
-			var caretOffset = this.editor.getCaretOffset();
-			linkedModeModel.groups[0].positions.some(function(p) {
-				if (p.offset <= caretOffset && caretOffset <= p.offset + p.length) {
-					select = false;
-					return true;
-				}
-			});
-			this.selectLinkedGroup(0, select);
+			this.selectLinkedGroup(0);
 		},
 		/** 
 		 * Exits Linked Mode. Optionally places the caret at linkedMode escapePosition. 
@@ -38156,18 +36078,15 @@ define("orion/editor/linkedMode", [
 		/**
 		 * @description Selects the group of the given index from the currently active model
 		 * @param {Number} index The group index to select
-		 * @param {Boolean} [selectText=true] whether the group text should be selected
 		 */
-		selectLinkedGroup: function(index, selectText) {
+		selectLinkedGroup: function(index) {
 			var model = this.linkedModeModel;
 			if (model) {
 				model.selectedGroupIndex = index;
 				var group = model.groups[index];
 				var position = group.positions[0];
 				var editor = this.editor;
-				if (selectText === undefined || selectText) {
-					editor.setSelection(position.offset, position.offset + position.length);
-				}
+				editor.setSelection(position.offset, position.offset + position.length);
 				var contentAssist = this.contentAssist;
 				if (contentAssist) {
 					contentAssist.offset = undefined;
@@ -39761,7 +37680,7 @@ if (typeof define === 'function' && define.amd) {
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2014, 2017 IBM Corporation and others.
+ * Copyright (c) 2014, 2016 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -39773,9 +37692,8 @@ if (typeof define === 'function' && define.amd) {
 /*eslint-env browser, amd*/
 
 define ('orion/hover',[
-	'marked/marked',
-	'lsp/utils'
-], function(Markdown, Utils) {
+	'marked/marked'
+], function(Markdown) {
 
 	function Hover(editor, hoverFactory) {
 		this.editor = editor;
@@ -39791,14 +37709,10 @@ define ('orion/hover',[
 		computeHoverInfo: function (context) {
 			var hoverInfo = [];
 			this.hoverFactory._applicableProviders.forEach(function(provider) {
-				if (provider._id && provider.isHoverEnabled()) {
-					hoverInfo.push(Utils.computeHoverInfo(provider, this.inputManager, this.editor, context));
-				} else {
-					var providerImpl = this.serviceRegistry.getService(provider);
-					if (providerImpl && providerImpl.computeHoverInfo) {
-						var editorContext = this.editor.getEditorContext();
-						hoverInfo.push(providerImpl.computeHoverInfo(editorContext, context));
-					}
+				var providerImpl = this.serviceRegistry.getService(provider);
+				if (providerImpl && providerImpl.computeHoverInfo) {
+					var editorContext = this.editor.getEditorContext();
+					hoverInfo.push(providerImpl.computeHoverInfo(editorContext, context));
 				}
 			}.bind(this));
 
@@ -39841,11 +37755,10 @@ define ('orion/hover',[
 
 	};
 
-	function HoverFactory(serviceRegistry, inputManager, commandRegistry, languageServerRegistry) {
+	function HoverFactory(serviceRegistry, inputManager, commandRegistry) {
 		this.serviceRegistry = serviceRegistry;
 		this.inputManager = inputManager;
 		this.commandRegistry = commandRegistry;
-		this.languageServerRegistry = languageServerRegistry;
 		
 		// Filter the plugins based on contentType...
 		this.filterHoverPlugins();
@@ -39861,17 +37774,12 @@ define ('orion/hover',[
 		},
 	
 		filterHoverPlugins: function () {
-			var contentType = this.inputManager.getContentType();
 			this._applicableProviders = [];
-			if (contentType) {
-				// check lsp extensions
-				var lspServer = this.languageServerRegistry.getServerByContentType(contentType);
-				if (lspServer) {
-					this._applicableProviders.push(lspServer);
-				}
-				var infoProviders = this.serviceRegistry.getServiceReferences("orion.edit.hover"); //$NON-NLS-0$
-				for (var i = 0; i < infoProviders.length; i++) {
-					var providerRef = infoProviders[i];
+			var infoProviders = this.serviceRegistry.getServiceReferences("orion.edit.hover"); //$NON-NLS-0$
+			for (var i = 0; i < infoProviders.length; i++) {
+				var providerRef = infoProviders[i];
+				var contentType = this.inputManager.getContentType();
+				if (contentType) {
 					var validTypes = providerRef.getProperty('contentType'); //$NON-NLS-0$
 					if (validTypes && validTypes.indexOf(contentType.id) !== -1) {
 						this._applicableProviders.push(providerRef);
@@ -39888,7 +37796,7 @@ define ('orion/hover',[
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2011, 2019 IBM Corporation and others.
+ * Copyright (c) 2011, 2016 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -39910,9 +37818,8 @@ define("orion/editor/contentAssist", [
 	'orion/editor/util',
 	'orion/util',
 	'orion/webui/littlelib',
-	'orion/metrics',
-	'lsp/utils'
-], function(messages, mKeyBinding, mKeyModes, mEventTarget, Deferred, objects, mTooltip, textUtil, util, lib, mMetrics, Utils) {
+	'orion/metrics'
+], function(messages, mKeyBinding, mKeyModes, mEventTarget, Deferred, objects, mTooltip, textUtil, util, lib, mMetrics) {
 	/**
 	 * @name orion.editor.ContentAssistProvider
 	 * @class Interface defining a provider of content assist proposals.
@@ -40296,13 +38203,7 @@ define("orion/editor/contentAssist", [
 					indentation: indentation
 				};
 				try {
-					if (providerInfo.lspServer) {
-						// completion comes from the lsp service
-						ecProvider = _self.editorContextProvider;
-						editorContext = ecProvider.getEditorContext();
-						params = objects.mixin(params, ecProvider.getOptions());
-						promise = Utils.computeContentAssist(provider, editorContext, params);
-					} else if ((func = provider.computeContentAssist)) {
+					if ((func = provider.computeContentAssist)) {
 						ecProvider = _self.editorContextProvider;
 						editorContext = ecProvider.getEditorContext();
 						params = objects.mixin(params, ecProvider.getOptions());
@@ -40532,7 +38433,7 @@ define("orion/editor/contentAssist", [
 			
 			this._providers = providerInfoArray;
 			this._charTriggersInstalled = providerInfoArray.some(function(info){
-				return info.charTriggers || info.lspServer;
+				return info.charTriggers;
 			});
 			this._updateAutoTriggerListenerState();
 		},
@@ -40626,26 +38527,7 @@ define("orion/editor/contentAssist", [
 					// check if the charTriggers RegExp matches the currentChar
 					// we're assuming that this will fail much more often than
 					// the excludedStyles test so do this first for better performance
-					var charTriggers = null;
-					if (info.lspServer) {
-						var capabilities = info.provider.capabilities;
-						if (capabilities && capabilities.completionProvider && !info.charTriggers) {
-							// we should get the completion options
-							var completionOptions = capabilities.completionProvider;
-
-							// build up the regex for triggerCharacters
-							var triggers = "[";
-							// don't assume that the language server supports trigger characters
-							if (completionOptions.triggerCharacters) {
-								completionOptions.triggerCharacters.forEach(function(character) {
-									triggers += character;
-								});
-							}
-							triggers += "]";
-							info.charTriggers = new RegExp(triggers);
-						}
-					} 
-					charTriggers = info.charTriggers;
+					var charTriggers = info.charTriggers;
 					if (charTriggers && charTriggers.test(currentChar)) {
 						var isExcluded = false;
 						var excludedStyles = info.excludedStyles;
@@ -41100,7 +38982,7 @@ define("orion/editor/contentAssist", [
 			var document = parent.ownerDocument;
 			var div = util.createElement(document, "div"); //$NON-NLS-0$
 			div.id = "contentoption" + itemIndex; //$NON-NLS-0$
-			lib.setSafeAttribute(div, "role", "option");
+			div.setAttribute("role", "option"); //$NON-NLS-1$ //$NON-NLS-2$
 			div.className = STYLES[proposal.style] ? STYLES[proposal.style] : STYLES.dfault;
 			var node;
 			if (proposal.style === "hr") {
@@ -41321,7 +39203,7 @@ define("orion/editor/contentAssist", [
 				node = this.parentNode.childNodes[nodeIndex];
 				if (node){
 					node.classList.add(STYLES.selected);
-					lib.setSafeAttribute(this.parentNode, "aria-activedescendant", node.id);
+					this.parentNode.setAttribute("aria-activedescendant", node.id); //$NON-NLS-0$
 					node.focus();
 					if (node.offsetTop < this.parentNode.scrollTop) {
 						node.scrollIntoView(true);
@@ -41345,7 +39227,7 @@ define("orion/editor/contentAssist", [
 						clone.classList.add("cloneProposal"); //$NON-NLS-0$
 						clone.style.top = parentTop + node.offsetTop - this.parentNode.scrollTop + "px"; //$NON-NLS-0$
 						clone.style.left = parentStyle.left;
-						lib.setSafeAttribute(clone, "id", clone.id + "_clone");
+						clone.setAttribute("id", clone.id + "_clone"); //$NON-NLS-1$ //$NON-NLS-0$
 						
 						// try to fit clone node on page horizontally
 						var viewportWidth = document.documentElement.clientWidth;
@@ -41413,7 +39295,7 @@ define("orion/editor/contentAssist", [
 			if (proposals.length === 0) {
 				this.hide();
 			} else {
-				lib.setSafeInnerHTML(this.parentNode, "");
+				this.parentNode.innerHTML = "";
 				for (var i = 0; i < proposals.length; i++) {
 					this.createDiv(proposals[i], this.parentNode, i);
 				}
@@ -46790,7 +44672,7 @@ define('orion/highlight',['examples/editor/textStyler', 'orion/editor/textStyler
 
 /*******************************************************************************
  * @license
- * Copyright (c) 2013, 2018 IBM Corporation and others.
+ * Copyright (c) 2013, 2014 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -46801,16 +44683,13 @@ define('orion/highlight',['examples/editor/textStyler', 'orion/editor/textStyler
 
 /*eslint-env browser, amd*/
 define('orion/markOccurrences',[
-	'orion/Deferred',
-	'lsp/utils'
-], function(Deferred, Utils) {
+	'orion/Deferred'
+], function(Deferred) {
 
-	function MarkOccurrences(serviceRegistry, inputManager, editor, languageServerRegistry) {
+	function MarkOccurrences(serviceRegistry, inputManager, editor) {
 		this.registry = serviceRegistry;
 		this.inputManager = inputManager;
 		this.editor = editor;
-		this.languageServerRegistry = languageServerRegistry;
-		this._languageServer = null;
 	}
 	MarkOccurrences.prototype = {
 		/**
@@ -46885,9 +44764,9 @@ define('orion/markOccurrences',[
 						contentType: that.inputManager.getContentType().id
 					};
 					
-					var servicePromises = [];
-					var allOccurrences = [];
 					if(Array.isArray(that.occurrencesServices) && that.occurrencesServices.length > 0) {
+						var servicePromises = [];
+						var allOccurrences = [];
 						for (var i=0; i<that.occurrencesServices.length; i++) {
 							var serviceEntry = that.occurrencesServices[i];
 							if (serviceEntry){
@@ -46896,21 +44775,15 @@ define('orion/markOccurrences',[
 								}));	
 							}
 						}
+						Deferred.all(servicePromises).then(function(){
+							that.editor.showOccurrences(allOccurrences);
+						});
 					}
-					if (that._languageServer && that._languageServer.isDocumentHighlightEnabled()) {
-						servicePromises.push(Utils.computeOccurrences(that._languageServer, that.inputManager, editor, context).then(function (occurrences) {
-							allOccurrences = allOccurrences.concat(occurrences);
-						}));
-					}
-					Deferred.all(servicePromises).then(function(){
-						that.editor.showOccurrences(allOccurrences);
-					});
 				}, 500);
 			};
 						
 			that.inputManager.addEventListener("InputChanged", function(evt) {
 				var textView = that.editor.getTextView();
-				var addedSelectionListener = false;
 				if (textView) {
 					textView.removeEventListener("Selection", selectionListener);
 					getServiceRefs(that.registry, evt.contentType, evt.title).then(function(serviceRefs) {
@@ -46926,16 +44799,9 @@ define('orion/markOccurrences',[
 									that.occurrencesServices.push(service);
 								}
 							}
-							if (!addedSelectionListener) {
-								addedSelectionListener = true;
-								textView.addEventListener("Selection", selectionListener);
-							}
+							textView.addEventListener("Selection", selectionListener);
 						}
 					});
-					that._languageServer = that.languageServerRegistry.getServerByContentType(evt.contentType);
-					if (that._languageServer && !addedSelectionListener) {
-						textView.addEventListener("Selection", selectionListener);
-					}
 				}
 			});
 		}
@@ -47274,7 +45140,7 @@ define('orion/liveEditSession',[
 });
 /*******************************************************************************
  * @license
- * Copyright (c) 2010, 2018 IBM Corporation and others.
+ * Copyright (c) 2010, 2012 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made 
  * available under the terms of the Eclipse Public License v1.0 
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution 
@@ -47301,9 +45167,9 @@ define('orion/problems',["orion/EventTarget"], function(EventTarget) {
 
 	ProblemService.prototype = /** @lends orion.problems.ProblemService.prototype */ {
 		// provider
-		_setProblems: function(problems, uri) {
+		_setProblems: function(problems) {
 			this.problems = problems;
-			this.dispatchEvent({type:"problemsChanged", uri: uri, problems:problems}); //$NON-NLS-0$
+			this.dispatchEvent({type:"problemsChanged", problems:problems}); //$NON-NLS-0$
 		}	    
 	};
 	ProblemService.prototype.constructor = ProblemService;
@@ -48029,9 +45895,6 @@ define('orion/webui/contextmenu',[
 				this._dropdownNode.dropdown = this;
 			}
 			
-			this._dropdownNode.classList.add("contextMenu");
-			this._dropdownNode.triggerNode = this._triggerNode;
-			
 			//add context menu event handlers
 			this._boundcontextmenuEventHandler = this._contextmenuEventHandler.bind(this);
 			this._boundContextMenuCloser = this._contextMenuCloser.bind(this);
@@ -48064,7 +45927,7 @@ define('orion/webui/contextmenu',[
 	ContextMenu.prototype.close = function(restoreFocus) {
 		this._triggerNode.removeEventListener("click",  this._boundContextMenuCloser, false); //$NON-NLS-0$
 		
-		return Dropdown.prototype.close.call(this, true); //call function in super class
+		return Dropdown.prototype.close.call(this, restoreFocus); //call function in super class
 	};
 	
 	// overrides Dropdown.protoype._positionDropdown
@@ -48370,7 +46233,7 @@ define('orion/openDeclaration',[], function() {
 });
 /*******************************************************************************
  * @license
- * Copyright (c) 2010, 2018 IBM Corporation and others.
+ * Copyright (c) 2010, 2016, 2017 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials are made
  * available under the terms of the Eclipse Public License v1.0
  * (http://www.eclipse.org/legal/epl-v10.html), and the Eclipse Distribution
@@ -48383,7 +46246,6 @@ define('orion/openDeclaration',[], function() {
 /*eslint-env browser, amd*/
 define('orion/editorView',[
 	'i18n!orion/edit/nls/messages',
-	'orion/i18nUtil',
 	'orion/editor/editor',
 	'orion/editor/annotations',
 	'orion/editor/eventTarget',
@@ -48420,12 +46282,9 @@ define('orion/editorView',[
 	'orion/objects',
 	'orion/formatter',
 	'orion/references',
-	'orion/openDeclaration',
-	'orion/webui/littlelib',
-	'lsp/languageServerRegistry',
-	'lsp/utils'
+	'orion/openDeclaration'
 ], function(
-	messages, i18nUtil,
+	messages,
 	mEditor, mAnnotations, mEventTarget, mTextView, mTextModelFactory, mEditorFeatures, mHoverFactory, mContentAssist,
 	mEmacs, mVI, mEditorPreferences, mThemePreferences, mThemeData, EditorSettings,
 	mSearcher, mEditorCommands, mGlobalCommands,
@@ -48433,7 +46292,7 @@ define('orion/editorView',[
 	mMarkOccurrences, mSyntaxchecker, LiveEditSession,
 	mProblems, mBlamer, mDiffer,
 	mKeyBinding, util, Deferred, mContextMenu, mMetrics, mCommonPreferences, memoryFileSysConst, objects, mFormatter, mReferences,
-	mOpenDecl, lib, mLanguageServerRegistry, lspUtils
+	mOpenDecl
 ) {
 	var inMemoryFilePattern = memoryFileSysConst.MEMORY_FILE_PATTERN;
 	var Dispatcher = mDispatcher.Dispatcher;
@@ -48463,7 +46322,6 @@ define('orion/editorView',[
 			this._parent = document.getElementById(options.parent);
 		}
 		this.id = options.id || "";
-		this.viewerID = options.viewerID;
 		this.activateContext = options.activateContext;
 		this.renderToolbars = options.renderToolbars;
 		this.serviceRegistry = options.serviceRegistry;
@@ -48586,13 +46444,7 @@ define('orion/editorView',[
 			if (prefs.wordWrap) {
 				wrapOffset = marginOffset;
 			}
-			var labelMessage = messages.fileContents;
-			if (this.viewerID && this.viewerID === "1") {
-				labelMessage = messages.fileContentsSplit;
-			}
-			var metaData = this.inputManager.getFileMetadata();
 			return {
-				label: i18nUtil.formatMessage(labelMessage, metaData ? metaData.Name : ""),
 				readonly: this.readonly || this.inputManager.getReadOnly(),
 				singleMode: this.singleMode,
 				tabSize: prefs.tabSize || 4,
@@ -48732,21 +46584,7 @@ define('orion/editorView',[
 			var progress = this.progress;
 			var contentTypeRegistry = this.contentTypeRegistry;
 			var editorCommands = this.editorCommands;
-			var languageServerRegistry = new mLanguageServerRegistry.LanguageServerRegistry(serviceRegistry, this.problemsServiceID);
 
-			var openedDocument;
-			function openDocument(evnt, languageServer) {
-				if (openedDocument) {
-					languageServer.didClose(openedDocument.location);
-				}
-				var metaData = inputManager.getFileMetadata();
-				openedDocument = {
-					location: metaData.Location,
-					version:  1
-				};
-				languageServer.didOpen(metaData.Location, inputManager.getContentType().id, openedDocument.version, evnt.text);
-			}
-			
 			var textViewFactory = function() {
 				var options = that.updateViewOptions(that.settings);
 				objects.mixin(options, {
@@ -48755,42 +46593,6 @@ define('orion/editorView',[
 					wrappable: true
 				});
 				var textView = new mTextView.TextView(options);
-				textView.addEventListener("ModelChanging", function(evnt) {
-					var languageServer = languageServerRegistry.getServerByContentType(inputManager.getContentType());
-					if (!languageServer) {
-						return;
-					}
-					if (that.inputChanged) {
-						delete that.inputChanged;
-						openDocument(evnt, languageServer);
-						return;
-					}
-
-					var textDocumentSync = languageServer.getTextDocumentSync();
-					if (textDocumentSync) {
-						if (textDocumentSync === languageServer.ipc.TEXT_DOCUMENT_SYNC_KIND.Full) {
-							// TextDocumentSyncKind.Full, send the entire document
-							// get the text before it was modified
-							var text = textView.getText();
-							// get the substrings then insert the text in between
-							text = text.substring(0, evnt.start) + evnt.text + text.substring(evnt.start + evnt.removedCharCount);
-							languageServer.didChange(inputManager.getFileMetadata().Location, 
-									openedDocument.version++, 
-									[{
-										text: text
-									}]);
-						} else if (textDocumentSync === languageServer.ipc.TEXT_DOCUMENT_SYNC_KIND.Incremental) {
-							// TextDocumentSyncKind.Incremental, only send what changed
-							languageServer.didChange(inputManager.getFileMetadata().Location, 
-									openedDocument.version++, 
-									[{
-										range: lspUtils.getRange(editor, evnt.start, evnt.start + evnt.removedCharCount),
-										rangeLength: evnt.removedCharCount,
-										text: evnt.text
-									}]);
-						}
-					}
-				});
 				return textView;
 			};
 
@@ -48871,11 +46673,7 @@ define('orion/editorView',[
 						return !!providerInfo;
 					});
 				}
-				// check lsp implementation for the current content type
-					var lspServer = languageServerRegistry.getServerByContentType(fileContentType);
-				if (lspServer) {
-					providerInfoArray.push({provider: lspServer, id: lspServer._id, lspServer: true, excludedStyles: new RegExp("(string.*)")});					
-				}
+
 				// Produce a bound EditorContext that contentAssist can invoke with no knowledge of ServiceRegistry.
 				var boundEditorContext = {};
 				Object.keys(EditorContext).forEach(function(key) {
@@ -48918,7 +46716,7 @@ define('orion/editorView',[
 				foldingRulerFactory: new mEditorFeatures.FoldingRulerFactory(),
 				zoomRulerFactory: new mEditorFeatures.ZoomRulerFactory(),
 				lineNumberRulerFactory: new mEditorFeatures.LineNumberRulerFactory(),
-				hoverFactory: new mHoverFactory.HoverFactory(serviceRegistry, inputManager, commandRegistry, languageServerRegistry),
+				hoverFactory: new mHoverFactory.HoverFactory(serviceRegistry, inputManager, commandRegistry),
 				contentAssistFactory: contentAssistFactory,
 				keyBindingFactory: keyBindingFactory,
 				statusReporter: this.statusReporter,
@@ -48961,18 +46759,8 @@ define('orion/editorView',[
 			});
 			inputManager.addEventListener("InputChanged", function(evnt) {
 				that.createSession(evnt);
-				that.inputChanged = true;
 				var textView = editor.getTextView();
 				if (textView) {
-					var contentType = inputManager.getContentType();
-					var languageServer = languageServerRegistry.getServerByContentType(contentType);
-					if (languageServer) {
-						languageServer.start().then(function() {
-							if (this.renderToolbars) {
-								this.renderToolbars(inputManager.getFileMetadata());
-							}
-						}.bind(this));
-					}
 					liveEditSession.start(inputManager.getContentType(), evnt.title);
 					textView.setOptions(this.updateViewOptions(this.settings));
 					this.markOccurrences.setOccurrencesVisible(this.settings.showOccurrences);
@@ -49002,7 +46790,7 @@ define('orion/editorView',[
 
 			this.blamer = new mBlamer.Blamer(serviceRegistry, inputManager, editor);
 			this.differ = new mDiffer.Differ(serviceRegistry, inputManager, editor);
-			this.formatter = new mFormatter.Formatter(serviceRegistry, inputManager, editor, languageServerRegistry);
+			this.formatter = new mFormatter.Formatter(serviceRegistry, inputManager, editor);
 			this.references = new mReferences.References(serviceRegistry, inputManager, editor);
 			this.openDecl = new mOpenDecl.OpenDeclaration(serviceRegistry, inputManager, editor);
 			
@@ -49010,20 +46798,11 @@ define('orion/editorView',[
 			var markerService = serviceRegistry.getService(this.problemsServiceID);
 			if(markerService) {
 				markerService.addEventListener("problemsChanged", function(evt) {
-					if (evt.uri) {
-						var metaData = inputManager.getFileMetadata();
-						if (metaData && metaData.Location === evt.uri) {
-							if (Array.isArray(evt.problems)) {
-								editor.showProblems(evt.problems);
-							}
-						}
-					} else if (Array.isArray(evt.problems)) {
-						editor.showProblems(evt.problems);
-					}
+					editor.showProblems(evt.problems);
 				});
 			}
 
-			var markOccurrences = this.markOccurrences = new mMarkOccurrences.MarkOccurrences(serviceRegistry, inputManager, editor, languageServerRegistry);
+			var markOccurrences = this.markOccurrences = new mMarkOccurrences.MarkOccurrences(serviceRegistry, inputManager, editor);
 			markOccurrences.setOccurrencesVisible(this.settings.showOccurrences);
 			markOccurrences.findOccurrences();
 			
@@ -49047,15 +46826,7 @@ define('orion/editorView',[
 			editor.addEventListener("InputChanged", function(evt) {
 				syntaxCheck(evt.title, evt.message, evt.contents);
 			});
-			var serviceListener = function(evnt) {
-				var textView = editor.getTextView();
-				if (textView) {
-					var contentAssist = new mContentAssist.ContentAssist(textView, serviceRegistry);
-					setContentAssistProviders(editor, contentAssist, evnt);
-				}
-			};
-			serviceRegistry.addEventListener("registered", serviceListener);
-			serviceRegistry.addEventListener("unregistering", serviceListener);
+
 			var contextImpl = Object.create(null);
 			[
 				"getCaretOffset", "setCaretOffset", //$NON-NLS-1$ //$NON-NLS-2$
@@ -49138,7 +46909,7 @@ define('orion/editorView',[
 			// Create the context menu element (TBD: re0use a single Node for all context Menus ??)
 			this._editorContextMenuNode = document.createElement("ul"); //$NON-NLS-0$
 			this._editorContextMenuNode.className = "dropdownMenu"; //$NON-NLS-0$
-			lib.setSafeAttribute(this._editorContextMenuNode, "role", "menu");
+			this._editorContextMenuNode.setAttribute("role", "menu"); //$NON-NLS-1$ //$NON-NLS-2$
 			this._parent.parentNode.appendChild(this._editorContextMenuNode);
 			
 			// Hook the context menu to the textView's content node

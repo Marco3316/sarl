@@ -23,9 +23,48 @@
  */
 package io.sarl.lang.web;
 
+import com.google.inject.Binder;
+
+import io.sarl.lang.web.resource.SARLContentTypeProvider;
+import io.sarl.lang.web.resource.SARLResourceSetProvider;
+
+import org.eclipse.xtext.formatting2.FormatterPreferenceValuesProvider;
+import org.eclipse.xtext.formatting2.FormatterPreferences;
+import org.eclipse.xtext.preferences.IPreferenceValuesProvider;
+import org.eclipse.xtext.web.server.generator.IContentTypeProvider;
+import org.eclipse.xtext.web.server.model.IWebResourceSetProvider;
+import org.eclipse.xtext.web.server.persistence.FileResourceHandler;
+import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider;
+import org.eclipse.xtext.web.server.persistence.IServerResourceHandler;
 
 /**
  * Use this class to register additional components to be used within the web application.
  */
 public class SARLWebModule extends AbstractSARLWebModule {
+	private IResourceBaseProvider resourceBaseProvider;
+
+	@Override
+	public Class<? extends IContentTypeProvider> bindIContentTypeProvider() {
+		return SARLContentTypeProvider.class;
+	}
+
+	public Class<? extends IWebResourceSetProvider> bindIWebResourceSetProvider() {
+		return SARLResourceSetProvider.class;
+	}
+
+	public void configureResourceBaseProvider(Binder binder) {
+		if (resourceBaseProvider != null) {
+			binder.bind(IResourceBaseProvider.class).toInstance(resourceBaseProvider);
+			binder.bind(IPreferenceValuesProvider.class).annotatedWith(FormatterPreferences.class).to(FormatterPreferenceValuesProvider.class);
+		}
+	}
+
+	public Class<? extends IServerResourceHandler> bindIServerResourceHandler() {
+		return FileResourceHandler.class;
+	}
+
+	public SARLWebModule(IResourceBaseProvider resourceBaseProvider) {
+		this.resourceBaseProvider = resourceBaseProvider;
+	}
+
 }
