@@ -29,6 +29,7 @@ import com.google.inject.Provider;
 import io.sarl.lang.SARLStandaloneSetup;
 import io.sarl.lang.compiler.batch.SarlBatchCompiler;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
@@ -46,19 +47,39 @@ public class WebpageServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
+	private static final String sourcePath = "./files/source" ;
+	private static final String tempPath = "./files/temp" ;
+	private static final String outputPath = "./files/src-gen" ;
+	private static final String outputClassPath = "./files/class-gen" ;
+	
+	private static final File outputClassPathFile = new File(outputClassPath);
+	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
 		System.out.println("TEST POST !");
 		
 		String requestData = req.getReader().lines().collect(Collectors.joining());
-		
 
 		System.out.println(requestData);
 		
-		//Injector injector = SARLStandaloneSetup.doSetup();
-		//Provider<SarlBatchCompiler> batch = injector.getProvider(SarlBatchCompiler.class);
-		//batch.get();
+		Injector injector = SARLStandaloneSetup.doSetup();
+		Provider<SarlBatchCompiler> batch = injector.getProvider(SarlBatchCompiler.class);
+		
+		batch.get().setSarlCompilationEnable(true);
+		
+		batch.get().setSourcePath(sourcePath);
+		batch.get().setTempDirectory(tempPath);
+		batch.get().setOutputPath(outputPath);
+		batch.get().setClassOutputPath(outputClassPathFile);
+		
+		System.out.println("OutputPath: " + batch.get().getOutputPath());
+		System.out.println("ClassOuputPath: " + batch.get().getClassOutputPath());
+		
+		
+		boolean isSucess = batch.get().compile();
+		
+		System.out.println("Compilation sucess : " + isSucess);
 	}
 	
 

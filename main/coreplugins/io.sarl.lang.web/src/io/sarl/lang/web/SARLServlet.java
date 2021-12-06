@@ -53,34 +53,6 @@ public class SARLServlet extends XtextServlet {
 
 	DisposableRegistry disposableRegistry;
 
-	
-//	@Override
-//	public void doGet(HttpServletRequest req, HttpServletResponse resp) 
-//			throws ServletException, IOException {
-//		System.out.println("TEST GET !");
-//		
-//		String requestData = req.getReader().lines().collect(Collectors.joining());
-//
-//		System.out.println(requestData);
-//		
-//	}
-	
-//	@Override
-//	public void doPost(HttpServletRequest req, HttpServletResponse resp) 
-//			throws ServletException, IOException {
-//		System.out.println("TEST POST !");
-//		
-//		String requestData = req.getReader().lines().collect(Collectors.joining());
-//		
-//
-//		System.out.println(requestData);
-//		
-//		Injector injector = SARLStandaloneSetup.doSetup();
-//		Provider<SarlBatchCompiler> batch = injector.getProvider(SarlBatchCompiler.class);
-//		batch.get();
-//	}
-//	
-
 
 	public void init() throws ServletException {
 		super.init();
