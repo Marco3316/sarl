@@ -85,8 +85,8 @@ public class SARLServlet extends XtextServlet {
 	public void init() throws ServletException {
 		super.init();
 		IResourceBaseProvider resourceBaseProvider = new ResourceBaseProviderImpl("./files");
-		 Injector injector = new SARLWebSetup(resourceBaseProvider).createInjectorAndDoEMFRegistration();
-		 this.disposableRegistry = injector.getInstance(DisposableRegistry.class);
+		Injector injector = new SARLWebSetup(resourceBaseProvider).createInjectorAndDoEMFRegistration();
+		this.disposableRegistry = injector.getInstance(DisposableRegistry.class);
 	}
 
 	public void destroy() {
