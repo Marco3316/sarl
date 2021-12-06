@@ -629,7 +629,7 @@ public class SarlBatchCompiler {
 	public void setBaseURI(org.eclipse.emf.common.util.URI basePath) {
 		this.baseUri = basePath;
 	}
-
+	
 	/** Change the path where the Java files are generated.
 	 *
 	 * @param path the path, or {@code null} for using the default path in {@link SARLConfig#FOLDER_SOURCE_GENERATED}..

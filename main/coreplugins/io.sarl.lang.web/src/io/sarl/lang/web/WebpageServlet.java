@@ -47,12 +47,15 @@ public class WebpageServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 	
-	private static final String sourcePath = "./files/source" ;
-	private static final String tempPath = "./files/temp" ;
-	private static final String outputPath = "./files/src-gen" ;
-	private static final String outputClassPath = "./files/class-gen" ;
+	private static final String directoryPath = "./files/" ;
+	private static final String sourcePath = "sources" ;
+	private static final String tempPath = "temp" ;
+	private static final String outputPath = "src-gen" ;
+	private static final String outputClassPath = "class-gen" ;
 	
-	private static final File outputClassPathFile = new File(outputClassPath);
+	String temp = directoryPath+outputClassPath;
+	
+	private static final File outputClassPathFile = new File(directoryPath+outputClassPath);
 	
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) 
@@ -65,22 +68,30 @@ public class WebpageServlet extends HttpServlet {
 		
 		Injector injector = SARLStandaloneSetup.doSetup();
 		Provider<SarlBatchCompiler> batch = injector.getProvider(SarlBatchCompiler.class);
-		
-		batch.get().setSarlCompilationEnable(true);
-		
-		batch.get().setSourcePath(sourcePath);
-		batch.get().setTempDirectory(tempPath);
-		batch.get().setOutputPath(outputPath);
-		batch.get().setClassOutputPath(outputClassPathFile);
-		
-		System.out.println("OutputPath: " + batch.get().getOutputPath());
-		System.out.println("ClassOuputPath: " + batch.get().getClassOutputPath());
+		SarlBatchCompiler provider = batch.get();
 		
 		
-		boolean isSucess = batch.get().compile();
+		provider.setSarlCompilationEnable(true);
+		provider.setJavaPostCompilationEnable(true);
+		
+		provider.setSourcePath(directoryPath+sourcePath);
+		provider.setTempDirectory(directoryPath+tempPath);
+		provider.setOutputPath(directoryPath+outputPath);
+		
+		int index = provider.getOutputPath().toString().lastIndexOf('\\');
+		String firstPart = provider.getOutputPath().toString().substring(0,index);
+		provider.setClassOutputPath(new File(firstPart + "\\" + sourcePath));
+		
+		/* Print Success
+		System.out.println("SourcePath: " + provider.getSourcePaths());
+		System.out.println("TempPath: " + provider.getTempDirectory());
+		System.out.println("OutputPath: " + provider.getOutputPath().toString());
+		System.out.println("ClassOuputPath: " + provider.getClassOutputPath());
+		*/
+		
+		boolean isSucess = provider.compile();
 		
 		System.out.println("Compilation sucess : " + isSucess);
 	}
 	
-
 }
