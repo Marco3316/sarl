@@ -36,11 +36,6 @@ import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider;
  */
 public class SARLWebSetup extends SARLStandaloneSetup {
 	
-//	@Override
-//	public Injector createInjector() {
-//		return Guice.createInjector(Modules2.mixin(new SARLRuntimeModule(), new SARLIdeModule(), new SARLWebModule()));
-//	}
-	
 	private IResourceBaseProvider resourceBaseProvider;
 
 	public SARLWebSetup(IResourceBaseProvider resourceBaseProvider) {

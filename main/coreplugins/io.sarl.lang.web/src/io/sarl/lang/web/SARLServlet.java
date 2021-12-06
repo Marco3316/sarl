@@ -54,42 +54,39 @@ public class SARLServlet extends XtextServlet {
 	DisposableRegistry disposableRegistry;
 
 	
-	@Override
-	public void doGet(HttpServletRequest req, HttpServletResponse resp) 
-			throws ServletException, IOException {
-		System.out.println("TEST GET !");
-		
-		String requestData = req.getReader().lines().collect(Collectors.joining());
-
-		System.out.println(requestData);
-		
-	}
+//	@Override
+//	public void doGet(HttpServletRequest req, HttpServletResponse resp) 
+//			throws ServletException, IOException {
+//		System.out.println("TEST GET !");
+//		
+//		String requestData = req.getReader().lines().collect(Collectors.joining());
+//
+//		System.out.println(requestData);
+//		
+//	}
 	
-	@Override
-	public void doPost(HttpServletRequest req, HttpServletResponse resp) 
-			throws ServletException, IOException {
-		System.out.println("TEST POST !");
-		
-		String requestData = req.getReader().lines().collect(Collectors.joining());
-		
+//	@Override
+//	public void doPost(HttpServletRequest req, HttpServletResponse resp) 
+//			throws ServletException, IOException {
+//		System.out.println("TEST POST !");
+//		
+//		String requestData = req.getReader().lines().collect(Collectors.joining());
+//		
+//
+//		System.out.println(requestData);
+//		
+//		Injector injector = SARLStandaloneSetup.doSetup();
+//		Provider<SarlBatchCompiler> batch = injector.getProvider(SarlBatchCompiler.class);
+//		batch.get();
+//	}
+//	
 
-		System.out.println(requestData);
-		
-		Injector injector = SARLStandaloneSetup.doSetup();
-		Provider<SarlBatchCompiler> batch = injector.getProvider(SarlBatchCompiler.class);
-		batch.get();
-	}
-	
-	@Override
-	protected void doService(ServiceDescriptor service, HttpServletResponse response) {
-		super.doService(service, response);
-	}
 
 	public void init() throws ServletException {
 		super.init();
-//		IResourceBaseProvider resourceBaseProvider = new ResourceBaseProviderImpl("");
-//		 Injector injector = new SARLWebSetup(resourceBaseProvider).createInjectorAndDoEMFRegistration();
-//		 this.disposableRegistry = injector.getInstance(DisposableRegistry.class);
+		IResourceBaseProvider resourceBaseProvider = new ResourceBaseProviderImpl("./files");
+		 Injector injector = new SARLWebSetup(resourceBaseProvider).createInjectorAndDoEMFRegistration();
+		 this.disposableRegistry = injector.getInstance(DisposableRegistry.class);
 	}
 
 	public void destroy() {

@@ -55,7 +55,7 @@ public class SARLWebModule extends AbstractSARLWebModule {
 	public void configureResourceBaseProvider(Binder binder) {
 		if (resourceBaseProvider != null) {
 			binder.bind(IResourceBaseProvider.class).toInstance(resourceBaseProvider);
-			binder.bind(IPreferenceValuesProvider.class).annotatedWith(FormatterPreferences.class).to(FormatterPreferenceValuesProvider.class);
+//			binder.bind(IPreferenceValuesProvider.class).annotatedWith(FormatterPreferences.class).to(FormatterPreferenceValuesProvider.class);
 		}
 	}
 

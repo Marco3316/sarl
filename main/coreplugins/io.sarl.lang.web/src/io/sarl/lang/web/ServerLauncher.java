@@ -25,7 +25,9 @@ package io.sarl.lang.web;
 
 import java.net.InetSocketAddress;
 import org.eclipse.jetty.annotations.AnnotationConfiguration;
+import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.util.log.Slf4jLog;
 import org.eclipse.jetty.webapp.Configuration;
 import org.eclipse.jetty.webapp.MetaInfConfiguration;
@@ -40,6 +42,15 @@ import org.eclipse.jetty.webapp.WebXmlConfiguration;
 public class ServerLauncher {
 	public static void main(String[] args) {
 		Server server = new Server(new InetSocketAddress("localhost", 8082));
+		
+		
+		HandlerList handlerList = new HandlerList();
+		WebAppContext resourceHandlerJs = new WebAppContext();
+		resourceHandlerJs.setResourceBase("WebRoot/js");
+		
+		WebAppContext resourceHandlerCss = new WebAppContext();
+		resourceHandlerCss.setResourceBase("WebRoot/css");
+		
 		WebAppContext ctx = new WebAppContext();
 		ctx.setResourceBase("WebRoot");
 		ctx.setWelcomeFiles(new String[] {"index.html"});
@@ -52,8 +63,11 @@ public class ServerLauncher {
 		});
 		ctx.setAttribute(WebInfConfiguration.CONTAINER_JAR_PATTERN,
 			".*/io\\.sarl\\.lang\\.web/.*,.*\\.jar");
-		ctx.setInitParameter("org.eclipse.jetty.servlet.Default.useFileMappedBuffer", "false");
-		server.setHandler(ctx);
+		
+		handlerList.setHandlers(new Handler[] {ctx,resourceHandlerJs,resourceHandlerCss});
+		server.setHandler(handlerList);
+		
+		
 		Slf4jLog log = new Slf4jLog(ServerLauncher.class.getName());
 		try {
 			server.start();

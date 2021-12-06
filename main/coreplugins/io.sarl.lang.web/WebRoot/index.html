@@ -20,15 +20,15 @@
 			baseUrl: baseUrl,
 			paths: {
 				"text": "webjars/requirejs-text/2.0.15/text",
-				"jquery": "webjars/jquery/3.5.1/jquery.min",
-				"xtext/xtext-orion": "xtext/2.25.0/xtext-orion"
+				"jquery": "webjars/jquery/3.6.0/jquery.min",
+				"xtext/xtext-orion": "xtext/2.25.0/xtext-orion",
 			}
 		});
 		require(["orion/code_edit/built-codeEdit-amd"], function () {
 			require(["xtext/xtext-orion"], function (xtext) {
 				xtext.createEditor({
 					baseUrl: baseUrl,
-					syntaxDefinition: "xtext-resources/generated/sarl-syntax"
+					syntaxDefinition: "xtext-resources/generated/sarl-syntax",
 				}).done(function (editorViewer) {
 					var options = {
 						enableContentAssistService: true,
@@ -40,7 +40,7 @@
 						enableOccurrencesService: true,
 						enableSaveAction: true,
 						enableValidationService: true,
-						mouseHoverDelay:5
+						mouseHoverDelay: 5
 					}
 					xtext.createServices(editorViewer, options);
 				});
@@ -83,7 +83,8 @@
 					data-editor-content-assist-char-triggers="[.]" style="height: (50%);"></div>
 			</div>
 			<div class="col-sm-6 bg-light">
-				<div id="result" class="xtext-editor " data-editor-xtext-lang="sarl" style="height: 50%;"></div>
+				<div id="result" class="xtext-editor " style="height: 50%;">
+				</div>
 				<div class='console'>
 					<div class='console-inner'>
 						<div id="outputs">

@@ -1,5 +1,5 @@
 define([], function() {
-	var keywords = "AFTER|BEFORE|ELSE|ELSEIF|ENDFOR|ENDIF|FOR|IF|SEPARATOR|abstract|agent|annotation|artifact|as|assert|assume|behavior|break|capacity|case|catch|class|continue|create|def|default|dispatch|do|else|enum|event|extends|extension|false|final|finally|fires|for|if|implements|import|instanceof|interface|native|new|null|on|override|package|private|protected|public|requires|return|skill|space|static|strictfp|super|switch|synchronized|throw|throws|transient|true|try|typeof|uses|val|var|volatile|while|with";
+	var keywords = "AFTER|BEFORE|ELSE|ELSEIF|ENDFOR|ENDIF|FOR|IF|SEPARATOR|abstract|agent|annotation|artifact|as|assert|assume|behavior|break|capacity|case|catch|class|continue|create|def|default|dispatch|do|else|enum|event|extends|extension|false|final|finally|fires|for|if|implements|import|instanceof|interface|native|new|null|on|override|occurrence|package|private|protected|public|requires|return|skill|space|static|strictfp|super|switch|synchronized|throw|throws|transient|true|try|typeof|uses|val|var|volatile|while|with";
 	return {
 		id: "xtext.sarl",
 		contentTypes: ["xtext/sarl"],
