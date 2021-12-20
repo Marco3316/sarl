@@ -1,0 +1,1 @@
+class a { String b = "<div>a</div><span></span>"; } 

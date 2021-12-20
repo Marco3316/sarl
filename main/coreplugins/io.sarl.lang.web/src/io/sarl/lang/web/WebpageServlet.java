@@ -23,6 +23,8 @@
  */
 package io.sarl.lang.web;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.google.inject.Injector;
 import com.google.inject.Provider;
 
@@ -30,6 +32,7 @@ import io.sarl.lang.SARLStandaloneSetup;
 import io.sarl.lang.compiler.batch.SarlBatchCompiler;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.stream.Collectors;
 
@@ -60,23 +63,31 @@ public class WebpageServlet extends HttpServlet {
 	@Override
 	public void doPost(HttpServletRequest req, HttpServletResponse resp) 
 			throws ServletException, IOException {
-		System.out.println("TEST POST !");
 		
 		String requestData = req.getReader().lines().collect(Collectors.joining());
-
-		System.out.println(requestData);
+		JsonObject jsonObject = JsonParser.parseString(requestData).getAsJsonObject();
+		
+		System.out.println(jsonObject);
+		
+		FileWriter sarlFile = new FileWriter(directoryPath+sourcePath+"/test.sarl", false); // false = overwrite
+		for(int i=1;i<=jsonObject.size();i++) {
+			sarlFile.write(jsonObject.get(Integer.toString(i)).toString().substring(1, jsonObject.get(Integer.toString(i)).toString().length() - 1).replace("\\\"","\"").replace("&lt;", "<").replace("&gt;",">"));
+			// sarlFile.write(System.getProperty("line.separator")); // To make it more readable by human
+		}
+		sarlFile.close();
 		
 		Injector injector = SARLStandaloneSetup.doSetup();
 		Provider<SarlBatchCompiler> batch = injector.getProvider(SarlBatchCompiler.class);
 		SarlBatchCompiler provider = batch.get();
 		
-		
-		provider.setSarlCompilationEnable(true);
-		provider.setJavaPostCompilationEnable(true);
+		// provider.setSarlCompilationEnable(true);
+		// provider.setJavaPostCompilationEnable(true);
 		
 		provider.setSourcePath(directoryPath+sourcePath);
 		provider.setTempDirectory(directoryPath+tempPath);
 		provider.setOutputPath(directoryPath+outputPath);
+		
+		// provider.setClassPath(null);
 		
 		int index = provider.getOutputPath().toString().lastIndexOf('\\');
 		String firstPart = provider.getOutputPath().toString().substring(0,index);

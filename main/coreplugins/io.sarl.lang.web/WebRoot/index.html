@@ -64,13 +64,24 @@
 
 					var url = 'http://localhost:8082/compiler/compile';
 					
+					var array = new Array();
+					var json = {};
+					for(let i=0; i<document.getElementsByClassName('textviewContent')[0].children.length;i++)
+					{
+						array.push(document.getElementsByClassName('textviewContent')[0].children[i].innerHTML.replace(/<[^>]*>?/gm, '').replace(/\t/gm, ''));
+					}
+					for(let i=0; i<document.getElementsByClassName('textviewContent')[0].children.length;i++)
+					{
+						json[i+1] = array[i];
+					}
+					json = JSON.stringify(json);
+					
 					fetch(url, {
 					    method : 'POST',
-					    body: document.getElementsByClassName('textviewContent')[0].innerHTML.replace(/<[^>]*>?/gm, ''),
+					    body: json,
 					}).then(
 					    response => response.text()
 					);
-
 ">
 							<i class="far fa-play-circle" style="color: coral;"></i> Compile</a>
 					</li>
