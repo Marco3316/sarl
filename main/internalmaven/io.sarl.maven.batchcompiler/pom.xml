@@ -23,6 +23,10 @@
 			<artifactId>io.sarl.lang</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>io.sarl</groupId>
+			<artifactId>io.sarl.core</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.eclipse</groupId>
 			<artifactId>osgi</artifactId>
 		</dependency>
