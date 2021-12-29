@@ -23,6 +23,8 @@
  */
 package io.sarl.lang.web;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 import com.google.inject.Injector;
@@ -34,6 +36,9 @@ import io.sarl.lang.compiler.batch.SarlBatchCompiler;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
@@ -41,6 +46,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import org.eclipse.xtext.validation.Issue;
 
 /**
  * Deploy this class into a servlet container to enable DSL-specific services.
@@ -72,7 +78,7 @@ public class WebpageServlet extends HttpServlet {
 		FileWriter sarlFile = new FileWriter(directoryPath+sourcePath+"/test.sarl", false); // false = overwrite
 		for(int i=1;i<=jsonObject.size();i++) {
 			sarlFile.write(jsonObject.get(Integer.toString(i)).toString().substring(1, jsonObject.get(Integer.toString(i)).toString().length() - 1).replace("\\\"","\"").replace("&lt;", "<").replace("&gt;",">"));
-			// sarlFile.write(System.getProperty("line.separator")); // To make it more readable by human
+			sarlFile.write(System.getProperty("line.separator")); // To make it more readable by human
 		}
 		sarlFile.close();
 		
@@ -99,8 +105,59 @@ public class WebpageServlet extends HttpServlet {
 		System.out.println("OutputPath: " + provider.getOutputPath().toString());
 		System.out.println("ClassOuputPath: " + provider.getClassOutputPath());
 		*/
+		Path file=Path.of(directoryPath+outputPath+"\\a.java"); //just for a test
+		//Path file=Path.of(directoryPath+outputPath+"\\......"); name of file 
 		
+		
+		
+		
+		
+		
+		
+		
+		/*String classContent = "code:";
+		classContent += Files.readString(file);
+		classContent +="\"}";
+		*/
+		String classContent = Files.readString(file);
+		JsonObject classJson = new JsonObject();
+		classJson.addProperty("code", classContent);
+		
+		JsonObject finaljson = new JsonObject();
+		finaljson.add("generated", classJson);
+		
+		//String classJson = new Gson().toJson(classContent);
+		Gson gson = new Gson();
+		//JsonObject json = gson.fromJson(classContent, JsonObject.class); 
+		
+		//System.out.print(classContent);
 		boolean isSucess = provider.compile();
+		List<Issue> issues = provider.getIssue();
+		JsonObject json = new JsonObject();
+		for(int i = 0; i<issues.size();i++) {
+			json.addProperty(""+i, issues.get(i).toString());
+            
+        }
+		finaljson.add("errors", json);
+		
+		String errors=new Gson().toJson(issues).toString();
+		JsonObject jsonErrors = new JsonObject();
+		//finaljson.add("errors",errors);
+		//json.concat(classContent);
+		System.out.print(finaljson);
+		resp.setContentType("application/json");
+		resp.setStatus(HttpServletResponse.SC_OK);
+		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().write(gson.toJson(finaljson));
+		//resp.getWriter().write(json);
+		
+		
+		
+		
+		
+		
+		
+		
 		
 		System.out.println("Compilation sucess : " + isSucess);
 	}

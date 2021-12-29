@@ -248,6 +248,8 @@ public class SarlBatchCompiler {
 	private boolean reportInternalProblemsAsIssues;
 
 	private OptimizationLevel optimizationLevel;
+	
+	private List<Issue> issues;
 
 	/** Constructor the batch compiler.
 	 */
@@ -1369,6 +1371,7 @@ public class SarlBatchCompiler {
 				monitor.worked(13);
 				final List<Resource> validatedResources = new ArrayList<>();
 				final List<Issue> issues = validate(resourceSet, validatedResources, monitor);
+				this.setIssue(issues);
 				if (monitor.isCanceled()) {
 					return false;
 				}
@@ -1402,6 +1405,15 @@ public class SarlBatchCompiler {
 			monitor.done();
 		}
 		return true;
+	}
+
+	
+
+	public void setIssue(List<Issue> issues2) {
+		this.issues = issues2;
+	}
+	public List<Issue> getIssue(){
+		return this.issues;
 	}
 
 	private void finalizationStage(IProgressMonitor monitor) {
@@ -1689,65 +1701,67 @@ public class SarlBatchCompiler {
 	}
 
 	/** Generate the JVM model elements, and validate generated elements.
-	 *
-	 * @param resourceSet the container of the scripts.
-	 * @param validResources will be filled by this function with the collection of resources that was successfully validated.
-	 * @param progress monitor of the progress of the compilation.
-	 * @return the list of the issues.
-	 */
-	@SuppressWarnings({"checkstyle:cyclomaticcomplexity", "checkstyle:npathcomplexity", "checkstyle:nestedifdepth"})
-	protected List<Issue> validate(ResourceSet resourceSet, Collection<Resource> validResources, IProgressMonitor progress) {
-		assert progress != null;
-		progress.subTask(Messages.SarlBatchCompiler_38);
-		getLogger().info(Messages.SarlBatchCompiler_38);
-		final List<Resource> resources = new LinkedList<>(resourceSet.getResources());
-		final List<Issue> issuesToReturn = new ArrayList<>();
-		for (final Resource resource : resources) {
-			if (progress.isCanceled()) {
-				return issuesToReturn;
-			}
-			if (isSourceFile(resource)) {
-				if (getLogger().isLoggable(Level.FINEST)) {
-					getLogger().finest(MessageFormat.format(Messages.SarlBatchCompiler_22, resource.getURI().lastSegment()));
-				}
-				final IResourceServiceProvider resourceServiceProvider = IResourceServiceProvider.Registry.INSTANCE
-						.getResourceServiceProvider(resource.getURI());
-				if (resourceServiceProvider != null) {
-					final IResourceValidator resourceValidator = resourceServiceProvider.getResourceValidator();
-					final List<Issue> result = resourceValidator.validate(resource, CheckMode.ALL, null);
-					if (progress.isCanceled()) {
-						return issuesToReturn;
-					}
-					final SortedSet<Issue> issues = new TreeSet<>(getIssueComparator());
-					boolean hasValidationError = false;
-					for (final Issue issue : result) {
-						if (progress.isCanceled()) {
-							return issuesToReturn;
-						}
-						if (issue.isSyntaxError() || issue.getSeverity() == Severity.ERROR) {
-							hasValidationError = true;
-						}
-						issues.add(issue);
-					}
-					if (!hasValidationError) {
-						if (!issues.isEmpty()) {
-							if (getLogger().isLoggable(Level.FINEST)) {
-								getLogger().finest(MessageFormat.format(Messages.SarlBatchCompiler_39, resource.getURI().lastSegment()));
-							}
-							issuesToReturn.addAll(issues);
-						}
-						validResources.add(resource);
-					} else {
-						if (getLogger().isLoggable(Level.FINEST)) {
-							getLogger().finest(MessageFormat.format(Messages.SarlBatchCompiler_39, resource.getURI().lastSegment()));
-						}
-						issuesToReturn.addAll(issues);
-					}
-				}
-			}
-		}
-		return issuesToReturn;
-	}
+    *
+    * @param resourceSet the container of the scripts.
+    * @param validResources will be filled by this function with the collection of resources that was successfully validated.
+    * @param progress monitor of the progress of the compilation.
+    * @return the list of the issues.
+    */
+   @SuppressWarnings({"checkstyle:cyclomaticcomplexity", "checkstyle:npathcomplexity", "checkstyle:nestedifdepth"})
+   protected List<Issue> validate(ResourceSet resourceSet, Collection<Resource> validResources, IProgressMonitor progress) {       
+       assert progress != null;
+       progress.subTask(Messages.SarlBatchCompiler_38);
+       getLogger().info(Messages.SarlBatchCompiler_38);
+       final List<Resource> resources = new LinkedList<>(resourceSet.getResources());
+       final List<Issue> issuesToReturn = new ArrayList<>();
+       for (final Resource resource : resources) {
+           if (progress.isCanceled()) {
+               return issuesToReturn;
+           }
+           if (isSourceFile(resource)) {
+               if (getLogger().isLoggable(Level.FINEST)) {
+                   getLogger().finest(MessageFormat.format(Messages.SarlBatchCompiler_22, resource.getURI().lastSegment()));
+               }
+               final IResourceServiceProvider resourceServiceProvider = IResourceServiceProvider.Registry.INSTANCE
+                       .getResourceServiceProvider(resource.getURI());
+               if (resourceServiceProvider != null) {
+                   final IResourceValidator resourceValidator = resourceServiceProvider.getResourceValidator();
+                   final List<Issue> result = resourceValidator.validate(resource, CheckMode.ALL, null);
+                   if (progress.isCanceled()) {
+                       return issuesToReturn;
+                   }
+                   final SortedSet<Issue> issues = new TreeSet<>(getIssueComparator());
+                   boolean hasValidationError = false;
+                   for (final Issue issue : result) {
+                       if (progress.isCanceled()) {
+                           return issuesToReturn;
+                       }
+                       if (issue.isSyntaxError() || issue.getSeverity() == Severity.ERROR) {
+                           hasValidationError = true;
+                       }
+                       issues.add(issue);
+                   }
+                   if (!hasValidationError) {
+                       if (!issues.isEmpty()) {
+                           if (getLogger().isLoggable(Level.FINEST)) {
+                               getLogger().finest(MessageFormat.format(Messages.SarlBatchCompiler_39, resource.getURI().lastSegment()));
+                           }
+                           issuesToReturn.addAll(issues);
+                       }
+                       validResources.add(resource);
+                   } else {
+                       if (getLogger().isLoggable(Level.FINEST)) {
+                           getLogger().finest(MessageFormat.format(Messages.SarlBatchCompiler_39, resource.getURI().lastSegment()));
+                       }
+                       issuesToReturn.addAll(issues);
+                   }
+               }
+           }
+       }
+       System.out.println("HERE");
+       System.out.println(issuesToReturn);
+       return issuesToReturn;
+   }
 
 	/** Replies if the given resource is a script.
 	 *
@@ -2561,6 +2575,7 @@ public class SarlBatchCompiler {
 			}
 			return Integer.compare(System.identityHashCode(issue1), System.identityHashCode(issue2));
 		}
+		
 
 	}
 

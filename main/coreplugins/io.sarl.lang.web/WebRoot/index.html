@@ -69,6 +69,8 @@
 					for(let i=0; i<document.getElementsByClassName('textviewContent')[0].children.length;i++)
 					{
 						array.push(document.getElementsByClassName('textviewContent')[0].children[i].innerHTML.replace(/<[^>]*>?/gm, '').replace(/\t/gm, ''));
+						document.getElementsByClassName('textviewContent')[0].children[i].innerHTML
+						
 					}
 					for(let i=0; i<document.getElementsByClassName('textviewContent')[0].children.length;i++)
 					{
@@ -79,9 +81,27 @@
 					fetch(url, {
 					    method : 'POST',
 					    body: json,
-					}).then(
-					    response => response.text()
-					);
+					}).then(function(response){
+						return response.json();
+					}).then(function(data){
+						for(let i =0;i<Object.keys(data.errors).length;i++){
+							document.getElementById('console-input').textContent+=data.errors[i];
+							document.getElementById('console-input').style.color = '#FF4441';
+							document.getElementById('console-input').textContent+='\n'
+							console.log('tesssst')
+						}
+						document.getElementById('code').textContent+=data.generated.code
+						
+						
+						//console.log(document.getElementsByClassName('textviewContent')[0].children[0].innerHTML)
+						
+						console.log(Object.keys(data.errors).length)
+						
+					}).catch(function(e){
+						console.error(e);
+					});
+					 
+					
 ">
 							<i class="far fa-play-circle" style="color: coral;"></i> Compile</a>
 					</li>
@@ -93,14 +113,20 @@
 				<div id="sarlEditor" class="xtext-editor " data-editor-xtext-lang="sarl"
 					data-editor-content-assist-char-triggers="[.]" style="height: (50%);"></div>
 			</div>
-			<div class="col-sm-6 bg-light">
-				<div id="result" class="xtext-editor " style="height: 50%;">
+			<div class="col-sm-6 bg-light text-dark">
+				<div id="result"  style="height:325px;overflow:auto;border-style: inset;">
+				<pre>
+				  <code id="code">
+		          
+		        </code>
+		      
+				</pre>
 				</div>
 				<div class='console'>
 					<div class='console-inner'>
 						<div id="outputs">
 						</div>
-						<div class='output-cmd'><textarea autofocus class='console-input'></textarea></div>
+						<div class='output-cmd'><!--  <textarea placeholder="console d'erreur"autofocus ></textarea>--><p id='console-input'></p></div>
 					</div>
 				</div>
 			</div>
