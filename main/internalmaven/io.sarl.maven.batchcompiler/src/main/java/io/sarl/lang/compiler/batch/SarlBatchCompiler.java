@@ -1758,8 +1758,7 @@ public class SarlBatchCompiler {
                }
            }
        }
-       System.out.println("HERE");
-       System.out.println(issuesToReturn);
+       
        return issuesToReturn;
    }
 

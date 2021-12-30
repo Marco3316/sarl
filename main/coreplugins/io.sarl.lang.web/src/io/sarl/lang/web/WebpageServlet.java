@@ -35,15 +35,13 @@ import io.sarl.lang.compiler.batch.SarlBatchCompiler;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
-<<<<<<< HEAD
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-=======
 import java.text.SimpleDateFormat;
 import java.util.Date;
->>>>>>> 8cebdded463b76cebfdda901bc3e9e1727072fc8
 import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
@@ -52,6 +50,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.eclipse.xtext.validation.Issue;
+
+import org.apache.log4j.Logger;
 
 /**
  * Deploy this class into a servlet container to enable DSL-specific services.
@@ -67,6 +67,8 @@ public class WebpageServlet extends HttpServlet {
 	private static final String outputPath = "src-gen" ;
 	private static final String outputClassPath = "class-gen" ;
 	
+	private static Logger logger = Logger.getLogger(WebpageServlet.class);
+	  	
 	String temp = directoryPath+outputClassPath;
 	
 	private static final File outputClassPathFile = new File(directoryPath+outputClassPath);
@@ -114,61 +116,86 @@ public class WebpageServlet extends HttpServlet {
 		System.out.println("OutputPath: " + provider.getOutputPath().toString());
 		System.out.println("ClassOuputPath: " + provider.getClassOutputPath());
 		*/
-		Path file=Path.of(directoryPath+outputPath+"\\a.java"); //just for a test
-		//Path file=Path.of(directoryPath+outputPath+"\\......"); name of file 
+		
+		//Read files from src-gen directory 	
+		String classContent = readFileFromSrc_gen();
+		boolean isSucess = provider.compile();
 		
 		
+		//Building the Json
+		List<Issue> issues= provider.getIssue();
+		String finaljson = transformJson(classContent, issues);
+		
+		// Return the response to the front-end
+		resp.setContentType("application/json");
+		resp.setStatus(HttpServletResponse.SC_OK);
+		resp.setCharacterEncoding("UTF-8");
+		resp.getWriter().write(finaljson);
 		
 		
+		logger.info("Compilation sucess : " + isSucess);
 		
+	}
+
+	
+	/**
+	 * @return Return the content of each java class of the src-gen directory
+	 * @throws IOException
+	 * @description Get all java files content and return them into a String
+	 */
+	private String readFileFromSrc_gen() throws IOException {
 		
+		File folder = new File(directoryPath+outputPath);
 		
+		FilenameFilter filter = new FilenameFilter() {
+            @Override
+            public boolean accept(File f, String name) {
+                // We want to find only .java files
+                return name.endsWith(".java");
+            }
+        };
+        
+        String classContent = "";
+        File[] listOfFiles = folder.listFiles(filter);
+		for (File file : listOfFiles) {
+		    if (file.isFile()) {
+		    	Path f=Path.of(file.getAbsolutePath()); 
+		        //System.out.println(Files.readString(f)+"\n");
+		    	classContent += Files.readString(f)+"\n";
+		    	logger.info("Reading files from the file:"+file.getName());
+		    }
+		}
 		
-		/*String classContent = "code:";
-		classContent += Files.readString(file);
-		classContent +="\"}";
-		*/
-		String classContent = Files.readString(file);
+		return classContent;
+		
+	}
+	/**
+	 * @param _classContent  
+	 * @param _issues List of issues
+	 * @return Content transform in Json
+	 * @description Transform the class Content and the list of issues to Json
+	 */
+	private String transformJson(String classContent,List<Issue> issues ) {
 		JsonObject classJson = new JsonObject();
 		classJson.addProperty("code", classContent);
 		
 		JsonObject finaljson = new JsonObject();
 		finaljson.add("generated", classJson);
 		
-		//String classJson = new Gson().toJson(classContent);
 		Gson gson = new Gson();
-		//JsonObject json = gson.fromJson(classContent, JsonObject.class); 
 		
-		//System.out.print(classContent);
-		boolean isSucess = provider.compile();
-		List<Issue> issues = provider.getIssue();
+		
+		 
 		JsonObject json = new JsonObject();
 		for(int i = 0; i<issues.size();i++) {
 			json.addProperty(""+i, issues.get(i).toString());
             
         }
 		finaljson.add("errors", json);
-		
-		String errors=new Gson().toJson(issues).toString();
-		JsonObject jsonErrors = new JsonObject();
-		//finaljson.add("errors",errors);
-		//json.concat(classContent);
-		System.out.print(finaljson);
-		resp.setContentType("application/json");
-		resp.setStatus(HttpServletResponse.SC_OK);
-		resp.setCharacterEncoding("UTF-8");
-		resp.getWriter().write(gson.toJson(finaljson));
-		//resp.getWriter().write(json);
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		System.out.println("Compilation sucess : " + isSucess);
+		return gson.toJson(finaljson);
 	}
+
+
+	
 	
 }
