@@ -24,12 +24,24 @@
 package io.sarl.lang.web;
 
 import com.google.inject.Injector;
+import com.google.inject.MembersInjector;
 import com.google.inject.Provider;
+import com.google.inject.spi.Element;
 
 import io.sarl.lang.SARLStandaloneSetup;
 import io.sarl.lang.compiler.batch.SarlBatchCompiler;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import java.io.File;
+import java.io.FileWriter;
+import java.io.FilenameFilter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
@@ -37,8 +49,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.log4j.Logger;
 import org.eclipse.xtext.util.DisposableRegistry;
-import org.eclipse.xtext.web.server.XtextServiceDispatcher.ServiceDescriptor;
+import org.eclipse.xtext.validation.Issue;
 import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider;
 import org.eclipse.xtext.web.server.persistence.ResourceBaseProviderImpl;
 import org.eclipse.xtext.web.servlet.XtextServlet;
@@ -46,19 +59,179 @@ import org.eclipse.xtext.web.servlet.XtextServlet;
 /**
  * Deploy this class into a servlet container to enable DSL-specific services.
  */
-@WebServlet(name = "XtextServices", urlPatterns = "/xtext-service/*")
+@WebServlet(name = "XtextServices", urlPatterns = { "/xtext-service/*", "/compile/*" })
 public class SARLServlet extends XtextServlet {
 
 	private static final long serialVersionUID = 1L;
 
 	DisposableRegistry disposableRegistry;
+	SarlBatchCompiler sarl;
 
+	private static final String directoryPath = "./files/" ;
+	private static final String sourcePath = "sources" ;
+	private static final String tempPath = "temp" ;
+	private static final String outputPath = "src-gen" ;
+	private static final String outputClassPath = "class-gen" ;
+	
+	private static Logger logger = Logger.getLogger(SARLServlet.class);
+	
+	String temp = directoryPath+outputClassPath;
+	
+	private static final File outputClassPathFile = new File(directoryPath+outputClassPath);
 
+	@Override
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		
+		super.doGet(req, resp);
+	}
+	
+	@Override
+	public void doPut(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		
+		super.doPut(req, resp);
+	}
+	
+	@Override
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) 
+			throws ServletException, IOException {
+		
+		if(req.getRequestURL().toString().contains("xtext-service")) {
+			logger.info("XTEXT");
+		}
+		else if(req.getRequestURL().toString().contains("compile/")) {
+			logger.info("COMPILE");
+		
+			String requestData = req.getReader().lines().collect(Collectors.joining());
+			JsonObject jsonObject = JsonParser.parseString(requestData).getAsJsonObject();
+			
+			System.out.println(jsonObject);
+			
+			// TODO: make source directory from timestamp as new source directory. Should enable multiple compilation 
+			//String timeStamp = new SimpleDateFormat("yyyy-MM-dd-HHmmss").format(new Date());
+			
+			FileWriter sarlFile = new FileWriter(directoryPath+sourcePath+"/test.sarl", false); // false = overwrite
+			System.out.println(jsonObject.size());
+			for(int i=1;i<=jsonObject.size();i++) {
+				sarlFile.write(jsonObject.get(Integer.toString(i)).toString().substring(1, jsonObject.get(Integer.toString(i)).toString().length() - 1).replace("\\\"","\"").replace("&lt;", "<").replace("&gt;",">"));
+				sarlFile.write(System.getProperty("line.separator")); // To make it more readable by human
+			}
+			sarlFile.close();
+			
+			
+			
+			sarl.setSarlCompilationEnable(true);
+			// provider.setJavaPostCompilationEnable(true);
+			
+			sarl.setSourcePath(directoryPath+sourcePath);
+			sarl.setTempDirectory(directoryPath+tempPath);
+			sarl.setOutputPath(directoryPath+outputPath);
+			
+			// provider.setClassPath("C:\\Users\\lucas\\.m2\\repository");
+			
+			int index = sarl.getOutputPath().toString().lastIndexOf('\\');
+			String firstPart = sarl.getOutputPath().toString().substring(0,index);
+			sarl.setClassOutputPath(new File(firstPart + "\\" + sourcePath));
+			
+			/* Print Success
+			System.out.println("SourcePath: " + provider.getSourcePaths());
+			System.out.println("TempPath: " + provider.getTempDirectory());
+			System.out.println("OutputPath: " + provider.getOutputPath().toString());
+			System.out.println("ClassOuputPath: " + provider.getClassOutputPath());
+			*/
+			//Read files from src-gen directory 	
+			String classContent = readFileFromSrc_gen();
+			boolean isSucess = sarl.compile();
+			
+			
+			//Building the Json
+			List<Issue> issues= sarl.getIssue();
+			String finaljson = transformJson(classContent, issues);
+			
+			// Return the response to the front-end
+			resp.setContentType("application/json");
+			resp.setStatus(HttpServletResponse.SC_OK);
+			resp.setCharacterEncoding("UTF-8");
+			resp.getWriter().write(finaljson);
+			
+			
+			logger.info("Compilation sucess : " + isSucess);
+			
+		}
+	}
+		
+	/**
+	 * @return Return the content of each java class of the src-gen directory
+	 * @throws IOException
+	 * @description Get all java files content and return them into a String
+	 */
+		private String readFileFromSrc_gen() throws IOException {
+			
+			File folder = new File(directoryPath+outputPath);
+			
+			FilenameFilter filter = new FilenameFilter() {
+	            @Override
+	            public boolean accept(File f, String name) {
+	                // We want to find only .java files
+	                return name.endsWith(".java");
+	            }
+	        };
+	        
+	        String classContent = "";
+	        File[] listOfFiles = folder.listFiles(filter);
+			for (File file : listOfFiles) {
+			    if (file.isFile()) {
+			    	Path f=Path.of(file.getAbsolutePath()); 
+			        //System.out.println(Files.readString(f)+"\n");
+			    	classContent += Files.readString(f)+"\n";
+			    	logger.info("Reading files from the file:"+file.getName());
+			    }
+			}
+			
+			return classContent;
+			
+		}
+	/**
+	 * @param _classContent  
+	 * @param _issues List of issues
+	 * @return Content transform in Json
+	 * @description Transform the class Content and the list of issues to Json
+	 */
+		private String transformJson(String classContent,List<Issue> issues ) {
+			JsonObject classJson = new JsonObject();
+			classJson.addProperty("code", classContent);
+			
+			JsonObject finaljson = new JsonObject();
+			finaljson.add("generated", classJson);
+			
+			Gson gson = new Gson();
+			
+			
+			 
+			JsonObject json = new JsonObject();
+			for(int i = 0; i<issues.size();i++) {
+				json.addProperty(""+i, issues.get(i).toString());
+	            
+	        }
+			finaljson.add("errors", json);
+			return gson.toJson(finaljson);
+		}
+	
+	
+	@Override
 	public void init() throws ServletException {
 		super.init();
 		IResourceBaseProvider resourceBaseProvider = new ResourceBaseProviderImpl("./files");
-		Injector injector = new SARLWebSetup(resourceBaseProvider).createInjectorAndDoEMFRegistration();
-		this.disposableRegistry = injector.getInstance(DisposableRegistry.class);
+		SARLWebSetup sarlWebSetup = new SARLWebSetup(resourceBaseProvider);
+		Injector injectorWeb = sarlWebSetup.createInjectorAndDoEMFRegistration();
+		Provider<DisposableRegistry> providerWeb = injectorWeb.getProvider(DisposableRegistry.class);
+		this.disposableRegistry = providerWeb.get();
+		
+		this.sarl = sarlWebSetup.getSarlBatchCompiler();
+		
+		logger.info("INIT !");
+		
 	}
 
 	public void destroy() {
@@ -67,6 +240,7 @@ public class SARLServlet extends XtextServlet {
 			disposableRegistry = null;
 		}
 		super.destroy();
+		logger.info("DESTROY !");
+		
 	}
-
 }

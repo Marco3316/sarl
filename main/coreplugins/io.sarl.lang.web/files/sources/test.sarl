@@ -1,1 +1,21 @@
- 
+import io.sarl.core.Initialize 
+import io.sarl.core.Destroy 
+import io.sarl.core.Lifecycle 
+agent MyAgent { 
+uses Lifecycle 
+on Initialize { 
+println("MyAgent spawned") 
+} 
+on Destroy { 
+println("MyAgent destroyed") 
+} 
+} 
+agent MyAgent2 { 
+uses Lifecycle 
+on Initialize { 
+println("MyAgent appeared") 
+} 
+on Destroy { 
+println("MyAgent destroyed") 
+} 
+} 

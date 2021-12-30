@@ -25,8 +25,11 @@ package io.sarl.lang.web;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+import com.google.inject.Provider;
+
 import io.sarl.lang.SARLRuntimeModule;
 import io.sarl.lang.SARLStandaloneSetup;
+import io.sarl.lang.compiler.batch.SarlBatchCompiler;
 import io.sarl.lang.ide.SARLIdeModule;
 import org.eclipse.xtext.util.Modules2;
 import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider;
@@ -37,9 +40,17 @@ import org.eclipse.xtext.web.server.persistence.IResourceBaseProvider;
 public class SARLWebSetup extends SARLStandaloneSetup {
 	
 	private IResourceBaseProvider resourceBaseProvider;
-
+	private SarlBatchCompiler sarl;
+	
+	public SarlBatchCompiler getSarlBatchCompiler() {
+		return this.sarl;
+	}
+	
 	public SARLWebSetup(IResourceBaseProvider resourceBaseProvider) {
 		this.resourceBaseProvider = resourceBaseProvider;
+		Injector injectorSarl = SARLStandaloneSetup.doSetup();
+		Provider<SarlBatchCompiler> batch = injectorSarl.getProvider(SarlBatchCompiler.class);
+		this.sarl = batch.get();
 	}
 
 	@Override
