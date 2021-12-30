@@ -36,9 +36,14 @@ import io.sarl.lang.compiler.batch.SarlBatchCompiler;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
+=======
+import java.text.SimpleDateFormat;
+import java.util.Date;
+>>>>>>> 8cebdded463b76cebfdda901bc3e9e1727072fc8
 import java.util.stream.Collectors;
 
 import javax.servlet.ServletException;
@@ -75,7 +80,11 @@ public class WebpageServlet extends HttpServlet {
 		
 		System.out.println(jsonObject);
 		
+		// TODO: make source directory from timestamp as new source directory. Should enable multiple compilation 
+		//String timeStamp = new SimpleDateFormat("yyyy-MM-dd-HHmmss").format(new Date());
+		
 		FileWriter sarlFile = new FileWriter(directoryPath+sourcePath+"/test.sarl", false); // false = overwrite
+		System.out.println(jsonObject.size());
 		for(int i=1;i<=jsonObject.size();i++) {
 			sarlFile.write(jsonObject.get(Integer.toString(i)).toString().substring(1, jsonObject.get(Integer.toString(i)).toString().length() - 1).replace("\\\"","\"").replace("&lt;", "<").replace("&gt;",">"));
 			sarlFile.write(System.getProperty("line.separator")); // To make it more readable by human
@@ -86,14 +95,14 @@ public class WebpageServlet extends HttpServlet {
 		Provider<SarlBatchCompiler> batch = injector.getProvider(SarlBatchCompiler.class);
 		SarlBatchCompiler provider = batch.get();
 		
-		// provider.setSarlCompilationEnable(true);
+		provider.setSarlCompilationEnable(true);
 		// provider.setJavaPostCompilationEnable(true);
 		
 		provider.setSourcePath(directoryPath+sourcePath);
 		provider.setTempDirectory(directoryPath+tempPath);
 		provider.setOutputPath(directoryPath+outputPath);
 		
-		// provider.setClassPath(null);
+		// provider.setClassPath("C:\\Users\\lucas\\.m2\\repository");
 		
 		int index = provider.getOutputPath().toString().lastIndexOf('\\');
 		String firstPart = provider.getOutputPath().toString().substring(0,index);
