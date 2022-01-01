@@ -129,8 +129,11 @@ public class SARLServlet extends XtextServlet {
 			String firstPart = sarl.getOutputPath().toString().substring(0,index);
 			sarl.setClassOutputPath(new File(firstPart + "\\" + sourcePath));
 			
+			File folder = new File(directoryPath+outputPath);
+			deleteFolder(folder);
+			
 			//Read files from src-gen directory 	
-			boolean isSucess = sarl.compile();
+			boolean isSuccess = sarl.compile();
 			String classContent = readFileFromSrc_gen();
 			
 			//Building the Json
@@ -143,7 +146,7 @@ public class SARLServlet extends XtextServlet {
 			resp.setCharacterEncoding("UTF-8");
 			resp.getWriter().write(finaljson);
 			
-			logger.info("Compilation sucess : " + isSucess);
+			logger.info("Compilation sucess : " + isSuccess);
 		}
 	}
 		

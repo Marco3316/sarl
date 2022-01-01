@@ -85,6 +85,7 @@
 					}).then(function(response){
 						return response.json();
 					}).then(function(data){
+						document.getElementById('code').textContent=''
 						document.getElementById('console-input').textContent = '';
 						for(let i =0;i<Object.keys(data.errors).length;i++){
 							document.getElementById('console-input').textContent+=data.errors[i];
