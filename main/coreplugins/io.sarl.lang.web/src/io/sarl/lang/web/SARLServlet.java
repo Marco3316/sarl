@@ -108,12 +108,10 @@ public class SARLServlet extends XtextServlet {
 			String requestData = req.getReader().lines().collect(Collectors.joining());
 			JsonObject jsonObject = JsonParser.parseString(requestData).getAsJsonObject();
 			
-			System.out.println(jsonObject);
-			
 			// TODO: make source directory from timestamp as new source directory. Should enable multiple compilation 
 			//String timeStamp = new SimpleDateFormat("yyyy-MM-dd-HHmmss").format(new Date());
-			
-			FileWriter sarlFile = new FileWriter(directoryPath+sourcePath+"/test.sarl", false); // false = overwrite
+
+			FileWriter sarlFile = new FileWriter(directoryPath+sourcePath+"/file.sarl", false); // false = overwrite
 			System.out.println(jsonObject.size());
 			for(int i=1;i<=jsonObject.size();i++) {
 				sarlFile.write(jsonObject.get(Integer.toString(i)).toString().substring(1, jsonObject.get(Integer.toString(i)).toString().length() - 1).replace("\\\"","\"").replace("&lt;", "<").replace("&gt;",">"));
@@ -121,32 +119,19 @@ public class SARLServlet extends XtextServlet {
 			}
 			sarlFile.close();
 			
-			
-			
 			sarl.setSarlCompilationEnable(true);
-			// provider.setJavaPostCompilationEnable(true);
 			
 			sarl.setSourcePath(directoryPath+sourcePath);
 			sarl.setTempDirectory(directoryPath+tempPath);
 			sarl.setOutputPath(directoryPath+outputPath);
 			
-			// provider.setClassPath("C:\\Users\\lucas\\.m2\\repository");
-			
 			int index = sarl.getOutputPath().toString().lastIndexOf('\\');
 			String firstPart = sarl.getOutputPath().toString().substring(0,index);
 			sarl.setClassOutputPath(new File(firstPart + "\\" + sourcePath));
 			
-			/* Print Success
-			System.out.println("SourcePath: " + provider.getSourcePaths());
-			System.out.println("TempPath: " + provider.getTempDirectory());
-			System.out.println("OutputPath: " + provider.getOutputPath().toString());
-			System.out.println("ClassOuputPath: " + provider.getClassOutputPath());
-			*/
-			refreshFolder();
 			//Read files from src-gen directory 	
-			String classContent = readFileFromSrc_gen();
 			boolean isSucess = sarl.compile();
-			
+			String classContent = readFileFromSrc_gen();
 			
 			//Building the Json
 			List<Issue> issues= sarl.getIssue();
@@ -158,9 +143,7 @@ public class SARLServlet extends XtextServlet {
 			resp.setCharacterEncoding("UTF-8");
 			resp.getWriter().write(finaljson);
 			
-			
 			logger.info("Compilation sucess : " + isSucess);
-			
 		}
 	}
 		
@@ -169,78 +152,71 @@ public class SARLServlet extends XtextServlet {
 	 * @throws IOException
 	 * @description Get all java files content and return them into a String
 	 */
-		private String readFileFromSrc_gen() throws IOException {
-			
-			File folder = new File(directoryPath+outputPath);
-			
-			FilenameFilter filter = new FilenameFilter() {
-	            @Override
-	            public boolean accept(File f, String name) {
-	                // We want to find only .java files
-	                return name.endsWith(".java");
-	            }
-	        };
-	        
-	        String classContent = "";
-	        File[] listOfFiles = folder.listFiles(filter);
-			for (File file : listOfFiles) {
-			    if (file.isFile()) {
-			    	Path f=Path.of(file.getAbsolutePath()); 
-			        //System.out.println(Files.readString(f)+"\n");
-			    	classContent += Files.readString(f)+"\n";
-			    	logger.info("Reading files from the file:"+file.getName());
-			    }
-			}
-			
-			return classContent;
-			
+	private String readFileFromSrc_gen() throws IOException {
+		
+		File folder = new File(directoryPath+outputPath);
+		
+		FilenameFilter filter = new FilenameFilter() {
+            @Override
+            public boolean accept(File f, String name) {
+                // We want to find only .java files
+                return name.endsWith(".java");
+            }
+        };
+        
+        String classContent = "";
+        File[] listOfFiles = folder.listFiles(filter);
+		for (File file : listOfFiles) {
+		    if (file.isFile()) {
+		    	Path f=Path.of(file.getAbsolutePath()); 
+		        //System.out.println(Files.readString(f)+"\n");
+		    	classContent += Files.readString(f)+"\n";
+		    	logger.info("Reading files from the file:"+file.getName());
+		    }
 		}
+		
+		return classContent;
+		
+	}
+	
 	/**
 	 * @param _classContent  
 	 * @param _issues List of issues
 	 * @return Content transform in Json
 	 * @description Transform the class Content and the list of issues to Json
 	 */
-		private String transformJson(String classContent,List<Issue> issues ) {
-			JsonObject classJson = new JsonObject();
-			classJson.addProperty("code", classContent);
-			
-			JsonObject finaljson = new JsonObject();
-			finaljson.add("generated", classJson);
-			
-			Gson gson = new Gson();
-			
-			
-			 
-			JsonObject json = new JsonObject();
-			for(int i = 0; i<issues.size();i++) {
-				json.addProperty(""+i, issues.get(i).toString());
-	            
-	        }
-			finaljson.add("errors", json);
-			return gson.toJson(finaljson);
-		}
-		/**
-		 * 
-		 * @param folder
-		 * @description delete all files from the folder
-		 */
-		public static void deleteFolder(File folder) {
-		    File[] files = folder.listFiles();
-		    if(files!=null) { 
-		        for(File f: files) {
-		        	f.delete();
-		        }
-		    }
-		}
-		public void refreshFolder() throws IOException {
-			String command = "powershell.exe  \"C:\\dev\\SARL WEB\\da50-project\\sarl\\main\\coreplugins\\io.sarl.lang.web\\files\\script.ps\" ";
-			Process powerShellCommand = Runtime.getRuntime().exec(command);
-			powerShellCommand.getOutputStream().close();
-		}
-		 
+	private String transformJson(String classContent,List<Issue> issues ) {
+		JsonObject classJson = new JsonObject();
+		classJson.addProperty("code", classContent);
 		
-	
+		JsonObject finaljson = new JsonObject();
+		finaljson.add("generated", classJson);
+		
+		Gson gson = new Gson();
+		
+		
+		 
+		JsonObject json = new JsonObject();
+		for(int i = 0; i<issues.size();i++) {
+			json.addProperty(""+i, issues.get(i).toString());
+            
+        }
+		finaljson.add("errors", json);
+		return gson.toJson(finaljson);
+	}
+	/**
+	 * 
+	 * @param folder
+	 * @description delete all files from the folder
+	 */
+	public static void deleteFolder(File folder) {
+	    File[] files = folder.listFiles();
+	    if(files!=null) { 
+	        for(File f: files) {
+	        	f.delete();
+	        }
+	    }
+	}	
 	
 	@Override
 	public void init() throws ServletException {
