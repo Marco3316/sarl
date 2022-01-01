@@ -238,41 +238,7 @@ public class SARLServlet extends XtextServlet {
 			Process powerShellCommand = Runtime.getRuntime().exec(command);
 			powerShellCommand.getOutputStream().close();
 		}
-		 private String hightlight(String text) {
-			    //Keywords
-			    String[] array = {
-			        "abstract", "assert", "boolean", "break", "byte", "case", 
-			        "catch", "char", "class", "const", "continue", "default", "do", 
-			        "double", "else", "enum", "extends", "false", "final", "finally", "float",
-			        "for", "goto", "if", "implements", "import", "instanceof", "int", 
-			        "interface", "long", "native", "new", "null", "package", "private", "protected",
-			        "public", "return", "short", "static", "String", "strictfp", "super", "switch", "synchronized", 
-			        "System", "this", "throw", "throws", "transient", "true", "try", "void", "volatile", "while"
-			    };
-			    
-			    //Highlight every keyword with color:#7f0055
-			    for(int i = 0; i < array.length; i++) {
-			      text = text.replaceAll(array[i] + "(?![a-zA-Z])", "<span style='color:#7f0055; font-weight:bold; '>" + array[i] + "</span>");
-
-			    }
-			    //Highlight Strings
-			    text = text.replaceAll("\"(?<render>.*?)\"", "<span style='color:blue; font-weight:bold; '>" + "\"${render}\"" + "</span>");
-			    
-			    //Highlight import-statements
-			    text = text.replaceAll("import(?<render>.*?);", "<span style='color:#7f0055; font-weight:bold; '>" + "import${render};" + "</span>");
-			    
-			    //Highlight multiline-comments
-			    Pattern p = Pattern.compile("/\\*(?<render>.*?)\\*/", Pattern.DOTALL);
-			    Matcher m = p.matcher(text);
-			    text = m.replaceAll("<span style='color:green; font-weight:bold; '>" + "/\\*${render}\\*/" + "</span>");
-			    
-			    //Highlight single-line-comments
-			    text = text.replaceAll("//(?<render>.*?)\n", "<span style='color:green; font-weight:bold; '>" + "//${render}\n" + "</span>");
-			    
-			    text = "<!-- Code begins here -->\n<div style = \"background: LightGray; font: monospace; width: fit-content; height: min-height;\"><pre><code>\n" 
-			        + text + "\n</pre></code></div>\n<!-- Code ends here -->\n";
-			    return text;
-			  }
+		 
 		
 	
 	
