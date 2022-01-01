@@ -84,6 +84,7 @@
 					}).then(function(response){
 						return response.json();
 					}).then(function(data){
+						document.getElementById('console-input').textContent = '';
 						for(let i =0;i<Object.keys(data.errors).length;i++){
 							document.getElementById('console-input').textContent+=data.errors[i];
 							document.getElementById('console-input').style.color = '#FF4441';
@@ -95,7 +96,7 @@
 						
 						//console.log(document.getElementsByClassName('textviewContent')[0].children[0].innerHTML)
 						
-						console.log(Object.keys(data.errors).length)
+						console.log(data)
 						
 					}).catch(function(e){
 						console.error(e);
