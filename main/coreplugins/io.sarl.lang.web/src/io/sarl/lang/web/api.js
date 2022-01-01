@@ -2,7 +2,7 @@
 // CTRL+C or any other way to close the command line application closes this API.
 
 const http = require('http');
-const https = require("https")
+const https = require("https");
 const connection = require('./connection');
 
 const server = http.createServer((request, response) => {
@@ -56,6 +56,6 @@ const server = http.createServer((request, response) => {
                 })
         }
     }
-
+})
 server.listen(connection.port, connection.host)
 console.log(`Listening at http://${connection.host}:${connection.port}`)
