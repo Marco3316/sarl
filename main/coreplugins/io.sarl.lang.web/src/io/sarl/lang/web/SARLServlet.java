@@ -66,20 +66,18 @@ public class SARLServlet extends XtextServlet {
 
 	private static final long serialVersionUID = 1L;
 
-	DisposableRegistry disposableRegistry;
-	SarlBatchCompiler sarl;
+	private DisposableRegistry disposableRegistry;
+	private SarlBatchCompiler sarl;
 
-	private static final String directoryPath = "./files/" ;
-	private static final String sourcePath = "sources" ;
-	private static final String tempPath = "temp" ;
-	private static final String outputPath = "src-gen" ;
-	private static final String outputClassPath = "class-gen" ;
+	private static final String DIRECTORY_PATH = "./files/" ;
+	private static final String SOURCE_PATH = "sources" ;
+	private static final String TEMP_PATH = "temp" ;
+	private static final String OUTPUT_PATH = "src-gen" ;
+	private static final String OUTPUT_CLASS_PATH = "class-gen" ;
 	
 	private static Logger logger = Logger.getLogger(SARLServlet.class);
 	
-	String temp = directoryPath+outputClassPath;
-	
-	private static final File outputClassPathFile = new File(directoryPath+outputClassPath);
+	private static final File OUTPUT_CLASS_PATH_FILE = new File(DIRECTORY_PATH+OUTPUT_CLASS_PATH);
 
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) 
@@ -111,7 +109,7 @@ public class SARLServlet extends XtextServlet {
 			// TODO: make source directory from timestamp as new source directory. Should enable multiple compilation 
 			//String timeStamp = new SimpleDateFormat("yyyy-MM-dd-HHmmss").format(new Date());
 
-			FileWriter sarlFile = new FileWriter(directoryPath+sourcePath+"/file.sarl", false); // false = overwrite
+			FileWriter sarlFile = new FileWriter(DIRECTORY_PATH+SOURCE_PATH+"/file.sarl", false); // false = overwrite
 			System.out.println(jsonObject.size());
 			for(int i=1;i<=jsonObject.size();i++) {
 				sarlFile.write(jsonObject.get(Integer.toString(i)).toString().substring(1, jsonObject.get(Integer.toString(i)).toString().length() - 1).replace("\\\"","\"").replace("&lt;", "<").replace("&gt;",">"));
@@ -121,15 +119,15 @@ public class SARLServlet extends XtextServlet {
 			
 			sarl.setSarlCompilationEnable(true);
 			
-			sarl.setSourcePath(directoryPath+sourcePath);
-			sarl.setTempDirectory(directoryPath+tempPath);
-			sarl.setOutputPath(directoryPath+outputPath);
+			sarl.setSourcePath(DIRECTORY_PATH+SOURCE_PATH);
+			sarl.setTempDirectory(DIRECTORY_PATH+TEMP_PATH);
+			sarl.setOutputPath(DIRECTORY_PATH+OUTPUT_PATH);
 			
 			int index = sarl.getOutputPath().toString().lastIndexOf('\\');
 			String firstPart = sarl.getOutputPath().toString().substring(0,index);
-			sarl.setClassOutputPath(new File(firstPart + "\\" + sourcePath));
+			sarl.setClassOutputPath(new File(firstPart + "\\" + SOURCE_PATH));
 			
-			File folder = new File(directoryPath+outputPath);
+			File folder = new File(DIRECTORY_PATH+OUTPUT_PATH);
 			deleteFolder(folder);
 			
 			//Read files from src-gen directory 	
@@ -157,7 +155,7 @@ public class SARLServlet extends XtextServlet {
 	 */
 	private String readFileFromSrc_gen() throws IOException {
 		
-		File folder = new File(directoryPath+outputPath);
+		File folder = new File(DIRECTORY_PATH+OUTPUT_PATH);
 		
 		FilenameFilter filter = new FilenameFilter() {
             @Override
@@ -241,7 +239,7 @@ public class SARLServlet extends XtextServlet {
 			disposableRegistry.dispose();
 			disposableRegistry = null;
 		}
-		File folder = new File(directoryPath+outputPath);
+		File folder = new File(DIRECTORY_PATH+OUTPUT_PATH);
 		deleteFolder(folder);
 		logger.info("File from "+folder.getName()+" deleted!");
 		super.destroy();

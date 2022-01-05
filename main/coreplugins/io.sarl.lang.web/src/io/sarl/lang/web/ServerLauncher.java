@@ -43,7 +43,6 @@ public class ServerLauncher {
 	public static void main(String[] args) {
 		Server server = new Server(new InetSocketAddress("localhost", 8082));
 		
-		
 		HandlerList handlerList = new HandlerList();
 		WebAppContext resourceHandlerJs = new WebAppContext();
 		resourceHandlerJs.setResourceBase("WebRoot/js");
@@ -67,7 +66,6 @@ public class ServerLauncher {
 		handlerList.setHandlers(new Handler[] {ctx,resourceHandlerJs,resourceHandlerCss});
 		server.setHandler(handlerList);
 		
-		
 		Slf4jLog log = new Slf4jLog(ServerLauncher.class.getName());
 		try {
 			server.start();
@@ -88,7 +86,6 @@ public class ServerLauncher {
 						log.warn(e);
 					}
 				}
-
 			}.start();
 			server.join();
 		} catch (Exception exception) {
